@@ -1,0 +1,12 @@
+objects=AdressOfVariable.class Assign.class BinaryExpr.class BinaryMinus.class BinaryPlus.class Const.class Deref.class Divide.class DoubleToInt.class Equal.class Expr.class IntToDouble.class Less.class LessOrEqual.class LogAnd.class LogNot.class LogOr.class LValue.class Modulo.class More.class MoreOrEqual.class Mult.class NotEqual.class Part.class PostDec.class PostInc.class PreDec.class PreInc.class Sizeof.class UnaryExpr.class UnaryMinus.class UnaryPlus.class  
+
+CLASSPATH = ../../..
+
+all : $(objects)
+
+$(objects):
+	javac -classpath $(CLASSPATH) $(subst .class,.java,$@)
+
+
+clean:
+	-rm *.class

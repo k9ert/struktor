@@ -1,0 +1,15 @@
+
+POSITION=../struktor/processor/
+
+all: parser.java sym.java
+
+parser.java sym.java: procParser.cup
+	java -cp .. java_cup.Main < procParser.cup
+	mv parser.java ProcParser.java
+	mv sym.java Psym.Java
+
+clean:
+	rm *.java
+
+install: 
+	cp ProcParser.java Psym.Java $(POSITION)

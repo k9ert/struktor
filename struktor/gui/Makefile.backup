@@ -1,0 +1,14 @@
+objects=KeyPresses.class SaveDialog.class StrukSelectorAppEvt.class StrukSelector.class StrukSelectorEvt.class StruktorAppEvt.class StruktorEvt.class ViewSelectorAppEvt.class ViewSelector.class ViewSelectorEvt.class 
+
+CLASSPATH=../..
+
+.PHONY: all
+
+all: $(objects)
+
+$(objects): $(subst .class,.java,$(objects)) 
+	javac -classpath $(CLASSPATH) $(subst .class,.java,$@)
+
+
+clean:
+	-rm *.class

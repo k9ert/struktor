@@ -1,0 +1,522 @@
+// Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
+package struktor.strukelements;
+
+import java_cup.runtime.*;
+import java.io.*;
+import struktor.processor.*;
+import java.util.*;
+import struktor.processor.datatypes.*;
+import struktor.*;
+
+
+/* Action Code for getting a Memory-Object */
+action code {: 
+
+// Struktogramm
+Struktogramm struktogramm=null;
+// declist
+DecList decList;
+//struktor
+Struktor struktor;
+
+
+// Kopiert von Constants (weil man im Parser nicht implementen kann)
+static public final int COMMAND = 0;
+static public final int HEADLOOP = 1;
+static public final int TAILLOOP = 2;
+static public final int FORLOOP = 3;
+static public final int CONDITION = 4;
+static public final int SWITCH = 5;
+static public final int NEXT = 0;
+static public final int INSIDE = 1;
+static public final int ALT1 = 2;
+static public final int ALT2 = 3;
+static public final int ALT = 4;
+			   
+			   
+:};
+
+
+/* Parser Code for pretty Error-Prints */
+parser code {:
+	
+	
+	Struktor struktor;
+	// zweiter Konstruktor
+	public LoadParser(java_cup.runtime.Scanner s, Struktor struktor) 
+	{	
+		this(s);
+		this.struktor = struktor;
+	}
+	
+	
+	
+	public void report_fatal_error(
+    String   message,
+    Object   info)
+    throws java.lang.Exception
+    {
+      done_parsing();
+      report_error(message, info);
+      if (message.equals("Can't recover from previous error(s)"))
+	    throw new ProcessorException("Undefined Error while loading: "+info);
+	  else
+	  	throw new ProcessorException("Syntax Error (Loading)!");
+    }		 
+:}
+
+init with {: 
+	// wird benutzt damit auch das die gekapselte Action-Klasse struktor verwenden kann
+	action_obj.struktor = this.struktor;
+:};
+
+/* Terminals (tokens returned by the scanner). */
+terminal           	SEMI, COMMA, LSPAR, RSPAR, LEPAR, REPAR, RPAR;
+terminal		   	ASSIGN, ENDSTRUK;
+terminal Boolean	POINTER; 
+terminal			IF, ELSE, WHILE,  DO, FOR, SWITCH, DEFAULT;
+terminal String    	OUTPUT, INPUT, ADMSG, COMMAND, CONDITION, STRUKNAME, VARNAME, STARTSTRUK, STRING;
+terminal String		CASE;
+terminal Integer   	VARTYPE, INTEGER, BREAK;
+terminal Double    	DOUBLE;
+
+/* Non terminals */
+non terminal 				programs, strukgram, header, body;
+non terminal DecList 		paramlist; 
+non terminal Dec    		parameter;
+non terminal Dec			dec, decs; 
+non terminal Object			assign;
+non terminal StrukElement	block, instrlist, instr; 
+non terminal StrukElement	command, condition, ifcond, ifelsecond, headloop, tailloop;
+non terminal StrukElement	switchh, swinstrlist, swinstr;
+non terminal Vector			caselist, swblock;
+non terminal Integer		array;
+/* Precedences */
+precedence left ELSE;
+precedence left RPAR;
+precedence left VARTYPE;
+
+
+/* The grammar */
+programs ::=	strukgram | programs strukgram
+				;
+
+strukgram ::=   STARTSTRUK header body ENDSTRUK
+				{:
+					struktogramm.recalculate();
+				:}
+				;
+
+header ::=		STRUKNAME:s 
+				{:
+					struktogramm = struktor.newStruktogramm(s);
+					struktogramm.getFirst().delete(true);
+					decList = DecList.findDecList(struktogramm);
+				:}
+				RPAR
+				|
+				STRUKNAME:s 
+				{:
+					struktogramm = struktor.newStruktogramm(s);
+					struktogramm.getFirst().delete(true);
+					decList = DecList.findDecList(struktogramm);
+				:}
+				paramlist RPAR
+				;
+				
+
+body ::= 		LSPAR decs  instrlist RSPAR
+				|
+				LSPAR instrlist RSPAR
+				;
+				
+paramlist ::=	parameter
+				{:
+					
+				:}
+				| 
+				paramlist COMMA parameter
+				{:
+					
+				:}
+				;
+				
+
+
+parameter ::=	VARTYPE:i VARNAME:s array:indizes
+				{:
+					// Wurden nicht erlaubte Datentypen benutzt ?
+					if (i.intValue()==Datatype.INTEGER && !struktor.presets.enabInteger)
+						throw new StruktorException("Integer not allowed !");
+					if (i.intValue()==Datatype.DOUBLE && !struktor.presets.enabDouble)
+						throw new StruktorException("Double not allowed !");
+					if (i.intValue()==Datatype.CHARACTER && !struktor.presets.enabCharacter)
+						throw new StruktorException("Character not allowed !");
+					if (i.intValue()==Datatype.STRING && !struktor.presets.enabStrings)
+						throw new StruktorException("Strings not allowed !");		
+					RESULT = decList.newDeclaration(false, true, true, indizes.intValue(), i.intValue(), s, "");
+				:}
+				|
+				VARTYPE:i POINTER VARNAME:s array:indizes
+				{:
+					// Wurden nicht erlaubte Datentypen benutzt ?
+					if (i.intValue()==Datatype.INTEGER && !struktor.presets.enabInteger)
+						throw new StruktorException("Integer not allowed !");
+					if (i.intValue()==Datatype.DOUBLE && !struktor.presets.enabDouble)
+						throw new StruktorException("Double not allowed !");
+					if (i.intValue()==Datatype.CHARACTER && !struktor.presets.enabCharacter)
+						throw new StruktorException("Character not allowed !");
+					if (i.intValue()==Datatype.STRING && !struktor.presets.enabStrings)
+						throw new StruktorException("Strings not allowed !");	
+					if (!struktor.presets.enabPointer)
+						throw new StruktorException("Pointers are not allowed !");
+					RESULT = decList.newDeclaration(true, true, true, indizes.intValue(), i.intValue(), s, "");
+				:}
+				|
+				VARTYPE:i VARNAME:s
+				{:
+					// Wurden nicht erlaubte Datentypen benutzt ?
+					if (i.intValue()==Datatype.INTEGER && !struktor.presets.enabInteger)
+						throw new StruktorException("Integer not allowed !");
+					if (i.intValue()==Datatype.DOUBLE && !struktor.presets.enabDouble)
+						throw new StruktorException("Double not allowed !");
+					if (i.intValue()==Datatype.CHARACTER && !struktor.presets.enabCharacter)
+						throw new StruktorException("Character not allowed !");
+					if (i.intValue()==Datatype.STRING && !struktor.presets.enabStrings)
+						throw new StruktorException("Strings not allowed !");	
+					RESULT = decList.newDeclaration(false, true, false, 10, i.intValue(), s, "");
+				:}
+				|
+				VARTYPE:i POINTER VARNAME:s
+				{:
+					// Wurden nicht erlaubte Datentypen benutzt ?
+					if (i.intValue()==Datatype.INTEGER && !struktor.presets.enabInteger)
+						throw new StruktorException("Integer not allowed !");
+					if (i.intValue()==Datatype.DOUBLE && !struktor.presets.enabDouble)
+						throw new StruktorException("Double not allowed !");
+					if (i.intValue()==Datatype.CHARACTER && !struktor.presets.enabCharacter)
+						throw new StruktorException("Character not allowed !");
+					if (i.intValue()==Datatype.STRING && !struktor.presets.enabStrings)
+						throw new StruktorException("Strings not allowed !");	
+					if (!struktor.presets.enabPointer)
+						throw new StruktorException("Pointers are not allowed !");
+					RESULT = decList.newDeclaration(true, true, false, 10, i.intValue(), s, "");
+				:}
+				;
+				
+array ::=		LEPAR INTEGER:i REPAR
+				{:
+					if (!struktor.presets.enabArrays)
+						throw new StruktorException("Arrays are not allowed !");
+					RESULT = i;
+				:}
+				;
+
+decs ::=		dec:dec 
+				{:
+					RESULT = dec;
+				:}
+				SEMI 
+				| decs dec:dec
+				{:
+					RESULT = dec;
+				:}
+				SEMI ;
+
+dec ::=			parameter:dec assign:s
+				{:
+					dec.setParameter(false);
+					dec.setValue(s.toString());
+					RESULT = dec;
+				:}
+				|
+				parameter:dec
+				{:
+					dec.setParameter(false);
+					RESULT = dec;
+				:}
+				;
+
+assign ::=		ASSIGN INTEGER:i
+				{:
+					RESULT = i;
+				:}
+				|
+				ASSIGN DOUBLE:d
+				{:
+					RESULT = d;
+				:}
+				|
+				ASSIGN STRING:s
+				{:
+					RESULT = s;
+				:}
+				;
+
+block ::=		LSPAR instrlist:se RSPAR
+				{:
+					RESULT = se;
+				:}
+				|
+				LSPAR RSPAR
+				{:
+					RESULT = struktogramm.addElement(COMMAND);
+				:}
+				|
+				instr:se
+				{:
+					RESULT = se;
+				:}
+				;
+
+instrlist ::=	instr:se
+				{:
+					RESULT = se;
+				:}
+				| 
+				instr:se instrlist:se2 
+				{:
+					struktogramm.setFirst(se);
+					se.connect(0, se,se2);
+					RESULT = se;
+				:}
+				;
+
+instr ::=		command:se
+				{:
+					RESULT = se;
+				:}
+				|
+				BREAK:number
+				{:
+					// musste extra implementiert werden weil switch den Break speziell benutzt !
+					Command c = (Command)struktogramm.addElement(COMMAND,"break"+(number.intValue()==1 ? ";" : number.toString()));
+					c.setActionType(1);
+					RESULT = c;
+				:}
+				| 
+				condition:se
+				{:
+					RESULT = se;
+				:}
+				| 
+				headloop:se 
+				{:
+					RESULT = se;
+				:}
+				| 
+				tailloop:se
+				{:
+					RESULT = se;
+				:}
+				|
+				switchh:se
+				{:
+					RESULT = se;
+				:}
+				;
+
+command ::=		ADMSG:msg INPUT:code 
+				{:
+					msg = msg.trim();
+					code = code.trim();
+					Command c = (Command)struktogramm.addElement(COMMAND,code);
+					c.setActionType(0);
+					c.setAdMessage(msg);
+					RESULT = c;
+				:} 
+				|
+				ADMSG:msg OUTPUT:code 
+				{:
+					msg = msg.trim();
+					code = code.trim();
+					Command c = (Command)struktogramm.addElement(COMMAND,code);
+					c.setActionType(2);
+					c.setAdMessage(msg);
+					RESULT = c;
+				:} 
+				|
+				INPUT:code
+				{:
+					code = code.trim();
+					Command c = (Command)struktogramm.addElement(COMMAND,code);
+					c.setActionType(0);
+					RESULT = c;
+				:} 
+				|
+				OUTPUT:code
+				{:
+					code = code.trim();
+					Tracer.out("output:"+code);
+					Command c = (Command)struktogramm.addElement(COMMAND,code);
+					c.setActionType(2);
+					RESULT = c;
+				:} 
+				|
+				COMMAND:code
+				{:
+					code = code.trim();
+					Command c = (Command)struktogramm.addElement(COMMAND,code);
+					c.setActionType(1);
+					RESULT = c;
+				:} 
+				;
+				
+condition ::=	ifcond:condition
+				{:
+					RESULT = condition;
+				:}
+				|
+				ifelsecond:condition
+				{:
+					RESULT = condition;
+				:}
+				;
+				
+ifelsecond ::=	IF CONDITION:cond 
+				block:se 
+				ELSE block:se2 
+				{:
+					cond = cond.trim();
+					Condition condition = (Condition)struktogramm.addElement(CONDITION,cond);
+					condition.getAlt1().delete(true);
+					condition.getAlt2().delete(true);
+					condition.setAlt1(se);
+					condition.setAlt2(se2);
+					RESULT = condition;
+				:}
+				;
+
+ifcond ::=		IF CONDITION:cond 
+				block:se 
+				{:
+					cond = cond.trim();
+					Condition condition = (Condition)struktogramm.addElement(CONDITION,cond);
+					condition.getAlt1().delete(true);
+					condition.setAlt1(se);
+					RESULT = condition;
+				:}
+				;
+
+				
+				
+				
+headloop ::=	WHILE CONDITION:cond 
+				block:se
+				{:
+					cond = cond.trim();
+					Loop headLoop = (Loop)struktogramm.addElement(HEADLOOP,cond);
+					headLoop.getInside().delete(true);
+					headLoop.setInside(se);
+					RESULT = headLoop;
+				:}
+				;
+
+headloop ::=	FOR CONDITION:cond 
+				block:se
+				{:
+					// das aufspalten der "condition" ist in der
+					// ForLoop gekapselt !
+					cond = cond.trim();
+					Loop forLoop = (Loop)struktogramm.addElement(FORLOOP,cond);
+					forLoop.getInside().delete(true);
+					forLoop.setInside(se);
+					RESULT = forLoop;
+				:}
+				;
+				
+tailloop ::=	DO block:se
+				WHILE CONDITION:cond SEMI
+				{:
+					cond = cond.trim();
+					Loop tailLoop = (Loop)struktogramm.addElement(TAILLOOP,cond);
+					tailLoop.getInside().delete(true);
+					tailLoop.setInside(se);
+					RESULT = tailLoop;
+				:}
+				;
+
+switchh ::=		SWITCH CONDITION:cond
+				swblock:vector
+				{:
+					cond = cond.trim();
+					Switch switchh = (Switch)struktogramm.addElement(SWITCH,cond);
+					for (Enumeration el=vector.elements(); el.hasMoreElements(); )
+			    	{
+						Object a=el.nextElement();
+						// Element ist das Default-Element (wurde der Einfachheit halber einfach mit in den Vector gepackt
+						if (a instanceof StrukElement)
+						{
+							switchh.setDefault((StrukElement)a);
+							// muﬂ nun aber raus !
+							vector.removeElement(a);	
+						}
+						else
+						{
+							// Der ganze K‰se der sonst schon vorher passiert muﬂ jetzt nachgeholt werden
+							((SwitchValue)a).setSwitch(switchh);
+							((SwitchValue)a).alt.setUpConnection(switchh,ALT);
+						}
+			    	} 
+					switchh.setAltList(vector);
+					RESULT = switchh;
+				:}
+				;
+swblock ::=		LSPAR caselist:vector DEFAULT swinstrlist:se BREAK RSPAR
+				{:
+					vector.addElement(se);
+					RESULT = vector;
+				:}
+				;
+caselist ::=	CASE:variable swinstrlist:se BREAK
+				{:
+					Vector vector = new Vector();
+					vector.addElement(new SwitchValue(se,variable, null));
+					RESULT = vector;
+				:}
+				|
+				caselist:vector CASE:variable swinstrlist:se BREAK
+				{:
+					vector.addElement(new SwitchValue(se,variable, null));
+					RESULT = vector;
+				:}
+				;
+
+swinstrlist ::=	swinstr:se
+				{:
+					RESULT = se;
+				:}
+				| 
+				swinstr:se swinstrlist:se2 
+				{:
+					struktogramm.setFirst(se);
+					se.connect(COMMAND, se,se2);
+					RESULT = se;
+				:}
+				;
+swinstr ::=		command:se
+				{:
+					RESULT = se;
+				:}
+				| 
+				condition:se
+				{:
+					RESULT = se;
+				:}
+				| 
+				headloop:se 
+				{:
+					RESULT = se;
+				:}
+				| 
+				tailloop:se
+				{:
+					RESULT = se;
+				:}
+				|
+				switchh:se
+				{:
+					RESULT = se;
+				:}
+				;
+

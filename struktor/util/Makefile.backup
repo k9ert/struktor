@@ -1,0 +1,9 @@
+CLASSPATH = ..
+
+all : BMPFile.class
+
+BMPFile.class: BMPFile.java
+	javac -classpath $(CLASSPATH) BMPFile.java
+
+clean:
+	-rm *.class

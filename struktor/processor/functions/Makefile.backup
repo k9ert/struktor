@@ -1,0 +1,11 @@
+objects=Function.class Functions.class 
+
+CLASSPATH = ../../..
+
+all : $(objects)
+
+$(objects): $(subst .class,.java,$@)
+	javac -classpath $(CLASSPATH) $(subst .class,.java,$@)
+
+clean:
+	-rm *.class

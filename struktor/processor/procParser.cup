@@ -1,0 +1,357 @@
+// Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
+
+// Die Spezifikation für den Parser der die Labels der Elemente beim ausführen auswertet
+package struktor.processor;
+
+import java_cup.runtime.*;
+import struktor.processor.operators.*;
+import java.util.Vector;
+import struktor.processor.datatypes.*;
+import struktor.Tracer;
+
+/* Action Code for getting a Memory-Object */
+action code {: 
+
+Memory mem = Memory.getActualForm(); 
+Processor proc = Processor.getActualProcessor();
+Vector paramList = new Vector();
+			:};
+
+/* Parser Code for pretty Error-Prints */
+parser code {:
+
+	public void report_error(String message, String info)
+	{
+	
+	}
+
+	public void debug_message(String message)
+	{
+		struktor.Tracer.out(message);
+	}
+
+	public void report_fatal_error(
+    String   message,
+    Object   info)
+    throws java.lang.Exception
+    {
+      done_parsing();
+      report_error(message, info);
+      if (message.equals("Can't recover from previous error(s)"))
+	    throw new ProcessorException("Undefined Parsing Error: "+info);
+	  else
+	  	throw new ProcessorException("Syntax Error !");
+    }		 
+:}
+
+/* Terminals (tokens returned by the scanner). */
+terminal           	SEMI;
+terminal		   	SIZEOF,PLUS, MINUS, UMINUS, TIMES, DIVIDE, MOD, RPAREN, LPAREN, ASSIGN, PART; 
+terminal			LOGOR, LOGAND, NOT, LES, MOR, EQU, NEQ, MEQ, LEQ;
+terminal			DEC, INC;
+terminal			INTCAST, DOUBLECAST;
+terminal           	ADRESS, DEREF;
+terminal			PARAM;
+terminal			RET, BREAK, CONTINUE;
+terminal String    	VARIABLE, STRING, FUNC, TYPENAME;
+terminal Character 	CHARACTER;
+terminal Integer   	INTEGER;
+terminal Double    	DOUBLE;
+
+/* Non terminals */
+non terminal Object expr_list, expr_part;
+non terminal Expr	expr;
+non terminal Object	command;
+non terminal 		parameter;
+non terminal Vector	paramlist;
+
+/* Precedences */
+precedence left ASSIGN;						/* Priorität 14 */
+precedence left LOGOR;						/* Priorität 12 */
+precedence left LOGAND;						/* Priorität 11 */
+precedence left EQU, NEQ;					/* Priorität 7 */
+precedence left LES, MOR, LEQ, MEQ;			/* Priorität 6 */
+precedence left PLUS, MINUS;				/* Priorität 4 */
+precedence left TIMES, DIVIDE, MOD;			/* Priorität 3 */
+precedence left UMINUS, DEREF, ADRESS, NOT;	/* Priorität 2 */
+precedence left DOUBLECAST, INTCAST, SIZEOF;/* Priorität 2 */
+precedence left DEC, INC;					/* Priorität 2 */
+precedence left LPAREN, PART;				/* Priorität 1 */
+
+/* The grammar */
+expr_list ::=  expr_part:o
+               {: 
+			   		Tracer.out("expr_list: = " + o);
+			   		RESULT = o; 
+			   :} 
+			   |
+			   expr_list expr_part
+			   ;
+expr_part ::=  expr:e
+               {:
+					Object result=e;
+						Tracer.out("expr_part:(vor eval) = " + e);
+					while(result instanceof Expr)
+						result = ((Expr)result).eval();
+					RESULT = result;
+               :}
+               SEMI
+			   |
+			   command:o
+			   {:
+			   	RESULT = o;
+				:}
+			   SEMI
+               ;
+
+expr       ::= 	DOUBLE:n
+               	{:
+					RESULT = new Const(n);
+				:}
+               	|
+			   	INTEGER:i
+				{:
+					RESULT = new Const(i);
+				:}
+				|
+				STRING:s
+				{: 
+						Tracer.out(" String = " + s);
+					// demaskieren von maskierten Escape-Sequenzen
+					for(int i=0; i<s.length();i++)
+					{
+						if (s.charAt(i) == '\\')
+							if(s.charAt(i+1) == '\"' || s.charAt(i+1) == '\\')
+								s= s.substring(0,i)+s.substring(i+1,s.length());
+					}	
+					RESULT = new Const(s);
+				:}
+				|
+				CHARACTER:c
+				{: 
+					
+						Tracer.out(" Character = " + c);
+					RESULT = new Const(c);
+				:}
+				|
+				expr:e1 PLUS expr:e2
+				{:	
+			   		RESULT = new BinaryPlus(e1,e2);
+				:}
+				|
+				INC expr:e 
+				{:	
+					RESULT = new PreInc(e,mem);
+				:} 
+				|
+				expr:e INC
+				{:	
+					RESULT = new PostInc(e,mem);
+				:}  
+				|			   
+				expr:e1 MINUS expr:e2
+				{:	
+					RESULT = new BinaryMinus(e1,e2);
+				:} 
+				|
+				DEC expr:e 
+				{:	
+					RESULT = new PreDec(e,mem);
+				:} 
+				|
+				expr:e DEC
+				{:	
+					RESULT = new PostDec(e,mem);
+				:} 
+				|
+				expr:e1 TIMES expr:e2
+				{:	
+					RESULT = new Mult(e1,e2);
+				:} 
+				|
+				expr:e1 DIVIDE expr:e2
+				{:	
+					RESULT = new Divide(e1,e2);
+				:} 
+				|
+				expr:e1 MOD expr:e2
+				{: 
+					RESULT = new Modulo(e1,e2); 
+				:}
+				|
+				MINUS expr:e
+				{: 
+					RESULT = new UnaryMinus(e); 
+				:}
+				%prec UMINUS
+				|
+				INTCAST expr:e
+				{: 
+					
+						Tracer.out("## reducing IntCast e");
+					RESULT = new DoubleToInt(e); 
+				:}
+				|
+				DOUBLECAST expr:e
+				{: 
+					
+						Tracer.out("## reducing DoubleCast e");
+					RESULT = new IntToDouble(e);  
+				:}
+				|
+				expr:e1 EQU expr:e2
+				{:
+					RESULT = new Equal(e1,e2); 
+				:}
+				|
+				SIZEOF:so TYPENAME:type RPAREN
+				{:
+					RESULT = new Sizeof(type,mem); 
+				:}
+				|
+				expr:e1 NEQ expr:e2
+				{:
+					RESULT = new NotEqual(e1,e2);
+				:}
+				|
+				expr:e1 MOR expr:e2
+				{:
+					RESULT = new More(e1,e2);
+				:}
+				|
+				expr:e1 LES expr:e2
+				{:
+					RESULT = new Less(e1,e2);
+				:}
+				|
+				expr:e1 MEQ expr:e2
+				{:
+					RESULT = new MoreOrEqual(e1,e2);
+				:}
+				|
+				expr:e1 LEQ expr:e2
+				{:
+					RESULT = new LessOrEqual(e1,e2);
+				:}
+				|
+				expr:e1 LOGAND expr:e2
+				{:
+					RESULT = new LogAnd(e1,e2);
+				:}
+				|
+				expr:e1 LOGOR expr:e2
+				{:
+					RESULT = new LogOr(e1,e2);
+				:}
+				|
+				NOT expr:e
+				{:
+					RESULT = new LogNot(e);
+				:}
+				|
+				LPAREN expr:e RPAREN
+				{: 
+					RESULT = e;
+				:}
+				|
+				expr:v ASSIGN expr:e
+				{:
+					
+						Tracer.out("## reducing Assign to expr");
+					proc.valueChanged();
+					RESULT = new Assign(v,e, mem);
+				:}
+				|
+				ADRESS expr:l
+				{: 
+						Tracer.out("## reducing ADRESS lvalue to expr");
+					RESULT = new AdressOfVariable(l, mem);
+				:}
+				|
+				FUNC:f paramlist:v RPAREN
+				{:
+					Vector temp = paramList;
+					paramList = new Vector();
+					RESULT = new struktor.processor.functions.Function(proc.struktor, f, temp, proc.getGOutput(), proc.getTOutput(),mem);
+				:}
+				| 
+				FUNC:f RPAREN
+				{:
+					RESULT = new struktor.processor.functions.Function(proc.struktor, f, new Vector(), proc.getGOutput(), proc.getTOutput(), mem);
+				:}
+				|
+				expr:lvalue PART VARIABLE:identifier
+				{: 
+					
+						Tracer.out("## reducing lvalue and identifier to Part");
+					try {
+						RESULT = new Part(lvalue,identifier, mem);
+					} catch(ProcessorException pe) {}
+				:}
+				|
+				VARIABLE:v
+				{: 
+					
+					Tracer.out("## reducing variable ("+v+") to lvalue");
+					RESULT = new LValue(v, mem);
+				:}
+				|
+				TIMES expr:e
+				{:
+					
+						Tracer.out("## reducing deref to lvalue");
+					RESULT = new Deref(e, mem);
+				:}
+				%prec DEREF
+				;		
+
+paramlist ::=	parameter | paramlist parameter;
+
+parameter ::=	expr:e PARAM 
+				{:
+					paramList.addElement(e.eval());
+				:}
+				|
+				expr:e
+				{:
+					paramList.addElement(e.eval());
+				:}
+				;			   
+
+command ::=		BREAK
+				{:
+					if (true)
+					throw new BreakException();
+				:}
+				|
+				BREAK INTEGER:i
+				{:
+					if (true)
+					throw new BreakException(i);
+				:}
+				|
+				CONTINUE
+				{:
+					if (true)
+					throw new ContinueException();
+				:}
+				|
+				CONTINUE INTEGER:i
+				{:
+					if (true)
+					throw new ContinueException(i);
+				:}
+				|
+				RET
+				{:
+					if (true)
+					throw new ReturnException();
+				:}
+				|
+				RET expr:e
+				{:
+					if (true)
+					throw new ReturnException(e.eval());
+				:}
+				;
+				

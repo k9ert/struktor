@@ -1,0 +1,3 @@
+- fix target docclean
+- fix target jar (also java (and Html-) files are included)
+- write man-Page

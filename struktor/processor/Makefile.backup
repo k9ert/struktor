@@ -1,0 +1,24 @@
+objects=BreakException.class ContinueException.class LoopControlException.class Memory.class Processor.class ProcessorException.class ProcParser.class Psym.class ReturnException.class StructPanel.class Variable.class Yylex.class StructVar.class
+
+CLASSPATH = ../..
+
+.PHONY: all datatypes functions operators current clean
+
+all: datatypes functions operators current
+
+operators:
+	$(MAKE) -C operators
+
+functions:
+	$(MAKE) -C functions
+	
+datatypes:
+	$(MAKE) -C datatypes
+
+current : $(objects)
+
+$(objects): 
+	javac -classpath $(CLASSPATH) *.java
+
+clean:
+	-rm *.class

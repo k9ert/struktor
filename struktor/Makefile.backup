@@ -1,0 +1,27 @@
+objects=Copyright.class ExprCalc.class OutputPanel.class Presets.class Save.class StruktorApplication.class Struktor.class StruktorException.class Tracer.class TurtleCanvas.class Utils.class 
+
+CLASSPATH = .. 
+
+.PHONY: current processor strukelements util
+
+all: gui processor strukelements util current 
+
+gui :
+	$(MAKE) -C gui
+	
+processor :
+	$(MAKE) -C processor
+
+strukelements : 
+	$(MAKE) -C strukelements
+
+util :
+	$(MAKE) -C util
+
+current: $(objects)
+
+$(objects) :  $(subst .class,.java,$(objects))
+	javac -classpath $(CLASSPATH) $(subst .class,.java,$@)
+
+clean:
+	-rm *.class
