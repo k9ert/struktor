@@ -133,9 +133,9 @@ endef
 # Build Rules
 # -----------
 
-struktor/Presets.class: struktor/Presets.java
-	perl -p -i.bak -e 's/(static public final String version)="\d+\.\d+";/\1="$(VERSION)";/g' struktor/Presets.java
-	javac struktor/Presets.java
+#struktor/Presets.class: struktor/Presets.java
+#	perl -p -i.bak -e 's/(static public final String version)="\d+\.\d+";/\1="$(VERSION)";/g' struktor/Presets.java
+#	javac struktor/Presets.java
 
 %.class: %.java
 	$(JAVAC) $(JAVAC_FLAGS) $<
@@ -144,11 +144,6 @@ struktor/Presets.class: struktor/Presets.java
 	@echo "===> [Generating jar-file] "
 	$(FIND) $(TOPLEVEL) $(JAR_OBJS) -print | $(XARGS) \
 	$(JAR) $(JAR_FLAGS) $(JAR_FILE) 
-	@echo "===> [Generating shell-wrapper] "
-	echo "#!/bin/bash" > struktorstart
-	echo "[ ! -z \$$1 ] && [ \$$1 = "--version" ] && echo "struktor $(VERSION)" && exit fi" >> struktorstart
-	echo "java -cp struktor-$(VERSION).jar:javacup_runtime.jar struktor.StruktorApplication \$$1" >> struktorstart
-	chmod u+x struktorstart
 	@echo "===> [Generating java-cup runtime jar] "
 	$(JAR) $(JAR_FLAGS) javacup_runtime.jar java_cup/runtime/*.class
 
@@ -167,12 +162,10 @@ struktor/Presets.class: struktor/Presets.java
 
 .PHONY: all jar man install uninstall doc clean depend tags
 
-all::	$(JAR_FILE) 
-
-
 help:
 	@echo "Usage: make {all|jar|man|install|uninstall|doc|clean}"
 
+all::	$(JAR_FILE)
 
 # Jar target
 jar:	$(JAR_FILE) javacup_runtime.jar
@@ -188,6 +181,7 @@ uninstall::
 	@echo "===> [Removing javacup_runtime jar file from $(prefix)$(JAR_DIR)] "
 	$(RM) $(prefix)$(JAR_DIR)/javacup_runtime.jar $(check-exit)
 clean::
+	@echo "===> [cleaning up ... jar-files]"
 	$(RM) $(JAR_FILE)
 	$(RM) javacup_runtime.jar
 
@@ -201,6 +195,7 @@ uninstall::
 	@echo "===> [Removing man file, struktor.1.gz from $(prefix)$(MAN_DIR)] "
 	$(RM) $(prefix)$(MAN_DIR)/struktor.1.gz
 clean::
+	echo "===> [cleaning up ... man-files]"
 	$(RM) man/struktor.1.gz man/struktor.1
 
 
@@ -210,12 +205,18 @@ doc:	$(JAVA_SRC)
 	if [ ! -d doc ]; then mkdir doc; fi
 	$(JAVADOC) -d doc $(JAVADOC_FLAGS) $(PACKAGES)
 clean::
+	echo "===> [cleaning up ... doc-directory]"
 	$(RM) -r doc
 
 
 
 # Script target
-all::	struktor.temp
+all::	
+	@echo "===> [Generating shell-wrapper] "
+	echo "#!/bin/bash" > struktorstart
+	echo "[ ! -z \$$1 ] && [ \$$1 = "--version" ] && echo "struktor $(VERSION)" && exit fi" >> struktorstart
+	echo "java -cp struktor-$(VERSION).jar:javacup_runtime.jar struktor.StruktorApplication \$$1" >> struktorstart
+	chmod u+x struktorstart
 install:: $(SCRIPT_OBJS)
 	@echo "===> [Generating shell-script] "
 	echo "#!/bin/bash" > struktor.temp
@@ -230,12 +231,14 @@ uninstall::
 	@echo "===> [Removing shell-scripts from $(SCRIPT_DIR)] "
 	$(RM) $(SCRIPT_DIR)/struktor $(check-exit))
 clean::
+	@echo "===> [cleaning up ... script-files]"
 	rm -f $(SCRIPT_OBJS)
 
 
 
 # Various cleanup routines
 clean::
+	@echo "===> [cleaning up ... various-files]"
 	$(FIND) . \( -name '*~' -o -name '*.class' \) -print | \
 	$(XARGS) $(RM) 
 	$(FIND) . -name '*.u' -print | $(XARGS) $(RM)
