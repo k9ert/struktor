@@ -1,8 +1,7 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
 
-import struktor.processor.*;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
 
 class LoopEvt extends StrukElementEvt
 {

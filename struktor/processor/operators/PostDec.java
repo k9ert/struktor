@@ -1,7 +1,7 @@
 package struktor.processor.operators;
 
-import struktor.processor.datatypes.*;
-import struktor.processor.*;   
+import struktor.processor.Memory;
+import struktor.processor.datatypes.Datatype;
 
 /** Diese Operator Klasse entspricht dem "Wert--"-Operator
  */

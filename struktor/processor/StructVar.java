@@ -1,13 +1,10 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.processor;
 
-import javax.swing.*;
-import java.util.*;
-import java.awt.event.*;
-import java.awt.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
 import struktor.Tracer;
-import struktor.processor.ProcessorException;
 import struktor.strukelements.Dec;
 
 public class StructVar

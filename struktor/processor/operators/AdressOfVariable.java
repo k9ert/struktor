@@ -1,7 +1,8 @@
 package struktor.processor.operators;
 
-import struktor.processor.datatypes.*;
-import struktor.processor.*;
+import struktor.processor.Memory;
+import struktor.processor.ProcessorException;
+import struktor.processor.datatypes.Pointer;
     
 
 /** Diese Operator Klasse entspricht dem "&"-Operator

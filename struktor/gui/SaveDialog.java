@@ -1,12 +1,30 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.gui;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*; 
-import java.util.*;
-import struktor.strukelements.*;
-import struktor.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Enumeration;
+import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import struktor.Struktor;
+import struktor.StruktorException;
+import struktor.strukelements.Struktogramm;
 
 /** Eine Klasse mit der der saveMark jedes Struktogramms interaktiv verändert werden kann 
  * Funktioniert vom Aufruf ähnlich wie ein FileChooser

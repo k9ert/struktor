@@ -6,11 +6,38 @@
 
 package struktor.processor;
 
-import java_cup.runtime.*;
-import struktor.processor.operators.*;
 import java.util.Vector;
-import struktor.processor.datatypes.*;
+
 import struktor.Tracer;
+import struktor.processor.operators.AdressOfVariable;
+import struktor.processor.operators.Assign;
+import struktor.processor.operators.BinaryMinus;
+import struktor.processor.operators.BinaryPlus;
+import struktor.processor.operators.Const;
+import struktor.processor.operators.Deref;
+import struktor.processor.operators.Divide;
+import struktor.processor.operators.DoubleToInt;
+import struktor.processor.operators.Equal;
+import struktor.processor.operators.Expr;
+import struktor.processor.operators.IntToDouble;
+import struktor.processor.operators.LValue;
+import struktor.processor.operators.Less;
+import struktor.processor.operators.LessOrEqual;
+import struktor.processor.operators.LogAnd;
+import struktor.processor.operators.LogNot;
+import struktor.processor.operators.LogOr;
+import struktor.processor.operators.Modulo;
+import struktor.processor.operators.More;
+import struktor.processor.operators.MoreOrEqual;
+import struktor.processor.operators.Mult;
+import struktor.processor.operators.NotEqual;
+import struktor.processor.operators.Part;
+import struktor.processor.operators.PostDec;
+import struktor.processor.operators.PostInc;
+import struktor.processor.operators.PreDec;
+import struktor.processor.operators.PreInc;
+import struktor.processor.operators.Sizeof;
+import struktor.processor.operators.UnaryMinus;
 
 /** CUP v0.10k generated parser.
   * @version Thu Apr 24 23:40:05 CEST 2003
@@ -670,7 +697,7 @@ Vector paramList = new Vector();
 		int fright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
 		String f = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
 		
-					RESULT = new struktor.processor.functions.Function(proc.struktor, f, new Vector(), proc.getGOutput(), proc.getTOutput(), mem);
+					RESULT = new struktor.processor.functions.Function(Processor.struktor, f, new Vector(), proc.getGOutput(), proc.getTOutput(), mem);
 				
               CUP$parser$result = new java_cup.runtime.Symbol(3/*expr*/, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-0)).right, RESULT);
             }
@@ -689,7 +716,7 @@ Vector paramList = new Vector();
 		
 					Vector temp = paramList;
 					paramList = new Vector();
-					RESULT = new struktor.processor.functions.Function(proc.struktor, f, temp, proc.getGOutput(), proc.getTOutput(),mem);
+					RESULT = new struktor.processor.functions.Function(Processor.struktor, f, temp, proc.getGOutput(), proc.getTOutput(),mem);
 				
               CUP$parser$result = new java_cup.runtime.Symbol(3/*expr*/, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-0)).right, RESULT);
             }

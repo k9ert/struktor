@@ -1,9 +1,7 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.processor.functions;
 
-import java.util.*;
-import struktor.processor.*;
-import struktor.*;
+import struktor.processor.ProcessorException;
 
 /** des is a Schmarrn */
 public class Functions

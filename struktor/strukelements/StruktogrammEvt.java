@@ -1,13 +1,20 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
 
-import struktor.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-import javax.swing.*;
-import java.util.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.event.*;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import struktor.Struktor;
 
 /** Eine Klasse für die AusführungsSteuerung der Struktogramme (execute-Button, Geschwindigkeitsregler ...)
  * Wird nur EINMAL instanziert und steuert alle Struktogramme

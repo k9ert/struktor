@@ -1,10 +1,26 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.gui;
 
-import struktor.*;
-import javax.swing.*;
-import java.awt.event.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import struktor.Presets;
+import struktor.Struktor;
+import struktor.Utils;
 
 public class StruktorEvt extends JPanel
 implements ActionListener, ItemListener
@@ -49,7 +65,7 @@ implements ActionListener, ItemListener
 		addOutputAndWatchlist(box);
 		
 		// und alles zusammenfügen ...
-		if (struktor.isApplet)
+		if (Struktor.isApplet)
 			add(new JLabel("Copyright 2000, Kim Neunert (k9ert@gmx.de), All Rights Reserved"), BorderLayout.NORTH);
 		// Der andere Kram ist bereits in Box drin
 		add(box, BorderLayout.CENTER);

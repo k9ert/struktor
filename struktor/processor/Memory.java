@@ -1,10 +1,13 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.processor;
-import struktor.strukelements.Dec;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Stack;
+import java.util.Vector;
 
-import java.util.*;
-import struktor.processor.datatypes.*;
 import struktor.Tracer;
+import struktor.processor.datatypes.Pointer;
+import struktor.strukelements.Dec;
 
 /** Diese Klasse modelliert den Speicher. typische (public) Methoden sind
  *  "getValueAtAdress" oder "getAdressOfVariable"

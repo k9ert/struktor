@@ -1,8 +1,8 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
 
-import struktor.processor.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
 /** Die abstrakte Klasse für alle Loops (Tail-, Head-, For-) Unglaublich wieviel man da reinschreiben kann :-)
  */

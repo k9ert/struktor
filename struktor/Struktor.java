@@ -1,14 +1,31 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor;
 
-import struktor.strukelements.*;
-import struktor.gui.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Frame;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.util.Enumeration;
+import java.util.GregorianCalendar;
+import java.util.Vector;
+
+import javax.swing.JApplet;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
+
+import struktor.gui.SaveDialog;
+import struktor.gui.StruktorEvt;
 import struktor.processor.StructPanel;
-import java.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import struktor.strukelements.DecList;
+import struktor.strukelements.Load;
+import struktor.strukelements.Struktogramm;
+import struktor.strukelements.StruktogrammEvt;
+import struktor.strukelements.WatchList;
 
 public class Struktor extends JApplet
 {
@@ -304,7 +321,7 @@ public class Struktor extends JApplet
 			
 			Presets presets = (Presets)ois.readObject();
 			presets.applet=this;
-			presets.isApplet= this.isApplet;
+			presets.isApplet= Struktor.isApplet;
 			this.presets=presets;
 			ois.close();
 		} catch (ClassNotFoundException cnfe) {

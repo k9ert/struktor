@@ -1,14 +1,25 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor;
 
-import struktor.strukelements.*;
-import struktor.gui.*;
-import struktor.processor.*;
-import java.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JApplet;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import struktor.processor.LoopControlException;
+import struktor.processor.Memory;
+import struktor.processor.Processor;
+import struktor.processor.ProcessorException;
+import struktor.processor.ReturnException;
+import struktor.strukelements.Dec;
+import struktor.strukelements.DecList;
 
 public class ExprCalc extends JApplet
 implements ActionListener

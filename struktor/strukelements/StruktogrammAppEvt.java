@@ -1,13 +1,14 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
 
-import struktor.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 
-import javax.swing.*;
-import java.util.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.event.*;
+import javax.swing.JCheckBox;
+import javax.swing.JToolBar;
+import javax.swing.event.ChangeListener;
+
+import struktor.Struktor;
 
 /** Die Event-Klasse für Struktogramme, wird im Moment nicht verwendet (Application)
  */

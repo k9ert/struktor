@@ -2,9 +2,9 @@
 
 package struktor;
 
-import java.awt.*;
 import java.applet.Applet;
-import java.net.URL;
+import java.awt.Container;
+import java.awt.Frame;
 
 /** Sammelt ein paar nützliche Tools */
 public class Utils

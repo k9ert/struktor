@@ -1,15 +1,24 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor;
 
-import struktor.*;
-import struktor.strukelements.*;
-import struktor.gui.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.applet.*;
-import javax.swing.*;
-import java.util.*;
-import java.io.*;
+import java.awt.BorderLayout;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.util.Enumeration;
+
+import javax.swing.JDesktopPane;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+
+import struktor.gui.SaveDialog;
+import struktor.gui.StruktorAppEvt;
+import struktor.gui.StruktorEvt;
+import struktor.strukelements.Load;
+import struktor.strukelements.Struktogramm;
 
 public class StruktorApplication extends Struktor
 implements WindowListener

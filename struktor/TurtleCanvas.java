@@ -28,10 +28,12 @@
 
 package struktor;
 
-import java.awt.*;
-import java.awt.image.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
+import javax.swing.JComponent;
 
 
 /**

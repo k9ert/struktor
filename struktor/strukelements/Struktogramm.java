@@ -1,13 +1,24 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
 
-import struktor.*;
-import struktor.processor.*;
-import struktor.processor.Processor;
+import java.awt.Component;
+import java.awt.Container;
+import java.util.Enumeration;
+import java.util.Vector;
 
-import javax.swing.*;
-import java.util.*;
-import java.awt.*;
+import javax.swing.JComponent;
+import javax.swing.JLayeredPane;
+
+import struktor.Presets;
+import struktor.Struktor;
+import struktor.StruktorException;
+import struktor.Tracer;
+import struktor.TurtleCanvas;
+import struktor.Utils;
+import struktor.processor.LoopControlException;
+import struktor.processor.Memory;
+import struktor.processor.Processor;
+import struktor.processor.ReturnException;
 
 
 /** Die Verwaltungsinstanz für alle StrukElemente des Struktogramms. Ein Teil der Funktionalität könnten evtl. statische Methoden der StrukElement-Klasse übernehmen. Dann hätte man aber ein Problem mit der GUI-Funktionalität (mehrere Applets auf einer HTML-Seite.
@@ -415,7 +426,7 @@ implements Runnable, Constants
 		
 	int getLayer(JComponent element)
 	{
-		return view.getLayer(element);
+		return   view.getLayer(element);
 	}
 	void setLayer(Component element, int layer)
 	{

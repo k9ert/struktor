@@ -1,7 +1,9 @@
 package struktor.strukelements;
-import java_cup.runtime.Symbol;
 import java.util.Stack;
-import struktor.*;
+
+import java_cup.runtime.Symbol;
+import struktor.StruktorException;
+import struktor.Tracer;
 
 
 class Yylex implements java_cup.runtime.Scanner {

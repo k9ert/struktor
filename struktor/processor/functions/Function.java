@@ -1,16 +1,24 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.processor.functions;
 
-import java.util.*;
-import javax.swing.JTextArea;
-import struktor.strukelements.*;
-import struktor.processor.operators.*;
-import struktor.processor.*;
-import struktor.*;
-import struktor.processor.datatypes.*;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.lang.reflect.Method;
-import java.lang.Math;
-import java.awt.*;
+import java.util.Enumeration;
+import java.util.Vector;
+
+import javax.swing.JTextArea;
+
+import struktor.Struktor;
+import struktor.StruktorException;
+import struktor.Tracer;
+import struktor.TurtleCanvas;
+import struktor.processor.Memory;
+import struktor.processor.ProcessorException;
+import struktor.processor.datatypes.Datatype;
+import struktor.processor.datatypes.Pointer;
+import struktor.processor.operators.Expr;
+import struktor.strukelements.Struktogramm;
 
 /** Ermöglicht das Aufrufen von Funktionen. Wird im Prinzip genauso wie die Operatoren verwendet
  */

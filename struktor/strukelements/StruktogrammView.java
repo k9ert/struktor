@@ -1,10 +1,15 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
 
-import struktor.*;
-import struktor.util.*;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLayeredPane;
+
+import struktor.Presets;
+import struktor.Struktor;
+import struktor.util.BMPFile;
 
 
 public class StruktogrammView extends JLayeredPane

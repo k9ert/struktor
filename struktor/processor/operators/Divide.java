@@ -1,7 +1,6 @@
 package struktor.processor.operators;
 
-import struktor.processor.*;
-import struktor.Tracer;
+import struktor.processor.ProcessorException;
 
     
 

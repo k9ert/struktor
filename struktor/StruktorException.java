@@ -1,8 +1,11 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Container;
+import java.awt.Frame;
+
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /** Eine Klasse für generell alle internen Exceptions. 
  * Mithilfe der Methode show...Msg läßt sich die Meldung elegant als Fenster anzeigen

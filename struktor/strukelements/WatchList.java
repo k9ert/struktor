@@ -1,11 +1,15 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
-import struktor.*;
-import struktor.processor.*;
+import java.awt.Dimension;
+import java.util.Enumeration;
+import java.util.Vector;
 
-import javax.swing.*;
-import java.util.*;
-import java.awt.*;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JTextField;
+
+import struktor.StruktorException;
+import struktor.Tracer;
 
 /** Implementiert die Watchlist als Box in der Ausdrücke überwacht werden können
  * Für jedes Struktogramm wird eine eigene Watchlist instanziert

@@ -2,7 +2,7 @@ package struktor.processor.operators;
 
 /** Diese Operator Klasse entspricht dem "(double)intWert"-Operator
  */
-import struktor.processor.*;
+import struktor.processor.ProcessorException;
 
 
 

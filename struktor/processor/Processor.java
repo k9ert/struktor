@@ -2,19 +2,21 @@
 package struktor.processor;
 
 // Driver for parser
-import javax.swing.*;
-import java.awt.Frame;
-import java.awt.event.*;
-import java.util.*;
-import java_cup.runtime.Symbol;
 import java.io.StringReader;
+import java.util.Vector;
 
-import struktor.strukelements.CommandTypes;
-import struktor.processor.datatypes.*;
+import java_cup.runtime.Symbol;
+
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+
 import struktor.Struktor;
-import struktor.TurtleCanvas;
 import struktor.Tracer;
+import struktor.TurtleCanvas;
 import struktor.Utils;
+import struktor.processor.datatypes.Datatype;
+import struktor.processor.datatypes.Pointer;
+import struktor.strukelements.CommandTypes;
 
 /** Diese Klasse modelliert den Prozessor. Wichtigste Methoden sind
  *  die unterschiedlichen Parse-Methoden denen jeweils (unter anderem)
@@ -47,7 +49,7 @@ implements CommandTypes, Datatype
 			;
 		else
 		{
-			this.struktor = struktor;
+			Processor.struktor = struktor;
 			actualProcessor = this;
 			this.gOutput = gOutput;
 			this.tOutput = tOutput;

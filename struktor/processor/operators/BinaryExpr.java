@@ -1,6 +1,6 @@
 package struktor.processor.operators;
 
-import struktor.processor.*;
+import struktor.processor.ProcessorException;
 
 /** eine abstrakte Klasse für binäre Ausdrücke
  */

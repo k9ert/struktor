@@ -1,16 +1,26 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
-import javax.swing.text.*;
-import javax.swing.event.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Enumeration;
+import java.util.Vector;
 
-import struktor.processor.*;
-import struktor.Utils;
-import struktor.Presets;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.Segment;
+
+import struktor.processor.LoopControlException;
+import struktor.processor.Processor;
+import struktor.processor.ProcessorException;
+import struktor.processor.ReturnException;
 
 
 class Switch extends StrukElement

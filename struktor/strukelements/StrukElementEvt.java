@@ -1,12 +1,38 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
-import struktor.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.Enumeration;
+import java.util.Vector;
 
-import struktor.processor.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+import struktor.Presets;
+import struktor.StruktorException;
+import struktor.Utils;
 
 /** Eine Klasse (-nnhierarchie) um elegant MouseEreignisse behandeln zu können */
 class StrukElementEvt extends MouseAdapter
@@ -97,13 +123,13 @@ implements MouseMotionListener, MouseListener, Constants
 		if (male.resizeHeight==true)
 		{
 			if (male.getHeight()>e.getY())
-				male.gettingSmaller = true;
+				StrukElement.gettingSmaller = true;
 			else
-				male.gettingSmaller = false;
+				StrukElement.gettingSmaller = false;
 			StrukElement.resizingElement=male;	
 			male.setHeightByUser(e.getY());
 			// Das erspart aus nicht erfindlichen Gründen Ärger !
-			male.gettingSmaller=false;
+			StrukElement.gettingSmaller=false;
 			StrukElement.resizingElement=null;	
 		}
 	  	// oder Element Moven ?
@@ -273,7 +299,7 @@ implements ActionListener, ItemListener, Constants
 		if (presets.enabSePuMove)
 		{
 			// aus Block herausschieben
-			if (element.getConnectionTypeOfBlock(element) != NEXT)
+			if (StrukElement.getConnectionTypeOfBlock(element) != NEXT)
 			{
 				moveOutsideBlock = new JMenuItem("move outside Block");
 				moveOutsideBlock.addActionListener(this);

@@ -1,11 +1,22 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
-import struktor.*;
-import struktor.processor.ProcessorException;
-import javax.swing.*;
-import java.util.*;
-import java.awt.event.*;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.Enumeration;
+import java.util.Vector;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import struktor.Presets;
+import struktor.Save;
+import struktor.Tracer;
+import struktor.processor.ProcessorException;
 
 /** Eine Klasse für den "Deklarationen-Editor" */
 public class DecList extends JPanel

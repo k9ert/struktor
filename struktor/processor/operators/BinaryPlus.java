@@ -1,7 +1,6 @@
 package struktor.processor.operators;
 
-import struktor.processor.datatypes.*;
-import struktor.processor.*;
+import struktor.processor.datatypes.Pointer;
 
     
 

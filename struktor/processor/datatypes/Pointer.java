@@ -1,8 +1,9 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.processor.datatypes;
 
-import struktor.processor.*;
 import struktor.Tracer;
+import struktor.processor.Memory;
+import struktor.processor.ProcessorException;
 
 /** Modelliert einen Zeiger (Pointer). Sehr zentraler Datentyp !!
  * wird ständig beim ausführen instanziert da fast alles über Zeiger abgewickelt wird

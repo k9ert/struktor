@@ -6,7 +6,6 @@ package struktor.processor.operators;
      * und zum Auswerten dieser Ausdrücke
      *
      */
-import struktor.processor.*;
 
 
 public abstract class Expr {

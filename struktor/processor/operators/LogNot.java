@@ -1,6 +1,6 @@
 package struktor.processor.operators; 
 
-import struktor.processor.*;
+import struktor.processor.ProcessorException;
 
 
 /** Diese Operator Klasse entspricht dem "!"-Operator

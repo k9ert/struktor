@@ -1,6 +1,6 @@
 package struktor.processor.operators; 
 
-import struktor.processor.*;
+import struktor.processor.ProcessorException;
 
 
 /** eine Klasse für das unäre Minus

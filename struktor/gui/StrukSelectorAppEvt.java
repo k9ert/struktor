@@ -1,11 +1,17 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.gui;
-import struktor.*;
-import struktor.strukelements.*;
+import java.awt.Component;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-import javax.swing.*;
-import java.awt.event.*;
-import java.awt.*;
+import javax.swing.Box;
+import javax.swing.ButtonGroup;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JRadioButton;
+
+import struktor.Struktor;
+import struktor.StruktorException;
 
 class StrukSelectorAppEvt extends StrukSelector
 implements ItemListener

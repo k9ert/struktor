@@ -1,10 +1,15 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.gui;
 
-import struktor.*;
-import java.awt.event.*;
-import javax.swing.*;
-import struktor.strukelements.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+import struktor.Struktor;
+import struktor.strukelements.Struktogramm;
+import struktor.strukelements.StruktogrammEvt;
 
 /** Eine Klasse um die Tasteneingaben entsprechend weiterzugeben
  */

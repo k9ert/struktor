@@ -6,12 +6,14 @@
 
 package struktor.strukelements;
 
-import java_cup.runtime.*;
-import java.io.*;
-import struktor.processor.*;
-import java.util.*;
-import struktor.processor.datatypes.*;
-import struktor.*;
+import java.util.Enumeration;
+import java.util.Vector;
+
+import struktor.Struktor;
+import struktor.StruktorException;
+import struktor.Tracer;
+import struktor.processor.ProcessorException;
+import struktor.processor.datatypes.Datatype;
 
 /** CUP v0.10j generated parser.
   * @version Sat Aug 25 13:50:24 GMT+02:00 2001

@@ -1,8 +1,8 @@
 package struktor.util;
 
-import java.awt.*;
-import java.io.*;
-import java.awt.image.*;
+import java.awt.Image;
+import java.awt.image.PixelGrabber;
+import java.io.FileOutputStream;
 
 /** This is a bitmap writer I have somewhere from the Internet. I excuse
 with the author of this to have lost his name. If he/she reads this,

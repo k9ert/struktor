@@ -1,8 +1,6 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.processor;
 
-import javax.swing.*;
-import java.awt.*;
 
 /** Eine Exception die angibt, daﬂ was beim Processor schief gelaufen ist 
  */

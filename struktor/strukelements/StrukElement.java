@@ -1,11 +1,20 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
-import struktor.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
 
-import struktor.processor.*;
-import java.util.*;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JComponent;
+
+import struktor.Presets;
+import struktor.Save;
+import struktor.StruktorException;
+import struktor.Tracer;
+import struktor.Utils;
+import struktor.processor.LoopControlException;
+import struktor.processor.Processor;
+import struktor.processor.ProcessorException;
+import struktor.processor.ReturnException;
 
 /** Diese abstrakte Klasse (StruktogrammElement) stellt einen Grossteil der Funktionalität für die Unterklassen Command, Loop und Condition zur Verfügung. Die Kommunikation mit dem Anwender wurde in eine gleichartige Klassenhierarchie gekapselt. Die Klasse enthält vorwiegend package-Methoden, da sie von den Unterklassen aufgerufen werden 
  * @see StrukElementEvt
@@ -216,7 +225,7 @@ implements Constants
 		int layer = struktogramm.getLayer(this);
 		try {
 			executing = !executing;
-			if (!(struktogramm.delay < 100 & executing == true))
+			if (!(Struktogramm.delay < 100 & executing == true))
 			{
 				struktogramm.getView().remove(this);
 				struktogramm.setLayer(this, 100);
@@ -232,9 +241,9 @@ implements Constants
 				WatchList.findWatchList(struktogramm).update(processor);
 				if (Struktogramm.debugMode == true & breakpoint == true)
 					struktogramm.triggerPause();
-				if (struktogramm.delay > 100) // Performancesteigernd !
-					Thread.sleep(struktogramm.delay);
-				while (struktogramm.pauseMode == true)
+				if (Struktogramm.delay > 100) // Performancesteigernd !
+					Thread.sleep(Struktogramm.delay);
+				while (Struktogramm.pauseMode == true)
 					Thread.sleep(100);
 			}
 			

@@ -1,11 +1,10 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.gui;
-import struktor.*;
-import struktor.strukelements.*;
+import java.awt.event.ItemListener;
 
-import javax.swing.*;
-import java.awt.event.*;
-import java.awt.*;
+import javax.swing.Box;
+import javax.swing.JComponent;
+import javax.swing.JMenuBar;
 
 /** Abstrakte Klasse für den Struktogramm-Auswähler. 
  * Wird einmal für das Applet (simple JComboBox) und einmal für 

@@ -1,9 +1,17 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
 
-import struktor.*;
-import struktor.processor.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+
+import struktor.StruktorException;
+import struktor.Tracer;
+import struktor.processor.BreakException;
+import struktor.processor.ContinueException;
+import struktor.processor.LoopControlException;
+import struktor.processor.Processor;
+import struktor.processor.ProcessorException;
+import struktor.processor.ReturnException;
 
 class ForLoop extends Loop 
 implements CommandTypes
