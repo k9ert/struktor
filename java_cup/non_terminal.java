@@ -1,7 +1,7 @@
 package java_cup;
 
-import java.util.Hashtable;
 import java.util.Enumeration;
+import java.util.Hashtable;
 
 /** This class represents a non-terminal symbol in the grammar.  Each
  *  non terminal has a textual name, an index, and a string which indicates

@@ -1,8 +1,8 @@
 
 package java_cup;
 
-import java.util.Hashtable;
 import java.util.Enumeration;
+import java.util.Hashtable;
 
 /** This class represents a set of LALR items.  For purposes of building
  *  these sets, items are considered unique only if they have unique cores

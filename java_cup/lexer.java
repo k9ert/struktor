@@ -1,7 +1,8 @@
 package java_cup;
 
-import java_cup.runtime.Symbol;
 import java.util.Hashtable;
+
+import java_cup.runtime.Symbol;
 
 /** This class implements a small scanner (aka lexical analyzer or lexer) for
  *  the JavaCup specification.  This scanner reads characters from standard 

@@ -1,9 +1,9 @@
 package java_cup;
 
 import java.io.PrintWriter;
-import java.util.Stack;
-import java.util.Enumeration;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.Stack;
 
 /** 
  * This class handles emitting generated code for the resulting parser.
@@ -558,11 +558,11 @@ public class emit {
 	    row.default_reduce = -1;
 
 	  /* make temporary table for the row. */
-	  short[] temp_table = new short[2*row.size()];
+	  short[] temp_table = new short[2*parse_action_row.size()];
 	  int nentries = 0;
 
 	  /* do each column */
-	  for (int j = 0; j < row.size(); j++)
+	  for (int j = 0; j < parse_action_row.size(); j++)
 	    {
 	      /* extract the action from the table */
 	      act = row.under_term[j];

@@ -1,8 +1,10 @@
 package struktor.strukelements;
 
-import java_cup.runtime.Symbol;
 import java.util.Stack;
-import struktor.*;
+
+import java_cup.runtime.Symbol;
+import struktor.StruktorException;
+import struktor.Tracer;
 
 %%
 %cup
