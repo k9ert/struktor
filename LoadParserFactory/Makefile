@@ -1,13 +1,10 @@
 
 POSITION=../struktor/processor/
 
-all: parser.java sym.java
+all: LoadParser.java Lsym.java
 
-parser.java sym.java: loadParser.cup
-	java -cp .. java_cup.Main < loadParser.cup
-	mv parser.java LoadParser.java
-	mv sym.java Lsym.java
-	sed -i -e "s/public class sym {/public class Lsym {/" Lsym.java
+LoadParser.java Lsym.java: loadParser.cup
+	java -cp .. java_cup.Main -parser LoadParser -symbols Lsym < loadParser.cup
 
 clean:
 	rm *.java
