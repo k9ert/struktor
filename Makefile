@@ -65,7 +65,7 @@ SCRIPT_DIR	= $(prefix)bin
 
 # ------------------------------------------------------------------- #
 
-VERSION         = 0.62
+VERSION         = 0.63
 
 
 # The name of the jar file to install
