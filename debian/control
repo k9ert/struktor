@@ -1,20 +1,22 @@
 Source: struktor
 Section: contrib/x11
 Priority: optional
+Build-Depends-Indep: debhelper (> 3.0)
 Maintainer: Kim Neunert <k9ert@gmx.de>
-Build-Depends: debhelper (>> 3.0.0)
 Standards-Version: 3.5.2
 
 Package: struktor
 Architecture: all
-Depends: java-virtual-machine, java2-runtime, ${shlibs:Depends}
-Description: A graphical Editor for Nassi-Shneiderman-Diagrams with builtin Interpreter in Java
- Struktor ist ein graphischer Struktogrammeditor für Nassi-Shneidemann-Diagramme. Die Struktogramme
- können durch einen eingebauten Interpreter direkt ausgeführt werden.
- Unterstützt werden:
- - Datentypen: Integer, Double, Character, String sowie Zeiger (Pointer)
- - Struktogramme als Funktionen (auch rekursive Aufrufe)
- - Aus- und Eingabe über Pop-Up-Fenster
- - Zusätzliche Ausgabemöglichkeit in einer Art Terminalfenster und graphischem Fenster
- - Watchlist, Breakpoints und Step-by-Step Ausführung möglich
- - sowohl als Applet (Kompexitätsniveau konfigurierbar) als auch als Application
+Depends: java-virtual-machine, java2-runtime
+Description: A graphical Editor for Nassi-Shneiderman-Diagrams 
+ Struktor is a graphical editor for nassi-shneidemann-Diagrams programmed in 
+ java. The diagrams could be executed directly by a builtin interpreter.
+ The following is supported:
+  - Datatypes: integer, double, character, strings and pointers
+  - diagrams as finction-calls (recursive calls as well)
+  - In- and Output via pop-up-windows
+  - addiotional output-possibilities via a kind of terminal and a graphical window
+  - Watchlist, breakpoints and step-by-step execution
+  - as applet (complexity is configurable) as well as application
+ .
+ Homepage: http://www.learn2prog.de

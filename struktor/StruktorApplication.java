@@ -19,9 +19,20 @@ implements WindowListener
 	String saveLocation = "D:\\programmieren\\java\\Struktor\\StruktorDevelop";
 	
 	public static void main (String[] args) {
+		try {
+		    if (args[0]!=null){
+			if (args[0].toLowerCase().endsWith("--help")){
+			    	    System.out.println("Struktor - A Nassi-Shneiderman Editor with an integrated Interpreter");
+				    System.out.println("usage: struktor [struktogram] | --help");
+				    System.out.println("struktogram \t\tAn .str or .ser file");
+				    System.out.println("--help \t\t\tdisplay this help-screen");
+				    System.exit(0);
+			}
+		    }
+		} catch (ArrayIndexOutOfBoundsException aioobe) {}
 		isApplet = false;
 		StruktorApplication a = new StruktorApplication();
-		JFrame frame = new JFrame("Struktor - Copyright 2000, Kim Neunert (k9ert@gmx.de), All Rights Reserved");
+		JFrame frame = new JFrame("Struktor - Copyright 2000-2004, Kim Neunert (k9ert@gmx.de), All Rights Reserved");
 		frame.getContentPane().setLayout(new BorderLayout());
 		frame.getContentPane().add(a, BorderLayout.CENTER);
 		frame.setSize(800,600);
@@ -31,25 +42,22 @@ implements WindowListener
 		a.presets.isApplet=false;
 		a.start();
 		try {
-			if (args[0]!=null)
-			{
-				if (args[0].toLowerCase().endsWith("str"))
-				{
+			if (args[0]!=null){
+				if (args[0].toLowerCase().endsWith("str")){
 					Tracer.out(args[0].substring(0,args[0].length()-3)+"ser");
 					try {
 						a.loadPreset(args[0].substring(0,args[0].length()-3)+"ser");
 					} catch (StruktorException se) {}
 					a.loadStruktogramm(args[0]);
 				}
-				else if (args[0].toLowerCase().endsWith("ser"))
-				{
+				else if (args[0].toLowerCase().endsWith("ser"))	{
 					try {
 						a.loadPreset(args[0]);
 					} catch (StruktorException se) {}
 					a.loadStruktogramm(args[0].substring(0,args[0].length()-3)+"str");
 				}
 				else
-					new StruktorException("Illegal File-Type (only .str or .ser)").showMsg(a);
+					new StruktorException("Illegal File-Type (only .str or .ser) - try struktor --help").showMsg(a);
 			}
 		} catch (ArrayIndexOutOfBoundsException aioobe) {Tracer.out(aioobe.toString());}
 		if (!a.containsMainFunction())
@@ -57,8 +65,7 @@ implements WindowListener
 			
 	}
 	
-	public void load()
-	{
+	public void load(){
 		//Create a file chooser
         final JFileChooser fc = new JFileChooser(saveLocation);
         fc.setDialogTitle("choose File to Load !");
@@ -163,22 +170,21 @@ implements WindowListener
 		if (saveDialog.showDialog()==SaveDialog.CANCEL)
 			return;
 			
-		for (Enumeration el=getStruktogrammList().elements(); el.hasMoreElements(); )
-    	{
+		for (Enumeration el=getStruktogrammList().elements(); el.hasMoreElements(); ) {
 			Struktogramm s=(Struktogramm)el.nextElement();
 			if (s.saveMark)
 			{
 				struktor.selectStruktogramm(s.getName());	
 				s.saveAsImage();
 			}
-    	}
+		}
 		new StruktorException("Die Funktionen wurden unter Ihrem Namen im aktuellen Verzeichnis als BMP-Datei gespeichert").showMsg(this);
 	}
 	
 
 	public void windowClosing (WindowEvent e) {					
-	this.stop();
-	System.exit(0);
+	    this.stop();
+	    System.exit(0);
 	}
 	public void windowClosed (WindowEvent e) { }
 	public void windowOpened (WindowEvent e) { }
@@ -187,8 +193,7 @@ implements WindowListener
 	public void windowActivated (WindowEvent e) { }
 	public void windowDeactivated (WindowEvent e) { }
 
-	StruktorEvt getStruktorInput(Struktor struktor)
-	{
+	StruktorEvt getStruktorInput(Struktor struktor) {
 		return new StruktorAppEvt(this);
 	}
 }

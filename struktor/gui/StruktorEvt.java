@@ -230,9 +230,10 @@ implements ActionListener, ItemListener
 	
 	void showLicenseInfo()
 	{
+		String version= Presets.version;
 		JOptionPane.showMessageDialog(
 					Utils.getFrame(struktor),
-					"V0.59\nfür: Dietrich-Bonhoeffer-Gymnasium Wertheim", 
+					"Struktor "+version+ "\nCopyright 2000-2004, Kim Neunert\nvisit http://www.learn2prog.de", 
 					"Info:", 
 					JOptionPane.INFORMATION_MESSAGE);
 	}

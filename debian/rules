@@ -72,7 +72,7 @@ binary-indep: build install
 #	dh_installmime
 #	dh_installinit
 #	dh_installcron
-	dh_installman
+	dh_installman man/struktor.1.gz
 #	dh_installinfo
 #	dh_undocumented
 	dh_installchangelogs 
@@ -89,7 +89,7 @@ binary-indep: build install
 	dh_builddeb
 
 # Build architecture-dependent files here.
-binary-arch: build install
+binary-arch:
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install configure

@@ -1,0 +1,94 @@
+
+=head1 NAME
+
+B<Struktor> - nassi-shneiderman-editor with interpreter in Java.
+
+=head1 SYNOPSIS
+
+B<struktor [diagramfile]> [--help | --version]
+
+=head1 DESCRIPTION
+
+This manual page documents briefly the B<struktor> program.
+
+=head2 Overview
+
+Struktor is a graphical editor for nassi-shneidemann-Diagrams programmed in Java. The diagrams could be executed directly by a builtin interpreter. Struktor could be used as Standalone Application or embedded in HTML as an applet.
+The following is supported:
+
+=over
+
+=item -
+Datatypes: integer, double, character, strings and pointers
+
+=item -
+diagrams as function-calls (recursive calls as well)
+
+=item -
+In- and Output via pop-up-windows
+
+=item -
+additional output-possibilities via a kind of terminal and a graphical window
+
+=item -
+Watchlist, breakpoints and step-by-step execution
+
+=back
+
+=head2 General usage
+
+After starting the application, you get a first simple diagram with one box, rep
+resenting a command. Designing your program is mostly done by the context-menu.
+You get it by right-clicking on an element such as a command. To use variables,
+you have to declare them in the Declaration View. Click on "new Declaration" and
+ enter at least a sensible name for your variable. You can use the variable in t
+he property-dialog of elements. Example for a command would be: "foo=5;". For a
+condition: "foo==5" (no semicolon).
+
+=head2 Command-Syntax
+
+The command-syntax is quite near to the Syntax of C/C++/Java. No control-structures have to be typed in, because they are represented graphically. All "commands" are simple mathematical expressions. If you use expressions in commands, you have to append a semicolon. In Conditions (Loops), you are not allowed to use a semicolon at the end of an expression.
+Some Examples:
+
+=over
+
+=item a = 5;
+
+returns 5, as a side-effect the value "5" is stored into the variable "a".
+
+=item *pa;
+
+return the value at which the pointer pa is pointing
+
+=item sin(4)
+
+returns the sinus of 4.
+
+=item a = func("Hallo",'a',9);
+
+stores the return-value of function "func" in the variable "a".
+
+=item (a == 5) && (b!=4) 
+
+This seems to be a condition, so, there is no semicolon at the end. The return value is of the type double and will be 1.0 (for true) and 0.0 (for false).
+
+=back
+
+Casting of datatypes is possible. For this purpose, you can use the operators "(int)" and "(double)". (Example: ia = (int)5.3; oder db = (double)5;
+Another two "true commands" are "break;" and "continue;" which break up a loop similiar to C/C++/Java. Unlike C, you can use these commands in more than one nested loops: "break 2;" or "continue 7;".
+
+=head1 OPTIONS
+
+=over
+
+=item B<-- help> shows summary of options
+
+=item B<-- version> print the version number
+
+=back
+
+=head1 AUTHOR
+
+This manual page was written by Kim Neunert <k9ert@gmx.de>
+struktor has it's Homepage under http://www.learn2prog.de
+
