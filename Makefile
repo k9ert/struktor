@@ -115,11 +115,15 @@ endef
 	$(JAVAC) $(JAVAC_FLAGS) $<
 
 %.jar: $(JAVA_OBJS) 
+	 @echo "===> [Generating jar-file] "
 	$(FIND) $(TOPLEVEL) $(JAR_OBJS) -print | $(XARGS) \
 	$(JAR) $(JAR_FLAGS) $(JAR_FILE) 
+	@echo "===> [Generating shell-wrapper] "
 	echo "#!/bin/bash" > struktorstart
-	echo "java -cp struktor-$(VERSION) struktor.StruktorApplication" >> struktorstart
+	echo "java -cp struktor-$(VERSION).jar:javacup_runtime.jar struktor.StruktorApplication" >> struktorstart
 	chmod u+x struktorstart
+	@echo "===> [Generating java-cup runtime jar] "
+	$(JAR) $(JAR_FLAGS) javacup_runtime.jar java_cup/runtime/*.class
 	
 %.u: %.java
 	$(JAVAC) $(JIKES_DEP_FLAG) $<
@@ -139,7 +143,7 @@ help:
 
 
 # Jar target
-jar:  $(JAR_FILE)
+jar:  $(JAR_FILE) javacup_runtime.jar
 install:: $(JAR_FILE)
 	@echo "===> [Installing jar file, $(JAR_FILE) in $(JAR_DIR)] "
 	$(INSTALL_DIR) $(JAR_DIR) $(check-exit)
@@ -150,6 +154,7 @@ uninstall::
 clean::
 	$(RM) $(JAR_FILE)
 	$(RM) struktorstart
+	$(RM) javacup_runtime.jar
 
 
 
