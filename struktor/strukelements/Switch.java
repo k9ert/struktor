@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.text.*;
+import javax.swing.event.*;
 
 import struktor.processor.*;
 import struktor.Utils;
@@ -338,7 +340,7 @@ implements CommandTypes, Constants
 }
 
 class SwitchValue 
-implements ActionListener, CommandTypes
+implements ActionListener, DocumentListener, CommandTypes
 {
 	StrukElement alt;
 	JPanel panel;
@@ -359,6 +361,7 @@ implements ActionListener, CommandTypes
 		panel.add(delete);
 		JTextField value = new JTextField(this.value,8);
 		value.addActionListener(this);
+		value.getDocument().addDocumentListener(this);
 		panel.add(value);
 		return panel;
 	}
@@ -371,7 +374,26 @@ implements ActionListener, CommandTypes
 			panel.setVisible(false);
 		}
 		else
-			value=((JTextField)ae.getSource()).getText();
+			this.value=((JTextField)ae.getSource()).getText();
+	}
+
+	public void changedUpdate(DocumentEvent event) {
+		setValueViaDocument((Document)event.getDocument());
+	}
+
+	public void insertUpdate(DocumentEvent event) {
+		setValueViaDocument((Document)event.getDocument());
+	}	
+	public void removeUpdate(DocumentEvent event) {
+		setValueViaDocument((Document)event.getDocument());
+	}
+
+	private void setValueViaDocument(Document document) {
+		Segment text = new Segment();
+		try {
+			document.getText(0,document.getLength(),text);
+		} catch (BadLocationException ble) {}
+		this.value= text.toString();
 	}
 	
 	public void setSwitch(Switch switchh)

@@ -609,10 +609,10 @@ implements ActionListener, ItemListener, Constants
 			{
 				Vector altList = ((Switch)element).getAltList();
 				for (Enumeration el=altList.elements(); el.hasMoreElements(); )
-    			{
+    				{
 					SwitchValue a=(SwitchValue)el.nextElement();
 					prop.add(a.getPanel());
-    			}
+    				}
 				newAlt = new JButton("newAlternative");
 				newAlt.addActionListener(this);
 				prop.add(newAlt);
