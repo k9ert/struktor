@@ -8,3 +8,6 @@ Yylex.java: processor.lex
 
 install: 
 	cp Yylex.java $(POSITION)
+	
+clean:
+	rm Yylex.java processor.lex.java
