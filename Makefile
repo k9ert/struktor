@@ -144,13 +144,17 @@ help:
 
 # Jar target
 jar:  $(JAR_FILE) javacup_runtime.jar
-install:: $(JAR_FILE)
+install:: $(JAR_FILE) javacup_runtime.jar
 	@echo "===> [Installing jar file, $(JAR_FILE) in $(JAR_DIR)] "
 	$(INSTALL_DIR) $(JAR_DIR) $(check-exit)
 	$(INSTALL_FILE) $(JAR_FILE) $(JAR_DIR) $(check-exit)
+	@echo "===> [Installing javacup_runtime jar file in $(JAR_DIR)] "
+	$(INSTALL_FILE) javacup_runtime.jar $(JAR_DIR) $(check-exit)
 uninstall::
 	@echo "===> [Removing jar file, $(JAR_FILE) from $(JAR_DIR)] "
 	$(RM) $(JAR_DIR)/$(JAR_FILE)  $(check-exit)
+	@echo "===> [Removing javacup_runtime jar file from $(JAR_DIR)] "
+	$(RM) $(JAR_DIR)/javacup_runtime.jar $(check-exit)
 clean::
 	$(RM) $(JAR_FILE)
 	$(RM) struktorstart
@@ -174,7 +178,7 @@ all::	 $(SCRIPT_OBJS)
 install:: $(SCRIPT_OBJS)
 	@echo "===> [Generating shell-script] "
 	echo "#!/bin/bash" > struktor
-	echo "java -cp $(JAR_DIR)/$(JAR-FILE) struktor.StruktorApplication" >>  struktor
+	echo "java -cp $(JAR_DIR)/$(JAR-FILE).jar:javacup_runtime.jar struktor.StruktorApplication" >>  struktor
 	@echo "===> [Installing shell-scripts in $(SCRIPT_DIR)] "
 	$(INSTALL_DIR) $(check-exit)
 	$(INSTALL_PROG) struktor $(SCRIPT_DIR) $(check-exit))
