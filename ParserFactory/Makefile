@@ -6,7 +6,8 @@ all: parser.java sym.java
 parser.java sym.java: procParser.cup
 	java -cp .. java_cup.Main < procParser.cup
 	mv parser.java ProcParser.java
-	mv sym.java Psym.Java
+	mv sym.java Psym.java
+	sed -i -e "s/public class sym {/public class Psym {/" Psym.Java
 
 clean:
 	rm *.java
