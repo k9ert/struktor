@@ -1,0 +1,10 @@
+to Compile:
+make jar
+
+to start:
+./struktorstart
+
+to install:
+make install
+
+Kim Neunert k9ert@gmx.de
