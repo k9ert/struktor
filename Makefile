@@ -140,6 +140,10 @@ help:
 
 # Jar target
 jar:  $(JAR_FILE)
+	@echo "===> [Generating shell-wrapper] "
+        echo "#!/bin/bash" > struktorstart
+        echo "java -cp $(JAR_DIR)/$(JAR-FILE) struktor.StruktorApplication" >>  struktorstart
+	chmod u+x struktorstart
 install:: $(JAR_FILE)
 	@echo "===> [Installing jar file, $(JAR_FILE) in $(JAR_DIR)] "
 	$(INSTALL_DIR) $(JAR_DIR) $(check-exit)
@@ -149,6 +153,7 @@ uninstall::
 	$(RM) $(JAR_DIR)/$(JAR_FILE)  $(check-exit)
 clean::
 	$(RM) $(JAR_FILE)
+	$(RM) struktorstart
 
 
 
