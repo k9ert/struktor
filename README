@@ -1,10 +1,50 @@
-to Compile:
-make jar
+README for Struktor
+===================
 
-to start:
-./struktorstart
+This is the source-package of Struktor. The package one main Makefile
+to compile the package. You will need the Java-sdk from SUN.
+It's proved with JDK 1.4.2.
 
-to install:
-make install
+
+1. QUICK COMPILATION
+   -----------------
+
+For a Quick Compile just:
+$ make
+
+You should have a Bash-Wrapper named "struktorstart" to start the Program:
+$ ./struktorstart
+
+
+2. INSTALLATION
+   ------------
+   
+If you want to install the Program:
+$ make install
+
+
+It will install in /usr/local. Usually, it will do the following:
+
+===> [Installing jar file, struktor-0.63.jar in /usr/local/share/java]
+===> [Installing javacup_runtime jar file in /usr/local/share/java]
+===> [Installing man file, man/struktor.1.gz in /usr/local/share/man/man1]
+===> [Installing shell-scripts in /usr/local/bin]
+
+If you want to install it somewhere else (e.g. you are using "stow"):
+$ PREFIX=/usr/local/stow/struktor/ make install
+(Don't forget the ending "/" at "struktor/")
+
+
+3. UNINSTALLATION
+   --------------
+   
+
+If You want to uninstall:
+make uninstall
+
+Uninstall will not remove the generated directory-structure!
+
+
+
 
 Kim Neunert k9ert@gmx.de
