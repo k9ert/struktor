@@ -46,7 +46,11 @@ else
 endif
 
 # Prefix for every install directory
-prefix		= ${DESTDIR}${prefix_orig}
+ifneq ($(PREFIX),)
+        prefix=${PREFIX}
+else
+	prefix=${DESTDIR}${prefix_orig}
+endif
 
 # The directory to install the jar file in. Set this to an empty value
 #  if you dont want to install a jar file
@@ -133,8 +137,8 @@ all::	$(JAVA_OBJS) $(JAR_FILE)
 # Build Rules
 # -----------
 
-#struktor/Presets.class: struktor/Presets.java
-#	perl -p -i.bak -e 's/(static public final String version)="\d+\.\d+";/\1="$(VERSION)";/g' struktor/Presets.java
+struktor/Presets.class: struktor/Presets.java
+	perl -p -i.bak -e 's/(static public final String version)="\d+\.\d+";/\1="$(VERSION)";/' struktor/Presets.java
 #	javac struktor/Presets.java
 
 %.class: %.java
@@ -186,7 +190,7 @@ clean::
 # man target
 man:	man/struktor.1.gz
 install:: man/struktor.1.gz
-	@echo "===> [Installing man file, man/struktor.1.gz in $(prefix)$(JAR_DIR)] "
+	@echo "===> [Installing man file, man/struktor.1.gz in $(prefix)$(MAN_DIR)] "
 	$(INSTALL_DIR) $(prefix)$(MAN_DIR)
 	$(INSTALL_FILE) man/struktor.1.gz $(prefix)$(MAN_DIR) $(check-exit)
 uninstall::
