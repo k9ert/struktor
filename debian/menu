@@ -1,0 +1,6 @@
+?package(struktor):\
+ needs=x11\
+ section=Apps\
+ icon="/usr/share/pixmaps/java-application.png"\
+ title="struktor"\
+ command="/usr/bin/struktor"
