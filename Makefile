@@ -127,7 +127,7 @@ endef
 #  Default Target
 #  --------------
 
-#all::	$(JAR_FILE)
+all::	$(JAVA_OBJS) $(JAR_FILE)
 
 # -----------
 # Build Rules
@@ -164,8 +164,6 @@ endef
 
 help:
 	@echo "Usage: make {all|jar|man|install|uninstall|doc|clean}"
-
-all::	$(JAR_FILE)
 
 # Jar target
 jar:	$(JAR_FILE) javacup_runtime.jar
@@ -217,7 +215,7 @@ all::
 	echo "[ ! -z \$$1 ] && [ \$$1 = "--version" ] && echo "struktor $(VERSION)" && exit fi" >> struktorstart
 	echo "java -cp struktor-$(VERSION).jar:javacup_runtime.jar struktor.StruktorApplication \$$1" >> struktorstart
 	chmod u+x struktorstart
-install:: $(SCRIPT_OBJS)
+install:: 
 	@echo "===> [Generating shell-script] "
 	echo "#!/bin/bash" > struktor.temp
 	echo "[ \$$1 = "--version" ] && echo "struktor $(VERSION)" && exit" >> struktor.temp
