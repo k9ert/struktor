@@ -1,0 +1,21 @@
+<?xml version="1.0"?> 
+<project name="de.learn2prog.struktor" default="compile" basedir="."> 
+
+     <property name="src" value="src"/> 
+     <property name="build" value="build"/>
+
+     <target name="init">  
+          <mkdir dir="${build}"/>
+     </target>
+
+     <target name="compile" depends="init"> 
+          <!-- Compile the java code -->
+          
+          <javac srcdir="${src}" destdir="${build}"/>
+     </target>
+	<target name="Clean" description="Removes previous build">
+	  <delete verbose="true">
+	    <fileset dir="${build}"/>
+	  </delete>
+	</target>
+</project>
