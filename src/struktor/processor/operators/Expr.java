@@ -1,6 +1,6 @@
 package struktor.processor.operators;
 
-/** $Id$
+/** $Id: Expr.java 16 2005-02-10 19:36:29 +0000 (Do, 10 Feb 2005) kneunert $
      * eine abstrakte Klasse für die Konstruktion
      * beliebiger Ausdrücke
      * und zum Auswerten dieser Ausdrücke
