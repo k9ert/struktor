@@ -1,8 +1,13 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.strukelements;
 
+import java.awt.AWTException;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLayeredPane;
@@ -10,6 +15,7 @@ import javax.swing.JLayeredPane;
 import struktor.Presets;
 import struktor.Struktor;
 import struktor.util.BMPFile;
+import struktor.util.gifencoder.GIFEncoder;
 
 
 public class StruktogrammView extends JLayeredPane
@@ -46,7 +52,22 @@ public class StruktogrammView extends JLayeredPane
 		repaint();
 		Image i = createImage(getWidth(),getHeight());
 		paint(i.getGraphics());
-		BMPFile file = new BMPFile();
-		file.saveBitmap(model.getName()+".bmp",i,getWidth(),getHeight());
+
+		// encode the image as a GIF
+		GIFEncoder encode;
+		try {
+			encode = new GIFEncoder(i);
+		} catch (AWTException e) {
+			throw new RuntimeException();
+		}
+		OutputStream output;
+		try {
+			output = new BufferedOutputStream(
+			    new FileOutputStream(model.getName()+".gif"));
+			encode.Write(output);
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+		
 	}
 }

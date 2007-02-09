@@ -187,7 +187,7 @@ implements WindowListener
 				s.saveAsImage();
 			}
 		}
-		new StruktorException("Die Funktionen wurden unter Ihrem Namen im aktuellen Verzeichnis als BMP-Datei gespeichert").showMsg(this);
+		new StruktorException("Die Funktionen wurden unter Ihrem Namen im aktuellen Verzeichnis als GIF-Datei gespeichert").showMsg(this);
 	}
 	
 
