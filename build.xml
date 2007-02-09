@@ -21,11 +21,8 @@
 	</target>
 	<target name="ProcParser" depends="init"> 
 		<java dir="ProcParserFactory" fork="true" jar="lib/java-cup-11a.jar">
-		         <arg line="-parser ProcParser -symbols Psym procParser.cup"/>
-		         <classpath>
-		         	<pathelement location="${build}"/>
-		         </classpath>
-		       </java>
+		   <arg line="-parser ProcParser -symbols Psym procParser.cup"/>
+        </java>
 	</target>
 	<target name="jar" depends="compile">
 		<jar destfile="struktor.jar" basedir="${build}">
