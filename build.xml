@@ -20,10 +20,10 @@
 	  </delete>
 	</target>
 	<target name="ProcParser" depends="init"> 
-		<java classname="java_cup.Main" dir="ProcParserFactory" fork="true">
+		<java dir="ProcParserFactory" fork="true" jar="lib/java-cup-11a.jar">
 		         <arg line="-parser ProcParser -symbols Psym procParser.cup"/>
 		         <classpath>
-		           <pathelement location="${build}"/>
+		         	<pathelement location="${build}"/>
 		         </classpath>
 		       </java>
 	</target>
