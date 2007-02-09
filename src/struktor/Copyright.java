@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
-/** Eine Klasse fÅr das Logo das am Anfang Åblicherweise gezeigt wird
+/** Eine Klasse fÔøΩr das Logo das am Anfang ÔøΩblicherweise gezeigt wird
  */
 
 class Copyright
@@ -34,7 +34,7 @@ extends JDialog implements ActionListener
     Border bd3 = BorderFactory.createCompoundBorder(bd1, bd2);
     ((JPanel)contentPane).setBorder(bd3);
 	if (Struktor.isApplet)
-		icon = new ImageIcon(struktor.getImage(struktor.getCodeBase(),"Logo.jpg"));
+		icon = new ImageIcon(struktor.getImage(struktor.getCodeBase(),"struktor/Logo.jpg"));
 	else
 		icon = new ImageIcon("struktor/Logo.jpg");
 	
