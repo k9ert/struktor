@@ -19,10 +19,19 @@
 	    <fileset dir="${build}"/>
 	  </delete>
 	</target>
-	<target name="ProcParser" depends="init"> 
+	<target name="ProcParser" depends="init" description="Builds the ProcParser"> 
 		<java dir="ProcParserFactory" fork="true" jar="lib/java-cup-11a.jar">
 		   <arg line="-parser ProcParser -symbols Psym procParser.cup"/>
         </java>
+		<copy file="ProcParserFactory/Psym.java" tofile="struktor/processor"/>
+		<copy file="ProcParserFactory/ProcParser.java" tofile="struktor/processor"/>
+	</target>
+	<target name="LoadParser" depends="init" description="Builds the LoadParser"> 
+		<java dir="LoadParserFactory" fork="true" jar="lib/java-cup-11a.jar">
+		   <arg line="-parser LoadParser -symbols Lsym loadParser.cup"/>
+        </java>
+		<copy file="LoadParserFactory/Lsym.java" tofile="struktor/strukelements"/>
+		<copy file="LoadParserFactory/LoadParser.java" tofile="struktor/strukelements"/>
 	</target>
 	<target name="jar" depends="compile">
 		<jar destfile="struktor.jar" basedir="${build}">
