@@ -34,9 +34,11 @@ extends JDialog implements ActionListener
     Border bd3 = BorderFactory.createCompoundBorder(bd1, bd2);
     ((JPanel)contentPane).setBorder(bd3);
 	if (Struktor.isApplet)
-		icon = new ImageIcon(struktor.getImage(struktor.getCodeBase(),"struktor/Logo.jpg"));
+		// only works when packaged as Jar
+		icon = new ImageIcon(struktor.getImage(Struktor.class.getResource("Logo.jpg")));
 	else
 		icon = new ImageIcon("struktor/Logo.jpg");
+	
 	
 	JButton ok = new JButton("Ok");
 	ok.addActionListener(this);

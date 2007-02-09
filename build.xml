@@ -3,6 +3,7 @@
 
      <property name="src" value="src"/> 
      <property name="build" value="build"/>
+	 <property name="procParser" value="ProcParserFactory/procParser.cup"/>
 
      <target name="init">  
           <mkdir dir="${build}"/>
@@ -17,5 +18,22 @@
 	  <delete verbose="true">
 	    <fileset dir="${build}"/>
 	  </delete>
+	</target>
+	<target name="ProcParser" depends="init"> 
+		<java classname="java_cup.Main" dir="ProcParserFactory" fork="true">
+		         <arg line="-parser ProcParser -symbols Psym procParser.cup"/>
+		         <classpath>
+		           <pathelement location="${build}"/>
+		         </classpath>
+		       </java>
+	</target>
+	<target name="jar" depends="compile">
+		<jar destfile="struktor.jar" basedir="${build}">
+		</jar>
+	</target>
+	<target name="runApplet" depends="jar">
+	     <exec dir="." executable="appletviewer">
+	       <arg value="struktor.html" />
+	     </exec>
 	</target>
 </project>
