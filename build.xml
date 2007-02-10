@@ -1,9 +1,10 @@
 <?xml version="1.0"?> 
 <project name="de.learn2prog.struktor" default="compile" basedir="."> 
+    
+	<taskdef name="cup" classname="java_cup.anttask.CUPTask" classpath="lib/java-cup-11a.jar"/>
 
-     <property name="src" value="src"/> 
+     <property name="src" value="src" location="src"/> 
      <property name="build" value="build"/>
-	 <property name="procParser" value="ProcParserFactory/procParser.cup"/>
 
      <target name="init">  
           <mkdir dir="${build}"/>
@@ -19,19 +20,29 @@
 	    <fileset dir="${build}"/>
 	  </delete>
 	</target>
-	<target name="ProcParser" depends="init" description="Builds the ProcParser"> 
-		<java dir="ProcParserFactory" fork="true" jar="lib/java-cup-11a.jar">
-		   <arg line="-parser ProcParser -symbols Psym procParser.cup"/>
+	<target name="ProcLexer" depends="init" description="Builds the ProcLexer"> 
+		<java dir="ProcLexerFactory" fork="true" jar="lib/JFlex.jar">
+		   <arg line="processor.lex"/>
         </java>
-		<copy file="ProcParserFactory/Psym.java" tofile="struktor/processor"/>
-		<copy file="ProcParserFactory/ProcParser.java" tofile="struktor/processor"/>
+		<copy file="ProcLexerFactory/Yylex.java" tofile="${src}/struktor/processor/Yylex.java"/>
 	</target>
-	<target name="LoadParser" depends="init" description="Builds the LoadParser"> 
-		<java dir="LoadParserFactory" fork="true" jar="lib/java-cup-11a.jar">
-		   <arg line="-parser LoadParser -symbols Lsym loadParser.cup"/>
+	<target name="LoadLexer" depends="init" description="Builds the LoadLexer"> 
+		<java dir="LoadLexerFactory" fork="true" jar="lib/JFlex.jar">
+		   <arg line="loader.lex"/>
         </java>
-		<copy file="LoadParserFactory/Lsym.java" tofile="struktor/strukelements"/>
-		<copy file="LoadParserFactory/LoadParser.java" tofile="struktor/strukelements"/>
+		<copy file="LoadLexerFactory/Yylex.java" tofile="${src}/struktor/strukelements/Yylex.java"/>
+	</target>
+	<target name="ParserBuild" depends="init" description="Builds the LoadParser"> 
+		<cup srcfile="LoadParserFactory/loadParser.cup" 
+			parser="LoadParser" 
+			symbols = "Lsym"
+			destdir="${src}"
+		/>
+		<cup srcfile="ProcParserFactory/procParser.cup" 
+			parser="ProcParser" 
+			symbols = "Psym"
+			destdir="${src}"
+		/>
 	</target>
 	<target name="jar" depends="compile">
 		<jar destfile="struktor.jar" basedir="${build}">

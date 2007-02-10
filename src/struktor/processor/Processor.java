@@ -5,6 +5,7 @@ package struktor.processor;
 import java.io.StringReader;
 import java.util.Vector;
 
+import java_cup.runtime.ComplexSymbolFactory;
 import java_cup.runtime.Symbol;
 
 import javax.swing.JOptionPane;
@@ -20,7 +21,7 @@ import struktor.strukelements.CommandTypes;
 
 /** Diese Klasse modelliert den Prozessor. Wichtigste Methoden sind
  *  die unterschiedlichen Parse-Methoden denen jeweils (unter anderem)
- *  ein Ausdruck übergeben wird, der dann ausgewertet wird.
+ *  ein Ausdruck ï¿½bergeben wird, der dann ausgewertet wird.
  *  @see Memory 
  */
 public class Processor 
@@ -28,8 +29,8 @@ implements CommandTypes, Datatype
 {
   	static public Struktor struktor;
 	static private Processor actualProcessor;
-	private ProcParser parser_obj = new ProcParser();
-	// Nur für ExprCalc (Wird sonst nicht benötigt)
+	private ProcParser parser_obj;
+	// Nur fï¿½r ExprCalc (Wird sonst nicht benï¿½tigt)
 	private Memory mem;
 	java.applet.Applet applet;
 	TurtleCanvas gOutput;
@@ -45,6 +46,7 @@ implements CommandTypes, Datatype
 	public Processor(Struktor struktor, Vector decList, TurtleCanvas gOutput, JTextArea tOutput)
 	throws InterruptedException
 	{
+		parser_obj = new ProcParser(null,new ComplexSymbolFactory());
 		if (false)
 			;
 		else
@@ -53,7 +55,7 @@ implements CommandTypes, Datatype
 			actualProcessor = this;
 			this.gOutput = gOutput;
 			this.tOutput = tOutput;
-			/* create a Memory-Object (Referenz ist über statische Methode erreichbar) */
+			/* create a Memory-Object (Referenz ist ï¿½ber statische Methode erreichbar) */
 	    	try {
 				mem = new Memory(decList);
 	    	} catch (ProcessorException pe) 
@@ -92,8 +94,8 @@ implements CommandTypes, Datatype
 		return parse_tree.value;
 	}
 	
-	/** Eine spezielle Parse-Methode für die Watchlist. Werden
-	 *  bei den geparsten Ausdrücken Werte geändert, gibts Ärger
+	/** Eine spezielle Parse-Methode fï¿½r die Watchlist. Werden
+	 *  bei den geparsten Ausdrï¿½cken Werte geï¿½ndert, gibts ï¿½rger
 	 * @param   s  
 	 * @return Der Wert der Variablen    
 	 * @exception   StruktorException  
@@ -121,7 +123,7 @@ implements CommandTypes, Datatype
 	
 
 	/** Diese Parse-Methode wird nur von der For Loop (und Klassenintern)
-	 *  aufgerufen. Kann glaub ich noch geändert werden, dann kann Sie 
+	 *  aufgerufen. Kann glaub ich noch geï¿½ndert werden, dann kann Sie 
 	 *  private werden
 	 * @param   s  
 	 * @return Der Wert des Ausdrucks   
@@ -135,7 +137,7 @@ implements CommandTypes, Datatype
   		Object result=null;
 		try {
 			result=internalParse(s);
-		// das catchen und anschließende rethrown muss sein !
+		// das catchen und anschlieï¿½ende rethrown muss sein !
 		} catch (ProcessorException pe) {throw pe;}
 		catch (LoopControlException lce) {throw lce;}
 		catch (InterruptedException ie) {throw ie;}
@@ -144,12 +146,12 @@ implements CommandTypes, Datatype
 		return result;
 	}
 	
-	/** Eine von Zwei (öffentlichen) parse-Methoden. Diese hier wird von den StrukElementen aufgerufen um Input/Output implementieren zu können. ruft seinerseits die andere parse-Methode auf
+	/** Eine von Zwei (ï¿½ffentlichen) parse-Methoden. Diese hier wird von den StrukElementen aufgerufen um Input/Output implementieren zu kï¿½nnen. ruft seinerseits die andere parse-Methode auf
 	 * @see parse
 	 * @param   label  
 	 * @param   action (INPUT,OUTPUT,CALCULATION)  
-	 * @param   adMessage zusätzliche Meldung für INPUT/OUTPUT
-	 * @return  Das Resultat des Ausdrucks im Double-Format (eigentlich nur für Loop/Condition (SteuerungsInfos))
+	 * @param   adMessage zusï¿½tzliche Meldung fï¿½r INPUT/OUTPUT
+	 * @return  Das Resultat des Ausdrucks im Double-Format (eigentlich nur fï¿½r Loop/Condition (SteuerungsInfos))
 	 * @exception   InterruptedException  
 	 * @exception   LoopControlException  
 	 * @exception   ReturnException  
@@ -178,10 +180,10 @@ implements CommandTypes, Datatype
   	}
 	
 
-	/** Kapselt die Eingabe in der parse()-Methode, wurde extra eingeführt um verschiedene Datentypen eingeben zu können
+	/** Kapselt die Eingabe in der parse()-Methode, wurde extra eingefï¿½hrt um verschiedene Datentypen eingeben zu kï¿½nnen
 	 * @param   label  
 	 * @param   adMessage  
-	 * @return das geänderte label (a wird z.b. (bei String) zu a = "blabla";)     
+	 * @return das geï¿½nderte label (a wird z.b. (bei String) zu a = "blabla";)     
 	 * @exception   InterruptedException  
 	 */
 	private String input(String label, String adMessage)
@@ -190,18 +192,18 @@ implements CommandTypes, Datatype
 		String saveLabel = label;
 		String input = getValueFromUser(adMessage);
 		try {
-			// ist das nötig ? --> resetValuesChangedFlag();
+			// ist das nï¿½tig ? --> resetValuesChangedFlag();
 			Pointer pointerToLValue = (Pointer)parse("&("+label+");");
 			int typeOfVariable = pointerToLValue.getTypeOfPointer();	
 			switch (typeOfVariable)
 			{
 			case INTEGER:
-				// Schau mer mal ob das als Integer durchgeht ! (Bei Text würde es ansonsten als Variable indentifiziert werden)
+				// Schau mer mal ob das als Integer durchgeht ! (Bei Text wï¿½rde es ansonsten als Variable indentifiziert werden)
 				Integer.parseInt(input);
 				label = label + "=" + input + ";";
 				break;
 			case DOUBLE:
-				// Schau mer mal ob das als Double durchgeht ! (Bei Text würde es ansonsten als Variable indentifiziert werden)
+				// Schau mer mal ob das als Double durchgeht ! (Bei Text wï¿½rde es ansonsten als Variable indentifiziert werden)
 				Double.parseDouble(input);
 				label = label + "=" + input + ";";
 				break;
@@ -217,7 +219,7 @@ implements CommandTypes, Datatype
 			}
 		}
 		catch (NumberFormatException nfe) {
-			// Benutzer hat wohl eher Text eingegeben !! (Exception wird später geworfen)
+			// Benutzer hat wohl eher Text eingegeben !! (Exception wird spï¿½ter geworfen)
 			label = label + "=\"" + input + "\";";}
 		catch (Exception e) { new ProcessorException("Syntax Error in Input-Statement: "+saveLabel).showMsg(Utils.getFrame(struktor)); throw new InterruptedException();}
 			
@@ -226,7 +228,7 @@ implements CommandTypes, Datatype
 	
 	}
 
-	/** Hilfsmethode: wird von input() verwendet. Gibt die Eingabe den Benutzers als String zurück
+	/** Hilfsmethode: wird von input() verwendet. Gibt die Eingabe den Benutzers als String zurï¿½ck
 	 * @param   adMessage (die angezeigte Meldung)  
 	 * @return Die Eingabe des Benutzers als String
 	 * @exception   InterruptedException  
@@ -266,7 +268,7 @@ implements CommandTypes, Datatype
 	}
 	
 
-	/** Getter-Methode: Gibt zurück ob ein Wert während des Parsens geändert wurde. 
+	/** Getter-Methode: Gibt zurï¿½ck ob ein Wert wï¿½hrend des Parsens geï¿½ndert wurde. 
 	 * @see resetValuesChangedFlag
 	 * @see valueChanged, resetValuesChangedFlag
 	 * @return     
@@ -277,8 +279,8 @@ implements CommandTypes, Datatype
 	}
 	
 
-	/** Muß vorher aufgerufen werden, damit man eindeutig festellen kann ob im Ausdruck,
-	 *  der der watchlist-parse-Methode übergeben wurde, eine Variable ändert 
+	/** Muï¿½ vorher aufgerufen werden, damit man eindeutig festellen kann ob im Ausdruck,
+	 *  der der watchlist-parse-Methode ï¿½bergeben wurde, eine Variable ï¿½ndert 
 	 *  @see valueChanged, getValuesChangedFlag
 	 */
 	public void resetValuesChangedFlag()
@@ -287,7 +289,7 @@ implements CommandTypes, Datatype
 	}
 	
 
-	/** Wird vom Parser aufgerufen, wenn Variablen geändert wurden
+	/** Wird vom Parser aufgerufen, wenn Variablen geï¿½ndert wurden
 	 *  @see resetValuesChangedFlag, getValuesChangedFlag
 	 */
 	void valueChanged()
@@ -296,7 +298,7 @@ implements CommandTypes, Datatype
 	}
 	
 
-	/** Getter-Methode die grafische Ausgabe möglich wird
+	/** Getter-Methode die grafische Ausgabe mï¿½glich wird
 	 * @return Das GraphicalOutput-Objekt    
 	 */
 	TurtleCanvas getGOutput()
@@ -304,7 +306,7 @@ implements CommandTypes, Datatype
 		return gOutput;
 	}
 	
-	/** Getter-Methode die Text-Ausgabe (Console) möglich wird
+	/** Getter-Methode die Text-Ausgabe (Console) mï¿½glich wird
 	 * @return Das TextOutput-Objekt    
 	 */
 	JTextArea getTOutput()
