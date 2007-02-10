@@ -27,6 +27,10 @@ class Switch extends StrukElement
 implements CommandTypes, Constants
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private StrukElement defaultt=null;
 	private Vector altList=null;
 	
@@ -131,8 +135,6 @@ implements CommandTypes, Constants
 	void calcNext()
 	{	
 		try {
-			int maxHeight=getAltMaxHeight();
-					
 			if (getNext()!=null)
 			{
 				getNext().setX(getX());
@@ -176,11 +178,11 @@ implements CommandTypes, Constants
 	int calcHeight()
 	throws ResizeException
 	{
-		// Diese Scheißmethode ist nur deswegen so lang weil alles noch mal extra für defaultt implementiert werden muß :-( Es läßt sich ernsthaft überlegen ob man die nicht evtl. auch noch in den Verktor verschiebt !
+		// Diese Scheiï¿½methode ist nur deswegen so lang weil alles noch mal extra fï¿½r defaultt implementiert werden muï¿½ :-( Es lï¿½ï¿½t sich ernsthaft ï¿½berlegen ob man die nicht evtl. auch noch in den Verktor verschiebt !
 		int h=getHeight();
 		int maxHeight=getAltMaxHeight();
 		int minHeight=getAltMinHeight();
-		// Extrawurscht für default :-(
+		// Extrawurscht fï¿½r default :-(
 		if (defaultt.calcHeight()<minHeight)
 			minHeight=defaultt.calcHeight();
 		if (defaultt.calcHeight()>maxHeight)
@@ -188,7 +190,7 @@ implements CommandTypes, Constants
 		boolean flag=true;
 		for (Enumeration el=altList.elements(); el.hasMoreElements(); )
     	{
-			// Extrawurscht für Defaultt:
+			// Extrawurscht fï¿½r Defaultt:
 			if (defaultt!=resizingElement && flag==true)
 			{
 				flag=false;
@@ -288,8 +290,6 @@ implements CommandTypes, Constants
 	{
 		int width = getSize().width;
 		int height = getSize().height;
-		int x = getX();
-		int y = getY();
 		int labelWidth = g.getFontMetrics().stringWidth(getLabel());
 		int defaultWidth = g.getFontMetrics().stringWidth("default");
 		super.paintComponent(g);

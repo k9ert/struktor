@@ -17,10 +17,14 @@ import javax.swing.JTextField;
 import struktor.Presets;
 import struktor.processor.datatypes.Datatype;
 
-/** Eine Klasse fr Deklarationen */
+/** Eine Klasse fï¿½r Deklarationen */
 public class Dec extends JPanel
 implements ItemListener, ActionListener, Datatype
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Object Variables
 	JButton delete = new JButton("delete");
 	JButton incDim = new JButton("incDim");
@@ -143,7 +147,7 @@ implements ItemListener, ActionListener, Datatype
 		return parameter.isSelected();	
 	}
 	
-	/** Eine Variable zum Parameter (fr das zugeh÷rige Struktogramm) machen */
+	/** Eine Variable zum Parameter (fï¿½r das zugehï¿½rige Struktogramm) machen */
 	void setParameter(boolean temp)
 	{
 		parameter.setSelected(temp);
@@ -169,7 +173,7 @@ implements ItemListener, ActionListener, Datatype
 			arrayDeSelected();	
 	}
 		
-	/** Index eines Arrays zurckgeben */
+	/** Index eines Arrays zurï¿½ckgeben */
 	public int getIndex()
 	{
 		return new Integer(indizes.getText()).intValue()*
@@ -183,7 +187,7 @@ implements ItemListener, ActionListener, Datatype
 		indizes.setText(new Integer(i).toString());
 	}
 	
-	/** Datentyp zurckgeben */
+	/** Datentyp zurï¿½ckgeben */
 	public int getType()
 	{
 		String typeString = (String)type.getSelectedItem();
@@ -226,7 +230,7 @@ implements ItemListener, ActionListener, Datatype
 		}
 	}
 	
-	/** VariablenName zurckgeben */
+	/** VariablenName zurï¿½ckgeben */
 	public String getName()
 	{
 		return name.getText();
@@ -238,7 +242,7 @@ implements ItemListener, ActionListener, Datatype
 		this.name.setText(name);
 	}
 	
-	/** Wert (der bei der Deklaration festgelegt wurde) zurckgeben */
+	/** Wert (der bei der Deklaration festgelegt wurde) zurï¿½ckgeben */
 	public String getValue()
 	{
 		return textValue.getText();
@@ -250,7 +254,7 @@ implements ItemListener, ActionListener, Datatype
 		textValue.setText(value);
 	}
 	
-	/** Format-Code fr printf und scanff zurckgeben */
+	/** Format-Code fï¿½r printf und scanff zurï¿½ckgeben */
 	String getCFormatCode()
 	{
 		if (((String)type.getSelectedItem()).equals("Integer"))
@@ -385,7 +389,7 @@ implements ItemListener, ActionListener, Datatype
 		revalidate();
 	}
 	
-	/** Aktualisiert den View (Dimension eines Arrays erh÷ht)*/
+	/** Aktualisiert den View (Dimension eines Arrays erhï¿½ht)*/
 	private void incDim()
 	{
 		remove(incDim);
@@ -411,7 +415,6 @@ implements ItemListener, ActionListener, Datatype
 	public void save(struktor.Save saveObject)
 	{
 		int type = getType();
-	    String declaration;
 		String typeAsString = "";
 		String name = "";
 		String value = "";

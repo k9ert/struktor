@@ -34,11 +34,11 @@ import struktor.Presets;
 import struktor.StruktorException;
 import struktor.Utils;
 
-/** Eine Klasse (-nnhierarchie) um elegant MouseEreignisse behandeln zu können */
+/** Eine Klasse (-nnhierarchie) um elegant MouseEreignisse behandeln zu kï¿½nnen */
 class StrukElementEvt extends MouseAdapter
 implements MouseMotionListener, MouseListener, Constants
 {
-	/** Sensibilität der Mouse (ab wann reagiert zb der Drag-Point)*/
+	/** Sensibilitï¿½t der Mouse (ab wann reagiert zb der Drag-Point)*/
 	static int sensible=10;
 	static boolean debug = false;
 	static Struktogramm struktogramm;
@@ -82,9 +82,8 @@ implements MouseMotionListener, MouseListener, Constants
 		
 		if (e.isMetaDown())
 		{
-			JDialog properties;
 			if (struktogramm.presets.enabSePopUp)
-				properties = new StrukElementEvtPopUp(e);	
+				new StrukElementEvtPopUp(e);	
 		}	
 	}
 	
@@ -119,7 +118,7 @@ implements MouseMotionListener, MouseListener, Constants
 	  		// Fenstergrenzen beachten (Sicherheitsabstand 10Pixel)
 			if (male.getX()+e.getX()+10 < struktogramm.getView().getWidth())
 				male.setWidth(e.getX());
-	  	// oder resize Höhe ?
+	  	// oder resize Hï¿½he ?
 		if (male.resizeHeight==true)
 		{
 			if (male.getHeight()>e.getY())
@@ -128,7 +127,7 @@ implements MouseMotionListener, MouseListener, Constants
 				StrukElement.gettingSmaller = false;
 			StrukElement.resizingElement=male;	
 			male.setHeightByUser(e.getY());
-			// Das erspart aus nicht erfindlichen Gründen Ärger !
+			// Das erspart aus nicht erfindlichen Grï¿½nden ï¿½rger !
 			StrukElement.gettingSmaller=false;
 			StrukElement.resizingElement=null;	
 		}
@@ -211,16 +210,19 @@ implements MouseMotionListener, MouseListener, Constants
    	
 }
 
-/** Die Klasse für das Pop-Up-Fenster
+/** Die Klasse fï¿½r das Pop-Up-Fenster
  */
 class StrukElementEvtPopUp 
 extends JDialog
 implements ActionListener, ItemListener, Constants
 {
-	private Properties propertiesPopUp;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private StrukElement element;
 	public Presets presets;
-	// Für (fast) alle Elemente
+	// Fï¿½r (fast) alle Elemente
 	private JMenuItem properties;
 	private JMenuItem delete, swop;
 	private JMenuItem insCommand, insHeadLoop, insTailLoop, insForLoop, insCondition, insSwitch;
@@ -242,24 +244,24 @@ implements ActionListener, ItemListener, Constants
 		element = (StrukElement)event.getSource();
 		this.presets=element.presets;
 		JPopupMenu popup = new JPopupMenu();
-		//properties hinzufügen
+		//properties hinzufï¿½gen
 		if (presets.enabSePuProperties)
 		{
 			properties = new JMenuItem("properties");
 			properties.addActionListener(this);
 			popup.add(properties);
-			//Separator hinzufügen
+			//Separator hinzufï¿½gen
 			popup.addSeparator();
 		}
 		
-		//insert Menü erzeugen, hinzufügen
+		//insert Menï¿½ erzeugen, hinzufï¿½gen
 		if (presets.enabSePuInsert)
 		{
 			insert = makeInsertMenu();
 			popup.add(insert);
 		}
 	
-		//append Menü erzeugen, hinzufügen
+		//append Menï¿½ erzeugen, hinzufï¿½gen
 		if (presets.enabSePuAppend)
 		{
 			append = makeAppendMenu();
@@ -309,7 +311,7 @@ implements ActionListener, ItemListener, Constants
 		
 		if (presets.enabSePuDelete)
 		{
-			// delete Menü oder delete erzeugen und hinzufügen 
+			// delete Menï¿½ oder delete erzeugen und hinzufï¿½gen 
 			if (element instanceof Command)
 			{
 				delete = new JMenuItem("delete");
@@ -331,7 +333,7 @@ implements ActionListener, ItemListener, Constants
 			popup.add(breakpoint);
 		}
 			
-		//Menü anzeigen
+		//Menï¿½ anzeigen
 		popup.show(element, event.getX(), event.getY());
 			
 	}
@@ -492,7 +494,7 @@ implements ActionListener, ItemListener, Constants
 	{
 		Object src = event.getSource();
 		if (src == properties)
-			propertiesPopUp = new Properties(Utils.getFrame(element), element);
+			new Properties(Utils.getFrame(element), element);
 			
 		if (src == insCommand)
 			element.insert(COMMAND);	
@@ -555,12 +557,15 @@ implements ActionListener, ItemListener, Constants
 		element.repaint();				
 	}
 
-	/** Klasse für das Property-Menu
+	/** Klasse fï¿½r das Property-Menu
 	 */		
 	class Properties
 	extends JDialog implements ActionListener, ItemListener, Runnable
 	{
-		private boolean result;
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private StrukElement element;
 		private JPanel prop;
 		private JComboBox action;
@@ -569,10 +574,10 @@ implements ActionListener, ItemListener, Constants
 		private JTextField adMessage;
 		private JTextField label;
 		private JButton ok;
-		// Nur für ForLoop
+		// Nur fï¿½r ForLoop
 		private JTextField initLabel;
 		private JTextField stepLabel;
-		// Nur für Switch
+		// Nur fï¿½r Switch
 		private JButton newAlt;
 		
 		Properties(Frame parent, StrukElement s)
@@ -682,7 +687,7 @@ implements ActionListener, ItemListener, Constants
 			else if (event.getSource() == newAlt)
 			{
 				((Switch)element).addAlt();
-				Properties propertiesPopUp = new Properties(Utils.getFrame(element), element);
+				new Properties(Utils.getFrame(element), element);
 				dispose();
 			}
 			
@@ -693,7 +698,7 @@ implements ActionListener, ItemListener, Constants
 			SwingUtilities.invokeLater(this);
 		}
 		
-		/** Ist nötig weil sonst nicht Threadsicher !!!! Fügt das Feld für AdditionalMessage hinzu oder entfernt es
+		/** Ist nï¿½tig weil sonst nicht Threadsicher !!!! Fï¿½gt das Feld fï¿½r AdditionalMessage hinzu oder entfernt es
 		 */
 		public void run()
 		{

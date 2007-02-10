@@ -16,19 +16,17 @@ import javax.swing.event.ChangeListener;
 
 import struktor.Struktor;
 
-/** Eine Klasse für die AusführungsSteuerung der Struktogramme (execute-Button, Geschwindigkeitsregler ...)
+/** Eine Klasse fï¿½r die Ausfï¿½hrungsSteuerung der Struktogramme (execute-Button, Geschwindigkeitsregler ...)
  * Wird nur EINMAL instanziert und steuert alle Struktogramme
  */
 public class StruktogrammEvt extends Box
 implements ActionListener, ItemListener, ChangeListener
 {
-	// Static Variables
-	static private final int COMMAND=0;
-	static private final int HEADLOOP=1;
-	static private final int TAILLOOP=2;
-	static private final int CONDITION=3;
 	
-		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Object Variables
 	JButton execute = new JButton("execute");
 	JCheckBox debugMode;
@@ -55,7 +53,7 @@ implements ActionListener, ItemListener, ChangeListener
 		delay.addChangeListener(this);
 	}
 	
-	// Für die Subklasse
+	// Fï¿½r die Subklasse
 	public StruktogrammEvt()
 	{
 		super(BoxLayout.X_AXIS);

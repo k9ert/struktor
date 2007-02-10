@@ -15,6 +15,11 @@ class TailLoop extends Loop
 implements CommandTypes
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	TailLoop(Struktogramm s, String label)
 	{
 	 	super(s, label);	
@@ -51,7 +56,7 @@ implements CommandTypes
 		g.drawLine(getHorWidth(), 0, getHorWidth(), height-1-getVerHeight());
 		// nach rechts
 		g.drawLine(getHorWidth(), height-1-getVerHeight(), width-1, height-1-getVerHeight());
-		// kleines Stück nach unten	
+		// kleines Stï¿½ck nach unten	
 		g.drawLine(width-1, height-1-getVerHeight(), width-1, height-1);
 		// nach links
 		g.drawLine(width-1, height-1, 0, height-1);

@@ -16,6 +16,11 @@ class HeadLoop extends Loop
 implements CommandTypes
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	HeadLoop(Struktogramm s, String label)
 	{
 	 	super(s, label);
@@ -25,7 +30,6 @@ implements CommandTypes
 	throws ProcessorException, InterruptedException, LoopControlException, ReturnException
 	{
 		try {
-			double result;
 			delayAndPaint(p);
 			while (p.parse(getLabel()+";", CALCULATION, "") != 0)
 			{
@@ -53,13 +57,13 @@ implements CommandTypes
        
 	   // Die Figur (ohne Topline)
        
-       // kleines Stück runter
+       // kleines Stï¿½ck runter
        g.drawLine(width-1, 0, width-1, getVerHeight());
        // wieder nach links fast soweit
        g.drawLine(width-1, getVerHeight(), getHorWidth(), getVerHeight());
        // runter
        g.drawLine(getHorWidth(), getVerHeight(), getHorWidth(), height-1);
-       // kleines Stück links)
+       // kleines Stï¿½ck links)
        g.drawLine(getHorWidth(), height-1, 0, height-1);
        // und wieder rauf
        g.drawLine(0, height-1, 0, 0);

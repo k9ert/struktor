@@ -5,7 +5,6 @@ import java.awt.AWTException;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.BufferedOutputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
@@ -20,6 +19,10 @@ import struktor.util.gifencoder.GIFEncoder;
 public class StruktogrammView extends JLayeredPane
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Object Variables
 	Struktor struktor;
 	public Presets presets;

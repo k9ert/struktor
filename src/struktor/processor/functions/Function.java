@@ -20,7 +20,7 @@ import struktor.processor.datatypes.Pointer;
 import struktor.processor.operators.Expr;
 import struktor.strukelements.Struktogramm;
 
-/** Ermöglicht das Aufrufen von Funktionen. Wird im Prinzip genauso wie die Operatoren verwendet
+/** Ermï¿½glicht das Aufrufen von Funktionen. Wird im Prinzip genauso wie die Operatoren verwendet
  */
 
 public class Function extends Expr
@@ -42,8 +42,8 @@ implements Datatype
 	 * @param   struktor  
 	 * @param   name (der Name der Funktion)
 	 * @param   parameter (Die Parameter der Funktion)
-	 * @param   gOutput (ermöglicht grafische Ausgabe)
-	 * @param   tOutput (ermöglich textuelle Ausgabe)
+	 * @param   gOutput (ermï¿½glicht grafische Ausgabe)
+	 * @param   tOutput (ermï¿½glich textuelle Ausgabe)
 	 * @param   memory (damit ein neues Formular angelegt werden kann ...)
 	 */
 	public Function(Struktor struktor, String name, Vector parameter, TurtleCanvas gOutput, JTextArea tOutput, Memory memory)
@@ -136,7 +136,7 @@ implements Datatype
 	}
 	
 
-	/** Eine mathematische Funktion ausführen (java.Math)
+	/** Eine mathematische Funktion ausfï¿½hren (java.Math)
 	 * @param   method  
 	 * @return     
 	 * @exception   ProcessorException  
@@ -159,7 +159,7 @@ implements Datatype
 	}
 	
 
-	/** Eine grafische Funktion ausführen (java.awt.Graphics)
+	/** Eine grafische Funktion ausfï¿½hren (java.awt.Graphics)
 	 * @param   method  
 	 * @return     
 	 * @exception   ProcessorException  
@@ -170,7 +170,7 @@ implements Datatype
 		Graphics output = gOutput.getGraphics();
 		if (output == null)
 			throw new ProcessorException("Error: Output-Window is closed \n(activate left-upper checkbox!)");
-		// Extrawurscht für setColor(Color color); (geht aber leider nicht)
+		// Extrawurscht fï¿½r setColor(Color color); (geht aber leider nicht)
 		if (method.getName().equals("setColor"))
 		{
 			Integer[] rgb = new Integer[3];
@@ -199,7 +199,7 @@ implements Datatype
 	}
 	
 
-	/** Eine Turtle Funktion ausführen (struktor.TurtleCanvas)
+	/** Eine Turtle Funktion ausfï¿½hren (struktor.TurtleCanvas)
 	 * @param   method  
 	 * @return     
 	 * @exception   ProcessorException  
@@ -222,9 +222,9 @@ implements Datatype
 		}
 	}
 	
-	/** Funktioniert noch nicht. Der Gedanke ist der, daß jeder 
+	/** Funktioniert noch nicht. Der Gedanke ist der, daï¿½ jeder 
 	 *  beliebige Funktionen (Methoden) in die Klasse Functions
-	 *  reinschreiben kann. Die sollen dann auch ausführbar sein
+	 *  reinschreiben kann. Die sollen dann auch ausfï¿½hrbar sein
 	 */
 	private Object executeInternalFunction(Method method)
 	throws ProcessorException
@@ -255,7 +255,6 @@ implements Datatype
 			claz = Class.forName(classs);
 		} catch (ClassNotFoundException cnfe) {Tracer.out(cnfe);return null;}
 		Method[] methods = claz.getMethods();
-		int cnt = 0;
 		for (int i = 0; i < methods.length; ++i)
 		{
       		String name = methods[i].getName();		  

@@ -9,15 +9,20 @@ import struktor.processor.Processor;
 import struktor.processor.ProcessorException;
 import struktor.processor.ReturnException;
 
-/** Eine Klasse fr die Condition */
+/** Eine Klasse fï¿½r die Condition */
 class Condition extends StrukElement
 implements CommandTypes, Constants
 {
 
-	/** Kann leider nicht private gemacht werden! alt1 und alt2 wird EINMAL von StrukElement.delConnection direkt ge„ndert */
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/** Kann leider nicht private gemacht werden! alt1 und alt2 wird EINMAL von StrukElement.delConnection direkt geï¿½ndert */
 	StrukElement alt1=null;
 	
-	/** Kann leider nicht private gemacht werden! alt1 und alt2 wird EINMAL von StrukElement.delConnection direkt ge„ndert */
+	/** Kann leider nicht private gemacht werden! alt1 und alt2 wird EINMAL von StrukElement.delConnection direkt geï¿½ndert */
 	StrukElement alt2=null;
 	
 	/** Die grafische Relation von True-Part zu False-Part */ 
@@ -128,7 +133,7 @@ implements CommandTypes, Constants
 		
 		int alt1Height=alt1.calcHeight();
 		int alt2Height=alt2.calcHeight();
-		// links gr÷˜er wie rechts ?
+		// links grï¿½er wie rechts ?
 		if (alt1Height > alt2Height)
 		{
 			// Differenz ausrechnen
@@ -138,11 +143,11 @@ implements CommandTypes, Constants
 				// links kleiner machen
 				makeBlockSmaller(alt1,diff);
 			else
-				// sonst rechts gr÷˜er machen
+				// sonst rechts grï¿½er machen
 				makeBlockLarger(alt2,diff);
 			h = h + alt1Height;
 		}
-		// rechts gr÷˜er wie links
+		// rechts grï¿½er wie links
 		else if (alt1Height < alt2Height)
 		{
 			int diff = alt2Height-alt1Height;
@@ -188,7 +193,7 @@ implements CommandTypes, Constants
 			next.deleteAll();
 			next = saveNext;
 		}
-		if (getAlt1()!=null) // Kann vorkommen weil beim l÷schen (siehe z.b unten) auch wieder Elemente produziert werden k÷nnen
+		if (getAlt1()!=null) // Kann vorkommen weil beim lï¿½schen (siehe z.b unten) auch wieder Elemente produziert werden kï¿½nnen
 			getAlt1().delete(true);
 		if (getAlt2()!=null)
 			getAlt2().delete(true);
@@ -233,8 +238,6 @@ implements CommandTypes, Constants
 	{
 		int width = getSize().width;
 		int height = getSize().height;
-		int x = getX();
-		int y = getY();
 		int labelWidth = g.getFontMetrics().stringWidth(getLabel());
 		int trueWidth = g.getFontMetrics().stringWidth("true");
 		int falseWidth = g.getFontMetrics().stringWidth("false");
@@ -279,7 +282,7 @@ implements CommandTypes, Constants
 	
 	void save(struktor.Save saveObject)
 	{
-		// Bei CCode mssen auf jeden Fall geschweifte Klammern gesetzt werden, da evtl. ein Command mehr als ein Kommando produziert
+		// Bei CCode mï¿½ssen auf jeden Fall geschweifte Klammern gesetzt werden, da evtl. ein Command mehr als ein Kommando produziert
 		boolean printPara1 = blockPrint(getAlt1());
 		boolean printPara2 = blockPrint(getAlt2());
 		saveObject.println("if ("+getLabel()+")");

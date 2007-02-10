@@ -6,6 +6,10 @@ package struktor.strukelements;
  */
 public class ResizeException extends struktor.StruktorException
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static final public int WIDTH = 1;
 	static final public int HEIGHT = 2;
 	

@@ -23,7 +23,7 @@ implements Datatype {
 	throws struktor.processor.ProcessorException
 	{
 		Object result = operand.eval();
-		Object value = new Assign(operand,new BinaryPlus(operand,new Const(new Integer(1))),memory).eval();
+		new Assign(operand,new BinaryPlus(operand,new Const(new Integer(1))),memory).eval();
 		return result;
 	}
 

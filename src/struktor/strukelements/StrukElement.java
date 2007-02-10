@@ -16,14 +16,14 @@ import struktor.processor.Processor;
 import struktor.processor.ProcessorException;
 import struktor.processor.ReturnException;
 
-/** Diese abstrakte Klasse (StruktogrammElement) stellt einen Grossteil der Funktionalität für die Unterklassen Command, Loop und Condition zur Verfügung. Die Kommunikation mit dem Anwender wurde in eine gleichartige Klassenhierarchie gekapselt. Die Klasse enthält vorwiegend package-Methoden, da sie von den Unterklassen aufgerufen werden 
+/** Diese abstrakte Klasse (StruktogrammElement) stellt einen Grossteil der Funktionalitï¿½t fï¿½r die Unterklassen Command, Loop und Condition zur Verfï¿½gung. Die Kommunikation mit dem Anwender wurde in eine gleichartige Klassenhierarchie gekapselt. Die Klasse enthï¿½lt vorwiegend package-Methoden, da sie von den Unterklassen aufgerufen werden 
  * @see StrukElementEvt
  */
 abstract class StrukElement extends JComponent
 implements Constants
 {
 	//statische Variablen
-	// wird verwendet um festzustellen ob der Benutzer ein Element gerade vergrößert oder verkleinert
+	// wird verwendet um festzustellen ob der Benutzer ein Element gerade vergrï¿½ï¿½ert oder verkleinert
 	static boolean gettingSmaller = true;
 	static StrukElement resizingElement=null;
 	public final static int standardLayer = -30000;
@@ -45,7 +45,7 @@ implements Constants
 			return getFirstOfBlock(element).connectionType;
 	}
 	
-	/** Liefert das Element über dem Block
+	/** Liefert das Element ï¿½ber dem Block
 	 * @param   first  
 	 * @return das letzte Element des Blocks  
 	 */
@@ -84,7 +84,7 @@ implements Constants
 		}
 	}	
 	
-	/** Macht einen den Block in dem startElement (hoffentlich) das erste Element ist um diff größer
+	/** Macht einen den Block in dem startElement (hoffentlich) das erste Element ist um diff grï¿½ï¿½er
 	 * @param   startElement  
 	 * @param   diff  
 	 */
@@ -153,7 +153,7 @@ implements Constants
 			getNext().recalculate();
 	}
 	
-	/** war ursprünglich static, wurde aber speziell für Switch wieder Objektgebunden implementiert. Verknüpft 2 Elemente auf die angegebene Art
+	/** war ursprï¿½nglich static, wurde aber speziell fï¿½r Switch wieder Objektgebunden implementiert. Verknï¿½pft 2 Elemente auf die angegebene Art
 	 * @param   connectionType  
 	 * @param   father  
 	 * @param   child  
@@ -181,7 +181,7 @@ implements Constants
 	}
 	
 
-	/** Kapselt die Funktionalität die alle Elemente beim Ausführen gemeinsam haben um den Programmfluß (außerhalb der Funktionalität der Elemente) steuern zu können
+	/** Kapselt die Funktionalitï¿½t die alle Elemente beim Ausfï¿½hren gemeinsam haben um den Programmfluï¿½ (auï¿½erhalb der Funktionalitï¿½t der Elemente) steuern zu kï¿½nnen
 	 * @param   element  
 	 * @param   processor  
 	 * @exception   InterruptedException  
@@ -232,7 +232,7 @@ implements Constants
 				struktogramm.getView().add(this);
 				try {paint(getGraphics());}
 				catch (NullPointerException npe) 
-				{// kommt manchmal vor, ich weiß nur nicht warum !
+				{// kommt manchmal vor, ich weiï¿½ nur nicht warum !
 				}
 			}
 			// nicht doppelt warten ...
@@ -257,15 +257,15 @@ implements Constants
 		}
 	}		
 	
-	/** Ändert das nächste Element. Wurde etwas komplexer um zirkuläre Verknüfungen vermeiden zu können
+	/** ï¿½ndert das nï¿½chste Element. Wurde etwas komplexer um zirkulï¿½re Verknï¿½fungen vermeiden zu kï¿½nnen
 	 * @param next  
 	 */
 	private void setNext(StrukElement next)
 	{
-		// Wenn das nächste Element nicht null ist, dann erst mal seine Connection löschen !
+		// Wenn das nï¿½chste Element nicht null ist, dann erst mal seine Connection lï¿½schen !
 	  if (next!=null)
 	     next.delConnection();
-	  // Wenn das aktuelle nächste Element nicht null ist, auch die Connection löschen !
+	  // Wenn das aktuelle nï¿½chste Element nicht null ist, auch die Connection lï¿½schen !
 	  if (this.next!=null)
 	     this.next.delConnection();
 	  // Jetzt den pot next zum aktuellen next machen
@@ -299,10 +299,10 @@ implements Constants
 	    return false;
 	}
 	
-	/** Wird von next, inside und alt benutzt um den Vorgänger zu loeschen ändert DIREKT die next-Variable des Vorgängers !!!!
+	/** Wird von next, inside und alt benutzt um den Vorgï¿½nger zu loeschen ï¿½ndert DIREKT die next-Variable des Vorgï¿½ngers !!!!
 	 */
 	void delConnection() {
-		if (hasUpConnection()) // ist bereits verknüpft !!
+		if (hasUpConnection()) // ist bereits verknï¿½pft !!
 		{
 		switch(connectionType)
 		{
@@ -330,7 +330,7 @@ implements Constants
 	}
 	
 
-	/** Ein Element einfügen
+	/** Ein Element einfï¿½gen
 	 * @param   typeOfElement  
 	 */
 	void insert(int typeOfElement)
@@ -345,7 +345,7 @@ implements Constants
 			struktogramm.setFirst(element);
 	}
 	
-	/** Ein Element anhängen
+	/** Ein Element anhï¿½ngen
 	 * @param   typeOfElement  
 	 */	
 	void append(int typeOfElement)
@@ -357,7 +357,7 @@ implements Constants
 		Tracer.out("Layer: "+element.getLayer(0));
 	}
 
-	/** Dieses Element mit dem Vorgänger tauschen
+	/** Dieses Element mit dem Vorgï¿½nger tauschen
 	 */
 	void swop()
 	{
@@ -380,7 +380,7 @@ implements Constants
 			upper.setNext(null);
 	}
 	
-	/** Zu einer Schleife (die direkt davorhängt) hinzufügen
+	/** Zu einer Schleife (die direkt davorhï¿½ngt) hinzufï¿½gen
 	 */
 	void addToLoop()
 	{
@@ -390,8 +390,8 @@ implements Constants
 		struktogramm.setLayer(loop,loop.getLayer(standardLayer));
 	}
 	
-	/** Zu einer Condition (die direkt davorhängt) hinzufügen
-	 * @param   part (gibt an zu welchem Teil der Condition es hinzugefügt werden soll)
+	/** Zu einer Condition (die direkt davorhï¿½ngt) hinzufï¿½gen
+	 * @param   part (gibt an zu welchem Teil der Condition es hinzugefï¿½gt werden soll)
 	 */
 	void addToCondition(boolean part)
 	{
@@ -404,7 +404,7 @@ implements Constants
 		tare();			
 	}
 	
-	/** Außerhalb einer Condition oder Loop schieben
+	/** Auï¿½erhalb einer Condition oder Loop schieben
 	 */
 	void moveOutsideBlock()
 	{
@@ -419,10 +419,10 @@ implements Constants
 	
 	}
 	
-	/** Ein Element löschen
-	 * @param   must (Gibt an ob die Löschung unter bestimmten Bedingungen auch
-	 * "simuliert" werden darf indem einfach der Inhalt gelöscht wird)
-	 * Die Abfrage innterhalb von (must==false) gehört aber eigentlich nach Evt da must==false eh nur dort vorkommt ?! 
+	/** Ein Element lï¿½schen
+	 * @param   must (Gibt an ob die Lï¿½schung unter bestimmten Bedingungen auch
+	 * "simuliert" werden darf indem einfach der Inhalt gelï¿½scht wird)
+	 * Die Abfrage innterhalb von (must==false) gehï¿½rt aber eigentlich nach Evt da must==false eh nur dort vorkommt ?! 
 	 */
 	void delete(boolean must)
 	{
@@ -430,8 +430,8 @@ implements Constants
 		{
 			if (connectionType != NEXT && getNext() == null)
 			// z.b. einzigstes Element unter dem true-part einer Condition
-			// ==> Darf nicht gelöscht werden
-			label = ""; // Löschung wird "simuliert"
+			// ==> Darf nicht gelï¿½scht werden
+			label = ""; // Lï¿½schung wird "simuliert"
 			else
 			{
 				try {
@@ -443,7 +443,7 @@ implements Constants
 			}
 		}
 		else
-		// Hier wird die Löschung explizit verlangt ! Die Folgen trägt der Aufrufer
+		// Hier wird die Lï¿½schung explizit verlangt ! Die Folgen trï¿½gt der Aufrufer
 		{
 		
 			try {
@@ -456,12 +456,12 @@ implements Constants
 		struktogramm.getView().repaint();
 	}
 	
-	/** Methode um ganze Loops oder Conditions samt Inhalt löschen zu können */
+	/** Methode um ganze Loops oder Conditions samt Inhalt lï¿½schen zu kï¿½nnen */
 	abstract void deleteAll();
 	
 	 	
-	/** Rekursive Funktion um die Höhe eines Blocks auszurechnen. Wird von Loop und Condition benutzt
-	 * @return Gesamthöhe des Elements und aller Ihrer Folgeelemente    
+	/** Rekursive Funktion um die Hï¿½he eines Blocks auszurechnen. Wird von Loop und Condition benutzt
+	 * @return Gesamthï¿½he des Elements und aller Ihrer Folgeelemente    
 	 */
 	int calcHeight()
 	throws ResizeException
@@ -472,7 +472,7 @@ implements Constants
 	  		return (getHeight());
 	}
 
-	/** Rechnet die Koordinaten des nächsten Elements aus und setzt diese. Wird in den Subelementen Loop und Condition durch entsprechende Methoden ergänzt.
+	/** Rechnet die Koordinaten des nï¿½chsten Elements aus und setzt diese. Wird in den Subelementen Loop und Condition durch entsprechende Methoden ergï¿½nzt.
 	 *	@see Loop#calcInside
 	 *	@see Condition#calcAlt
 	 */
@@ -487,7 +487,7 @@ implements Constants
 	}
 	
 
-	/** Die Paint-Methode des Elements. Wird nur über die paint-Methoden (super.paint()) der Subelemente aufgerufen. Zeichnet, wenn nötig drag-Point. Muß in den Subelementen konkretisiert werden
+	/** Die Paint-Methode des Elements. Wird nur ï¿½ber die paint-Methoden (super.paint()) der Subelemente aufgerufen. Zeichnet, wenn nï¿½tig drag-Point. Muï¿½ in den Subelementen konkretisiert werden
 	 * @see Command#paint 
 	 * @see Loop#paint 
 	 * @see Condition#paint  
@@ -497,7 +497,7 @@ implements Constants
 	{
 	   super.paintComponent(g);
 	   //g.setColor(Color.black);
-	   // Das eigentliche Zeichnen wird (fast) den Unterklassen überlasssen
+	   // Das eigentliche Zeichnen wird (fast) den Unterklassen ï¿½berlasssen
 		if (struktogramm.presets.enabSeDragging)
 		{
 			if (!hasUpConnection())
@@ -530,9 +530,9 @@ implements Constants
 	
 	/** Die Elemente sind in Layern geschichtet. 
 	 * Keine Loop oder Condition darf Ihre Unterelemente verdecken 
-	 * (Auch wenn das Element trotzdem sichtbar wäre würde sonst immer 
-	 * das falsche PopUpMenü zum Vorschein kommen. Diese Methode ist 
-	 * (unter anderem) für diese Funktionalität zuständig 
+	 * (Auch wenn das Element trotzdem sichtbar wï¿½re wï¿½rde sonst immer 
+	 * das falsche PopUpMenï¿½ zum Vorschein kommen. Diese Methode ist 
+	 * (unter anderem) fï¿½r diese Funktionalitï¿½t zustï¿½ndig 
 	 */
 	int getLayer(int tempLayer)
 	{
@@ -547,14 +547,14 @@ implements Constants
 			return tempLayer;	
 	}
 	
-	/** Zählen wie viele Elemente in einem Block enthalten sind (für die Formatierung beim Speichern)
+	/** Zï¿½hlen wie viele Elemente in einem Block enthalten sind (fï¿½r die Formatierung beim Speichern)
 	 */
 	int getBlockCount()
 	{
 		return getBlockCount(1);
 	}
 	
-	/** Zählen wie viele Elemente in einem Block enthalten sind (für die Formatierung beim Speichern)
+	/** Zï¿½hlen wie viele Elemente in einem Block enthalten sind (fï¿½r die Formatierung beim Speichern)
 	 */
 	int getBlockCount(int i)
 	{
@@ -565,7 +565,7 @@ implements Constants
 	}
 	
 
-	/** Gibt zurück, ob geschweifte Klammern verwendet werden sollen (nur Loop und Condition)
+	/** Gibt zurï¿½ck, ob geschweifte Klammern verwendet werden sollen (nur Loop und Condition)
 	 * @param   se  
 	 * @return     
 	 */
@@ -583,7 +583,7 @@ implements Constants
 		return blockByCCode || blockByBlockCount || blockByElementType ;	
 	}
 		
-	/** rekursive Methode um Kommandos ausführen zu können. Muß in allen StrukElementen vorhanden sein. Wird in den jeweiligen Strukelementen entsprechend ihrer Funktionalität implementiert
+	/** rekursive Methode um Kommandos ausfï¿½hren zu kï¿½nnen. Muï¿½ in allen StrukElementen vorhanden sein. Wird in den jeweiligen Strukelementen entsprechend ihrer Funktionalitï¿½t implementiert
 	 * @param   p, das Processor-Objekt (wird zum parsen etc. verwendet)  
 	 */
 	abstract void execute(Processor p) 
@@ -613,7 +613,7 @@ implements Constants
 	
 
 	/** Getter-Methode
-	 * @return das nächste Element des Elements    
+	 * @return das nï¿½chste Element des Elements    
 	 */
 	StrukElement getNext()
 	{
@@ -637,7 +637,7 @@ implements Constants
 	}
 
 	/** Setter-Methode
-	 * Die Breite des Elements verändern
+	 * Die Breite des Elements verï¿½ndern
 	 * @param   width  
 	 */
 	void setWidth(int width)
@@ -662,7 +662,7 @@ implements Constants
 	
 
 	/** Setter-Methode
-	 * Die Höhe des Elements verändern
+	 * Die Hï¿½he des Elements verï¿½ndern
 	 * @param   height  
 	 */
 	void setHeight(int height)
@@ -677,20 +677,19 @@ implements Constants
 		}
 	}
 	
-	/** Due Höhe eines Elements vom User verändern
+	/** Due Hï¿½he eines Elements vom User verï¿½ndern
 	 * @param   height  
 	 */
 	void setHeightByUser(int height)
 	{
-		// jetzige Höhe ermitteln
-		int tempHeight = getHeight();
+		// jetzige Hï¿½he ermitteln
 		// Probiern wir es
 		try {
 			setHeight(height);
 			if (hasUpConnection())
 				connectedFrom.heightSet(this.connectionType); 
 		} catch (ResizeException re) {
-			// Ok, keine Veränderung, evtl austarieren ...
+			// Ok, keine Verï¿½nderung, evtl austarieren ...
 			//tare();
 			Tracer.out("resizeException catched !");
 		}
@@ -698,11 +697,11 @@ implements Constants
 	
 
 	/** Falls sich das Element in einem Block einer Condition befindet, 
-	 * gleicht diese Funktion die Größen der Blöcke aneinander an
-	 * Etwas ähnliches geschieht bei @seeCondition#calcHeight allerdings
+	 * gleicht diese Funktion die Grï¿½ï¿½en der Blï¿½cke aneinander an
+	 * Etwas ï¿½hnliches geschieht bei @seeCondition#calcHeight allerdings
 	 * wird das dort unter dem Gesichtspunkt des Users, der gerade eine
-	 * Größe verändert implementiert. Beide Funktionalitäten sind zwar
-	 * ähnlich funktionieren aber nach etwas anderen Prinzipien.
+	 * Grï¿½ï¿½e verï¿½ndert implementiert. Beide Funktionalitï¿½ten sind zwar
+	 * ï¿½hnlich funktionieren aber nach etwas anderen Prinzipien.
 	 */
 	void tare()
 	{
@@ -711,9 +710,9 @@ implements Constants
 		// befinden uns in einem Block einer Condition ?
 		if (connecType==ALT1 || connecType==ALT2)
 		{
-			// ... denn dann muß (evtl) entsprechend austariert werden ...
+			// ... denn dann muï¿½ (evtl) entsprechend austariert werden ...
 			try {
-				// Anfang der Größenberechnung ....
+				// Anfang der Grï¿½ï¿½enberechnung ....
 				int ourHeight=getFirstOfBlock(this).calcHeight();
 				int othersHeight;
 				StrukElement othersFirst;
@@ -723,12 +722,12 @@ implements Constants
 					othersFirst=((Condition)getTopOfBlock(this)).getAlt1();
 				
 				othersHeight=othersFirst.calcHeight();
-				// Ende der Größenberechnung
+				// Ende der Grï¿½ï¿½enberechnung
 				int diff=Math.abs(ourHeight-othersHeight);
 				if (ourHeight==othersHeight)
 					return;
 				else if (ourHeight < othersHeight)
-					// machen wir uns größer
+					// machen wir uns grï¿½ï¿½er
 					setHeight(getHeight()+diff);
 				else
 				{
@@ -737,17 +736,17 @@ implements Constants
 						setHeight(getHeight()-diff);
 					} catch (ResizeException re2) 
 					{
-						// na gut, machen wir halt den anderen größer
+						// na gut, machen wir halt den anderen grï¿½ï¿½er
 						othersFirst.setHeight(othersFirst.getHeight()+diff);	
 					}
 				}
 					
-			} catch (ResizeException re) {// Da weiß ich auch nicht weiter ! Muß man da weiterwissen ? 
+			} catch (ResizeException re) {// Da weiï¿½ ich auch nicht weiter ! Muï¿½ man da weiterwissen ? 
 			}	
 		}
 	}
 	
-	/** meldet rekursiv zum VorgängerElement, daß die Höhe verändert wurde. Eine Loop oder Condition muß darauf reagieren ... */
+	/** meldet rekursiv zum Vorgï¿½ngerElement, daï¿½ die Hï¿½he verï¿½ndert wurde. Eine Loop oder Condition muï¿½ darauf reagieren ... */
 	void heightSet(int connectionType)
 	throws ResizeException
 	{
@@ -757,8 +756,8 @@ implements Constants
 	
 	
 	/** wird verwendet, um die X-Koordinate des Nachfolgeelements 
-	 * in Abhängigkeit vom eigenen Element zu errechnen
-	 * @return (Soll)X-Koordinate des nächsten Elements    
+	 * in Abhï¿½ngigkeit vom eigenen Element zu errechnen
+	 * @return (Soll)X-Koordinate des nï¿½chsten Elements    
 	 */
 	private int nextX()
 	{
@@ -766,8 +765,8 @@ implements Constants
 	}
 	
 	/** wird verwendet, um die Y-Koordinate des Nachfolgeelements 
-	 * in Abhängigkeit vom eigenen Element zu errechnen
-	 * @return (Soll)Y-Koordinate des nächsten Elements    
+	 * in Abhï¿½ngigkeit vom eigenen Element zu errechnen
+	 * @return (Soll)Y-Koordinate des nï¿½chsten Elements    
 	 */
 	private int nextY()
 	{

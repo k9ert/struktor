@@ -12,15 +12,20 @@ import struktor.processor.Processor;
 import struktor.processor.ProcessorException;
 import struktor.processor.ReturnException;
 
-/** Eine Klasse fr das simple Kommando (Rechteck)
+/** Eine Klasse fï¿½r das simple Kommando (Rechteck)
  */
 class Command extends StrukElement
 implements CommandTypes
 {
-	/** Standardm„˜ig auf CALCULATION (Verarbeitung) */
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/** Standardmï¿½ï¿½ig auf CALCULATION (Verarbeitung) */
 	private int action = CALCULATION;
 	
-	/** Die AdditionalMessage (Fr INPUT/OUTPUT*/
+	/** Die AdditionalMessage (Fï¿½r INPUT/OUTPUT*/
 	private String adMessage = new String("");
 
 	Command(Struktogramm s, String label)
@@ -95,7 +100,7 @@ implements CommandTypes
 	}
 	
 	/** Setter-Methode
-	 * Die H÷he des Elements ver„ndern (Spezialfall wegen Input/Output)
+	 * Die Hï¿½he des Elements verï¿½ndern (Spezialfall wegen Input/Output)
 	 * @param   height  
 	 */
 	void setHeight(int height)
@@ -213,7 +218,7 @@ implements CommandTypes
 		// postString = alle weiteren Argumente von printf
 		String postString = new String();
 		
-		// mit dieser Schleife gehen wir das komplette Label char fr char durch
+		// mit dieser Schleife gehen wir das komplette Label char fï¿½r char durch
 		for(int i = 0 ; i < label.length(); i++)
 		{
 			if (label.charAt(i)== '"')

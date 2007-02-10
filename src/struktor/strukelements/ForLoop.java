@@ -17,6 +17,10 @@ class ForLoop extends Loop
 implements CommandTypes
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String initLabel=new String(" ");
 	private String stepLabel=new String(" ");
 	
@@ -34,7 +38,6 @@ implements CommandTypes
 	throws ProcessorException, InterruptedException, LoopControlException, ReturnException
 	{
 		try {
-			double result;
 			delayAndPaint(p);
 			for (p.parse(initLabel);p.parse(getLabel()+";", CALCULATION, "") != 0; p.parse(stepLabel))
 			{
@@ -60,13 +63,13 @@ implements CommandTypes
 	   int width = getSize().width;
        int height = getSize().height;
        // Die Figur (ohne Topline)
-       // kleines Stück runter
+       // kleines Stï¿½ck runter
        g.drawLine(width-1, 0, width-1, getVerHeight());
        // wieder nach links fast soweit
        g.drawLine(width-1, getVerHeight(), getHorWidth(), getVerHeight());
        // runter
        g.drawLine(getHorWidth(), getVerHeight(), getHorWidth(), height-1);
-       // kleines Stück links)
+       // kleines Stï¿½ck links)
        g.drawLine(getHorWidth(), height-1, 0, height-1);
        // und wieder rauf
        g.drawLine(0, height-1, 0, 0);

@@ -21,7 +21,7 @@ import struktor.processor.Processor;
 import struktor.processor.ReturnException;
 
 
-/** Die Verwaltungsinstanz für alle StrukElemente des Struktogramms. Ein Teil der Funktionalität könnten evtl. statische Methoden der StrukElement-Klasse übernehmen. Dann hätte man aber ein Problem mit der GUI-Funktionalität (mehrere Applets auf einer HTML-Seite.
+/** Die Verwaltungsinstanz fï¿½r alle StrukElemente des Struktogramms. Ein Teil der Funktionalitï¿½t kï¿½nnten evtl. statische Methoden der StrukElement-Klasse ï¿½bernehmen. Dann hï¿½tte man aber ein Problem mit der GUI-Funktionalitï¿½t (mehrere Applets auf einer HTML-Seite.
  * @see ent#dissolve
  */
 public class Struktogramm
@@ -49,13 +49,11 @@ implements Runnable, Constants
 	private StruktogrammEvt myEvents;
 	private JLayeredPane view;
 	private String name = "main";
-	private Thread runner;
 	private Object returnValue;
 	private boolean returned = false;
 	private StrukElement first=null;
 	private Vector StrukList = new Vector();
-	private boolean paintNumbers;
-	//Ausschließlich für die Übergabe an Processor !!!
+	//Ausschlieï¿½lich fï¿½r die ï¿½bergabe an Processor !!!
 	public Struktor struktor;
 	public Presets presets;
 	public boolean saveMark;
@@ -113,7 +111,7 @@ implements Runnable, Constants
 		return element;
 	}
 	
-	/** Fügt ein Command ein. 
+	/** Fï¿½gt ein Command ein. 
 	 * @return Das Element     
 	 */
 	private Command addCommand(String label)
@@ -126,7 +124,7 @@ implements Runnable, Constants
 		return command;					
 	}
 	
-	/** Fügt eine Loop und ein Command ein. Die Parameter werden im Moment noch alle ignoriert
+	/** Fï¿½gt eine Loop und ein Command ein. Die Parameter werden im Moment noch alle ignoriert
 	 * @return Das Element selber     
 	 */
 	private Loop addHLoop(String label)
@@ -144,7 +142,7 @@ implements Runnable, Constants
 		return loop;
 	}
 	
-	/** Fügt eine Loop und ein entsprechende Command ein. Die Parameter werden im Moment noch alle ignoriert
+	/** Fï¿½gt eine Loop und ein entsprechende Command ein. Die Parameter werden im Moment noch alle ignoriert
 	 * @return Das Element selber     
 	 */
 	private Loop addTLoop(String label)
@@ -162,7 +160,7 @@ implements Runnable, Constants
 		return loop;
 	}
 	
-	/** Fügt eine For-Loop und ein Command ein. Die Parameter werden im Moment noch alle ignoriert
+	/** Fï¿½gt eine For-Loop und ein Command ein. Die Parameter werden im Moment noch alle ignoriert
 	 * @return Das Element selber     
 	 */
 	private Loop addFLoop(String label)
@@ -182,7 +180,7 @@ implements Runnable, Constants
 	
 	
 
-	/** Fügt eine Condition und entsprechende Commands ein. Die Parameter werden im Moment noch alle ignoriert
+	/** Fï¿½gt eine Condition und entsprechende Commands ein. Die Parameter werden im Moment noch alle ignoriert
 	 * @return Das Element selber     
 	 */
 	private Condition addCondition(String label)
@@ -279,7 +277,7 @@ implements Runnable, Constants
 		
 	
 	
-	/** Stößt die Ausführung des Struktogramms an, indem das erste Element ausgeführt wird. Vorher muß ein Prozessor erzeugt werden, der seinerseits einen Parser und Memory (nach den Deklarationen des Struktogramms) erzeugt.
+	/** Stï¿½ï¿½t die Ausfï¿½hrung des Struktogramms an, indem das erste Element ausgefï¿½hrt wird. Vorher muï¿½ ein Prozessor erzeugt werden, der seinerseits einen Parser und Memory (nach den Deklarationen des Struktogramms) erzeugt.
 	 *	@see StrukElement#execute
 	 *  @see Processor
 	 *	@see Memory
@@ -316,7 +314,7 @@ implements Runnable, Constants
 	}
 
 	
-	/** Löscht ein Element indem in allen Elementen die Verknüpfungen entsprechend abgeändert werden. Anschließen wird das Element aus der Liste entfernt.   
+	/** Lï¿½scht ein Element indem in allen Elementen die Verknï¿½pfungen entsprechend abgeï¿½ndert werden. Anschlieï¿½en wird das Element aus der Liste entfernt.   
 	 * @param   e  
 	 */
 	void delStrukElement(StrukElement e)
@@ -426,7 +424,7 @@ implements Runnable, Constants
 		
 	int getLayer(JComponent element)
 	{
-		return   view.getLayer(element);
+		return   JLayeredPane.getLayer(element);
 	}
 	void setLayer(Component element, int layer)
 	{

@@ -18,10 +18,14 @@ import struktor.Save;
 import struktor.Tracer;
 import struktor.processor.ProcessorException;
 
-/** Eine Klasse für den "Deklarationen-Editor" */
+/** Eine Klasse fï¿½r den "Deklarationen-Editor" */
 public class DecList extends JPanel
 implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Static Variables
 	private static Vector DecListList = new Vector();
 	
@@ -58,7 +62,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 	Vector decList;
 	JPanel tempPanel;
 	
-	/** Nur für Expr.Calc */
+	/** Nur fï¿½r Expr.Calc */
 	public Vector getDecList()
 	{
 		return decList;
@@ -81,7 +85,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		this.tempPanel = tempPanel;
 	}
 	
-	/** für ExprCalc */
+	/** fï¿½r ExprCalc */
 	public DecList(Presets presets)
 	{
 		this.presets = presets;
@@ -135,7 +139,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		throw new ProcessorException("To many Parameters !");
 	}
 	
-	/** Hilfsmethode: Gibt die Anzahl der Parameter zurück */
+	/** Hilfsmethode: Gibt die Anzahl der Parameter zurï¿½ck */
 	private int getParameterCount()
 	{
 		int counter=0;
@@ -152,7 +156,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		return counter;
 	}
 	
-	/** Hilfsmethode: Gibt die Anzahl der Deklarationen zurück */
+	/** Hilfsmethode: Gibt die Anzahl der Deklarationen zurï¿½ck */
 	private int getDeclarationCount()
 	{
 		return tempPanel.getComponentCount();
@@ -163,7 +167,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		return tempPanel;
 	}
 	
-	/** Eine neue Deklaration erzeugen (für ExprCalc public) */
+	/** Eine neue Deklaration erzeugen (fï¿½r ExprCalc public) */
 	public Dec newDeclaration(boolean isPointer, boolean isParameter, boolean isArray, int index, int temptype, String tempname, String value)
 	{
 		Dec dec = new Dec(presets, isPointer, isParameter, isArray, index, temptype, tempname, value);
@@ -180,7 +184,6 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 	String getCFormatCode(String varName)
 	throws ProcessorException
 	{
-		int counter=0;
 		Component decs[] = tempPanel.getComponents();
 		int max = tempPanel.getComponentCount();
 		for (int i = 0; i < max; i++)
@@ -238,7 +241,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 			Dec r=(Dec)el.nextElement();
 			if (!r.isParameter())
 			{
-				// Verwendet als einzigster printTabs weil dec.save auch für Parameter verwendet wird (print statt println)
+				// Verwendet als einzigster printTabs weil dec.save auch fï¿½r Parameter verwendet wird (print statt println)
 				saveObject.printTabs();
 				r.save(saveObject);
 				saveObject.print(" ;\n");
@@ -251,7 +254,6 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 	/** Parameter speichern */
 	void saveParam(Save saveObject)
 	{
-		boolean flag = false;
 		int parameterCount = getParameterCount();
 		int i=0;
 		for (Enumeration el=decList.elements(); el.hasMoreElements(); )
@@ -264,7 +266,6 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 				if (i<parameterCount)
 					saveObject.print(", ");
 			}
-			flag = true;	
 		}
 	}
 }

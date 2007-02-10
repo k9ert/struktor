@@ -15,8 +15,6 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.URL;
 
-import java_cup.runtime.Symbol;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,6 +33,10 @@ public class Load
 extends JFrame implements ActionListener
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JTextArea save = new JTextArea(50,50);
     Struktor struktor;
 	Yylex lexer;
@@ -117,7 +119,6 @@ extends JFrame implements ActionListener
 	void parse()
 	{
 		parser = new LoadParser(lexer, struktor);
-		Symbol parse_tree = null;
 		try {
 			if (Struktor.idebug)
 				parser.debug_parse();

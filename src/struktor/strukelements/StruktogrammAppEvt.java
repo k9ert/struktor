@@ -10,11 +10,15 @@ import javax.swing.event.ChangeListener;
 
 import struktor.Struktor;
 
-/** Die Event-Klasse für Struktogramme, wird im Moment nicht verwendet (Application)
+/** Die Event-Klasse fï¿½r Struktogramme, wird im Moment nicht verwendet (Application)
  */
 public class StruktogrammAppEvt extends StruktogrammEvt
 implements ActionListener, ItemListener, ChangeListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Object Variables
 	private JToolBar toolBar;
 	
