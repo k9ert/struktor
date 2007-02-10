@@ -26,13 +26,17 @@ import struktor.Struktor;
 import struktor.StruktorException;
 import struktor.strukelements.Struktogramm;
 
-/** Eine Klasse mit der der saveMark jedes Struktogramms interaktiv verändert werden kann 
- * Funktioniert vom Aufruf ähnlich wie ein FileChooser
+/** Eine Klasse mit der der saveMark jedes Struktogramms interaktiv verï¿½ndert werden kann 
+ * Funktioniert vom Aufruf ï¿½hnlich wie ein FileChooser
  */
  
 public class SaveDialog
 extends JDialog implements ActionListener, ItemListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static public int OK=1;
 	static public int CANCEL=2;
 	boolean result;
@@ -55,7 +59,7 @@ extends JDialog implements ActionListener, ItemListener
 	}
 	
 
-	/** Zeigt das Fenster an und gibt OK oder CANCEL zurück
+	/** Zeigt das Fenster an und gibt OK oder CANCEL zurï¿½ck
 	 */
 	public int showDialog()
 	{
@@ -141,6 +145,10 @@ extends JDialog implements ActionListener, ItemListener
 	implements ItemListener
 	{
 		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		Struktogramm struktogramm;
 		JCheckBox checkBox;
 		

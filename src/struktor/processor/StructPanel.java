@@ -23,14 +23,18 @@ import struktor.Tracer;
 import struktor.Utils;
 import struktor.strukelements.Dec;
 
-/** Eine Klasse für den "Struct-Editor" 
- * Schön ist er nicht geworden aber was solls ...
+/** Eine Klasse fï¿½r den "Struct-Editor" 
+ * Schï¿½n ist er nicht geworden aber was solls ...
  */
 public class StructPanel extends JPanel
 implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 {
 	// Static Variables
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static Vector structList = new Vector();
 	static int count=0;
 	public static Vector nameList=new Vector();
@@ -63,7 +67,6 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 	private JButton newStruct = new JButton("newStruct");
 	private JComboBox structSelect = new JComboBox();
 	private Struct struct;
-	private Vector structDecList;
 	private JPanel tempPanel;
 		
 	public StructPanel(Struktor struktor, JPanel tempPanel)
@@ -153,6 +156,10 @@ class Struct extends JPanel
 implements ActionListener, struktor.processor.datatypes.Datatype
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JButton newDeclaration;
 	Vector decList;
 	String name;

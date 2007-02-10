@@ -1,8 +1,8 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.processor;
 
-/** Diese abstrakte Klasse ermöglicht analog zu den LoopControlExceptions
- *  einen Return im Struktogrammcode. (Eigentlich müßte
+/** Diese abstrakte Klasse ermï¿½glicht analog zu den LoopControlExceptions
+ *  einen Return im Struktogrammcode. (Eigentlich mï¿½ï¿½te
  *  die Klasse eher "Throwable" implementieren anstatt von Exception
  *  abgeleitet zu sein, aber das war mir zu kompliziert)
  */
@@ -11,6 +11,10 @@ public class ReturnException
 extends Exception
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Object returnValue = new Object();
 	
 	public ReturnException()

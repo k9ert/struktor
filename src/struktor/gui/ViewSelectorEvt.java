@@ -13,6 +13,10 @@ import struktor.StruktorException;
 class ViewSelectorEvt extends ViewSelector
 implements ItemListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JComboBox view;
 	Struktor struktor;
 	

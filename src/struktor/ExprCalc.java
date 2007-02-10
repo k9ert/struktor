@@ -24,6 +24,10 @@ import struktor.strukelements.DecList;
 public class ExprCalc extends JApplet
 implements ActionListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Presets presets = new Presets();
 	DecList decList;
 	Processor processor;

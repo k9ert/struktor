@@ -25,11 +25,15 @@ import struktor.Utils;
 public class StruktorEvt extends JPanel
 implements ActionListener, ItemListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Struktor struktor;
 	// Struktor InputElements
 	JPanel struktorInput;
 	
-	/** Das gehört hier eigentlich gar nicht hin sondern in StruktorAppEvt. Geht aber nicht anders
+	/** Das gehï¿½rt hier eigentlich gar nicht hin sondern in StruktorAppEvt. Geht aber nicht anders
 	 * weil sonst NullPointerException
 	 */
 	JMenuBar menuBar = new JMenuBar();;
@@ -64,7 +68,7 @@ implements ActionListener, ItemListener
 		addViewSelect(box);		
 		addOutputAndWatchlist(box);
 		
-		// und alles zusammenfügen ...
+		// und alles zusammenfï¿½gen ...
 		if (Struktor.isApplet)
 			add(new JLabel("Copyright 2000, Kim Neunert (k9ert@gmx.de), All Rights Reserved"), BorderLayout.NORTH);
 		// Der andere Kram ist bereits in Box drin
@@ -72,7 +76,7 @@ implements ActionListener, ItemListener
 		revalidate();
 	}
 	
-	/** Wird in der App-Klasse überschrieben ! */
+	/** Wird in der App-Klasse ï¿½berschrieben ! */
 	void addFileHandling(Box box)
 	{
 		newStruktogramm = new JButton("new");
@@ -101,7 +105,7 @@ implements ActionListener, ItemListener
 		load.addActionListener(this);	
 	}
 	
-	/** Wird in der App-Klasse überschrieben */
+	/** Wird in der App-Klasse ï¿½berschrieben */
 	void addStruktogrammSelect(Box box)
 	{
 		struktogrammSelect = new StrukSelectorEvt(struktor);
@@ -112,7 +116,7 @@ implements ActionListener, ItemListener
 		}
 	}
 	
-	/** Wird in der App-Klasse überschrieben ! */
+	/** Wird in der App-Klasse ï¿½berschrieben ! */
 	void addViewSelect(Box box)
 	{
 		view = new ViewSelectorEvt(struktor);
@@ -120,7 +124,7 @@ implements ActionListener, ItemListener
 			view.addYourselfTo(box);
 	}
 	
-	/** Wird in der App-Klasse überschrieben ! */
+	/** Wird in der App-Klasse ï¿½berschrieben ! */
 	void addOutputAndWatchlist(Box box)
 	{
 		watchlist = new JCheckBox("WatchList", struktor.presets.statWatchlist);
@@ -154,7 +158,7 @@ implements ActionListener, ItemListener
 			struktor.load();	
 	}
 	
-	/** im Moment nur Listener für den View-Selector. Ruft die entsprechende show-Methode auf.
+	/** im Moment nur Listener fï¿½r den View-Selector. Ruft die entsprechende show-Methode auf.
 	 * @see Struktor#showStruktogramm
 	 * @see Struktor#showDecList
 	 * @param   e  

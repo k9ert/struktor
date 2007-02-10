@@ -24,9 +24,9 @@ import javax.swing.JPanel;
 
 /** Die Variablen dieser Klasse speichern den Zustand des Systems.
  *  Mittlererweile kann man bei der Application-Class die Variablen
- *  ändern. Dort kann man auch als "Fingertip" anschauen, was die
- *  einzelnen Variablen für Bedeutung haben. (direkt im Quelltext 
- *  nachschauen). Alle Variablen sind public damit sie von überall 
+ *  ï¿½ndern. Dort kann man auch als "Fingertip" anschauen, was die
+ *  einzelnen Variablen fï¿½r Bedeutung haben. (direkt im Quelltext 
+ *  nachschauen). Alle Variablen sind public damit sie von ï¿½berall 
  *  her zugreifbar sind ...
  */
 
@@ -37,7 +37,7 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	static public final String version="0.63";
 	
 	/** Die Bedeutung der einzelnen Variablen kann im Quelltext nachgeschaut werden. */
-	//enab-Variablen geben an, ob ein Element überhaupt erscheinen soll
+	//enab-Variablen geben an, ob ein Element ï¿½berhaupt erscheinen soll
 	
 		//StruktorPanel:
 		public boolean enabOutput =			true;
@@ -66,7 +66,7 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		public boolean enabDebugMode = 		true;
 		String enabDebugModeTT = "ob die Debug-Checkbox angezeigt wird";
 		public boolean enabTitle = 			true;
-		String enabTitleTT = "ob ein Titel für jedes Struktogramm angegeben wird";
+		String enabTitleTT = "ob ein Titel fï¿½r jedes Struktogramm angegeben wird";
 		
 		//Dec und DecList
 		public boolean enabParameter = 		true;
@@ -84,15 +84,15 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		public boolean enabStrings = 		true;
 		String enabStringsTT = "ob Strings erlaubt sind";
 		public boolean enabDecDelete = 		true;
-		String enabDecDeleteTT = "ob Deklarationen gelöscht werden können";
+		String enabDecDeleteTT = "ob Deklarationen gelï¿½scht werden kï¿½nnen";
 		public boolean enabNewDec =			true;
-		String enabNewDecTT = "ob neue Deklarationen erstellt werden können";
+		String enabNewDecTT = "ob neue Deklarationen erstellt werden kï¿½nnen";
 		
 		//StrukElements
 		public boolean enabSeDragging =		true;
 		String enabSeDraggingTT = "ob die Struktogramme verschiebbar sind";
 		public boolean enabSeResizing = 	true;
-		String enabSeResizingTT = "ob die Struktogramme größenveränderbar sind";
+		String enabSeResizingTT = "ob die Struktogramme grï¿½ï¿½enverï¿½nderbar sind";
 		public boolean enabSePopUp =		true;
 		String enabSePopUpTT = "ob man das PopUp-Menu aufrufen kann";
 		public int		SeXPos =			100;
@@ -104,9 +104,9 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		public boolean enabSePuProperties =	true;
 		String enabSePuPropertiesTT = "ob die properties aufrufbar sind";
 		public boolean enabSePuInsert =		true;
-		String enabSePuInsertTT = "ob man Elemente einfügen kann";
+		String enabSePuInsertTT = "ob man Elemente einfï¿½gen kann";
 		public boolean enabSePuAppend =		true;
-		String enabSePuAppendTT = "ob man Elemente anhängen kann";
+		String enabSePuAppendTT = "ob man Elemente anhï¿½ngen kann";
 		public boolean enabSePuCommand =		true;
 		String enabSePuCommandTT = "ob Commands erzeugbar sind";
 		public boolean enabSePuHeadLoop =		true;
@@ -120,13 +120,13 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		public boolean enabSePuSwitch =			true;
 		String enabSePuSwitchTT = "ob Switchs erzeugbar sind";
 		public boolean enabSePuMove =			true;
-		String enabSePuMoveTT = "ob Elemente hierarchich aufgestuft werden können \"move outside Block\"";
+		String enabSePuMoveTT = "ob Elemente hierarchich aufgestuft werden kï¿½nnen \"move outside Block\"";
 		public boolean enabSePuAdd =			true;
-		String enabSePuAddTT = "ob Elemente hierarchich abgestuft werden können (z.B. \"add to Loop\")";
+		String enabSePuAddTT = "ob Elemente hierarchich abgestuft werden kï¿½nnen (z.B. \"add to Loop\")";
 		public boolean enabSePuSwop =			true;
-		String enabSePuSwopTT = "ob Elemente getauscht werden können";
+		String enabSePuSwopTT = "ob Elemente getauscht werden kï¿½nnen";
 		public boolean enabSePuDelete =			true;
-		String enabSePuDeleteTT = "ob Elemente gelöscht werden können";
+		String enabSePuDeleteTT = "ob Elemente gelï¿½scht werden kï¿½nnen";
 		public boolean enabSePuBreakpoints =	true;
 		String enabSePuBreakpointsTT = "ob Breakpoints erlaubt sind";
 	
@@ -157,7 +157,7 @@ public class Presets implements ItemListener, ActionListener, Serializable
 			initPresets();
 	}
 	
-	/** nur für ExprCalc*/
+	/** nur fï¿½r ExprCalc*/
 	Presets()
 	{
 		presetAllFeatures();
@@ -178,8 +178,8 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 	/** Alle preset-Methoden werden im Dialog als Button angezeigt
-	 *  und können so ausgeführt werden um bestimmte Gruppen von
-	 *  Eigenschaften ändern zu können
+	 *  und kï¿½nnen so ausgefï¿½hrt werden um bestimmte Gruppen von
+	 *  Eigenschaften ï¿½ndern zu kï¿½nnen
 	 */
 	void presetAllEnabFalse()
 	{
@@ -216,8 +216,8 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 	/** Alle preset-Methoden werden im Dialog als Button angezeigt
-	 *  und können so ausgeführt werden um bestimmte Gruppen von
-	 *  Eigenschaften ändern zu können
+	 *  und kï¿½nnen so ausgefï¿½hrt werden um bestimmte Gruppen von
+	 *  Eigenschaften ï¿½ndern zu kï¿½nnen
 	 */
 	public void presetAsImage()
 	{
@@ -234,8 +234,8 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 	/** Alle preset-Methoden werden im Dialog als Button angezeigt
-	 *  und können so ausgeführt werden um bestimmte Gruppen von
-	 *  Eigenschaften ändern zu können
+	 *  und kï¿½nnen so ausgefï¿½hrt werden um bestimmte Gruppen von
+	 *  Eigenschaften ï¿½ndern zu kï¿½nnen
 	 */
 	public void presetAsExeutableImage()
 	{
@@ -244,8 +244,8 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 	/** Alle preset-Methoden werden im Dialog als Button angezeigt
-	 *  und können so ausgeführt werden um bestimmte Gruppen von
-	 *  Eigenschaften ändern zu können
+	 *  und kï¿½nnen so ausgefï¿½hrt werden um bestimmte Gruppen von
+	 *  Eigenschaften ï¿½ndern zu kï¿½nnen
 	 */
 	public void presetAllFeatures()
 	{
@@ -303,12 +303,12 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		
 	// -------------------------------------------------------------------------
 	// Die folgenden Methoden sind nur Hilfsmethoden um die Voreinstellungen elegant
-	// verändern zu können
+	// verï¿½ndern zu kï¿½nnen
 	// -------------------------------------------------------------------------
 	
 
-	/** Zeigt ein Fenster an um die Eigenschaften interaktiv ändern zu
-	 *  können.
+	/** Zeigt ein Fenster an um die Eigenschaften interaktiv ï¿½ndern zu
+	 *  kï¿½nnen.
 	 */
 	public void showDialog()
 	{
@@ -359,7 +359,6 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		// Methoden zum einfacheren Anpassen
 		Class claz = this.getClass();
 		Method[] methods = claz.getMethods();
-		int cnt = 0;
 		for (int i = 0; i < methods.length; ++i)
 		{
       		String name = methods[i].getName();		  
@@ -489,7 +488,6 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	{
 		Class claz = this.getClass();
 		Method[] methods = claz.getMethods();
-		int cnt = 0;
 		for (int i = 0; i < methods.length; ++i)
 		{
       		String name = methods[i].getName();		  
@@ -502,7 +500,7 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	private void executePresetMethod(Method method)
 	{
 		try {
-			method.invoke(this, null);
+			method.invoke(this, (Object[])null);
 		} 
 		catch (IllegalArgumentException iae) {}
 		catch (Exception e) {}
@@ -544,7 +542,7 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 
-	/** Sucht den entsprechenden Erklärenden Text zu den Eigenschaften
+	/** Sucht den entsprechenden Erklï¿½renden Text zu den Eigenschaften
 	 * @param   name  
 	 * @return     
 	 */

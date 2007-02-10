@@ -5,7 +5,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 import javax.swing.Box;
-import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JMenuBar;
 
@@ -15,9 +14,12 @@ import struktor.StruktorException;
 class StrukSelectorEvt extends StrukSelector
 implements ItemListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JComboBox selector;
 	Struktor struktor;
-	private ButtonGroup group = new ButtonGroup();
 
 	StrukSelectorEvt(Struktor struktor)
 	{

@@ -12,6 +12,10 @@ import javax.swing.JTextArea;
  */
 class OutputPanel extends JPanel
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Struktor struktor;
 	private JComponent canvas;
 	private JTextArea textOutput;

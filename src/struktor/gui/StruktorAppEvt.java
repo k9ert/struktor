@@ -18,6 +18,10 @@ import struktor.StruktorApplication;
 public class StruktorAppEvt extends StruktorEvt
 implements ActionListener, ItemListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4665415925462444297L;
 	JFrame frame;
 	JMenu file;
 	JPanel struktorInput;
@@ -35,7 +39,7 @@ implements ActionListener, ItemListener
 	
 	
 	
-	// Die Ausführgschichten
+	// Die Ausfï¿½hrgschichten
 	JButton execute = new JButton("execute");
 	JCheckBox debugMode = new JCheckBox("debugMode");
 	JButton pause = new JButton("pause");
@@ -51,7 +55,7 @@ implements ActionListener, ItemListener
 				
 		addFileHandling(null);
 		
-		// und alles zusammenfügen ...
+		// und alles zusammenfï¿½gen ...
 		
 		menuBar.add(file);
 		struktogrammSelect.addYourselfTo(menuBar);

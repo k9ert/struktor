@@ -15,6 +15,10 @@ import struktor.StruktorException;
 class ViewSelectorAppEvt extends ViewSelector
 implements ItemListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JMenu view;
 	Struktor struktor;
 	private ButtonGroup group = new ButtonGroup();

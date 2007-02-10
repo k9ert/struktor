@@ -14,7 +14,6 @@ import javax.swing.JLayeredPane;
 
 import struktor.Presets;
 import struktor.Struktor;
-import struktor.util.BMPFile;
 import struktor.util.gifencoder.GIFEncoder;
 
 

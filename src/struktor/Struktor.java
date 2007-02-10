@@ -29,6 +29,10 @@ import struktor.strukelements.WatchList;
 
 public class Struktor extends JApplet
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static JApplet applet;
 	public static boolean isApplet = true;
 	/** interne Debug-Medungen ausgeben ?*/
@@ -59,7 +63,6 @@ public class Struktor extends JApplet
 	// Object Variables
 	public Presets presets;
 	private Vector struktogrammList;
-	private int view;
 	private Struktogramm struktogramm;
 	private Container contentPane;
 	
@@ -267,7 +270,7 @@ public class Struktor extends JApplet
 	/** Zeigt das Load Fenster (in der App-Klasse: Filechooser) */
   	public void load()
 	{
-		Load loadObject = new Load(this);
+		new Load(this);
 	}
 			
 
@@ -275,7 +278,6 @@ public class Struktor extends JApplet
 	 */
 	public void loadStruktogramm()
 	{
-		struktor.strukelements.Load load;
 		String loadString;
 		
 		try {
@@ -283,7 +285,7 @@ public class Struktor extends JApplet
 			{
 				loadString = getParameter("load");
 				// Struktogramm laden	
-				load = new Load(this, loadString);
+				new Load(this, loadString);
 			}
 			else
 				newStruktogramm("Default");

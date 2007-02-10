@@ -7,12 +7,16 @@ import java.awt.Frame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-/** Eine Klasse für generell alle internen Exceptions. 
- * Mithilfe der Methode show...Msg läßt sich die Meldung elegant als Fenster anzeigen
+/** Eine Klasse fï¿½r generell alle internen Exceptions. 
+ * Mithilfe der Methode show...Msg lï¿½ï¿½t sich die Meldung elegant als Fenster anzeigen
  */
 
 public class StruktorException extends Exception
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String msg = "Undefined Runtime Exception";
 	public boolean showed=false;
 	

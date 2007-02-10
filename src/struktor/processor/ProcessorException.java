@@ -2,11 +2,16 @@
 package struktor.processor;
 
 
-/** Eine Exception die angibt, daß was beim Processor schief gelaufen ist 
+/** Eine Exception die angibt, daï¿½ was beim Processor schief gelaufen ist 
  */
 
 public class ProcessorException extends struktor.StruktorException
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ProcessorException(String msg)
 	{
 		super(msg);

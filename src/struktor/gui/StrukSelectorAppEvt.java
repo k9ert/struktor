@@ -16,6 +16,10 @@ import struktor.StruktorException;
 class StrukSelectorAppEvt extends StrukSelector
 implements ItemListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JMenu selector;
 	Struktor struktor;
 	private ButtonGroup group = new ButtonGroup();
@@ -66,7 +70,7 @@ implements ItemListener
 				group.remove((JRadioButton)radioButtons[i]);
 			}
 		}
-		// Und das erste Element auswählen (sonst ist gar nichts ausgewählt)
+		// Und das erste Element auswï¿½hlen (sonst ist gar nichts ausgewï¿½hlt)
 		radioButtons = selector.getMenuComponents();
 		if (radioButtons.length > 0)	
 			((JRadioButton)radioButtons[0]).setSelected(true);

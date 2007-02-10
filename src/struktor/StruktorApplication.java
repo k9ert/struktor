@@ -23,6 +23,10 @@ import struktor.strukelements.Struktogramm;
 public class StruktorApplication extends Struktor
 implements WindowListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JDesktopPane desktop;
 	JFrame frame;
 	String saveLocation = "D:\\programmieren\\java\\Struktor\\StruktorDevelop";
@@ -108,15 +112,14 @@ implements WindowListener
 				loadPreset(file.getCanonicalPath());
 			} catch (java.io.IOException ioe) {Tracer.out("SER-File not Loaded");}
 			catch (StruktorException se) {Tracer.out("SER-File not Loaded");}
-			Load loadObject = new Load(struktor, file);
+			new Load(struktor, file);
 		}
 	}
 	
 	public void loadStruktogramm(String filename)
 	{
-		struktor.strukelements.Load load;
 		try {
-			load = new Load(this, (InputStreamReader)(new FileReader(filename)));				
+			new Load(this, (InputStreamReader)(new FileReader(filename)));				
 		} catch(FileNotFoundException fnfe) {new StruktorException(fnfe.toString()).showMsg(this);}
 	}
 	

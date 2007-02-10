@@ -2,7 +2,7 @@
 
 /*
  * Class    : Turtle
- * Copyright: (c) Gerhard Röhner
+ * Copyright: (c) Gerhard Rï¿½hner
  *
  * Historie
  * --------
@@ -11,17 +11,17 @@
  * 1.02 16.02.90 Umlaute entfernt: GRAFTABL laden! Show- und HideCursor
  * 1.03 14.09.90 Entfernung AppleGraf spezifischer Elemente
  * 1.05 15.09.90 Leave- und EnterGraphic
- * 1.06 26.10.90 generelle Überarbeitung, Get/Set-Cursor
- * 1.07 02.11.90 Rückkehr zu üblichem Koordinatensystem
+ * 1.06 26.10.90 generelle ï¿½berarbeitung, Get/Set-Cursor
+ * 1.07 02.11.90 Rï¿½ckkehr zu ï¿½blichem Koordinatensystem
  * 1.08 16.11.90 WaitKey
- * 1.09 18.11.90 Überarbeitung der Druckroutinen
+ * 1.09 18.11.90 ï¿½berarbeitung der Druckroutinen
  * 1.10 26.11.90 GraphMode mit HideCursor, TextMode mit ShowCursor
- * 1.11 26.04.95 Überarbeitung für VGA-Grafik
+ * 1.11 26.04.95 ï¿½berarbeitung fï¿½r VGA-Grafik
  * 1.12 08.05.95 Inverse Darstellung
- * 2.00 28.10.97 Erste Fassung für Delphi, als Unit, auf Turtle reduziert
+ * 2.00 28.10.97 Erste Fassung fï¿½r Delphi, als Unit, auf Turtle reduziert
  * 2.01 19.01.98 Realisierung als Komponente
- * 2.02 19.09.98 Ergänzung der Methode Clear
- * 2.03 27.09.98 Ergänzung der Methode Print und des Ereignisses OnMouseUp
+ * 2.02 19.09.98 Ergï¿½nzung der Methode Clear
+ * 2.03 27.09.98 Ergï¿½nzung der Methode Print und des Ereignisses OnMouseUp
  * 2.04 07.10.98 PrintSize und DrawDynamic
  * 3.00 10.10.00 Erste Fassung als Java-Klasse
  */
@@ -37,11 +37,11 @@ import javax.swing.JComponent;
 
 
 /**
- * Diese Klasse stellt eine Turtle-Komponente für die Grafikprogrammierung
- * zur Verfügung.
+ * Diese Klasse stellt eine Turtle-Komponente fï¿½r die Grafikprogrammierung
+ * zur Verfï¿½gung.
  *
  * @see <a href="http://www.bildung.hessen.de/abereich/inform/skii/material/index.html">
- * @author Gerhard Röhner
+ * @author Gerhard Rï¿½hner
  * @version 3.00 10/10/00
  */
 
@@ -50,6 +50,10 @@ import javax.swing.JComponent;
 public class TurtleCanvas extends JComponent
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// -- private Attribute ------------------------------------------------------
 	private Graphics Grafik;
 	private BufferedImage Bild;
@@ -60,7 +64,7 @@ public class TurtleCanvas extends JComponent
 
 	private final double PIdurch180 = 0.0174533;
 
-	// -- öffentliche Attribute --------------------------------------------------
+	// -- ï¿½ffentliche Attribute --------------------------------------------------
 
 	/**
 	* TurtleX ist die X-Koordinate der Turtle.
@@ -90,12 +94,12 @@ public class TurtleCanvas extends JComponent
 
 
 	/**
-	* Erzeugt eine Turtle mit einer Zeichenfläche, die Breite x Höhe groß ist.
-	* Die Turtle wird anfangs in die Mitte der Zeichenfläche gesetzt.
+	* Erzeugt eine Turtle mit einer Zeichenflï¿½che, die Breite x Hï¿½he groï¿½ ist.
+	* Die Turtle wird anfangs in die Mitte der Zeichenflï¿½che gesetzt.
 	* Der Anfangswinkel ist 0 Grad, was Blickrichtung nach rechts entspricht.
-	* Die Hintergrundfarbe ist Weiß, die Zeichenfarbe ist Schwarz.
+	* Die Hintergrundfarbe ist Weiï¿½, die Zeichenfarbe ist Schwarz.
 	* <P>
-	* Die Turtleposition kann interaktiv durch Anklicken der Zeichenfläche
+	* Die Turtleposition kann interaktiv durch Anklicken der Zeichenflï¿½che
 	* festgelegt werden.
 	* <P>
 	* Beispiel: <PRE>Turtle myTurtle = new Turtle(640, 480);</PRE>
@@ -108,7 +112,6 @@ public class TurtleCanvas extends JComponent
 		Width = Breite;
 		Height = Hoehe;
 		foreground = new Color(0,0,0);
-		Color bColor = getBackground();
 		background = new Color(255,255,255);
 		Bild = new BufferedImage( Width, Height, BufferedImage.TYPE_INT_RGB);
 		Grafik = Bild.createGraphics();
@@ -126,7 +129,7 @@ public class TurtleCanvas extends JComponent
 
 
 	/**
-	* Ermöglicht die automatische Größeneinstellung der Turtle-Zeichenfläche
+	* Ermï¿½glicht die automatische Grï¿½ï¿½eneinstellung der Turtle-Zeichenflï¿½che
 	* durch pack().
 	*/
 
@@ -137,7 +140,7 @@ public class TurtleCanvas extends JComponent
 
 
 	/**
-	* Setzt die Größe der Turtle-Zeichenfläche auf Breite x Hoehe.
+	* Setzt die Grï¿½ï¿½e der Turtle-Zeichenflï¿½che auf Breite x Hoehe.
 	* <P>
 	* Beispiel: <PRE>myTurtle.setSize(640, 480);</PRE>
 	*/
@@ -214,7 +217,7 @@ public class TurtleCanvas extends JComponent
 	}
 
 	/**
-	* Die Turtle zeichnet eine Linie der angegebenen Länge in die aktuelle
+	* Die Turtle zeichnet eine Linie der angegebenen Lï¿½nge in die aktuelle
 	* Richtung.
 	* <P>
 	* Beispiel: <PRE>myTurtle.draw(100);</PRE>
@@ -250,7 +253,7 @@ public class TurtleCanvas extends JComponent
 
 	/**
 	* Die Turtle bewegt sich ohne Zeichnen in der aktuellen Richtung
-	* um eine Strecke der angegebenen Länge.
+	* um eine Strecke der angegebenen Lï¿½nge.
 	* <P>
 	* Beispiel: <PRE>myTurtle.move(100);</PRE>
 	*/
@@ -274,7 +277,7 @@ public class TurtleCanvas extends JComponent
 	*/
 
 
-	// Für den Aufruf aus Struktogrammen
+	// Fï¿½r den Aufruf aus Struktogrammen
 	public void setColor(int r, int g, int b)
 	{
 		setColor(new Color(r,g,b));
@@ -286,7 +289,7 @@ public class TurtleCanvas extends JComponent
 	}
 	
 	/**
-	 * Setzt die Farbe der Zeichenfläche auf die Farbe c.
+	 * Setzt die Farbe der Zeichenflï¿½che auf die Farbe c.
 	 * <P>
 	 * Beispiel: <PRE>myTurtle.setBackcolor(Color.blue); </PRE>
 	 */
