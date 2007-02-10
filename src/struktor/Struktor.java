@@ -32,7 +32,7 @@ public class Struktor extends JApplet
 	static JApplet applet;
 	public static boolean isApplet = true;
 	/** interne Debug-Medungen ausgeben ?*/
-	public static boolean idebug = false;
+	public static boolean idebug = true;
 	public static Struktor struktor;
 	public static final int STRUKVIEW=0;
 	public static final int DECVIEW=1;
@@ -104,7 +104,7 @@ public class Struktor extends JApplet
 			intro.showIt();
 		}
 			
-		//Die Zeichenfläche
+		//Die Zeichenflï¿½che
 		canvas = new TurtleCanvas(250,250);
 		// Textausgabefenster
 		textOutput = new JTextArea("", 17, 20);
@@ -113,13 +113,13 @@ public class Struktor extends JApplet
 		outputPanel.setSize(100,100);
 		outputPanel.setVisible(true);
 		
-		// die Bedienfelder für Structs
+		// die Bedienfelder fï¿½r Structs
 		structPanel = new StructPanel(this,structs);
 		
-		// Die Bedienfelder für Struktogramme
+		// Die Bedienfelder fï¿½r Struktogramme
 		struktoPanel = new StruktogrammEvt(this);
 				
-		// temporäre Erstellung eines Struktogramms (ansonsten wär es ziemlich kompliziert)(Ich weiß ehrlich gesagt auch nicht genau warum das nötig ist)
+		// temporï¿½re Erstellung eines Struktogramms (ansonsten wï¿½r es ziemlich kompliziert)(Ich weiï¿½ ehrlich gesagt auch nicht genau warum das nï¿½tig ist)
 		struktogramm = new Struktogramm("temp", struktoPanel, this);
 		struktogrammList.remove(findStruktogramm("temp"));
 		
@@ -130,7 +130,7 @@ public class Struktor extends JApplet
 		loadStruktogramm();	
 		
 		
-		// und ois zamfügn
+		// und ois zamfï¿½gn
 		contentPane.add(struktorPanel, BorderLayout.NORTH);
 		contentPane.add(struktogramm.getView(), BorderLayout.CENTER);
 		contentPane.add(struktoPanel, BorderLayout.SOUTH);
@@ -154,7 +154,7 @@ public class Struktor extends JApplet
 	}
 
 
-	/** Zeigt die Deklarationsliste an und läßt vorher das Struktogramm verschwinden.
+	/** Zeigt die Deklarationsliste an und lï¿½ï¿½t vorher das Struktogramm verschwinden.
 	 */
 	public void showDecList() 
 	{
@@ -170,7 +170,7 @@ public class Struktor extends JApplet
 	}
 
 
-	/** Zeigt das Struktogramm an und läßt vorher die Deklarationsliste verschwinden.
+	/** Zeigt das Struktogramm an und lï¿½ï¿½t vorher die Deklarationsliste verschwinden.
 	 */
 	public void showStruktogramm()
 	{
@@ -200,7 +200,7 @@ public class Struktor extends JApplet
 		repaint();
 	}
 	
-	/** Zeigt die Watchlist an oder läßt sie verschwinden */
+	/** Zeigt die Watchlist an oder lï¿½ï¿½t sie verschwinden */
 	public void showWatchList(boolean show)
 	{
 		if (show == true)
@@ -211,7 +211,7 @@ public class Struktor extends JApplet
 		repaint();
 	}
 	
-	/** Zeigt das OutputPanel an oder läßt es verschwinden */
+	/** Zeigt das OutputPanel an oder lï¿½ï¿½t es verschwinden */
 	public void showOutput(boolean show)
 	{
 		if (show == true)
@@ -242,7 +242,7 @@ public class Struktor extends JApplet
 		return struktogramm;	
 	}
 	
-	/** Löscht das aktuelle Struktogramm */
+	/** Lï¿½scht das aktuelle Struktogramm */
 	public void deleteStruktogramm()
 	{
 		removePanels();
@@ -271,7 +271,7 @@ public class Struktor extends JApplet
 	}
 			
 
-	/** Lädt das Struktogramm welches in den AppletParametern angegeben wurde
+	/** Lï¿½dt das Struktogramm welches in den AppletParametern angegeben wurde
 	 */
 	public void loadStruktogramm()
 	{
@@ -291,7 +291,7 @@ public class Struktor extends JApplet
 	}
 	
 
-	/** Lädt ein serialisiertes PresetObjekt anhand eines Filenamens
+	/** Lï¿½dt ein serialisiertes PresetObjekt anhand eines Filenamens
 	 * @param   loadString  
 	 */
 	public void loadPreset(String loadString)
@@ -339,7 +339,7 @@ public class Struktor extends JApplet
 		} 	
 	}
 
-	/** Zeigt das Save-Fenster an und läßt da rekursiv den Code reinschreiben */
+	/** Zeigt das Save-Fenster an und lï¿½ï¿½t da rekursiv den Code reinschreiben */
 	public void save()
 	{
 		SaveDialog saveDialog = new SaveDialog(Utils.getFrame(this),this,struktogrammList, "str");
@@ -349,11 +349,11 @@ public class Struktor extends JApplet
 		Save saveObject = new Save(this);
 		if (presets.makeCCode)
 		{
-			saveObject.println("// Der folgende Code ist annähernd C-Code !");
-			saveObject.println("// Folgende Anpassungen müssen vorgenommen werden:");
-			saveObject.println("// 1. Keiner der Funktionen besitzt eine Rückgabetyp, dieser muß von Hand hinzugefügt werden");
-			saveObject.println("// 2. Falls interne Funktionen verwendet wurden, müssen diese entsprechend angepasst werden");
-			saveObject.println("// 3. Es werden keine Prototypen ausgegeben, diese müssen nachträglich hinzugefügt werden");
+			saveObject.println("// Der folgende Code ist annï¿½hernd C-Code !");
+			saveObject.println("// Folgende Anpassungen mï¿½ssen vorgenommen werden:");
+			saveObject.println("// 1. Keiner der Funktionen besitzt eine Rï¿½ckgabetyp, dieser muï¿½ von Hand hinzugefï¿½gt werden");
+			saveObject.println("// 2. Falls interne Funktionen verwendet wurden, mï¿½ssen diese entsprechend angepasst werden");
+			saveObject.println("// 3. Es werden keine Prototypen ausgegeben, diese mï¿½ssen nachtrï¿½glich hinzugefï¿½gt werden");
 			saveObject.println("#include <stdio.h>");
 		}	
 		for (Enumeration el=struktogrammList.elements(); el.hasMoreElements(); )
@@ -436,7 +436,7 @@ public class Struktor extends JApplet
 		SwingUtilities.updateComponentTreeUI(watchPanel);
 	}
 	
-	/** Gibt das gesuchte Struktogramm zurück */
+	/** Gibt das gesuchte Struktogramm zurï¿½ck */
 	public Struktogramm findStruktogramm(String name)
 	{
 		for (Enumeration el=struktogrammList.elements(); el.hasMoreElements(); )
@@ -454,13 +454,13 @@ public class Struktor extends JApplet
 		return struktogramm;
 	}
 	
-	/** Nicht so schön .... */
+	/** Nicht so schï¿½n .... */
 	Vector getStruktogrammList()
 	{
 		return struktogrammList;
 	}
 	
-	/** Gibt einen neuen Control-View des Struktors zurück und wird in der Application-Klasse überschrieben */
+	/** Gibt einen neuen Control-View des Struktors zurï¿½ck und wird in der Application-Klasse ï¿½berschrieben */
 	StruktorEvt getStruktorInput(Struktor struktor)
 	{
 		return new StruktorEvt(struktor);

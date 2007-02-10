@@ -30,6 +30,7 @@ implements CommandTypes, Datatype
   	static public Struktor struktor;
 	static private Processor actualProcessor;
 	private ProcParser parser_obj;
+	private ComplexSymbolFactory symFact;
 	// Nur f�r ExprCalc (Wird sonst nicht ben�tigt)
 	private Memory mem;
 	java.applet.Applet applet;
@@ -46,7 +47,9 @@ implements CommandTypes, Datatype
 	public Processor(Struktor struktor, Vector decList, TurtleCanvas gOutput, JTextArea tOutput)
 	throws InterruptedException
 	{
-		parser_obj = new ProcParser(null,new ComplexSymbolFactory());
+		symFact = new ComplexSymbolFactory();
+		parser_obj = new ProcParser(null,symFact);
+		//parser_obj = new ProcParser();
 		if (false)
 			;
 		else
@@ -82,7 +85,7 @@ implements CommandTypes, Datatype
 	throws Exception
 	{
   		/* Set up new scanner */
-    	parser_obj.setScanner(new Yylex(new StringReader(s)));
+    	parser_obj.setScanner(new Yylex(new StringReader(s),symFact));
 
 		/* open input files, etc. here */
 		Symbol parse_tree = null;
@@ -142,7 +145,7 @@ implements CommandTypes, Datatype
 		catch (LoopControlException lce) {throw lce;}
 		catch (InterruptedException ie) {throw ie;}
 		catch (ReturnException re) {throw re;}
-		catch (Exception e) {throw new ProcessorException(e.toString());}
+		catch (Exception e) {e.printStackTrace(); throw new ProcessorException(e.toString());}
 		return result;
 	}
 	
