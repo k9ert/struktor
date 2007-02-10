@@ -2,55 +2,57 @@
 <project name="de.learn2prog.struktor" default="compile" basedir="."> 
     
 	<taskdef name="cup" classname="java_cup.anttask.CUPTask" classpath="lib/java-cup-11a.jar"/>
+	<taskdef name="jflex" classname="JFlex.anttask.JFlexTask" classpath="lib/JFlex.jar"/>
 
-     <property name="src" value="src" location="src"/> 
-     <property name="build" value="build"/>
+	<property name="src" value="src" location="src"/> 
+    <property name="build" value="build"/>
+    <property name="parserdir" value="parser" location="parser"/> 
 
-     <target name="init">  
-          <mkdir dir="${build}"/>
-     </target>
-
-     <target name="compile" depends="init"> 
-          <!-- Compile the java code -->
-          
-          <javac srcdir="${src}" destdir="${build}"/>
-     </target>
-	<target name="Clean" description="Removes previous build">
-	  <delete verbose="true">
-	    <fileset dir="${build}"/>
-	  </delete>
+	<target name="init">  
+    	<mkdir dir="${build}"/>
 	</target>
-	<target name="ProcLexer" depends="init" description="Builds the ProcLexer"> 
-		<java dir="ProcLexerFactory" fork="true" jar="lib/JFlex.jar">
-		   <arg line="processor.lex"/>
-        </java>
-		<copy file="ProcLexerFactory/Yylex.java" tofile="${src}/struktor/processor/Yylex.java"/>
-	</target>
-	<target name="LoadLexer" depends="init" description="Builds the LoadLexer"> 
-		<java dir="LoadLexerFactory" fork="true" jar="lib/JFlex.jar">
-		   <arg line="loader.lex"/>
-        </java>
-		<copy file="LoadLexerFactory/Yylex.java" tofile="${src}/struktor/strukelements/Yylex.java"/>
+
+	<target name="LexerBuild" depends="init" description="Builds the ProcLexer"> 
+			<jflex
+			    file="${parserdir}/processor.lex"
+				destdir="${src}"
+			/>
+			<jflex
+			    file="${parserdir}/loader.lex"
+				destdir="${src}"
+			/>
 	</target>
 	<target name="ParserBuild" depends="init" description="Builds the LoadParser"> 
-		<cup srcfile="LoadParserFactory/loadParser.cup" 
+		<cup srcfile="${parserdir}/loadParser.cup"
 			parser="LoadParser" 
 			symbols = "Lsym"
 			destdir="${src}"
 		/>
-		<cup srcfile="ProcParserFactory/procParser.cup" 
+		<cup srcfile="${parserdir}/procParser.cup" 
 			parser="ProcParser" 
 			symbols = "Psym"
 			destdir="${src}"
 		/>
 	</target>
+	
+	<target name="compile" depends="init,ParserBuild,LexerBuild"> 
+	<!-- Compile the java code -->
+		<javac srcdir="${src}" destdir="${build}"/>
+	</target>
+	
+	<target name="Clean" description="Removes previous build">
+		<delete verbose="true">
+			<fileset dir="${build}"/>
+		</delete>
+	</target>
+	
 	<target name="jar" depends="compile">
 		<jar destfile="struktor.jar" basedir="${build}">
 		</jar>
 	</target>
 	<target name="runApplet" depends="jar">
-	     <exec dir="." executable="appletviewer">
-	       <arg value="struktor.html" />
-	     </exec>
+		<exec dir="." executable="appletviewer">
+			<arg value="struktor.html" />
+		</exec>
 	</target>
 </project>
