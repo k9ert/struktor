@@ -9,7 +9,7 @@ class LZWCompressor {
 				   byte toCompress[]) throws IOException {
 	byte c;
 	short index;
-	int clearcode, endofinfo, numbits, limit, errcode;
+	int clearcode, endofinfo, numbits, limit;
 	short prefix = (short)0xFFFF;
 
 	BitFile bitFile = new BitFile(output);

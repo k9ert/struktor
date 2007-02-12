@@ -29,9 +29,7 @@ implements CommandTypes
 	throws ProcessorException, InterruptedException, LoopControlException, ReturnException
 	{
 		try {
-			double result;
-			do 
-			{
+			do {
 				try {
 					getInside().execute(getInside(),p);
 				} catch (ContinueException ce) { ce.catched(); if (ce.getLevel() != 0) throw ce;}				

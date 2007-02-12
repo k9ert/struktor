@@ -11,12 +11,15 @@ import javax.swing.JTextField;
 import struktor.StruktorException;
 import struktor.Tracer;
 
-/** Implementiert die Watchlist als Box in der Ausdrücke überwacht werden können
- * Für jedes Struktogramm wird eine eigene Watchlist instanziert
+/** Implementiert die Watchlist als Box in der Ausdrï¿½cke ï¿½berwacht werden kï¿½nnen
+ * Fï¿½r jedes Struktogramm wird eine eigene Watchlist instanziert
  */
 public class WatchList extends Box
 {
-	private static int count=0;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static Vector watchListList = new Vector();
 	private static void addWatchList(WatchList w)
 	{
@@ -44,7 +47,7 @@ public class WatchList extends Box
 	
 	
 	private Struktogramm struktogramm;
-	/** unschön, ich weiß aber das über ein Array zu regeln war irgendwie nicht möglich. Sollte geändert werden */
+	/** unschï¿½n, ich weiï¿½ aber das ï¿½ber ein Array zu regeln war irgendwie nicht mï¿½glich. Sollte geï¿½ndert werden */
 	private JTextField expr1 = new JTextField(7);
 	private JTextField calc1 = new JTextField(7);
 	private JTextField expr2 = new JTextField(7);
@@ -114,7 +117,7 @@ public class WatchList extends Box
 		add(calculations);
 	}
 	
-	/** Die Ausdrücke neu berechnen lassen */
+	/** Die Ausdrï¿½cke neu berechnen lassen */
 	protected void update(struktor.processor.Processor processor)
 	throws InterruptedException
 	{

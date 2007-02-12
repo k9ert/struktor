@@ -5,6 +5,7 @@
 	<taskdef name="jflex" classname="JFlex.anttask.JFlexTask" classpath="lib/JFlex.jar"/>
 
 	<property name="src" value="src" location="src"/> 
+	<property name="target" value="target" location="target"/> 
     <property name="build" value="build"/>
     <property name="parserdir" value="parser" location="parser"/> 
 
@@ -15,23 +16,23 @@
 	<target name="LexerBuild" depends="init" description="Builds the ProcLexer"> 
 			<jflex
 			    file="${parserdir}/processor.lex"
-				destdir="${src}"
+				destdir="${target}"
 			/>
 			<jflex
 			    file="${parserdir}/loader.lex"
-				destdir="${src}"
+				destdir="${target}"
 			/>
 	</target>
 	<target name="ParserBuild" depends="init" description="Builds the LoadParser"> 
 		<cup srcfile="${parserdir}/loadParser.cup"
 			parser="LoadParser" 
 			symbols = "Lsym"
-			destdir="${src}"
+			destdir="${target}"
 		/>
 		<cup srcfile="${parserdir}/procParser.cup" 
 			parser="ProcParser" 
 			symbols = "Psym"
-			destdir="${src}"
+			destdir="${target}"
 		/>
 	</target>
 	
