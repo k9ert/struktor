@@ -38,10 +38,14 @@
 	
 	<target name="compile" depends="init,ParserBuild,LexerBuild"> 
 	<!-- Compile the java code -->
-		<javac srcdir="${src}" destdir="${build}"/>
+		<javac destdir="${build}">
+			<src path="${src}"/>
+			<src path="${target}"/>
+		</javac>
+		<copy file="${src}/struktor/Logo.jpg" todir="${build}/struktor"/>
 	</target>
 	
-	<target name="Clean" description="Removes previous build">
+	<target name="clean" description="Removes previous build">
 		<delete verbose="true">
 			<fileset dir="${build}"/>
 		</delete>
