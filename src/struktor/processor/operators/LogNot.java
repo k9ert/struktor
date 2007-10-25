@@ -20,7 +20,7 @@ public class LogNot extends UnaryExpr {
 
 	// eval wertet den Operanden aus
 	// und negiert den Wert
-	// Operation erlaubt für int und double Werte
+	// Operation erlaubt fÃ¼r int und double Werte
 
 	public Object eval()
 	throws struktor.processor.ProcessorException
@@ -30,7 +30,7 @@ public class LogNot extends UnaryExpr {
 
 		Object value = operand.eval();
 
-		// NOT für int
+		// NOT fÃ¼r int
 
 		if ( value instanceof Integer )
 		{
@@ -40,7 +40,7 @@ public class LogNot extends UnaryExpr {
 				return new Integer(1);
 		}	
 
-		// NOT für double
+		// NOT fÃ¼r double
 
 		if ( value instanceof Double ) 
 		{
@@ -50,7 +50,7 @@ public class LogNot extends UnaryExpr {
 				return new Double(1);
 		}
 		
-		//NOT für Character
+		//NOT fÃ¼r Character
 		
 		if ( value instanceof Character ) 
 		{

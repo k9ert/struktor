@@ -39,7 +39,7 @@ public class Part extends Expr {
 
 
 	// eval wertet den Operanden aus
-	// Wert des LValues wird zurückgegeben
+	// Wert des LValues wird zurÃ¼ckgegeben
 	public Object eval() 
 	throws struktor.processor.ProcessorException
 	{

@@ -2,7 +2,7 @@ package struktor.processor.operators;
 
 import struktor.processor.ProcessorException;
 
-/** eine Klasse für das unäre Plus
+/** eine Klasse fï¿½r das unï¿½re Plus
  */
 
 
@@ -19,8 +19,8 @@ class UnaryPlus extends UnaryExpr {
 
 
 	// eval wertet den Operanden aus
-	// und beläßt den Wert
-	// Operation erlaubt für int und double Werte
+	// und belÃ¤ÃŸt den Wert
+	// Operation erlaubt fÃ¼r int und double Werte
 
 	public Object eval()
 	throws struktor.processor.ProcessorException
@@ -30,12 +30,12 @@ class UnaryPlus extends UnaryExpr {
 
 		Object value = operand.eval();
 
-		// + für int
+		// + fÃ¼r int
 
 		if ( value instanceof Integer )
 			return new Integer( ((Integer)value).intValue());
 
-		// + für double
+		// + fÃ¼r double
 
 		if ( value instanceof Double ) 
 			return new Double( ((Double)value).doubleValue());

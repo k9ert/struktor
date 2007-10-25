@@ -53,6 +53,8 @@ exp               =   ([eE]{sign}{dec}+)
                        "//@end struktogramm"
                        { yybegin(YYINITIAL); return new Symbol(Lsym.ENDSTRUK); }
 
+<YYINITIAL>				.* { /* ignore everything out of a struktogramm */}
+
 <STRUK>                {identifier}\(
                        { yybegin(DECSTART);
                          Tracer.out(yytext());
@@ -175,7 +177,7 @@ exp               =   ([eE]{sign}{dec}+)
                          yybegin(STRUK);
                          return new Symbol(Lsym.LSPAR); }
 <BEGIN>                ";"
-                       { /* extra f�r Do-While(bla); */
+                       { /* extra für Do-While(bla); */
                          Tracer.out(yytext());
                          yybegin(STRUK);
                          return new Symbol(Lsym.SEMI); }
@@ -264,4 +266,5 @@ exp               =   ([eE]{sign}{dec}+)
 
                        [\n]         { lineCounter++; }
                        [ \t\r\f]         { /* ignore white space. */ }
+
      . { throw new StruktorException("Illegal character: \""+yytext()+"\" in Line "+lineCounter); }

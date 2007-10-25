@@ -23,7 +23,7 @@ public class Assign extends BinaryExpr implements Datatype {
 	throws struktor.processor.ProcessorException
 	{
 	
-		// rechten Operanden auswerten (linker muß LValue, Part oder Deref sein)
+		// rechten Operanden auswerten (linker muss LValue, Part oder Deref sein)
 		Object value2 = right.eval();
 		while (value2 instanceof Deref||value2 instanceof LValue || value2 instanceof Part)
 			value2=((Expr)value2).eval();	
@@ -38,7 +38,7 @@ public class Assign extends BinaryExpr implements Datatype {
 		else
 			value1 = (LValue)left;
 
-		// Assign für LValue
+		// Assign fÃ¼r LValue
 		if ( value1 instanceof LValue)
 		{  
 			((LValue)value1).setValue(value2);

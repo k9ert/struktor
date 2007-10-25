@@ -1,7 +1,7 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor;
 
-/** Die Tracerklasse hat bis jetzt nur ganz rudimentäres Verhalten 
+/** Die Tracerklasse hat bis jetzt nur ganz rudimentÃ¤res Verhalten 
  */
  
 public class Tracer 

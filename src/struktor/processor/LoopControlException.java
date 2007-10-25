@@ -1,8 +1,8 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.processor;
 
-/** Diese abstrakte Klasse bündelt Break und Continue Exceptions die
- *  Im Struktogramm zb. bei "break;" geworfen werden (Eigentlich müßten
+/** Diese abstrakte Klasse bÃ¼ndelt Break und Continue Exceptions die
+ *  Im Struktogramm zb. bei "break;" geworfen werden (Eigentlich mÃ¼ssten
  *  Die Klassen eher "Throwable" implementieren anstatt von Exception
  *  abgeleitet zu sein, aber das war mir zu kompliziert)
  */

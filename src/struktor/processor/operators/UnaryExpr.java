@@ -1,6 +1,6 @@
 package struktor.processor.operators;
     
-/** eine abstrakte Klasse für unäre Ausdrücke
+/** eine abstrakte Klasse fÃ¼r unÃ¤re AusdrÃ¼cke
  */
 
 

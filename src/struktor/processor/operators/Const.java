@@ -3,7 +3,7 @@ package struktor.processor.operators;
     
 
     /** $Id: Const.java 2 2003-05-21 22:36:06 +0000 (Mi, 21 Mai 2003) kneunert $
-     * eine Klasse für das binäre Plus
+     * eine Klasse fÃ¼r das binÃ¤re Plus
      *
      */
 

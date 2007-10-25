@@ -28,33 +28,33 @@ public class BinaryMinus extends BinaryExpr {
 	
 	implicitCast();
 
-	// - für int
+	// - fÃ¼r int
 	if ( value1 instanceof Integer && value2 instanceof Integer ) 
 	{
 		return new Integer( ((Integer)value1).intValue()
 							- ((Integer)value2).intValue() );
 	}
 	
-	// - für double-int
+	// - fÃ¼r double-int
 	if ( value1 instanceof Double && value2 instanceof Integer ) 
 
 		return new Double( ((Double)value1).doubleValue()
 							- ((Integer)value2).intValue() );
 	
-	// - für int-double
+	// - fÃ¼r int-double
 	if ( value1 instanceof Integer && value2 instanceof Double ) 
 
 		return new Double( ((Integer)value1).intValue()
 							- ((Double)value2).doubleValue() );
 
-	// - für double
+	// - fÃ¼r double
 	if ( value1 instanceof Double && value2 instanceof Double ) 
 	{
 		return new Double( ((Double)value1).doubleValue()
 							- ((Double)value2).doubleValue() );
 	}
 	
-	// - für Pointer
+	// - fÃ¼r Pointer
 	if ( value1 instanceof Pointer && value2 instanceof Integer )
 	{  
 		((Pointer)value1).subFromAdress(((Integer)value2).intValue());

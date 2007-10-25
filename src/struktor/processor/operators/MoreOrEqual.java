@@ -27,7 +27,7 @@ public class MoreOrEqual extends BinaryExpr {
 	
 	implicitCast();
 
-	// - für int
+	// - fÃ¼r int
 	if ( value1 instanceof Integer && value2 instanceof Integer ) 
 	{
 		if ( ((Integer)value1).intValue() >= ((Integer)value2).intValue())
@@ -36,7 +36,7 @@ public class MoreOrEqual extends BinaryExpr {
 			return new Integer(0);	
 	}
 
-	// - für double
+	// - fÃ¼r double
 	if ( value1 instanceof Double && value2 instanceof Double ) 
 	{
 		if (((Double)value1).doubleValue() >= ((Double)value2).doubleValue())

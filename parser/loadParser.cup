@@ -448,12 +448,12 @@ switchh ::=		SWITCH CONDITION:cond
 						if (a instanceof StrukElement)
 						{
 							switchh.setDefault((StrukElement)a);
-							// muﬂ nun aber raus !
+							// muss nun aber raus !
 							vector.removeElement(a);	
 						}
 						else
 						{
-							// Der ganze K‰se der sonst schon vorher passiert muﬂ jetzt nachgeholt werden
+							// Der ganze K√§se der sonst schon vorher passiert muss jetzt nachgeholt werden
 							((SwitchValue)a).setSwitch(switchh);
 							((SwitchValue)a).alt.setUpConnection(switchh,ALT);
 						}

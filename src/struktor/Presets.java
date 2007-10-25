@@ -24,9 +24,9 @@ import javax.swing.JPanel;
 
 /** Die Variablen dieser Klasse speichern den Zustand des Systems.
  *  Mittlererweile kann man bei der Application-Class die Variablen
- *  �ndern. Dort kann man auch als "Fingertip" anschauen, was die
- *  einzelnen Variablen f�r Bedeutung haben. (direkt im Quelltext 
- *  nachschauen). Alle Variablen sind public damit sie von �berall 
+ *  ändern. Dort kann man auch als "Fingertip" anschauen, was die
+ *  einzelnen Variablen für Bedeutung haben. (direkt im Quelltext 
+ *  nachschauen). Alle Variablen sind public damit sie von überall 
  *  her zugreifbar sind ...
  */
 
@@ -34,7 +34,7 @@ import javax.swing.JPanel;
 public class Presets implements ItemListener, ActionListener, Serializable
 {
 	
-	static public final String version="0.63";
+	static public final String version="0.64";
 	
 	/** Die Bedeutung der einzelnen Variablen kann im Quelltext nachgeschaut werden. */
 	//enab-Variablen geben an, ob ein Element �berhaupt erscheinen soll

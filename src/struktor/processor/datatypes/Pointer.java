@@ -6,7 +6,7 @@ import struktor.processor.Memory;
 import struktor.processor.ProcessorException;
 
 /** Modelliert einen Zeiger (Pointer). Sehr zentraler Datentyp !!
- * wird ständig beim ausführen instanziert da fast alles über Zeiger abgewickelt wird
+ * wird stÃ¤ndig beim ausfÃ¼hren instanziert da fast alles Ã¼ber Zeiger abgewickelt wird
  */
 public class Pointer implements Datatype
 {
@@ -42,7 +42,7 @@ public class Pointer implements Datatype
 	}
 	
 
-	/** Construktor-Methode: Dubliziert einen Pointer (könnte wohl auch über .clone implementiert werden)
+	/** Construktor-Methode: Dubliziert einen Pointer (kÃ¶nnte wohl auch Ã¼ber .clone implementiert werden)
 	 * @param   pointer
 	 * @exception   ProcessorException    
 	 */
@@ -74,7 +74,7 @@ public class Pointer implements Datatype
 	
 	
 
-	/** Gibt den Typ des Pointers zurück
+	/** Gibt den Typ des Pointers zurÃ¼ck
 	 * @return Typ des Pointers
 	 */
 	public int getTypeOfPointer()
@@ -83,7 +83,7 @@ public class Pointer implements Datatype
 	}
 	
 
-	/** Gibt den Wert an der Adresse zurück: Delegiert an Memory
+	/** Gibt den Wert an der Adresse zurÃ¼ck: Delegiert an Memory
 	 * @return Object an Adresse     
 	 * @exception   ProcessorException  
 	 */
@@ -111,7 +111,7 @@ public class Pointer implements Datatype
 		
 	
 
-	/** Gibt die Adresse als int zurück. Ist Default und wird nur von anderen Pointern in der Equals-Methode benutzt
+	/** Gibt die Adresse als int zurÃ¼ck. Ist Default und wird nur von anderen Pointern in der Equals-Methode benutzt
 	 * @return die Adresse als int     
 	 */
 	int getAdress() 
@@ -120,7 +120,7 @@ public class Pointer implements Datatype
 	}
 	
 
-	/** Gibt true zurück, wenn das Pointerargument den gleichen Typ und die gleiche Adresse haben
+	/** Gibt true zurÃ¼ck, wenn das Pointerargument den gleichen Typ und die gleiche Adresse haben
 	 * @param   pointer  
 	 * @return true bei gleicher Adresse und Typ     
 	 */

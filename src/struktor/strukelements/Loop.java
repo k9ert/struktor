@@ -4,7 +4,7 @@ package struktor.strukelements;
 import java.awt.Color;
 import java.awt.Graphics;
 
-/** Die abstrakte Klasse für alle Loops (Tail-, Head-, For-) Unglaublich wieviel man da reinschreiben kann :-)
+/** Die abstrakte Klasse fï¿½r alle Loops (Tail-, Head-, For-) Unglaublich wieviel man da reinschreiben kann :-)
  */
 abstract class Loop extends StrukElement 
 implements Constants
@@ -56,9 +56,9 @@ implements Constants
 			next.deleteAll();
 			next = saveNext;
 		}
-		if (getInside()!=null) // Kann vorkommen weil beim rekursiven löschen auch wieder Elemente produziert werden können (siehe z.b unten)
+		if (getInside()!=null) // Kann vorkommen weil beim rekursiven lÃ¶schen auch wieder Elemente produziert werden kÃ¶nnen (siehe z.b unten)
 			getInside().delete(true);
-		if (getUpConnectionType() != NEXT) // Hier könnte wieder ein Element entstehen (nötig da sonst Löcher entstehen)
+		if (getUpConnectionType() != NEXT) // Hier kÃ¶nnte wieder ein Element entstehen (nÃ¶tig da sonst LÃ¶cher entstehen)
 			connect(getUpConnectionType(), getUpConnection(), struktogramm.addElement(COMMAND));
 		delete(true);
 	}
@@ -97,12 +97,12 @@ implements Constants
 		super.heightSet(this.getUpConnectionType());
 	}
 	
-	/** Die Höhe einer Loop zu verändern ist nicht erlaubt
+	/** Die HÃ¶he einer Loop zu verÃ¤ndern ist nicht erlaubt
 	 * @param   height  
 	 */
 	void setHeightByUser(int height)
 	{
-		// Nix da ! Da wird vom Benutzer nix verändert !
+		// Nix da ! Da wird vom Benutzer nix verÃ¤ndert !
 	}
 	
 	void tare()

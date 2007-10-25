@@ -27,8 +27,8 @@ public class LValue extends Expr {
 	{
 		Tracer.out("Entering lvalue.Constructor ...");
 		this.memory = mem;
-		// Ein LValue ist eigentlich ein Pointer auf Speicherplatz (wurde aber jetzt geändert)
-		// Dieser Pointer wird aber aus irgendwelchen Gründen erst bei eval initialisiert
+		// Ein LValue ist eigentlich ein Pointer auf Speicherplatz (wurde aber jetzt geÃ¤ndert)
+		// Dieser Pointer wird aber aus irgendwelchen Grï¿½nden erst bei eval initialisiert
 		// Auf diese Weise kann zur Laufzeit damit elegant operiert werden
 		variableName=variable;
 	}
@@ -37,7 +37,7 @@ public class LValue extends Expr {
 
 
 	// eval wertet den Operanden aus
-	// Wert des LValues wird zurückgegeben
+	// Wert des LValues wird zurÃ¼ckgegeben
 	public Object eval() 
 	throws struktor.processor.ProcessorException
 	{

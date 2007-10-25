@@ -2,7 +2,7 @@ package struktor.processor.operators;
 
 import struktor.processor.ProcessorException;
 
-/** eine abstrakte Klasse für binäre Ausdrücke
+/** eine abstrakte Klasse fÃ¼r binÃ¤re AusdrÃ¼cke
  */
 
 
@@ -17,7 +17,7 @@ abstract class BinaryExpr extends Expr
 
 	Expr right;
 	
-	// für alle Operatoren ausser assign (bis jetzt)
+	// fÃ¼r alle Operatoren ausser assign (bis jetzt)
 	Object value1;
 	Object value2;
 

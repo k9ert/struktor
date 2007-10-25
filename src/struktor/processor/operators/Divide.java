@@ -25,12 +25,12 @@ public class Divide extends BinaryExpr {
         value2 = right.eval();
 		implicitCast();
 		try {
-	        // / für int
+	        // / fÃ¼r int
 	        if ( value1 instanceof Integer && value2 instanceof Integer ) {
 	          return new Integer( ((Integer)value1).intValue()
 			  						/ ((Integer)value2).intValue() );
 			}
-			// / für double
+			// / fÃ¼r double
 			if ( value1 instanceof Double && value2 instanceof Double ) {
 				return new Double( ((Double)value1).doubleValue()
 									/ ((Double)value2).doubleValue() );

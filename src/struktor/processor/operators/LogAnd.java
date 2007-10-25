@@ -27,7 +27,7 @@ public class LogAnd extends BinaryExpr {
 	
 	implicitCast();
 
-	// LOGAND für int, int
+	// LOGAND fÃ¼r int, int
 	if ( value1 instanceof Integer && value2 instanceof Integer ) 
 	{
 		if ( ((Integer)value1).intValue() != 0 && ((Integer)value2).intValue() != 0)
@@ -36,7 +36,7 @@ public class LogAnd extends BinaryExpr {
 			return new Integer(0);	
 	}
 
-	// LOGAND für double, double
+	// LOGAND fÃ¼r double, double
 	if ( value1 instanceof Double && value2 instanceof Double ) 
 	{
 		if ( ((Double)value1).doubleValue() != 0 && ((Double)value2).doubleValue()!=0)
@@ -45,7 +45,7 @@ public class LogAnd extends BinaryExpr {
 			return new Double(0);
 	}
 	
-	// LOGAND für int, double
+	// LOGAND fÃ¼r int, double
 	if ( value1 instanceof Integer && value2 instanceof Double ) 
 	{
 		if ( ((Integer)value1).intValue() != 0 && ((Double)value2).doubleValue()!=0)
@@ -54,7 +54,7 @@ public class LogAnd extends BinaryExpr {
 			return new Double(0);
 	}
 	
-	// LOGAND für double, int
+	// LOGAND fÃ¼r double, int
 	if ( value1 instanceof Double && value2 instanceof Integer ) 
 	{
 		if ( ((Double)value1).doubleValue() != 0 && ((Integer)value2).intValue()!=0)

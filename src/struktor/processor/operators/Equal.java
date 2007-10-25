@@ -28,7 +28,7 @@ public class Equal extends BinaryExpr {
 	
 	implicitCast();
 
-	// == für int
+	// == fÃ¼r int
 	if ( value1 instanceof Integer && value2 instanceof Integer ) 
 	{
 		if ( ((Integer)value1).intValue() == ((Integer)value2).intValue())
@@ -37,7 +37,7 @@ public class Equal extends BinaryExpr {
 			return new Integer(0);	
 	}
 
-	// == für double
+	// == fÃ¼r double
 	else if ( value1 instanceof Double && value2 instanceof Double ) 
 	{
 		if ( ((Double)value1).doubleValue() == ((Double)value2).doubleValue())
@@ -46,7 +46,7 @@ public class Equal extends BinaryExpr {
 			return new Double(0);
 	}
 	
-	// == für double == int
+	// == fÃ¼r double == int
 	/*else if ( value1 instanceof Double && value2 instanceof Integer ) 
 	{
 		if ( ((Double)value1).doubleValue() == ((Integer)value2).intValue())
@@ -55,7 +55,7 @@ public class Equal extends BinaryExpr {
 			return new Double(0);
 	}
 	
-	// == für int == double
+	// == fÃ¼r int == double
 	else if ( value1 instanceof Integer && value2 instanceof Double ) 
 	{
 		if ( ((Integer)value1).intValue() == ((Double)value2).doubleValue())
@@ -64,7 +64,7 @@ public class Equal extends BinaryExpr {
 			return new Double(0);
 	}*/
 	
-	// == für Pointer
+	// == fÃ¼r Pointer
 	if ( value1 instanceof Pointer && value2 instanceof Pointer ) 
 	{
 		if ( ((Pointer)value1).equals((Pointer)value2))
@@ -73,7 +73,7 @@ public class Equal extends BinaryExpr {
 			return new Double(0);
 	}
 	
-	// == für Characters
+	// == fÃ¼r Characters
 	if ( value1 instanceof Character && value2 instanceof Character ) 
 	{
 		if ( ((Character)value1).charValue() == ((Character)value2).charValue())
@@ -82,7 +82,7 @@ public class Equal extends BinaryExpr {
 			return new Double(0);
 	}
 	
-	// == für Strings
+	// == fÃ¼r Strings
 	if ( value1 instanceof String && value2 instanceof String ) 
 	{
 		if ( ((String)value1).equals((String)value2))

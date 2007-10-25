@@ -6,7 +6,7 @@ import java.applet.Applet;
 import java.awt.Container;
 import java.awt.Frame;
 
-/** Sammelt ein paar nützliche Tools */
+/** Sammelt ein paar nÃ¼tzliche Tools */
 public class Utils
 {
 	static javax.swing.JApplet applet;
@@ -22,7 +22,7 @@ public class Utils
 	}
 	
 	/** statische Getter-Methode (ohne entsprechende Setter-Methode) 
-	 * Gibt das applet-Objekt zurück. Wird fast in allen Konstruktoren verwendet, um repaint() auszulösen. evtl problematisch wenn mehrere Applets auf einer Seite versammelt sind.
+	 * Gibt das applet-Objekt zurÃ¼ck. Wird fast in allen Konstruktoren verwendet, um repaint() auszulï¿½sen. evtl problematisch wenn mehrere Applets auf einer Seite versammelt sind.
 	 * @return das Applet-Objekt    
 	 */
 	static public javax.swing.JApplet getApplet(Container element)
@@ -49,19 +49,19 @@ public class Utils
 		StringBuffer outString= new StringBuffer();
 		for(int i = 0 ; i < inString.length(); i++)
 		{
-			if (inString.charAt(i)== 'Ä')
+			if (inString.charAt(i)== 'Ã„')
 				outString = outString.append("Ae");
-			else if (inString.charAt(i)== 'ä')
+			else if (inString.charAt(i)== 'Ã¤')
 				outString = outString.append("ae");
-			else if (inString.charAt(i)== 'Ö')
+			else if (inString.charAt(i)== 'Ã–')
 				outString = outString.append("Oe");
-			else if (inString.charAt(i)== 'ö')
+			else if (inString.charAt(i)== 'Ã¶')
 				outString = outString.append("oe");
-			else if (inString.charAt(i)== 'Ü')
+			else if (inString.charAt(i)== 'Ãœ')
 				outString = outString.append("Ue");
-			else if (inString.charAt(i)== 'ü')
+			else if (inString.charAt(i)== 'Ã¼')
 				outString = outString.append("ue");
-			else if (inString.charAt(i)== 'ß')
+			else if (inString.charAt(i)== 'ÃŸ')
 				outString = outString.append("ss");
 			else if (inString.charAt(i)== ' ')
 				outString = outString.append(" ");
@@ -75,19 +75,19 @@ public class Utils
 	{
 		for(int i = 0 ; i < inString.length(); i++)
 		{
-			if (inString.charAt(i)== 'Ä')
+			if (inString.charAt(i)== 'Ã„')
 				return true;
-			else if (inString.charAt(i)== 'ä')
+			else if (inString.charAt(i)== 'Ã¤')
 				return true;
-			else if (inString.charAt(i)== 'Ö')
+			else if (inString.charAt(i)== 'Ã–')
 				return true;
-			else if (inString.charAt(i)== 'ö')
+			else if (inString.charAt(i)== 'Ã¶')
 				return true;
-			else if (inString.charAt(i)== 'Ü')
+			else if (inString.charAt(i)== 'Ãœ')
 				return true;
-			else if (inString.charAt(i)== 'ü')
+			else if (inString.charAt(i)== 'Ã¼')
 				return true;
-			else if (inString.charAt(i)== 'ß')
+			else if (inString.charAt(i)== 'ÃŸ')
 				return true;
 		}
 		return false;	

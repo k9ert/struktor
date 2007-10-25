@@ -24,7 +24,7 @@ public class Modulo extends BinaryExpr {
 
         value2 = right.eval();
 
-        // / für int
+        // / fÃ¼r int
         if ( value1 instanceof Integer && value2 instanceof Integer ) {
           return new Integer( ((Integer)value1).intValue()
 		  						% ((Integer)value2).intValue() );

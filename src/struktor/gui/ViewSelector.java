@@ -6,10 +6,10 @@ import javax.swing.Box;
 import javax.swing.JComponent;
 import javax.swing.JMenuBar;
 
-/** Abstrakte Klasse für den View-Auswähler. 
- * Wird einmal für das Applet (simple JComboBox) und einmal für 
- * Application implementiert (Menüeintrag in der Menubar)
- * Die ganze Geschichte könnte evtl. auch mit Interfaces gelöst werden
+/** Abstrakte Klasse fÃ¼r den View-AuswÃ¤hler. 
+ * Wird einmal fÃ¼r das Applet (simple JComboBox) und einmal fÃ¼r 
+ * Application implementiert (MenÃ¼eintrag in der Menubar)
+ * Die ganze Geschichte kÃ¶nnte evtl. auch mit Interfaces gelÃ¶st werden
  */
 abstract class ViewSelector extends JComponent
 implements ItemListener
@@ -17,9 +17,9 @@ implements ItemListener
 	/** Aktualisiert den View */
 	public abstract void viewChanged(int change);
 	
-	/** Nur für ViewSelectorAppEvt (.add(...) geht nicht)*/
+	/** Nur fÃ¼r ViewSelectorAppEvt (.add(...) geht nicht)*/
 	public abstract void addYourselfTo(JMenuBar menuBar);
 	
-	/** Nur für ViewSelectorEvt (.add(...) geht nicht)*/
+	/** Nur fÃ¼r ViewSelectorEvt (.add(...) geht nicht)*/
 	public abstract void addYourselfTo(Box box);
 }
