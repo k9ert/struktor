@@ -1,6 +1,9 @@
 package struktor.processor;
 
 import java_cup.runtime.ComplexSymbolFactory;
+
+@SuppressWarnings("all")
+
 %%
 %cup
 

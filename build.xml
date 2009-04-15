@@ -9,14 +9,23 @@
     <property name="build" value="build"/>
     <property name="parserdir" value="parser" location="parser"/> 
 
-	<target name="init">  
+	<!-- Avoid missing JAVA_HOME in eclipse -->
+	<target name="configure.eclipse" if="eclipse.running">
+	        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+	        <echo message="Configuring compiler for Eclipse..."/>
+	</target>
+	
+	<target name="init" depends="configure.eclipse">  
     	<mkdir dir="${build}"/>
 	</target>
+	
+
 
 	<target name="LexerBuild" depends="init" description="Builds the ProcLexer"> 
 			<jflex
 			    file="${parserdir}/processor.lex"
 				destdir="${target}"
+				verbose="true"
 			/>
 			<jflex
 			    file="${parserdir}/loader.lex"

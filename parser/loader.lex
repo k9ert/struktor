@@ -6,6 +6,8 @@ import java_cup.runtime.Symbol;
 import struktor.StruktorException;
 import struktor.Tracer;
 
+@SuppressWarnings("all")
+
 %%
 %cup
 %{
