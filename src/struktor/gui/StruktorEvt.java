@@ -70,7 +70,7 @@ implements ActionListener, ItemListener
 		
 		// und alles zusammenf�gen ...
 		if (Struktor.isApplet)
-			add(new JLabel("Copyright 2000, Kim Neunert (k9ert@gmx.de), All Rights Reserved"), BorderLayout.NORTH);
+			add(new JLabel("Copyright 2000-2009, Kim Neunert (k9ert@gmx.de), All Rights Reserved"), BorderLayout.NORTH);
 		// Der andere Kram ist bereits in Box drin
 		add(box, BorderLayout.CENTER);
 		revalidate();
@@ -253,7 +253,7 @@ implements ActionListener, ItemListener
 		String version= Presets.version;
 		JOptionPane.showMessageDialog(
 					Utils.getFrame(struktor),
-					"Struktor "+version+ "\nCopyright 2000-2004, Kim Neunert\nvisit http://www.learn2prog.de", 
+					"Struktor "+version+ "\nCopyright 2000-2009, Kim Neunert\nvisit http://www.learn2prog.de", 
 					"Info:", 
 					JOptionPane.INFORMATION_MESSAGE);
 	}

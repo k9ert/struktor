@@ -32,7 +32,7 @@ class Copyright extends JDialog implements ActionListener {
 
 	Copyright(Struktor struktor) {
 		super(Utils.getFrame(struktor),
-				"Copyright 2000, Kim Neunert, All Rights Reserved", true);
+				"Copyright 2000-2009, Kim Neunert, All Rights Reserved", true);
 		JPanel contentPane = new JPanel();
 		contentPane.setLayout(new BorderLayout());
 		Border bd1 = BorderFactory.createBevelBorder(BevelBorder.RAISED);

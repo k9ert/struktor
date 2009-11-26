@@ -45,7 +45,7 @@ implements WindowListener
 		} catch (ArrayIndexOutOfBoundsException aioobe) {}
 		isApplet = false;
 		StruktorApplication a = new StruktorApplication();
-		JFrame frame = new JFrame("Struktor - Copyright 2000-2004, Kim Neunert (k9ert@gmx.de), All Rights Reserved");
+		JFrame frame = new JFrame("Struktor - Copyright 2000-2009, Kim Neunert (k9ert@gmx.de), All Rights Reserved");
 		frame.getContentPane().setLayout(new BorderLayout());
 		frame.getContentPane().add(a, BorderLayout.CENTER);
 		frame.setSize(800,600);
