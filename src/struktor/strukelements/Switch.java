@@ -139,7 +139,7 @@ implements CommandTypes, Constants
 			{
 				getNext().setX(getX());
 				
-				getNext().setY(getY()+calcHeight());
+				getNext().setY(getY()+getHeight()+getAltMaxHeight());
 			  	getNext().setWidth(this.getWidth());
 				
 			}
@@ -228,7 +228,10 @@ implements CommandTypes, Constants
 					makeBlockSmaller(a.alt, maxHeight-a.alt.calcHeight());	
 			}
 		}
-		return h+maxHeight;
+		if (getNext()!=null)
+	 		return (h+maxHeight+getNext().calcHeight());
+	 	else
+	  		return h+maxHeight;
 	}
 	
 	
