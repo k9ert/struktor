@@ -22,7 +22,9 @@ public class Utils
 	}
 	
 	/** statische Getter-Methode (ohne entsprechende Setter-Methode) 
-	 * Gibt das applet-Objekt zurück. Wird fast in allen Konstruktoren verwendet, um repaint() auszul�sen. evtl problematisch wenn mehrere Applets auf einer Seite versammelt sind.
+	 * Gibt das applet-Objekt zurück. Wird fast in allen Konstruktoren 
+	 * verwendet, um repaint() auszulösen. evtl problematisch wenn 
+	 * mehrere Applets auf einer Seite versammelt sind.
 	 * @return das Applet-Objekt    
 	 */
 	static public javax.swing.JApplet getApplet(Container element)

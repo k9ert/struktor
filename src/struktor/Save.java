@@ -23,7 +23,7 @@ import javax.swing.border.Border;
 
 /** Eine Klasse zum Struktogramme Saven. 
  * Abgeleitet von JFrame, damit man im Applet den "Quellcode" da 
- * rein schreiben kann. Im Applet bleibt das Teil invisible daf�r
+ * rein schreiben kann. Im Applet bleibt das Teil invisible dafür
  * wird @see saveToFile aufgerufen.
  */
 
@@ -35,7 +35,7 @@ extends JFrame implements ActionListener
 	 */
 	private static final long serialVersionUID = 1L;
 	JTextArea save = new JTextArea(50,50);
-	/** speichert die Anzahl der Tabs damit man sch�n formatieren kann */
+	/** speichert die Anzahl der Tabs damit man schön formatieren kann */
 	int tabs=0;
 	Struktor struktor;
 
@@ -97,14 +97,14 @@ extends JFrame implements ActionListener
 	}
 
 
-	/** Fenster schlie�en */
+	/** Fenster schliessen */
 	public void actionPerformed(ActionEvent event)
 	{
 		setVisible(false);
 		dispose();
 	}
 
-	/** Die Methode mit der die Elemente in das JTextArea reinschreiben k�nnen */
+	/** Die Methode mit der die Elemente in das JTextArea reinschreiben können */
 	public void println(String string)
 	{  	
 		printTabs();
@@ -117,14 +117,16 @@ extends JFrame implements ActionListener
 		save.append(string);
 	}
 
-	/** Wird normalerweise nur intern vor jeder Zeile aufgerufen. Einmal aber auch von DecList weil die save()-Methode von Dec genauso auch f�r Parameter (die keine Tabs brauchen) benutzt wird */
+	/** Wird normalerweise nur intern vor jeder Zeile aufgerufen. Einmal aber auch 
+	 * von DecList weil die save()-Methode von Dec genauso auch für Parameter (die 
+	 * keine Tabs brauchen) benutzt wird */
 	public void printTabs()
 	{
 		for (int i=0; i<tabs; i++)
 			print("\t");
 	}
 	
-	/** Momentan unbenutzt (f�r Sp�ter)*/	
+	/** Momentan unbenutzt (für Später)*/	
 	String getCode()
 	{
 		return save.getText();

@@ -34,11 +34,11 @@ import struktor.Presets;
 import struktor.StruktorException;
 import struktor.Utils;
 
-/** Eine Klasse (-nnhierarchie) um elegant MouseEreignisse behandeln zu k�nnen */
+/** Eine Klasse (-nnhierarchie) um elegant MouseEreignisse behandeln zu können */
 class StrukElementEvt extends MouseAdapter
 implements MouseMotionListener, MouseListener, Constants
 {
-	/** Sensibilit�t der Mouse (ab wann reagiert zb der Drag-Point)*/
+	/** Sensibilität der Mouse (ab wann reagiert zb der Drag-Point)*/
 	static int sensible=10;
 	static boolean debug = false;
 	static Struktogramm struktogramm;
@@ -118,7 +118,7 @@ implements MouseMotionListener, MouseListener, Constants
 	  		// Fenstergrenzen beachten (Sicherheitsabstand 10Pixel)
 			if (male.getX()+e.getX()+10 < struktogramm.getView().getWidth())
 				male.setWidth(e.getX());
-	  	// oder resize H�he ?
+	  	// oder resize Höhe ?
 		if (male.resizeHeight==true)
 		{
 			if (male.getHeight()>e.getY())
@@ -127,7 +127,7 @@ implements MouseMotionListener, MouseListener, Constants
 				StrukElement.gettingSmaller = false;
 			StrukElement.resizingElement=male;	
 			male.setHeightByUser(e.getY());
-			// Das erspart aus nicht erfindlichen Gr�nden �rger !
+			// Das erspart aus nicht erfindlichen Gründen Ärger !
 			StrukElement.gettingSmaller=false;
 			StrukElement.resizingElement=null;	
 		}
@@ -142,8 +142,6 @@ implements MouseMotionListener, MouseListener, Constants
 		}
 		e.consume();	        
 	}
-	
-	
 	
 	public void mouseReleased(MouseEvent e) {
 	        male.removeMouseMotionListener(this);
@@ -210,7 +208,7 @@ implements MouseMotionListener, MouseListener, Constants
    	
 }
 
-/** Die Klasse f�r das Pop-Up-Fenster
+/** Die Klasse für das Pop-Up-Fenster
  */
 class StrukElementEvtPopUp 
 extends JDialog
@@ -557,7 +555,7 @@ implements ActionListener, ItemListener, Constants
 		element.repaint();				
 	}
 
-	/** Klasse f�r das Property-Menu
+	/** Klasse für das Property-Menu
 	 */		
 	class Properties
 	extends JDialog implements ActionListener, ItemListener, Runnable
@@ -574,10 +572,10 @@ implements ActionListener, ItemListener, Constants
 		private JTextField adMessage;
 		private JTextField label;
 		private JButton ok;
-		// Nur f�r ForLoop
+		// Nur für ForLoop
 		private JTextField initLabel;
 		private JTextField stepLabel;
-		// Nur f�r Switch
+		// Nur für Switch
 		private JButton newAlt;
 		
 		Properties(Frame parent, StrukElement s)
@@ -698,7 +696,7 @@ implements ActionListener, ItemListener, Constants
 			SwingUtilities.invokeLater(this);
 		}
 		
-		/** Ist n�tig weil sonst nicht Threadsicher !!!! F�gt das Feld f�r AdditionalMessage hinzu oder entfernt es
+		/** Ist nötig weil sonst nicht Threadsicher !!!! Fügt das Feld für AdditionalMessage hinzu oder entfernt es
 		 */
 		public void run()
 		{
@@ -721,4 +719,3 @@ implements ActionListener, ItemListener, Constants
 		}
 	}
 }
-	

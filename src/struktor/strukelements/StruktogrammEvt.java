@@ -16,7 +16,7 @@ import javax.swing.event.ChangeListener;
 
 import struktor.Struktor;
 
-/** Eine Klasse f�r die Ausf�hrungsSteuerung der Struktogramme (execute-Button, Geschwindigkeitsregler ...)
+/** Eine Klasse für die AusführungsSteuerung der Struktogramme (execute-Button, Geschwindigkeitsregler ...)
  * Wird nur EINMAL instanziert und steuert alle Struktogramme
  */
 public class StruktogrammEvt extends Box
@@ -53,7 +53,7 @@ implements ActionListener, ItemListener, ChangeListener
 		delay.addChangeListener(this);
 	}
 	
-	// F�r die Subklasse
+	// Für die Subklasse
 	public StruktogrammEvt()
 	{
 		super(BoxLayout.X_AXIS);
@@ -144,6 +144,4 @@ implements ActionListener, ItemListener, ChangeListener
 	{
 		delay.setValue(newDelay);
 	}
-	
-	
 }

@@ -4,7 +4,7 @@ package struktor.strukelements;
 import java.awt.Color;
 import java.awt.Graphics;
 
-/** Die abstrakte Klasse f�r alle Loops (Tail-, Head-, For-) Unglaublich wieviel man da reinschreiben kann :-)
+/** Die abstrakte Klasse für alle Loops (Tail-, Head-, For-) Unglaublich wieviel man da reinschreiben kann :-)
  */
 abstract class Loop extends StrukElement 
 implements Constants

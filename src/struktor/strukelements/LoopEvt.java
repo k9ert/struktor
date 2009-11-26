@@ -5,20 +5,14 @@ import java.awt.event.MouseEvent;
 
 class LoopEvt extends StrukElementEvt
 {
-
-
-
-	LoopEvt(Loop l, Struktogramm sg)
-	{
+	LoopEvt(Loop l, Struktogramm sg) {
 		super(sg);
 		male=l;
 	}
-
 	
 	public void mousePressed(MouseEvent e) {
      super.mousePressed(e);
-	 e.consume();
-     
+	 e.consume();     
 	}
 	
 	boolean mouseInsideElement(MouseEvent e)
@@ -34,6 +28,4 @@ class LoopEvt extends StrukElementEvt
 		}
 		return temp;
 	}
-
-
 }

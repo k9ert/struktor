@@ -21,7 +21,9 @@ import struktor.processor.Processor;
 import struktor.processor.ReturnException;
 
 
-/** Die Verwaltungsinstanz f�r alle StrukElemente des Struktogramms. Ein Teil der Funktionalit�t k�nnten evtl. statische Methoden der StrukElement-Klasse �bernehmen. Dann h�tte man aber ein Problem mit der GUI-Funktionalit�t (mehrere Applets auf einer HTML-Seite.
+/** Die Verwaltungsinstanz für alle StrukElemente des Struktogramms. Ein Teil der Funktionalität
+ *  könnten evtl. statische Methoden der StrukElement-Klasse übernehmen. Dann hätte man aber ein 
+ *  Problem mit der GUI-Funktionalität (mehrere Applets auf einer HTML-Seite.
  * @see ent#dissolve
  */
 public class Struktogramm
@@ -53,7 +55,7 @@ implements Runnable, Constants
 	private boolean returned = false;
 	private StrukElement first=null;
 	private Vector StrukList = new Vector();
-	//Ausschlie�lich f�r die �bergabe an Processor !!!
+	//Ausschließlich für die Übergabe an Processor !!!
 	public Struktor struktor;
 	public Presets presets;
 	public boolean saveMark;
@@ -111,7 +113,7 @@ implements Runnable, Constants
 		return element;
 	}
 	
-	/** F�gt ein Command ein. 
+	/** Fügt ein Command ein. 
 	 * @return Das Element     
 	 */
 	private Command addCommand(String label)
@@ -124,7 +126,8 @@ implements Runnable, Constants
 		return command;					
 	}
 	
-	/** F�gt eine Loop und ein Command ein. Die Parameter werden im Moment noch alle ignoriert
+	/** Fügt eine Loop und ein Command ein. Die Parameter werden im Moment noch 
+	 * alle ignoriert
 	 * @return Das Element selber     
 	 */
 	private Loop addHLoop(String label)
@@ -142,7 +145,8 @@ implements Runnable, Constants
 		return loop;
 	}
 	
-	/** F�gt eine Loop und ein entsprechende Command ein. Die Parameter werden im Moment noch alle ignoriert
+	/** Fügt eine Loop und ein entsprechende Command ein. Die Parameter werden im Moment 
+	 * noch alle ignoriert
 	 * @return Das Element selber     
 	 */
 	private Loop addTLoop(String label)
@@ -160,7 +164,8 @@ implements Runnable, Constants
 		return loop;
 	}
 	
-	/** F�gt eine For-Loop und ein Command ein. Die Parameter werden im Moment noch alle ignoriert
+	/** Fügt eine For-Loop und ein Command ein. Die Parameter werden im Moment 
+	 * noch alle ignoriert
 	 * @return Das Element selber     
 	 */
 	private Loop addFLoop(String label)
@@ -177,10 +182,9 @@ implements Runnable, Constants
 		view.add(command, new Integer(StrukElement.standardLayer+20));
 		return loop;
 	}
-	
-	
 
-	/** F�gt eine Condition und entsprechende Commands ein. Die Parameter werden im Moment noch alle ignoriert
+	/** Fügt eine Condition und entsprechende Commands ein. Die Parameter werden 
+	 * im Moment noch alle ignoriert
 	 * @return Das Element selber     
 	 */
 	private Condition addCondition(String label)
@@ -277,7 +281,9 @@ implements Runnable, Constants
 		
 	
 	
-	/** St��t die Ausf�hrung des Struktogramms an, indem das erste Element ausgef�hrt wird. Vorher mu� ein Prozessor erzeugt werden, der seinerseits einen Parser und Memory (nach den Deklarationen des Struktogramms) erzeugt.
+	/** Stösst die Ausführung des Struktogramms an, indem das erste Element ausgeführt wird. Vorher 
+	 * muss ein Prozessor erzeugt werden, der seinerseits einen Parser und Memory (nach den Deklarationen 
+	 * des Struktogramms) erzeugt.
 	 *	@see StrukElement#execute
 	 *  @see Processor
 	 *	@see Memory
@@ -314,7 +320,8 @@ implements Runnable, Constants
 	}
 
 	
-	/** L�scht ein Element indem in allen Elementen die Verkn�pfungen entsprechend abge�ndert werden. Anschlie�en wird das Element aus der Liste entfernt.   
+	/** Löscht ein Element indem in allen Elementen die Verknüpfungen entsprechend abgeändert 
+	 * werden. Anschließend wird das Element aus der Liste entfernt.   
 	 * @param   e  
 	 */
 	void delStrukElement(StrukElement e)

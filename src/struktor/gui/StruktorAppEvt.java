@@ -55,7 +55,7 @@ implements ActionListener, ItemListener
 				
 		addFileHandling(null);
 		
-		// und alles zusammenf�gen ...
+		// und alles zusammenfügen ...
 		
 		menuBar.add(file);
 		struktogrammSelect.addYourselfTo(menuBar);

@@ -12,7 +12,7 @@ import struktor.processor.Processor;
 import struktor.processor.ProcessorException;
 import struktor.processor.ReturnException;
 
-/** Eine Klasse f�r das simple Kommando (Rechteck)
+/** Eine Klasse für das simple Kommando (Rechteck)
  */
 class Command extends StrukElement
 implements CommandTypes
@@ -22,10 +22,10 @@ implements CommandTypes
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/** Standardm��ig auf CALCULATION (Verarbeitung) */
+	/** Standardmässig auf CALCULATION (Verarbeitung) */
 	private int action = CALCULATION;
 	
-	/** Die AdditionalMessage (F�r INPUT/OUTPUT*/
+	/** Die AdditionalMessage (Für INPUT/OUTPUT*/
 	private String adMessage = new String("");
 
 	Command(Struktogramm s, String label)
@@ -100,7 +100,7 @@ implements CommandTypes
 	}
 	
 	/** Setter-Methode
-	 * Die H�he des Elements ver�ndern (Spezialfall wegen Input/Output)
+	 * Die Höhe des Elements verändern (Spezialfall wegen Input/Output)
 	 * @param   height  
 	 */
 	void setHeight(int height)

@@ -44,12 +44,13 @@ implements struktor.processor.datatypes.Datatype
 	 */
 	public static void setActualFormByExprCalc(struktor.ExprCalc temp, Memory form)
 	{
-		// die �bergabe von ExprCalc ist so eine Art "ZugangsCode"
+		// die Übergabe von ExprCalc ist so eine Art "ZugangsCode"
 		actualForm = form;
 	}
 	
 
-	/** Wird bis jetzt nur von der Function-Methode nach dem erfolgreichen durchlaufen eines anderen Struktogramms aufgerufen. Kapselt den Formular-Stack
+	/** Wird bis jetzt nur von der Function-Methode nach dem erfolgreichen durchlaufen 
+	 * eines anderen Struktogramms aufgerufen. Kapselt den Formular-Stack
 	 */
 	public static void popForm()
 	{
@@ -57,7 +58,9 @@ implements struktor.processor.datatypes.Datatype
 	}
 	
 
-	/** Wird aufgerufen vom "main-Struktogramm". Der Speicher wird vollst�ndig gel�scht (Stack und evtl noch vorhandenes Memory-Object). Au�erdem wird der Adre�raum wieder neu festgelegt
+	/** Wird aufgerufen vom "main-Struktogramm". Der Speicher wird vollständig gelöscht 
+	 * (Stack und evtl noch vorhandenes Memory-Object). Ausserdem wird der Adressraum 
+	 * wieder neu festgelegt
 	 */
 	public static void initializeMemory()
 	{
@@ -71,7 +74,8 @@ implements struktor.processor.datatypes.Datatype
 		
 	
 
-	/** Construktor-Methode: Erstellt entsprechende Variables-Objekte die den Speicher repr�sentieren. Alle Variables werden in einem Vector gespeichert.
+	/** Construktor-Methode: Erstellt entsprechende Variables-Objekte die den Speicher 
+	 * repräsentieren. Alle Variables werden in einem Vector gespeichert.
 	 * @param   DecList (Die DeklarationsListe) 
 	 * @exception   ProcessorException
 	 */
@@ -105,7 +109,8 @@ implements struktor.processor.datatypes.Datatype
 	}
 	
 
-	/** Ausgelagert aus der Constructor-Methode. Erstellt analog zu normalen Variablen ein Array
+	/** Ausgelagert aus der Constructor-Methode. Erstellt analog zu normalen Variablen 
+	 * ein Array
 	 * @param   r, die Deklaration des Arrays  
 	 * @exception   ProcessorException  
 	 */
@@ -185,7 +190,7 @@ implements struktor.processor.datatypes.Datatype
 		{throw new ProcessorException("Type Mismatch !\n type:"+type+"\n value: "+r.getValue());}
 	}
 	
-	/** nur f�r calloc aus Functions */
+	/** nur für calloc aus Functions */
 	public Pointer declareVariable(int length)
 	throws ProcessorException 
 	{
@@ -207,8 +212,9 @@ implements struktor.processor.datatypes.Datatype
 	}
 		
 
-	/** Wird von Deref und LValue verwendet. Braucht keine entsprechende Setter-Methode, weil diese grunds�tzlich �ber eine Pointer (und damit statisch) angesprochen werden 
-	 *  Man k�nnte auch sagen da� diese Funktion Variablennamen in Pointer aufl�st
+	/** Wird von Deref und LValue verwendet. Braucht keine entsprechende Setter-Methode, 
+	 * weil diese grundsätzlich über eine Pointer (und damit statisch) angesprochen werden 
+	 *  Man könnte auch sagen dass diese Funktion Variablennamen in Pointer auflöst
 	 * @param   variable  
 	 * @return     
 	 * @exception   ProcessorException  
@@ -269,7 +275,7 @@ implements struktor.processor.datatypes.Datatype
 		//} catch (NullPointerException npe) { Tracer.out("Aha ! Da is a !"); return null;}
 	}
 
-	/** wird benutzt um eine Speicheradresse f�r einen entsprechenden Typ anzufordern
+	/** wird benutzt um eine Speicheradresse für einen entsprechenden Typ anzufordern
 	 * @param   type  
 	 * @return Speicheradresse     
 	 */
@@ -293,7 +299,8 @@ implements struktor.processor.datatypes.Datatype
 			return 4;	
 	}	
 	
-	/** Statische Methode, erm�glicht den kompletten Speicher (nicht nur ein Formular) nach einer Adresse zu durchsuchen und den Wert zur�ckzugeben (wird nur von Pointern benutzt)
+	/** Statische Methode, ermöglicht den kompletten Speicher (nicht nur ein Formular) nach 
+	 * einer Adresse zu durchsuchen und den Wert zurückzugeben (wird nur von Pointern benutzt)
 	 * @param   adress  
 	 * @return den Wert an der Adresse     
 	 * @exception   ProcessorException  
@@ -319,7 +326,8 @@ implements struktor.processor.datatypes.Datatype
 		throw new ProcessorException("No Data at Adress "+adress);
 		
 	}
-	/** Statische Methode, erm�glicht den kompletten Speicher (nicht nur ein Formular) nach einer Adresse zu durchsuchen und den Wert zu setzen (wird nur von Pointern benutzt)
+	/** Statische Methode, ermöglicht den kompletten Speicher (nicht nur ein Formular) nach einer Adresse 
+	 * zu durchsuchen und den Wert zu setzen (wird nur von Pointern benutzt)
 	 * @param   adress  
 	 * @exception ProcessorException  
 	 */
@@ -426,9 +434,9 @@ implements struktor.processor.datatypes.Datatype
 			case STRING:
 				return new String( ((String)value));
 			default:
-				/* Evtl k�nnen auch alle anderen Werte direkt �bergeben
-					werden. der Default sollte aber zun�chst nur dann 
-					zum Zuge kommen	wenn �ber eine noch nicht richtig
+				/* Evtl können auch alle anderen Werte direkt übergeben
+					werden. der Default sollte aber zunächst nur dann 
+					zum Zuge kommen	wenn über eine noch nicht richtig
 					implementierte Funktion	malloc() Speicher reserviert 
 					wurde.*/
 				return value;
@@ -503,7 +511,7 @@ implements struktor.processor.datatypes.Datatype
 		}
 	}
 	
-	// Spezialfall um char-Arrays analog zu C verwenden zu k�nnen
+	// Spezialfall um char-Arrays analog zu C verwenden zu können
 	void setValueOfCharArray(String string)
 	throws ProcessorException
 	{
@@ -513,9 +521,7 @@ implements struktor.processor.datatypes.Datatype
 			pointer.setValueAtAdress(new Character(string.charAt(i)));
 			pointer.addToAdress(1);
 		}
-		// Die bin�re Null
+		// Die binäre Null
 		pointer.setValueAtAdress(new Character((char)0));
 	}
-	
-	
 }

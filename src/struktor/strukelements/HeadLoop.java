@@ -57,13 +57,13 @@ implements CommandTypes
        
 	   // Die Figur (ohne Topline)
        
-       // kleines St�ck runter
+       // kleines Stück runter
        g.drawLine(width-1, 0, width-1, getVerHeight());
        // wieder nach links fast soweit
        g.drawLine(width-1, getVerHeight(), getHorWidth(), getVerHeight());
        // runter
        g.drawLine(getHorWidth(), getVerHeight(), getHorWidth(), height-1);
-       // kleines St�ck links)
+       // kleines Stück links)
        g.drawLine(getHorWidth(), height-1, 0, height-1);
        // und wieder rauf
        g.drawLine(0, height-1, 0, 0);
@@ -86,7 +86,4 @@ implements CommandTypes
 		if (getNext()!=null)
 			getNext().save(saveObject);
 	}
-
-	
-
 }

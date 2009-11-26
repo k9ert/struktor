@@ -139,6 +139,4 @@ extends JFrame implements ActionListener
 		setVisible(false);
 		dispose();
 	}
-
-  
 }

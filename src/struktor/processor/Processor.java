@@ -21,7 +21,7 @@ import struktor.strukelements.CommandTypes;
 
 /** Diese Klasse modelliert den Prozessor. Wichtigste Methoden sind
  *  die unterschiedlichen Parse-Methoden denen jeweils (unter anderem)
- *  ein Ausdruck �bergeben wird, der dann ausgewertet wird.
+ *  ein Ausdruck übergeben wird, der dann ausgewertet wird.
  *  @see Memory 
  */
 public class Processor 
@@ -31,7 +31,7 @@ implements CommandTypes, Datatype
 	static private Processor actualProcessor;
 	private ProcParser parser_obj;
 	private ComplexSymbolFactory symFact;
-	// Nur f�r ExprCalc (Wird sonst nicht ben�tigt)
+	// Nur für ExprCalc (Wird sonst nicht benötigt)
 	private Memory mem;
 	java.applet.Applet applet;
 	TurtleCanvas gOutput;
@@ -58,7 +58,7 @@ implements CommandTypes, Datatype
 			actualProcessor = this;
 			this.gOutput = gOutput;
 			this.tOutput = tOutput;
-			/* create a Memory-Object (Referenz ist �ber statische Methode erreichbar) */
+			/* create a Memory-Object (Referenz ist über statische Methode erreichbar) */
 	    	try {
 				mem = new Memory(decList);
 	    	} catch (ProcessorException pe) 
@@ -97,8 +97,8 @@ implements CommandTypes, Datatype
 		return parse_tree.value;
 	}
 	
-	/** Eine spezielle Parse-Methode f�r die Watchlist. Werden
-	 *  bei den geparsten Ausdr�cken Werte ge�ndert, gibts �rger
+	/** Eine spezielle Parse-Methode für die Watchlist. Werden
+	 *  bei den geparsten Ausdrücken Werte geändert, gibts Ärger
 	 * @param   s  
 	 * @return Der Wert der Variablen    
 	 * @exception   StruktorException  
@@ -126,7 +126,7 @@ implements CommandTypes, Datatype
 	
 
 	/** Diese Parse-Methode wird nur von der For Loop (und Klassenintern)
-	 *  aufgerufen. Kann glaub ich noch ge�ndert werden, dann kann Sie 
+	 *  aufgerufen. Kann glaub ich noch geändert werden, dann kann Sie 
 	 *  private werden
 	 * @param   s  
 	 * @return Der Wert des Ausdrucks   
@@ -149,12 +149,14 @@ implements CommandTypes, Datatype
 		return result;
 	}
 	
-	/** Eine von Zwei (�ffentlichen) parse-Methoden. Diese hier wird von den StrukElementen aufgerufen um Input/Output implementieren zu k�nnen. ruft seinerseits die andere parse-Methode auf
+	/** Eine von Zwei (öffentlichen) parse-Methoden. Diese hier wird von den StrukElementen 
+	 * aufgerufen um Input/Output implementieren zu können. ruft seinerseits die andere 
+	 * parse-Methode auf
 	 * @see parse
 	 * @param   label  
 	 * @param   action (INPUT,OUTPUT,CALCULATION)  
-	 * @param   adMessage zus�tzliche Meldung f�r INPUT/OUTPUT
-	 * @return  Das Resultat des Ausdrucks im Double-Format (eigentlich nur f�r Loop/Condition (SteuerungsInfos))
+	 * @param   adMessage zusätzliche Meldung für INPUT/OUTPUT
+	 * @return  Das Resultat des Ausdrucks im Double-Format (eigentlich nur für Loop/Condition (SteuerungsInfos))
 	 * @exception   InterruptedException  
 	 * @exception   LoopControlException  
 	 * @exception   ReturnException  
@@ -183,10 +185,10 @@ implements CommandTypes, Datatype
   	}
 	
 
-	/** Kapselt die Eingabe in der parse()-Methode, wurde extra eingef�hrt um verschiedene Datentypen eingeben zu k�nnen
+	/** Kapselt die Eingabe in der parse()-Methode, wurde extra eingeführt um verschiedene Datentypen eingeben zu k�nnen
 	 * @param   label  
 	 * @param   adMessage  
-	 * @return das ge�nderte label (a wird z.b. (bei String) zu a = "blabla";)     
+	 * @return das geänderte label (a wird z.b. (bei String) zu a = "blabla";)     
 	 * @exception   InterruptedException  
 	 */
 	private String input(String label, String adMessage)
@@ -195,18 +197,18 @@ implements CommandTypes, Datatype
 		String saveLabel = label;
 		String input = getValueFromUser(adMessage);
 		try {
-			// ist das n�tig ? --> resetValuesChangedFlag();
+			// ist das nötig ? --> resetValuesChangedFlag();
 			Pointer pointerToLValue = (Pointer)parse("&("+label+");");
 			int typeOfVariable = pointerToLValue.getTypeOfPointer();	
 			switch (typeOfVariable)
 			{
 			case INTEGER:
-				// Schau mer mal ob das als Integer durchgeht ! (Bei Text w�rde es ansonsten als Variable indentifiziert werden)
+				// Schau mer mal ob das als Integer durchgeht ! (Bei Text würde es ansonsten als Variable indentifiziert werden)
 				Integer.parseInt(input);
 				label = label + "=" + input + ";";
 				break;
 			case DOUBLE:
-				// Schau mer mal ob das als Double durchgeht ! (Bei Text w�rde es ansonsten als Variable indentifiziert werden)
+				// Schau mer mal ob das als Double durchgeht ! (Bei Text würde es ansonsten als Variable indentifiziert werden)
 				Double.parseDouble(input);
 				label = label + "=" + input + ";";
 				break;
@@ -222,7 +224,7 @@ implements CommandTypes, Datatype
 			}
 		}
 		catch (NumberFormatException nfe) {
-			// Benutzer hat wohl eher Text eingegeben !! (Exception wird sp�ter geworfen)
+			// Benutzer hat wohl eher Text eingegeben !! (Exception wird später geworfen)
 			label = label + "=\"" + input + "\";";}
 		catch (Exception e) { new ProcessorException("Syntax Error in Input-Statement: "+saveLabel).showMsg(Utils.getFrame(struktor)); throw new InterruptedException();}
 			
@@ -231,7 +233,7 @@ implements CommandTypes, Datatype
 	
 	}
 
-	/** Hilfsmethode: wird von input() verwendet. Gibt die Eingabe den Benutzers als String zur�ck
+	/** Hilfsmethode: wird von input() verwendet. Gibt die Eingabe den Benutzers als String zurück
 	 * @param   adMessage (die angezeigte Meldung)  
 	 * @return Die Eingabe des Benutzers als String
 	 * @exception   InterruptedException  
@@ -271,7 +273,7 @@ implements CommandTypes, Datatype
 	}
 	
 
-	/** Getter-Methode: Gibt zur�ck ob ein Wert w�hrend des Parsens ge�ndert wurde. 
+	/** Getter-Methode: Gibt zurück ob ein Wert während des Parsens geändert wurde. 
 	 * @see resetValuesChangedFlag
 	 * @see valueChanged, resetValuesChangedFlag
 	 * @return     
@@ -282,8 +284,8 @@ implements CommandTypes, Datatype
 	}
 	
 
-	/** Mu� vorher aufgerufen werden, damit man eindeutig festellen kann ob im Ausdruck,
-	 *  der der watchlist-parse-Methode �bergeben wurde, eine Variable �ndert 
+	/** Muss vorher aufgerufen werden, damit man eindeutig festellen kann ob im Ausdruck,
+	 *  der der watchlist-parse-Methode übergeben wurde, eine Variable ändert 
 	 *  @see valueChanged, getValuesChangedFlag
 	 */
 	public void resetValuesChangedFlag()
@@ -292,7 +294,7 @@ implements CommandTypes, Datatype
 	}
 	
 
-	/** Wird vom Parser aufgerufen, wenn Variablen ge�ndert wurden
+	/** Wird vom Parser aufgerufen, wenn Variablen geändert wurden
 	 *  @see resetValuesChangedFlag, getValuesChangedFlag
 	 */
 	void valueChanged()
@@ -301,7 +303,7 @@ implements CommandTypes, Datatype
 	}
 	
 
-	/** Getter-Methode die grafische Ausgabe m�glich wird
+	/** Getter-Methode die grafische Ausgabe möglich wird
 	 * @return Das GraphicalOutput-Objekt    
 	 */
 	TurtleCanvas getGOutput()
@@ -309,7 +311,7 @@ implements CommandTypes, Datatype
 		return gOutput;
 	}
 	
-	/** Getter-Methode die Text-Ausgabe (Console) m�glich wird
+	/** Getter-Methode die Text-Ausgabe (Console) möglich wird
 	 * @return Das TextOutput-Objekt    
 	 */
 	JTextArea getTOutput()
@@ -318,4 +320,3 @@ implements CommandTypes, Datatype
 	}
  
 }
-

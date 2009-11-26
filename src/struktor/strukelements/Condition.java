@@ -9,7 +9,7 @@ import struktor.processor.Processor;
 import struktor.processor.ProcessorException;
 import struktor.processor.ReturnException;
 
-/** Eine Klasse f�r die Condition */
+/** Eine Klasse für die Condition */
 class Condition extends StrukElement
 implements CommandTypes, Constants
 {
@@ -133,7 +133,7 @@ implements CommandTypes, Constants
 		
 		int alt1Height=alt1.calcHeight();
 		int alt2Height=alt2.calcHeight();
-		// links gr�er wie rechts ?
+		// links grösser wie rechts ?
 		if (alt1Height > alt2Height)
 		{
 			// Differenz ausrechnen
@@ -143,11 +143,11 @@ implements CommandTypes, Constants
 				// links kleiner machen
 				makeBlockSmaller(alt1,diff);
 			else
-				// sonst rechts gr�er machen
+				// sonst rechts grösser machen
 				makeBlockLarger(alt2,diff);
 			h = h + alt1Height;
 		}
-		// rechts gr�er wie links
+		// rechts grösser wie links
 		else if (alt1Height < alt2Height)
 		{
 			int diff = alt2Height-alt1Height;
@@ -282,7 +282,8 @@ implements CommandTypes, Constants
 	
 	void save(struktor.Save saveObject)
 	{
-		// Bei CCode m�ssen auf jeden Fall geschweifte Klammern gesetzt werden, da evtl. ein Command mehr als ein Kommando produziert
+		// Bei CCode müssen auf jeden Fall geschweifte Klammern gesetzt werden, da evtl. ein Command 
+		// mehr als ein Kommando produziert
 		boolean printPara1 = blockPrint(getAlt1());
 		boolean printPara2 = blockPrint(getAlt2());
 		saveObject.println("if ("+getLabel()+")");

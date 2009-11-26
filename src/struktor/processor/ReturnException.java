@@ -1,8 +1,8 @@
 // Copyright 2000 Kim Neunert (k9ert@gmx.de), this is free Software (GNU Public License)
 package struktor.processor;
 
-/** Diese abstrakte Klasse erm�glicht analog zu den LoopControlExceptions
- *  einen Return im Struktogrammcode. (Eigentlich m��te
+/** Diese abstrakte Klasse ermöglicht analog zu den LoopControlExceptions
+ *  einen Return im Struktogrammcode. (Eigentlich müsste
  *  die Klasse eher "Throwable" implementieren anstatt von Exception
  *  abgeleitet zu sein, aber das war mir zu kompliziert)
  */

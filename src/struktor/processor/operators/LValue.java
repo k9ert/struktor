@@ -28,7 +28,7 @@ public class LValue extends Expr {
 		Tracer.out("Entering lvalue.Constructor ...");
 		this.memory = mem;
 		// Ein LValue ist eigentlich ein Pointer auf Speicherplatz (wurde aber jetzt geändert)
-		// Dieser Pointer wird aber aus irgendwelchen Gr�nden erst bei eval initialisiert
+		// Dieser Pointer wird aber aus irgendwelchen Gründen erst bei eval initialisiert
 		// Auf diese Weise kann zur Laufzeit damit elegant operiert werden
 		variableName=variable;
 	}

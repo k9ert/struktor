@@ -37,7 +37,7 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	static public final String version="0.64";
 	
 	/** Die Bedeutung der einzelnen Variablen kann im Quelltext nachgeschaut werden. */
-	//enab-Variablen geben an, ob ein Element �berhaupt erscheinen soll
+	//enab-Variablen geben an, ob ein Element überhaupt erscheinen soll
 	
 		//StruktorPanel:
 		public boolean enabOutput =			true;
@@ -66,7 +66,7 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		public boolean enabDebugMode = 		true;
 		String enabDebugModeTT = "ob die Debug-Checkbox angezeigt wird";
 		public boolean enabTitle = 			true;
-		String enabTitleTT = "ob ein Titel f�r jedes Struktogramm angegeben wird";
+		String enabTitleTT = "ob ein Titel für jedes Struktogramm angegeben wird";
 		
 		//Dec und DecList
 		public boolean enabParameter = 		true;
@@ -84,15 +84,15 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		public boolean enabStrings = 		true;
 		String enabStringsTT = "ob Strings erlaubt sind";
 		public boolean enabDecDelete = 		true;
-		String enabDecDeleteTT = "ob Deklarationen gel�scht werden k�nnen";
+		String enabDecDeleteTT = "ob Deklarationen gelöscht werden können";
 		public boolean enabNewDec =			true;
-		String enabNewDecTT = "ob neue Deklarationen erstellt werden k�nnen";
+		String enabNewDecTT = "ob neue Deklarationen erstellt werden können";
 		
 		//StrukElements
 		public boolean enabSeDragging =		true;
 		String enabSeDraggingTT = "ob die Struktogramme verschiebbar sind";
 		public boolean enabSeResizing = 	true;
-		String enabSeResizingTT = "ob die Struktogramme gr��enver�nderbar sind";
+		String enabSeResizingTT = "ob die Struktogramme größenveränderbar sind";
 		public boolean enabSePopUp =		true;
 		String enabSePopUpTT = "ob man das PopUp-Menu aufrufen kann";
 		public int		SeXPos =			100;
@@ -104,9 +104,9 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		public boolean enabSePuProperties =	true;
 		String enabSePuPropertiesTT = "ob die properties aufrufbar sind";
 		public boolean enabSePuInsert =		true;
-		String enabSePuInsertTT = "ob man Elemente einf�gen kann";
+		String enabSePuInsertTT = "ob man Elemente einfügen kann";
 		public boolean enabSePuAppend =		true;
-		String enabSePuAppendTT = "ob man Elemente anh�ngen kann";
+		String enabSePuAppendTT = "ob man Elemente anhängen kann";
 		public boolean enabSePuCommand =		true;
 		String enabSePuCommandTT = "ob Commands erzeugbar sind";
 		public boolean enabSePuHeadLoop =		true;
@@ -120,13 +120,13 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		public boolean enabSePuSwitch =			true;
 		String enabSePuSwitchTT = "ob Switchs erzeugbar sind";
 		public boolean enabSePuMove =			true;
-		String enabSePuMoveTT = "ob Elemente hierarchich aufgestuft werden k�nnen \"move outside Block\"";
+		String enabSePuMoveTT = "ob Elemente hierarchich aufgestuft werden können \"move outside Block\"";
 		public boolean enabSePuAdd =			true;
-		String enabSePuAddTT = "ob Elemente hierarchich abgestuft werden k�nnen (z.B. \"add to Loop\")";
+		String enabSePuAddTT = "ob Elemente hierarchich abgestuft werden können (z.B. \"add to Loop\")";
 		public boolean enabSePuSwop =			true;
-		String enabSePuSwopTT = "ob Elemente getauscht werden k�nnen";
+		String enabSePuSwopTT = "ob Elemente getauscht werden können";
 		public boolean enabSePuDelete =			true;
-		String enabSePuDeleteTT = "ob Elemente gel�scht werden k�nnen";
+		String enabSePuDeleteTT = "ob Elemente gelöscht werden können";
 		public boolean enabSePuBreakpoints =	true;
 		String enabSePuBreakpointsTT = "ob Breakpoints erlaubt sind";
 	
@@ -157,7 +157,7 @@ public class Presets implements ItemListener, ActionListener, Serializable
 			initPresets();
 	}
 	
-	/** nur f�r ExprCalc*/
+	/** nur für ExprCalc*/
 	Presets()
 	{
 		presetAllFeatures();
@@ -178,8 +178,8 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 	/** Alle preset-Methoden werden im Dialog als Button angezeigt
-	 *  und k�nnen so ausgef�hrt werden um bestimmte Gruppen von
-	 *  Eigenschaften �ndern zu k�nnen
+	 *  und können so ausgeführt werden um bestimmte Gruppen von
+	 *  Eigenschaften ändern zu können
 	 */
 	void presetAllEnabFalse()
 	{
@@ -216,8 +216,8 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 	/** Alle preset-Methoden werden im Dialog als Button angezeigt
-	 *  und k�nnen so ausgef�hrt werden um bestimmte Gruppen von
-	 *  Eigenschaften �ndern zu k�nnen
+	 *  und können so ausgeführt werden um bestimmte Gruppen von
+	 *  Eigenschaften ändern zu können
 	 */
 	public void presetAsImage()
 	{
@@ -234,8 +234,8 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 	/** Alle preset-Methoden werden im Dialog als Button angezeigt
-	 *  und k�nnen so ausgef�hrt werden um bestimmte Gruppen von
-	 *  Eigenschaften �ndern zu k�nnen
+	 *  und können so ausgeführt werden um bestimmte Gruppen von
+	 *  Eigenschaften ändern zu können
 	 */
 	public void presetAsExeutableImage()
 	{
@@ -244,8 +244,8 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 	/** Alle preset-Methoden werden im Dialog als Button angezeigt
-	 *  und k�nnen so ausgef�hrt werden um bestimmte Gruppen von
-	 *  Eigenschaften �ndern zu k�nnen
+	 *  und können so ausgeführt werden um bestimmte Gruppen von
+	 *  Eigenschaften ändern zu können
 	 */
 	public void presetAllFeatures()
 	{
@@ -303,12 +303,12 @@ public class Presets implements ItemListener, ActionListener, Serializable
 		
 	// -------------------------------------------------------------------------
 	// Die folgenden Methoden sind nur Hilfsmethoden um die Voreinstellungen elegant
-	// ver�ndern zu k�nnen
+	// verändern zu können
 	// -------------------------------------------------------------------------
 	
 
-	/** Zeigt ein Fenster an um die Eigenschaften interaktiv �ndern zu
-	 *  k�nnen.
+	/** Zeigt ein Fenster an um die Eigenschaften interaktiv ändern zu
+	 *  können.
 	 */
 	public void showDialog()
 	{
@@ -542,7 +542,7 @@ public class Presets implements ItemListener, ActionListener, Serializable
 	}
 	
 
-	/** Sucht den entsprechenden Erkl�renden Text zu den Eigenschaften
+	/** Sucht den entsprechenden Erklärenden Text zu den Eigenschaften
 	 * @param   name  
 	 * @return     
 	 */

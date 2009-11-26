@@ -10,7 +10,7 @@ import javax.swing.event.ChangeListener;
 
 import struktor.Struktor;
 
-/** Die Event-Klasse f�r Struktogramme, wird im Moment nicht verwendet (Application)
+/** Die Event-Klasse für Struktogramme, wird im Moment nicht verwendet (Application)
  */
 public class StruktogrammAppEvt extends StruktogrammEvt
 implements ActionListener, ItemListener, ChangeListener
@@ -67,7 +67,4 @@ implements ActionListener, ItemListener, ChangeListener
 		struktor.selectStruktogramm(Struktogramm.main.getName());
 		toolBar.repaint();
 	}
-	
-	
-	
 }

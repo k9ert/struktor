@@ -18,7 +18,7 @@ import struktor.Save;
 import struktor.Tracer;
 import struktor.processor.ProcessorException;
 
-/** Eine Klasse f�r den "Deklarationen-Editor" */
+/** Eine Klasse für den "Deklarationen-Editor" */
 public class DecList extends JPanel
 implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 {
@@ -62,7 +62,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 	Vector decList;
 	JPanel tempPanel;
 	
-	/** Nur f�r Expr.Calc */
+	/** Nur für Expr.Calc */
 	public Vector getDecList()
 	{
 		return decList;
@@ -85,7 +85,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		this.tempPanel = tempPanel;
 	}
 	
-	/** f�r ExprCalc */
+	/** für ExprCalc */
 	public DecList(Presets presets)
 	{
 		this.presets = presets;
@@ -93,7 +93,8 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		tempPanel = new JPanel();
 	}
 	
-	/** Die Parameter beim Aufruf von Struktogrammen werden initialisiert indem der Wert des Arguments in das Textfeld geschrieben wird 
+	/** Die Parameter beim Aufruf von Struktogrammen werden initialisiert indem der Wert 
+	 * des Arguments in das Textfeld geschrieben wird 
 	 * @param   Die Argumente als Vektor  
 	 * @exception   ProcessorException  
 	 */
@@ -139,7 +140,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		throw new ProcessorException("To many Parameters !");
 	}
 	
-	/** Hilfsmethode: Gibt die Anzahl der Parameter zur�ck */
+	/** Hilfsmethode: Gibt die Anzahl der Parameter zurück */
 	private int getParameterCount()
 	{
 		int counter=0;
@@ -156,7 +157,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		return counter;
 	}
 	
-	/** Hilfsmethode: Gibt die Anzahl der Deklarationen zur�ck */
+	/** Hilfsmethode: Gibt die Anzahl der Deklarationen zurück */
 	private int getDeclarationCount()
 	{
 		return tempPanel.getComponentCount();
@@ -167,7 +168,7 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		return tempPanel;
 	}
 	
-	/** Eine neue Deklaration erzeugen (f�r ExprCalc public) */
+	/** Eine neue Deklaration erzeugen (für ExprCalc public) */
 	public Dec newDeclaration(boolean isPointer, boolean isParameter, boolean isArray, int index, int temptype, String tempname, String value)
 	{
 		Dec dec = new Dec(presets, isPointer, isParameter, isArray, index, temptype, tempname, value);
@@ -269,4 +270,3 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
 		}
 	}
 }
-	

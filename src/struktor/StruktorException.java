@@ -7,8 +7,8 @@ import java.awt.Frame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-/** Eine Klasse f�r generell alle internen Exceptions. 
- * Mithilfe der Methode show...Msg l��t sich die Meldung elegant als Fenster anzeigen
+/** Eine Klasse für generell alle internen Exceptions. 
+ * Mithilfe der Methode show...Msg läßt sich die Meldung elegant als Fenster anzeigen
  */
 
 public class StruktorException extends Exception

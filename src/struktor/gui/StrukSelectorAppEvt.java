@@ -70,7 +70,7 @@ implements ItemListener
 				group.remove((JRadioButton)radioButtons[i]);
 			}
 		}
-		// Und das erste Element ausw�hlen (sonst ist gar nichts ausgew�hlt)
+		// Und das erste Element auswählen (sonst ist gar nichts ausgewählt)
 		radioButtons = selector.getMenuComponents();
 		if (radioButtons.length > 0)	
 			((JRadioButton)radioButtons[0]).setSelected(true);

@@ -42,7 +42,8 @@ public class Pointer implements Datatype
 	}
 	
 
-	/** Construktor-Methode: Dubliziert einen Pointer (könnte wohl auch über .clone implementiert werden)
+	/** Construktor-Methode: Dubliziert einen Pointer (könnte wohl auch über .clone 
+	 * implementiert werden)
 	 * @param   pointer
 	 * @exception   ProcessorException    
 	 */
@@ -99,7 +100,8 @@ public class Pointer implements Datatype
 	}
 	
 
-	/** Speichert das Object an der Adresse auf die der Pointer weist: Delegation an Memory
+	/** Speichert das Object an der Adresse auf die der Pointer weist: Delegation an 
+	 * Memory
 	 * @param   value  
 	 * @exception   ProcessorException  
 	 */
@@ -111,7 +113,8 @@ public class Pointer implements Datatype
 		
 	
 
-	/** Gibt die Adresse als int zurück. Ist Default und wird nur von anderen Pointern in der Equals-Methode benutzt
+	/** Gibt die Adresse als int zurück. Ist Default und wird nur von anderen Pointern 
+	 * in der Equals-Methode benutzt
 	 * @return die Adresse als int     
 	 */
 	int getAdress() 
@@ -120,7 +123,8 @@ public class Pointer implements Datatype
 	}
 	
 
-	/** Gibt true zurück, wenn das Pointerargument den gleichen Typ und die gleiche Adresse haben
+	/** Gibt true zurück, wenn das Pointerargument den gleichen Typ und die gleiche 
+	 * Adresse haben
 	 * @param   pointer  
 	 * @return true bei gleicher Adresse und Typ     
 	 */
@@ -185,9 +189,7 @@ public class Pointer implements Datatype
 			break;	
 		}
 	}
-	
-	
-	
+
 	private void checkType(int type)
 	throws ProcessorException
 	{
@@ -203,7 +205,4 @@ public class Pointer implements Datatype
 	{
 		return "0x"+Integer.toString(adress, 16);
 	}
-}	
-				
-	
-	
+}

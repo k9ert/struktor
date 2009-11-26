@@ -20,7 +20,8 @@ import struktor.processor.datatypes.Pointer;
 import struktor.processor.operators.Expr;
 import struktor.strukelements.Struktogramm;
 
-/** Erm�glicht das Aufrufen von Funktionen. Wird im Prinzip genauso wie die Operatoren verwendet
+/** Ermöglicht das Aufrufen von Funktionen. Wird im Prinzip genauso wie die Operatoren 
+ * verwendet
  */
 
 public class Function extends Expr
@@ -42,8 +43,8 @@ implements Datatype
 	 * @param   struktor  
 	 * @param   name (der Name der Funktion)
 	 * @param   parameter (Die Parameter der Funktion)
-	 * @param   gOutput (erm�glicht grafische Ausgabe)
-	 * @param   tOutput (erm�glich textuelle Ausgabe)
+	 * @param   gOutput (ermöglicht grafische Ausgabe)
+	 * @param   tOutput (ermöglich textuelle Ausgabe)
 	 * @param   memory (damit ein neues Formular angelegt werden kann ...)
 	 */
 	public Function(Struktor struktor, String name, Vector parameter, TurtleCanvas gOutput, JTextArea tOutput, Memory memory)
@@ -136,7 +137,7 @@ implements Datatype
 	}
 	
 
-	/** Eine mathematische Funktion ausf�hren (java.Math)
+	/** Eine mathematische Funktion ausführen (java.Math)
 	 * @param   method  
 	 * @return     
 	 * @exception   ProcessorException  
@@ -159,7 +160,7 @@ implements Datatype
 	}
 	
 
-	/** Eine grafische Funktion ausf�hren (java.awt.Graphics)
+	/** Eine grafische Funktion ausführen (java.awt.Graphics)
 	 * @param   method  
 	 * @return     
 	 * @exception   ProcessorException  
@@ -170,7 +171,7 @@ implements Datatype
 		Graphics output = gOutput.getGraphics();
 		if (output == null)
 			throw new ProcessorException("Error: Output-Window is closed \n(activate left-upper checkbox!)");
-		// Extrawurscht f�r setColor(Color color); (geht aber leider nicht)
+		// Extrawurscht für setColor(Color color); (geht aber leider nicht)
 		if (method.getName().equals("setColor"))
 		{
 			Integer[] rgb = new Integer[3];
@@ -199,7 +200,7 @@ implements Datatype
 	}
 	
 
-	/** Eine Turtle Funktion ausf�hren (struktor.TurtleCanvas)
+	/** Eine Turtle Funktion ausführen (struktor.TurtleCanvas)
 	 * @param   method  
 	 * @return     
 	 * @exception   ProcessorException  
@@ -222,9 +223,9 @@ implements Datatype
 		}
 	}
 	
-	/** Funktioniert noch nicht. Der Gedanke ist der, da� jeder 
+	/** Funktioniert noch nicht. Der Gedanke ist der, dass jeder 
 	 *  beliebige Funktionen (Methoden) in die Klasse Functions
-	 *  reinschreiben kann. Die sollen dann auch ausf�hrbar sein
+	 *  reinschreiben kann. Die sollen dann auch ausführbar sein
 	 */
 	private Object executeInternalFunction(Method method)
 	throws ProcessorException
@@ -284,7 +285,6 @@ implements Datatype
 		} catch (ArrayIndexOutOfBoundsException aioobe) {}
 		tOutput.append(string);
 	}
-	
 
 	/** MemmoryAllocation, reserviert Speicher bei Memory Objekt
 	 * @return     
@@ -304,10 +304,5 @@ implements Datatype
 		for(int i=1; i<length;i++)
 			memory.declareVariable(numberOfBytes);
 		return start;	
-	}
-		
-	
+	}	
 }
-	
-	
-	

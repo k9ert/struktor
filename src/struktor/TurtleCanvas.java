@@ -37,11 +37,11 @@ import javax.swing.JComponent;
 
 
 /**
- * Diese Klasse stellt eine Turtle-Komponente f�r die Grafikprogrammierung
- * zur Verf�gung.
+ * Diese Klasse stellt eine Turtle-Komponente für die Grafikprogrammierung
+ * zur Verfügung.
  *
  * @see <a href="http://www.bildung.hessen.de/abereich/inform/skii/material/index.html">
- * @author Gerhard R�hner
+ * @author Gerhard Röhner
  * @version 3.00 10/10/00
  */
 
@@ -94,12 +94,12 @@ public class TurtleCanvas extends JComponent
 
 
 	/**
-	* Erzeugt eine Turtle mit einer Zeichenfl�che, die Breite x H�he gro� ist.
-	* Die Turtle wird anfangs in die Mitte der Zeichenfl�che gesetzt.
+	* Erzeugt eine Turtle mit einer Zeichenfläche, die Breite x Höhe gross ist.
+	* Die Turtle wird anfangs in die Mitte der Zeichenfläche gesetzt.
 	* Der Anfangswinkel ist 0 Grad, was Blickrichtung nach rechts entspricht.
-	* Die Hintergrundfarbe ist Wei�, die Zeichenfarbe ist Schwarz.
+	* Die Hintergrundfarbe ist Weiss, die Zeichenfarbe ist Schwarz.
 	* <P>
-	* Die Turtleposition kann interaktiv durch Anklicken der Zeichenfl�che
+	* Die Turtleposition kann interaktiv durch Anklicken der Zeichenfläche
 	* festgelegt werden.
 	* <P>
 	* Beispiel: <PRE>Turtle myTurtle = new Turtle(640, 480);</PRE>
@@ -129,7 +129,7 @@ public class TurtleCanvas extends JComponent
 
 
 	/**
-	* Erm�glicht die automatische Gr��eneinstellung der Turtle-Zeichenfl�che
+	* Ermöglicht die automatische Grösseneinstellung der Turtle-Zeichenfläche
 	* durch pack().
 	*/
 
@@ -140,7 +140,7 @@ public class TurtleCanvas extends JComponent
 
 
 	/**
-	* Setzt die Gr��e der Turtle-Zeichenfl�che auf Breite x Hoehe.
+	* Setzt die Grösse der Turtle-Zeichenfläche auf Breite x Hoehe.
 	* <P>
 	* Beispiel: <PRE>myTurtle.setSize(640, 480);</PRE>
 	*/
@@ -253,7 +253,7 @@ public class TurtleCanvas extends JComponent
 
 	/**
 	* Die Turtle bewegt sich ohne Zeichnen in der aktuellen Richtung
-	* um eine Strecke der angegebenen L�nge.
+	* um eine Strecke der angegebenen Länge.
 	* <P>
 	* Beispiel: <PRE>myTurtle.move(100);</PRE>
 	*/
@@ -277,7 +277,7 @@ public class TurtleCanvas extends JComponent
 	*/
 
 
-	// F�r den Aufruf aus Struktogrammen
+	// Für den Aufruf aus Struktogrammen
 	public void setColor(int r, int g, int b)
 	{
 		setColor(new Color(r,g,b));
@@ -289,7 +289,7 @@ public class TurtleCanvas extends JComponent
 	}
 	
 	/**
-	 * Setzt die Farbe der Zeichenfl�che auf die Farbe c.
+	 * Setzt die Farbe der Zeichenfläche auf die Farbe c.
 	 * <P>
 	 * Beispiel: <PRE>myTurtle.setBackcolor(Color.blue); </PRE>
 	 */

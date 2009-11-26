@@ -26,8 +26,8 @@ import struktor.Struktor;
 import struktor.StruktorException;
 import struktor.strukelements.Struktogramm;
 
-/** Eine Klasse mit der der saveMark jedes Struktogramms interaktiv ver�ndert werden kann 
- * Funktioniert vom Aufruf �hnlich wie ein FileChooser
+/** Eine Klasse mit der der saveMark jedes Struktogramms interaktiv verändert werden kann 
+ * Funktioniert vom Aufruf ähnlich wie ein FileChooser
  */
  
 public class SaveDialog
@@ -59,7 +59,7 @@ extends JDialog implements ActionListener, ItemListener
 	}
 	
 
-	/** Zeigt das Fenster an und gibt OK oder CANCEL zur�ck
+	/** Zeigt das Fenster an und gibt OK oder CANCEL zurück
 	 */
 	public int showDialog()
 	{

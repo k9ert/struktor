@@ -2,7 +2,7 @@
 package struktor.processor;
 
 
-/** Eine Exception die angibt, da� was beim Processor schief gelaufen ist 
+/** Eine Exception die angibt, dass was beim Processor schief gelaufen ist 
  */
 
 public class ProcessorException extends struktor.StruktorException

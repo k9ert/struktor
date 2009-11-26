@@ -178,11 +178,13 @@ implements CommandTypes, Constants
 	int calcHeight()
 	throws ResizeException
 	{
-		// Diese Schei�methode ist nur deswegen so lang weil alles noch mal extra f�r defaultt implementiert werden mu� :-( Es l��t sich ernsthaft �berlegen ob man die nicht evtl. auch noch in den Verktor verschiebt !
+		// Diese Scheissmethode ist nur deswegen so lang weil alles noch mal extra für 
+		// defaultt implementiert werden muss :-( Es lässt sich ernsthaft überlegen ob 
+		// man die nicht evtl. auch noch in den Verktor verschiebt !
 		int h=getHeight();
 		int maxHeight=getAltMaxHeight();
 		int minHeight=getAltMinHeight();
-		// Extrawurscht f�r default :-(
+		// Extrawurscht für default :-(
 		if (defaultt.calcHeight()<minHeight)
 			minHeight=defaultt.calcHeight();
 		if (defaultt.calcHeight()>maxHeight)
@@ -190,7 +192,7 @@ implements CommandTypes, Constants
 		boolean flag=true;
 		for (Enumeration el=altList.elements(); el.hasMoreElements(); )
     	{
-			// Extrawurscht f�r Defaultt:
+			// Extrawurscht für Defaultt:
 			if (defaultt!=resizingElement && flag==true)
 			{
 				flag=false;
@@ -233,8 +235,6 @@ implements CommandTypes, Constants
 	 	else
 	  		return h+maxHeight;
 	}
-	
-	
 	
 	int getAltWidth()
 	{
@@ -414,6 +414,4 @@ implements ActionListener, DocumentListener, CommandTypes
 		
 		this.switchh=switchh;
 	}
-	
-	
 }

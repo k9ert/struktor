@@ -84,9 +84,7 @@ implements struktor.processor.datatypes.Datatype
 	{
 		return "Struct!!";
 	}
-	
-	
-	
+		
 	Integer getSpace()
 	{
 		return struct.getSpace();

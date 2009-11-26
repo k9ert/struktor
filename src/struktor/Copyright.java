@@ -17,7 +17,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
 /**
- * Eine Klasse f�r das Logo das am Anfang �blicherweise gezeigt wird
+ * Eine Klasse für das Logo das am Anfang üblicherweise gezeigt wird
  */
 
 class Copyright extends JDialog implements ActionListener {

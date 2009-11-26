@@ -16,14 +16,18 @@ import struktor.processor.Processor;
 import struktor.processor.ProcessorException;
 import struktor.processor.ReturnException;
 
-/** Diese abstrakte Klasse (StruktogrammElement) stellt einen Grossteil der Funktionalit�t f�r die Unterklassen Command, Loop und Condition zur Verf�gung. Die Kommunikation mit dem Anwender wurde in eine gleichartige Klassenhierarchie gekapselt. Die Klasse enth�lt vorwiegend package-Methoden, da sie von den Unterklassen aufgerufen werden 
+/** Diese abstrakte Klasse (StruktogrammElement) stellt einen Grossteil der Funktionalität 
+ * für die Unterklassen Command, Loop und Condition zur Verfügung. Die Kommunikation mit 
+ * dem Anwender wurde in eine gleichartige Klassenhierarchie gekapselt. Die Klasse enthält 
+ * vorwiegend package-Methoden, da sie von den Unterklassen aufgerufen werden 
  * @see StrukElementEvt
  */
 abstract class StrukElement extends JComponent
 implements Constants
 {
 	//statische Variablen
-	// wird verwendet um festzustellen ob der Benutzer ein Element gerade vergr��ert oder verkleinert
+	// wird verwendet um festzustellen ob der Benutzer ein Element gerade vergrössert 
+	// oder verkleinert
 	static boolean gettingSmaller = true;
 	static StrukElement resizingElement=null;
 	public final static int standardLayer = -30000;
@@ -45,7 +49,7 @@ implements Constants
 			return getFirstOfBlock(element).connectionType;
 	}
 	
-	/** Liefert das Element �ber dem Block
+	/** Liefert das Element über dem Block
 	 * @param   first  
 	 * @return das letzte Element des Blocks  
 	 */
@@ -65,7 +69,8 @@ implements Constants
 		return element;	
 	}
 
-	/** Macht den Block in dem startElement (hoffentlich) das erste Element ist um diff kleiner
+	/** Macht den Block in dem startElement (hoffentlich) das erste Element ist 
+	 * um diff kleiner
 	 * @param   startElement  
 	 * @param   diff  
 	 */
@@ -84,7 +89,8 @@ implements Constants
 		}
 	}	
 	
-	/** Macht einen den Block in dem startElement (hoffentlich) das erste Element ist um diff gr��er
+	/** Macht einen den Block in dem startElement (hoffentlich) das erste Element ist 
+	 * um diff grösser
 	 * @param   startElement  
 	 * @param   diff  
 	 */
@@ -153,7 +159,8 @@ implements Constants
 			getNext().recalculate();
 	}
 	
-	/** war urspr�nglich static, wurde aber speziell f�r Switch wieder Objektgebunden implementiert. Verkn�pft 2 Elemente auf die angegebene Art
+	/** war ursprünglich static, wurde aber speziell für Switch wieder Objektgebunden 
+	 * implementiert. Verknüpft 2 Elemente auf die angegebene Art
 	 * @param   connectionType  
 	 * @param   father  
 	 * @param   child  
@@ -181,7 +188,8 @@ implements Constants
 	}
 	
 
-	/** Kapselt die Funktionalit�t die alle Elemente beim Ausf�hren gemeinsam haben um den Programmflu� (au�erhalb der Funktionalit�t der Elemente) steuern zu k�nnen
+	/** Kapselt die Funktionalität die alle Elemente beim Ausführen gemeinsam haben um den 
+	 * Programmfluss (ausserhalb der Funktionalität der Elemente) steuern zu können
 	 * @param   element  
 	 * @param   processor  
 	 * @exception   InterruptedException  
@@ -257,15 +265,15 @@ implements Constants
 		}
 	}		
 	
-	/** �ndert das n�chste Element. Wurde etwas komplexer um zirkul�re Verkn�fungen vermeiden zu k�nnen
+	/** Ändert das nächste Element. Wurde etwas komplexer um zirkuläre Verknüfungen vermeiden zu können
 	 * @param next  
 	 */
 	private void setNext(StrukElement next)
 	{
-		// Wenn das n�chste Element nicht null ist, dann erst mal seine Connection l�schen !
+		// Wenn das nächste Element nicht null ist, dann erst mal seine Connection löschen !
 	  if (next!=null)
 	     next.delConnection();
-	  // Wenn das aktuelle n�chste Element nicht null ist, auch die Connection l�schen !
+	  // Wenn das aktuelle nächste Element nicht null ist, auch die Connection löschen !
 	  if (this.next!=null)
 	     this.next.delConnection();
 	  // Jetzt den pot next zum aktuellen next machen
@@ -299,7 +307,8 @@ implements Constants
 	    return false;
 	}
 	
-	/** Wird von next, inside und alt benutzt um den Vorg�nger zu loeschen �ndert DIREKT die next-Variable des Vorg�ngers !!!!
+	/** Wird von next, inside und alt benutzt um den Vorgänger zu loeschen 
+	 * ändert DIREKT die next-Variable des Vorgängers !!!!
 	 */
 	void delConnection() {
 		if (hasUpConnection()) // ist bereits verkn�pft !!
@@ -330,7 +339,7 @@ implements Constants
 	}
 	
 
-	/** Ein Element einf�gen
+	/** Ein Element einfügen
 	 * @param   typeOfElement  
 	 */
 	void insert(int typeOfElement)
@@ -345,7 +354,7 @@ implements Constants
 			struktogramm.setFirst(element);
 	}
 	
-	/** Ein Element anh�ngen
+	/** Ein Element anhängen
 	 * @param   typeOfElement  
 	 */	
 	void append(int typeOfElement)
@@ -357,7 +366,7 @@ implements Constants
 		Tracer.out("Layer: "+element.getLayer(0));
 	}
 
-	/** Dieses Element mit dem Vorg�nger tauschen
+	/** Dieses Element mit dem Vorgänger tauschen
 	 */
 	void swop()
 	{
@@ -380,7 +389,7 @@ implements Constants
 			upper.setNext(null);
 	}
 	
-	/** Zu einer Schleife (die direkt davorh�ngt) hinzuf�gen
+	/** Zu einer Schleife (die direkt davorhängt) hinzufügen
 	 */
 	void addToLoop()
 	{
@@ -390,8 +399,8 @@ implements Constants
 		struktogramm.setLayer(loop,loop.getLayer(standardLayer));
 	}
 	
-	/** Zu einer Condition (die direkt davorh�ngt) hinzuf�gen
-	 * @param   part (gibt an zu welchem Teil der Condition es hinzugef�gt werden soll)
+	/** Zu einer Condition (die direkt davorhängt) hinzufügen
+	 * @param   part (gibt an zu welchem Teil der Condition es hinzugefügt werden soll)
 	 */
 	void addToCondition(boolean part)
 	{
@@ -404,7 +413,7 @@ implements Constants
 		tare();			
 	}
 	
-	/** Au�erhalb einer Condition oder Loop schieben
+	/** Ausserhalb einer Condition oder Loop schieben
 	 */
 	void moveOutsideBlock()
 	{
@@ -419,10 +428,11 @@ implements Constants
 	
 	}
 	
-	/** Ein Element l�schen
-	 * @param   must (Gibt an ob die L�schung unter bestimmten Bedingungen auch
-	 * "simuliert" werden darf indem einfach der Inhalt gel�scht wird)
-	 * Die Abfrage innterhalb von (must==false) geh�rt aber eigentlich nach Evt da must==false eh nur dort vorkommt ?! 
+	/** Ein Element löschen
+	 * @param   must (Gibt an ob die Löschung unter bestimmten Bedingungen auch
+	 * "simuliert" werden darf indem einfach der Inhalt gelöscht wird)
+	 * Die Abfrage innterhalb von (must==false) gehört aber eigentlich nach Evt 
+	 * da must==false eh nur dort vorkommt ?! 
 	 */
 	void delete(boolean must)
 	{
@@ -430,8 +440,8 @@ implements Constants
 		{
 			if (connectionType != NEXT && getNext() == null)
 			// z.b. einzigstes Element unter dem true-part einer Condition
-			// ==> Darf nicht gel�scht werden
-			label = ""; // L�schung wird "simuliert"
+			// ==> Darf nicht gelöscht werden
+			label = ""; // Löschung wird "simuliert"
 			else
 			{
 				try {
@@ -442,10 +452,8 @@ implements Constants
 				struktogramm.delStrukElement(this);
 			}
 		}
-		else
-		// Hier wird die L�schung explizit verlangt ! Die Folgen tr�gt der Aufrufer
-		{
-		
+		else {
+			// Hier wird die Löschung explizit verlangt ! Die Folgen trägt der Aufrufer
 			try {
 				connect(connectionType, connectedFrom, getNext());
 			} catch (NullPointerException e) {}
@@ -456,12 +464,13 @@ implements Constants
 		struktogramm.getView().repaint();
 	}
 	
-	/** Methode um ganze Loops oder Conditions samt Inhalt l�schen zu k�nnen */
+	/** Methode um ganze Loops oder Conditions samt Inhalt löschen zu können */
 	abstract void deleteAll();
 	
 	 	
-	/** Rekursive Funktion um die H�he eines Blocks auszurechnen. Wird von Loop und Condition benutzt
-	 * @return Gesamth�he des Elements und aller Ihrer Folgeelemente    
+	/** Rekursive Funktion um die Höhe eines Blocks auszurechnen. Wird von Loop 
+	 * und Condition benutzt
+	 * @return Gesamthöhe des Elements und aller Ihrer Folgeelemente    
 	 */
 	int calcHeight()
 	throws ResizeException
@@ -472,7 +481,8 @@ implements Constants
 	  		return (getHeight());
 	}
 
-	/** Rechnet die Koordinaten des n�chsten Elements aus und setzt diese. Wird in den Subelementen Loop und Condition durch entsprechende Methoden erg�nzt.
+	/** Rechnet die Koordinaten des nächsten Elements aus und setzt diese. Wird in den Subelementen 
+	 * Loop und Condition durch entsprechende Methoden ergänzt.
 	 *	@see Loop#calcInside
 	 *	@see Condition#calcAlt
 	 */
@@ -487,7 +497,9 @@ implements Constants
 	}
 	
 
-	/** Die Paint-Methode des Elements. Wird nur �ber die paint-Methoden (super.paint()) der Subelemente aufgerufen. Zeichnet, wenn n�tig drag-Point. Mu� in den Subelementen konkretisiert werden
+	/** Die Paint-Methode des Elements. Wird nur über die paint-Methoden (super.paint())
+	 * der Subelemente aufgerufen. Zeichnet, wenn nötig drag-Point. Mu� in den 
+	 * Subelementen konkretisiert werden
 	 * @see Command#paint 
 	 * @see Loop#paint 
 	 * @see Condition#paint  
@@ -530,9 +542,9 @@ implements Constants
 	
 	/** Die Elemente sind in Layern geschichtet. 
 	 * Keine Loop oder Condition darf Ihre Unterelemente verdecken 
-	 * (Auch wenn das Element trotzdem sichtbar w�re w�rde sonst immer 
-	 * das falsche PopUpMen� zum Vorschein kommen. Diese Methode ist 
-	 * (unter anderem) f�r diese Funktionalit�t zust�ndig 
+	 * (Auch wenn das Element trotzdem sichtbar wäre würde sonst immer 
+	 * das falsche PopUpMenü zum Vorschein kommen. Diese Methode ist 
+	 * (unter anderem) für diese Funktionalität zuständig 
 	 */
 	int getLayer(int tempLayer)
 	{
@@ -547,14 +559,14 @@ implements Constants
 			return tempLayer;	
 	}
 	
-	/** Z�hlen wie viele Elemente in einem Block enthalten sind (f�r die Formatierung beim Speichern)
+	/** Zählen wie viele Elemente in einem Block enthalten sind (für die Formatierung beim Speichern)
 	 */
 	int getBlockCount()
 	{
 		return getBlockCount(1);
 	}
 	
-	/** Z�hlen wie viele Elemente in einem Block enthalten sind (f�r die Formatierung beim Speichern)
+	/** Zählen wie viele Elemente in einem Block enthalten sind (für die Formatierung beim Speichern)
 	 */
 	int getBlockCount(int i)
 	{
@@ -565,7 +577,7 @@ implements Constants
 	}
 	
 
-	/** Gibt zur�ck, ob geschweifte Klammern verwendet werden sollen (nur Loop und Condition)
+	/** Gibt zurück, ob geschweifte Klammern verwendet werden sollen (nur Loop und Condition)
 	 * @param   se  
 	 * @return     
 	 */
@@ -583,7 +595,7 @@ implements Constants
 		return blockByCCode || blockByBlockCount || blockByElementType ;	
 	}
 		
-	/** rekursive Methode um Kommandos ausf�hren zu k�nnen. Mu� in allen StrukElementen vorhanden sein. Wird in den jeweiligen Strukelementen entsprechend ihrer Funktionalit�t implementiert
+	/** rekursive Methode um Kommandos ausführen zu können. Muss in allen StrukElementen vorhanden sein. Wird in den jeweiligen Strukelementen entsprechend ihrer Funktionalit�t implementiert
 	 * @param   p, das Processor-Objekt (wird zum parsen etc. verwendet)  
 	 */
 	abstract void execute(Processor p) 
@@ -613,7 +625,7 @@ implements Constants
 	
 
 	/** Getter-Methode
-	 * @return das n�chste Element des Elements    
+	 * @return das nächste Element des Elements    
 	 */
 	StrukElement getNext()
 	{
@@ -637,7 +649,7 @@ implements Constants
 	}
 
 	/** Setter-Methode
-	 * Die Breite des Elements ver�ndern
+	 * Die Breite des Elements verändern
 	 * @param   width  
 	 */
 	void setWidth(int width)
@@ -660,9 +672,8 @@ implements Constants
 			
 	}
 	
-
 	/** Setter-Methode
-	 * Die H�he des Elements ver�ndern
+	 * Die Höhe des Elements verändern
 	 * @param   height  
 	 */
 	void setHeight(int height)
@@ -677,12 +688,12 @@ implements Constants
 		}
 	}
 	
-	/** Due H�he eines Elements vom User ver�ndern
+	/** Due Höhe eines Elements vom User verändern
 	 * @param   height  
 	 */
 	void setHeightByUser(int height)
 	{
-		// jetzige H�he ermitteln
+		// jetzige Höhe ermitteln
 		// Probiern wir es
 		try {
 			setHeight(height);
@@ -697,11 +708,11 @@ implements Constants
 	
 
 	/** Falls sich das Element in einem Block einer Condition befindet, 
-	 * gleicht diese Funktion die Gr��en der Bl�cke aneinander an
-	 * Etwas �hnliches geschieht bei @seeCondition#calcHeight allerdings
+	 * gleicht diese Funktion die Grössen der Blöcke aneinander an
+	 * Etwas ähnliches geschieht bei @seeCondition#calcHeight allerdings
 	 * wird das dort unter dem Gesichtspunkt des Users, der gerade eine
-	 * Gr��e ver�ndert implementiert. Beide Funktionalit�ten sind zwar
-	 * �hnlich funktionieren aber nach etwas anderen Prinzipien.
+	 * Grösse verändert implementiert. Beide Funktionalitäten sind zwar
+	 * ähnlich funktionieren aber nach etwas anderen Prinzipien.
 	 */
 	void tare()
 	{
@@ -710,9 +721,9 @@ implements Constants
 		// befinden uns in einem Block einer Condition ?
 		if (connecType==ALT1 || connecType==ALT2)
 		{
-			// ... denn dann mu� (evtl) entsprechend austariert werden ...
+			// ... denn dann muss (evtl) entsprechend austariert werden ...
 			try {
-				// Anfang der Gr��enberechnung ....
+				// Anfang der Grössenberechnung ....
 				int ourHeight=getFirstOfBlock(this).calcHeight();
 				int othersHeight;
 				StrukElement othersFirst;
@@ -722,12 +733,12 @@ implements Constants
 					othersFirst=((Condition)getTopOfBlock(this)).getAlt1();
 				
 				othersHeight=othersFirst.calcHeight();
-				// Ende der Gr��enberechnung
+				// Ende der Grössenberechnung
 				int diff=Math.abs(ourHeight-othersHeight);
 				if (ourHeight==othersHeight)
 					return;
 				else if (ourHeight < othersHeight)
-					// machen wir uns gr��er
+					// machen wir uns grösser
 					setHeight(getHeight()+diff);
 				else
 				{
@@ -736,17 +747,18 @@ implements Constants
 						setHeight(getHeight()-diff);
 					} catch (ResizeException re2) 
 					{
-						// na gut, machen wir halt den anderen gr��er
+						// na gut, machen wir halt den anderen grösser
 						othersFirst.setHeight(othersFirst.getHeight()+diff);	
 					}
 				}
 					
-			} catch (ResizeException re) {// Da wei� ich auch nicht weiter ! Mu� man da weiterwissen ? 
+			} catch (ResizeException re) {// Da weiss ich auch nicht weiter ! Muss man da weiterwissen ? 
 			}	
 		}
 	}
 	
-	/** meldet rekursiv zum Vorg�ngerElement, da� die H�he ver�ndert wurde. Eine Loop oder Condition mu� darauf reagieren ... */
+	/** meldet rekursiv zum VorgängerElement, dass die Höhe verändert wurde. Eine Loop oder 
+	 * Condition muss darauf reagieren ... */
 	void heightSet(int connectionType)
 	throws ResizeException
 	{
@@ -756,8 +768,8 @@ implements Constants
 	
 	
 	/** wird verwendet, um die X-Koordinate des Nachfolgeelements 
-	 * in Abh�ngigkeit vom eigenen Element zu errechnen
-	 * @return (Soll)X-Koordinate des n�chsten Elements    
+	 * in Abhängigkeit vom eigenen Element zu errechnen
+	 * @return (Soll)X-Koordinate des nächsten Elements    
 	 */
 	private int nextX()
 	{
@@ -765,8 +777,8 @@ implements Constants
 	}
 	
 	/** wird verwendet, um die Y-Koordinate des Nachfolgeelements 
-	 * in Abh�ngigkeit vom eigenen Element zu errechnen
-	 * @return (Soll)Y-Koordinate des n�chsten Elements    
+	 * in Abhängigkeit vom eigenen Element zu errechnen
+	 * @return (Soll)Y-Koordinate des nächsten Elements    
 	 */
 	private int nextY()
 	{

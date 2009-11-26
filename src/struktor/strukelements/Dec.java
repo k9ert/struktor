@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import struktor.Presets;
 import struktor.processor.datatypes.Datatype;
 
-/** Eine Klasse f�r Deklarationen */
+/** Eine Klasse für Deklarationen */
 public class Dec extends JPanel
 implements ItemListener, ActionListener, Datatype
 {
@@ -147,7 +147,7 @@ implements ItemListener, ActionListener, Datatype
 		return parameter.isSelected();	
 	}
 	
-	/** Eine Variable zum Parameter (f�r das zugeh�rige Struktogramm) machen */
+	/** Eine Variable zum Parameter (für das zugehörige Struktogramm) machen */
 	void setParameter(boolean temp)
 	{
 		parameter.setSelected(temp);
@@ -173,7 +173,7 @@ implements ItemListener, ActionListener, Datatype
 			arrayDeSelected();	
 	}
 		
-	/** Index eines Arrays zur�ckgeben */
+	/** Index eines Arrays zurückgeben */
 	public int getIndex()
 	{
 		return new Integer(indizes.getText()).intValue()*
@@ -187,7 +187,7 @@ implements ItemListener, ActionListener, Datatype
 		indizes.setText(new Integer(i).toString());
 	}
 	
-	/** Datentyp zur�ckgeben */
+	/** Datentyp zurückgeben */
 	public int getType()
 	{
 		String typeString = (String)type.getSelectedItem();
@@ -230,7 +230,7 @@ implements ItemListener, ActionListener, Datatype
 		}
 	}
 	
-	/** VariablenName zur�ckgeben */
+	/** VariablenName zurückgeben */
 	public String getName()
 	{
 		return name.getText();
@@ -242,7 +242,7 @@ implements ItemListener, ActionListener, Datatype
 		this.name.setText(name);
 	}
 	
-	/** Wert (der bei der Deklaration festgelegt wurde) zur�ckgeben */
+	/** Wert (der bei der Deklaration festgelegt wurde) zurückgeben */
 	public String getValue()
 	{
 		return textValue.getText();
@@ -254,7 +254,7 @@ implements ItemListener, ActionListener, Datatype
 		textValue.setText(value);
 	}
 	
-	/** Format-Code f�r printf und scanff zur�ckgeben */
+	/** Format-Code für printf und scanff zurückgeben */
 	String getCFormatCode()
 	{
 		if (((String)type.getSelectedItem()).equals("Integer"))
@@ -389,7 +389,7 @@ implements ItemListener, ActionListener, Datatype
 		revalidate();
 	}
 	
-	/** Aktualisiert den View (Dimension eines Arrays erh�ht)*/
+	/** Aktualisiert den View (Dimension eines Arrays erhöht)*/
 	private void incDim()
 	{
 		remove(incDim);
@@ -458,4 +458,3 @@ implements ItemListener, ActionListener, Datatype
 		saveObject.print(typeAsString+name+value);
 	}		
 }
-		

@@ -2,7 +2,7 @@ package struktor.processor.operators;
 
 import struktor.processor.ProcessorException;
 
-/** eine Klasse f�r das un�re Plus
+/** eine Klasse für das unäre Plus
  */
 
 

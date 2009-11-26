@@ -23,8 +23,8 @@ import struktor.Tracer;
 import struktor.Utils;
 import struktor.strukelements.Dec;
 
-/** Eine Klasse f�r den "Struct-Editor" 
- * Sch�n ist er nicht geworden aber was solls ...
+/** Eine Klasse für den "Struct-Editor" 
+ * Schön ist er nicht geworden aber was solls ...
  */
 public class StructPanel extends JPanel
 implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
@@ -250,6 +250,3 @@ implements ActionListener, struktor.processor.datatypes.Datatype
 		return decList;
 	}
 }
-
-
-

@@ -185,12 +185,3 @@ public class GIFEncoder {
     }
     
 }
-
-
-
-
-
-
-
-
-
