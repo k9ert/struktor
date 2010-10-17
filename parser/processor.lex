@@ -26,6 +26,9 @@ return (symFact.newSymbol("EOF",Psym.EOF));
 ProcessorException
 %yylexthrow}
 
+%scanerror struktor.StruktorException
+
+
 digit             = [0-9]
 alpha             = [a-zA-Z_]
 alnum             = [a-zA-Z_0-9]
