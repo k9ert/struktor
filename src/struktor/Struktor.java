@@ -95,8 +95,6 @@ public class Struktor extends JApplet
 		}
 		else
 			presets = new Presets(this);	
-		Utils.setApplet(this);
-		Utils.setFrame(getFrame());
 		struktogrammList = new Vector();
 		contentPane = getContentPane();
 		applet = this;

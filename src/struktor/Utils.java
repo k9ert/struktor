@@ -8,10 +8,12 @@ import java.awt.Frame;
 
 /** Sammelt ein paar nützliche Tools */
 public class Utils
-{
-	static javax.swing.JApplet applet;
-	static Frame frame;
-	
+{	
+	/**
+	 * clims up the hierarchy and returns the Frame
+	 * @param element
+	 * @return
+	 */
 	static public Frame getFrame(Container element)
 	{
 		Container parent = element.getParent();
@@ -36,15 +38,7 @@ public class Utils
 		return theApplet;
 		//return applet;
 	}
-	static void setApplet(javax.swing.JApplet theApplet)
-	{
-		applet = theApplet;
-	}
-	
-	static void setFrame(Frame theFrame)
-	{
-		frame = theFrame;
-	}
+
 	
 	public static String convertString(String inString)
 	{
