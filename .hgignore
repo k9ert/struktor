@@ -1,0 +1,5 @@
+
+syntax: regexp
+^struktor\.jar$
+syntax: glob
+.svn

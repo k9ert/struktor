@@ -34,7 +34,7 @@ import javax.swing.JPanel;
 public class Presets implements ItemListener, ActionListener, Serializable
 {
 	
-	static public final String version="0.64";
+	static public final String version="0.65";
 	
 	/** Die Bedeutung der einzelnen Variablen kann im Quelltext nachgeschaut werden. */
 	//enab-Variablen geben an, ob ein Element überhaupt erscheinen soll
