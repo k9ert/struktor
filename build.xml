@@ -61,7 +61,7 @@
 	</target>
 	
 	<target name="jar" depends="compile">
-		<jar destfile="struktor.jar" basedir="${build}">
+		<jar destfile="struktor.jar" basedir="${build}" manifest="Manifest.txt">
 		</jar>
 	</target>
 	<target name="runApplet" depends="jar">

@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import struktor.Presets;
 import struktor.Save;
+import struktor.StruktorException;
 import struktor.Tracer;
 import struktor.processor.ProcessorException;
 
@@ -47,6 +48,39 @@ implements ActionListener, ItemListener, struktor.processor.datatypes.Datatype
     	
 			Tracer.out("OhOh ... no Declist found !");    
 		return null;
+	}
+	
+	static public Dec findArrayDecWithName(String name) {
+		Tracer.out("searching for "+name);
+		for (Enumeration el=DecListList.elements(); el.hasMoreElements(); )
+        {
+             DecList r=(DecList)el.nextElement();
+             for (Enumeration el2=r.decList.elements(); el2.hasMoreElements(); ) {
+            	 Dec dec = (Dec)el2.nextElement();
+            	 if (dec.array.isEnabled()) {
+            		 if (dec.name.getText().equals(name)) {
+            			 return dec;
+            		 }
+            	 }
+             }
+        }
+		return null;
+	}
+	
+	static public int getDim(String name, int dim) throws ProcessorException {
+		switch (dim) {
+		case 1:
+			return Integer.parseInt(findArrayDecWithName(name).indizes.getText());
+		case 2:
+			return Integer.parseInt(findArrayDecWithName(name).indizes2.getText()) * Integer.parseInt(findArrayDecWithName(name).indizes.getText());
+		case 3:
+			return Integer.parseInt(findArrayDecWithName(name).indizes3.getText()) * Integer.parseInt(findArrayDecWithName(name).indizes2.getText()) * Integer.parseInt(findArrayDecWithName(name).indizes.getText());
+		}
+		throw new ProcessorException("invalid Dimension for array identifier "+ name + " and dimension " + dim);
+	}
+	
+	static public int getDim2(String name) {
+		return Integer.parseInt(findArrayDecWithName(name).indizes2.getText());
 	}
 	
 	static public void deleteDecList(Struktogramm sg)

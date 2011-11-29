@@ -17,6 +17,13 @@ public class LValue extends Expr {
 	Pointer pointer;
 	String variableName;
 	
+	/** for inheritance enabling
+	 * 
+	 */
+	public LValue() {
+		throw new RuntimeException("not supported");
+	}
+	
 	public LValue(Pointer pointer, Memory mem) {
 		this.pointer = pointer;
 		this.memory = mem;
@@ -42,9 +49,7 @@ public class LValue extends Expr {
 	throws struktor.processor.ProcessorException
 	{
 		try {
-			if (pointer==null)
-				pointer = memory.getAdressOfVariable(variableName);
-			Object temp=pointer.getValueAtAdress();
+			Object temp=getPointer().getValueAtAdress();
 			return temp;
 		} catch (NullPointerException npe) 
 		{
@@ -56,19 +61,36 @@ public class LValue extends Expr {
 		
 	}
 	
+	/**
+	 * 
+	 * @return a Pointer pointing to the memory-position of this LValue
+	 * @throws ProcessorException
+	 */
+	Pointer getAdressOfLValue() throws ProcessorException {
+		return memory.getAdressOfVariable(variableName);
+	}
+	
 	public Pointer getAdress()
 	throws struktor.processor.ProcessorException
 	{
 		try {
-			if (pointer==null)
-				pointer = memory.getAdressOfVariable(variableName);
 			try {
-				return new Pointer((Pointer)pointer);
+				return new Pointer(getPointer());
 			} catch (NullPointerException npe) 
 			{ System.err.println("Nullpointer in lvalue.getadress !");} 
 			return null;
 		} catch (ProcessorException pe) {Tracer.out(pe.toString()+ "(Lvalue.eval"); throw pe;}
 			
+	}
+
+	public void setValue(Object newValue)
+	throws struktor.processor.ProcessorException
+	{
+		Tracer.out("Entering LValue.setValue... "+getPointer());
+		try {
+			getPointer().setValueAtAdress(newValue);
+		} catch (NullPointerException npe) 
+		{ System.err.println("Nullpointer in lvalue.setvalue !");} 	
 	}
 	
 	public String getNameOfVariable()
@@ -76,29 +98,26 @@ public class LValue extends Expr {
 		return variableName;
 	}
 	
-	public void setValue(Object newValue)
-	throws struktor.processor.ProcessorException
-	{
-		Tracer.out("Entering LValue.setValue... "+pointer);
+	public struktor.processor.Memory getMemory() {
+		return memory;
+	}
+
+	private Pointer getPointer() throws ProcessorException {
 		if (pointer==null)
-			pointer = memory.getAdressOfVariable(variableName);
-		try {
-			pointer.setValueAtAdress(newValue);
-		} catch (NullPointerException npe) 
-		{ System.err.println("Nullpointer in lvalue.setvalue !");} 	
+			pointer = getAdressOfLValue();
+		return pointer;
 	}
 
 	public String toString()
 	{
-		
 		try {
-			if (pointer==null)
-			pointer = memory.getAdressOfVariable(variableName);
-		} catch (ProcessorException pe) { }
-		if (pointer==null)
-			return "null(Pointer;-)";
-		else
-			return pointer.toString();
+			if (getPointer()==null)
+				return "null(Pointer;-)";
+			else
+				return pointer.toString();
+		} catch (ProcessorException e) {
+			return "ProcessorException while toString() of LValue";
+		}
 	}
 }
 

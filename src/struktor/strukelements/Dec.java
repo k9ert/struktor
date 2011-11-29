@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 import javax.swing.JButton;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import struktor.Presets;
+import struktor.StruktorException;
 import struktor.processor.datatypes.Datatype;
 
 /** Eine Klasse für Deklarationen */
@@ -173,13 +175,30 @@ implements ItemListener, ActionListener, Datatype
 			arrayDeSelected();	
 	}
 		
-	/** Index eines Arrays zurückgeben */
+	/** Elementgroesse eines Arrays zurückgeben */
 	public int getIndex()
 	{
 		return new Integer(indizes.getText()).intValue()*
 				new Integer(indizes2.getText()).intValue()*
 				new Integer(indizes3.getText()).intValue();
 	}
+	
+	public ArrayList<Integer> getArrayDims() throws StruktorException {
+		if (!isArray()) {
+			throw new StruktorException("This is not an Array" + this);
+		}
+		ArrayList<Integer> dimList = new ArrayList<Integer>();
+		dimList.add(Integer.parseInt(indizes.getText()));
+		if (Integer.parseInt(indizes2.getText()) > 1) {
+			dimList.add(Integer.parseInt(indizes2.getText()));
+		}
+		if (Integer.parseInt(indizes3.getText()) > 1) {
+			dimList.add(Integer.parseInt(indizes3.getText()));
+		}
+		return dimList;
+	}
+	
+	
 	
 	/** Index eines Arrays gestlegen */
 	void setIndex(int i)

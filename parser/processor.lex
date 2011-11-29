@@ -1,6 +1,8 @@
 package struktor.processor;
 
 import java_cup.runtime.ComplexSymbolFactory;
+import struktor.strukelements.Dec;
+import struktor.strukelements.DecList;
 
 @SuppressWarnings("all")
 
@@ -10,6 +12,9 @@ import java_cup.runtime.ComplexSymbolFactory;
 %{
 // remember the last occured identifier for Array support
 private String identifier = null;
+// remember the dimension of that array identifier
+private int identifierDim;
+
 private ComplexSymbolFactory symFact;
 
 Yylex(java.io.Reader in, ComplexSymbolFactory symFact) {
@@ -42,7 +47,7 @@ hex               =   [0-9a-fA-F]
 sign              =  [+-]?
 exp               =   ([eE]{sign}{dec}+)
 
-%state STRING ARRAY1 ARRAY2 ARRAY3
+%states STRING, ARRAY1, ARRAY2, ARRAY3, ARRAYINDEX1, ARRAYINDEX2
 
 %%
 
@@ -89,14 +94,20 @@ exp               =   ([eE]{sign}{dec}+)
 
 <YYINITIAL>      {identifier}\[      { yybegin(ARRAY1);
                                        identifier = new String(yytext().substring(0,yytext().length() - 1));
+                                       identifierDim = 1;
                                        return symFact.newSymbol("[",Psym.TIMES);}
 
 <ARRAY1>         \$?                 { yybegin(ARRAY2); return symFact.newSymbol("arrayIndex",Psym.LPAREN);}
 <ARRAY2>         \$?                 { yybegin(ARRAY3); return symFact.newSymbol("arrayIndex",Psym.VARIABLE, identifier);}
-<ARRAY3>         \$?                 { yybegin(YYINITIAL); return symFact.newSymbol("+",Psym.PLUS); }
-<YYINITIAL>      \]\[                { yybegin(YYINITIAL); return symFact.newSymbol("*",Psym.TIMES); }
-<YYINITIAL>      \]                  { yybegin(YYINITIAL); return symFact.newSymbol("]",Psym.RPAREN);}
+<ARRAY3>         \$?                 { yybegin(ARRAYINDEX1); return symFact.newSymbol("+",Psym.PLUS); }
 
+
+<YYINITIAL>      \]\[                { yybegin(ARRAYINDEX2); 
+									   identifierDim++;
+									   return symFact.newSymbol("+",Psym.PLUS); }
+<YYINITIAL>      \]                  { yybegin(YYINITIAL); return symFact.newSymbol("]",Psym.RPAREN);}
+<ARRAYINDEX1>	{dec}+               { yybegin(YYINITIAL); return symFact.newSymbol("anInt",Psym.INTEGER, new Integer(Integer.parseInt(yytext()))); }
+<ARRAYINDEX2>	{dec}+               { yybegin(YYINITIAL); return symFact.newSymbol("anInt",Psym.INTEGER, new Integer(Integer.parseInt(yytext())*(DecList.getDim(identifier, identifierDim)))); }
 
 
 <YYINITIAL>      \"{string}\"        {return symFact.newSymbol("aString",Psym.STRING, new String(yytext().substring(1,yytext().length() - 1)));   }
@@ -115,4 +126,4 @@ exp               =   ([eE]{sign}{dec}+)
 
 
 <YYINITIAL>      [ \t\r\n\f]         { /* ignore white space. */ }
-<YYINITIAL>      . { throw new ProcessorException("Illegal Character: "+yytext()); }
+<YYINITIAL,ARRAYINDEX1,ARRAYINDEX2>      . { throw new ProcessorException("Illegal Character: "+yytext()); }
