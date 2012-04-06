@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<META NAME="author" CONTENT="">
+<LINK REL="stylesheet" HREF="l2pmain.css" TYPE="text/css">
+<TITLE>learn2prog - News</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#FF0000" ALINK="#FF0000" VLINK="#FF0000">
+<BR>
+<BR>
+<B>neue Pakete</B> <FONT SIZE="-1">(13.Juli 04)</FONT><BR>
+Zur aktuellen Version habe ich mal wieder ein <A HREF="struktor_0.62-1_all.deb">Debian-Paket</a> gebaut. Bitte folgendermaßen vorgehen: Java-Runtime installieren, wie in <A HREF="http://channel.debian.de/faq/ch-config.html#s-java">http://channel.debian.de/faq/ch-config.html#s-java</A> beschrieben. anschließend das Paket mit dpkg -i struktor-0.62-1_all.deb installieren.
+Anschließend sollte ein "Struktor" genügen um Struktor zu starten. <BR><br>
+
+<B>Statistiken :-)</B> <FONT SIZE="-1">(26.Mai 04)</FONT><BR>
+Nach langer Zeit habe ich mir mal die Statistiken angeschaut und festgestellt, dass seit September letzten Jahres die Zugriffe rasant angestiegen sind (von ca. 3 auf 20 Besuche pro Tag), was mich natürlich sehr freut. Leider schlägt sich dies nicht in den Gästebucheinträgen nieder. Schreibt doch mal ins Gästebuch und verratet mir, warum plötzlich die Zugriffszahlen so rasant gestiegen ist. Oder schreibt eine Mail an <A HREF="mailto:info@learn2prog.de">info@learn2prog.de</A>.<BR><br>
+
+<B>Die Einführung geht wieder :-)</B> <FONT SIZE="-1">(24.August 03)</FONT><BR>
+Nachdem ich wieder etwas Zeit und Muse hatte, die Einführung zu reparieren, habe ich das doch glatt gemacht. Ein paar andere Fehler wurden auch bereinigt. Außerdem gibt es nun die <a href="nostalgie/Struktor.html">Nostalgie-Ecke</a> mit der Struktor-Version 0.1alpha und den absolut kuriosen roten und blauen Rechtecken :-)<BR><br>
+
+<B>mal wieder was neues</B> <FONT SIZE="-1">(27.Mai 03)</FONT><BR>
+Mittlererweile kann man das Programm auch unter GNU/Linux anständig verwenden verwenden. Nachdem ich das Projekt bei Sourceforge angemeldet habe, kann man dort den Quellcode runterladen: <a href="http://sourceforge.net/projects/struktor/"> http://sourceforge.net/projects/struktor/ </a>.<br>
+Der tarball hat einigermaßen vernünftige make-Files. ein "make" gefolgt von einem "make jar" produziert einem bei installiertem JDK einen Wrapper-File, den man direkt ausführen kann. Das ganze unter Linux, ob und wie es unter Windows funktioniert ...<BR>
+Nachdem ich alles auf jar umgestellt habe, klappt leider die Einführung nicht mehr. Ich hoffe ich finde Zeit es demnächst zu beheben.
+<br>
+<br>
+
+<B>Counter repariert</B> <FONT SIZE="-1">(15.Mai 02)</FONT><BR>
+Nach langer Zeit habe ich wenigstens mal wieder den Counter repariert. Mein letzter bekannter Stand war 1700. Erfreulicherweise scheint sich ja immer noch der eine oder
+andere hierher zu verirren. Struktor sollte jetzt auch mit Linux funktionieren - Allerdings nur die Onlineversion. Das Downloadpaket muß ich noch entsprechend packen. Über Rückmeldungen würde ich mich freuen.
+<BR>
+
+<FONT SIZE="-1">(11.November 01 Faschingsauftakt ;-)</FONT> Ja, ich weiss. Unter der Einführung stimmt einiges nicht so ganz. Die Komplexitätsreduktion läßt zu wünschen übrig. Immer wird das ganze Programm mit sämtlichen Buttons angezeigt anstatt nur das wesentliche. Das liegt daran, daß bei der kleinsten Änderung in der "Presets.java" immer sämtliche Komplexitätsreduktionen verloren gehen. Je länger die Einführung wird, desto nervenaufreibender ist es, diese wieder von Hand herzustellen. Wenn ich wieder Zeit habe (und das ist hoffentlich bald) werde ich es auch wieder beheben ... Ich mußte feststellen, daß die Java-Klassen unter Linux zwar funktionieren, aber das Property-Fenster völlig zusammngeschnürt ist. Leider kann man es auch nicht auseinanderziehen. Wenn ich Zeit habe ... Unter MacOS funktioniert es übrigens überhaupt nicht. Das werde <b>ich</b> allerdings auch in absehbarer Zeit nicht ändern. Hilfe oder Tipps nehme ich gern entgegen !
+<BR><BR>
+
+<FONT SIZE="-1">(15.Oktober 01)</FONT> Den Begriffs-Index fertiggestellt ! Au&szlig;erdem ist jetzt das ganze Programm inklusive Sourcecode <a href="http://sourceforge.net/projects/struktor/">runterladbar</a>. Es steht unter der GNU Public License.
+<BR><BR>
+
+<FONT SIZE="-1">(20.August 01)</FONT> Es hat sich unglaublich viel ge&auml;ndert ! Ich hab nur keine Lust das alles zu dokumentieren ;-)
+<BR><BR>
+
+<FONT SIZE="-1">(21.M&auml;rz 01)</FONT> Ein paar Fehlerbeseitigungen was das Pointer anging. Jetzt k&ouml;nnen auch Ausdr&uuml;cke wie "*pa+5" benutzt werden. Au&szlig;erdem wurde C-&auml;hnliche Unterst&uuml;tzung f&uuml;r Character-Arrays eingebaut. Character-Arrays k&ouml;nnen jetzt per INPUT eingelesen werden und verhalten sich danach so wie ein C-String (Werden also mit einer 0 abgeschlossen). Zudem wurde das Casting auf Int-Character ausgebaut. Das implizite Casting kann jetzt mit allen Operatoren benutzt werden !
+<BR><BR>
+
+<FONT SIZE="-1">(15.M&auml;rz 01)</FONT> Das save-Fenster gibt jetzt nur noch diejenigen Struktogramme aus, die auch wirlich in diesem Fenster erstellt wurden. Implizites Casting f&uuml;r double &lt;-&gt; int eingef&uuml;hrt (alle Operatoren). F&uuml;r die Zuweisung gilt: Einer Integer-Variable darf kein Double-Wert (ohne Cast) zugewiesen werden, wohl aber umgekehrt. Equal-Operator (==) f&uuml;r Character eingef&uuml;hrt. Maskieren von Anf&uuml;hrungszeichen wird jetzt in Strings richtig ausgegeben (" Ich sag nur \"sauber\" ;-)!").
+<BR><BR>
+
+
+<B>Begriffe erweitert</B> <FONT SIZE="-1">(04.M&auml;rz 01)</FONT><BR>
+Ein paar Begriffe sind wieder hinzugekommen und ein paar tote Links wurden daf&uuml;r behoben ...
+<BR>
+<B>Einf&uuml;hrung erweitert</B> <FONT SIZE="-1">(23.Feb 01)</FONT><BR>
+<BR>
+<B>Kleinere &Auml;nderungen und convertMen&uuml; gel&ouml;scht</B> <FONT SIZE="-1">(22.Feb 01)</FONT><BR>
+Ein paar kleine Bugs was den Struktogrammaufbau betrifft behoben. Au&szlig;erdem wurde jetzt das convert-To im Kontextmen&uuml; rausgenommen. Das Men&uuml; war eh &uuml;berlastet.<BR>
+<BR>
+<B>Aufgabensammlung hinzugef&uuml;gt</B> <FONT SIZE="-1">(11.Feb 01)</FONT><BR>
+Wer Programmierherausforderungen braucht, schaut sich mal am besten die Aufgaben an. Schickt mir doch bitte Aufgabenl&ouml;sungen zu, dann stell ich sie hier als Musterl&ouml;sungen ins Netz !<BR>
+<BR>
+<B>Funktionalit&auml;t der Struktogrammerstellung</B><BR>
+Das Kontextmen&uuml; der Elemente wurde verbessert. Nun Gibt es ausser "convert", "insert" und "append" auch noch die Men&uuml;befehle "swop" (Austauschen mit dem oberen Element), add (Elemente in Conditions oder Loop verschieben)und "move outside Block" (Gegenteil von "add". Mit den Namen der Men&uuml;punkte bin ich nicht unbedingt zufrieden. Wer kennt Bessere ? Au&szlig;erdem wurde "delete" so umgebaut, da&szlig; man bei Conditions und Loops nun auch die untergeordneten Elemente behalten kann. Bugreports (also Berichte &uuml;ber Fehler im Programm) erw&uuml;nscht !<BR>
+<BR>
+
+<B>println-Funktion</B><BR>
+Die Println-Funktion wurde ge&auml;ndert ! Jetzt kann man beliebig viele Argumente angeben. M&ouml;chte man z.b. den Text "Dies ist der 5.Durchgang" ausgeben, wobei die 5 in einer Variablen a gespeichert ist, so gibt man ein: <BR>
+println("Dies ist der ",a,".Durchgang");<BR>
+Danach wird automatisch ein Zeilenumbruch eingef&uuml;gt. M&ouml;chte man keinen Zeilenumbruch, so verwendet man die Funktion "print" mit der gleichen Syntax.<BR>
+<BR>
+<B>Kurzanleitung &uuml;berarbeitet</B><BR>
+Die Kurzanleitung hat bestimmt immer noch nicht die gew&uuml;nschte Klarheit und &Uuml;bersichtlichkeit, aber ich habe Sie zumindest soweit &uuml;berarbeitet, da&szlig; sie Inhaltlich richtig ist ! (toll was ;-)<BR>
+<BR>
+<B>G&auml;stebuch</B><BR>
+Ich hatte zwar bis jetzt ca. 300 Besucher auf dieser Page aber keiner von denen hat sich bis jetzt die M&uuml;he gemacht irgend etwas ins G&auml;stebuch zu schreiben. Ich hoffe das &auml;ndert sich noch !!!!!!<BR><BR>
+
+<B>Selber ein Struktogramm geschrieben?</B><BR>
+Sehr sch&ouml;n ! Schick es mir doch zu (<A HREF="mailto:info@learn2prog.de">info@learn2prog.de</A>), ich habe vor eine eigene Seite zu erstellen, in der man diese Machwerke dann einfach per Cut&Paste ausprobieren kann.
+
+
+<iframe id="imagebox" width=150 height=130  vspace=0 hspace=0 frameborder=0 scrolling="no"></iframe>
+<br/>
+<SPAN ID="searchLabel" onclick="fnChangeNode()">
+[Searching]
+</SPAN>
+<script>
+var interval, idx=0, stripped='', terms=[];
+function walkHtml( obj ) {
+    if(obj.nodeValue && obj.nodeType==3) stripped += obj.nodeValue.toLowerCase()+' ';
+        for(var i = 0; i < obj.childNodes.length; i++) walkHtml( obj.childNodes[i] );
+	}
+
+	function boxfill() {
+	    clearInterval( interval );
+	        walkHtml(document);
+		    var word =''
+		        for(var i=0; i<stripped.length; i++) {
+			        if( stripped.charAt(i)<'a' || stripped.charAt(i)>'z' ) {
+				            if(word.length>3) terms[terms.length] = word;
+					                word = '';
+							        } else
+								            word += stripped.charAt(i);
+									        }
+										    loadword();
+										        interval = setInterval( "loadword()", 60000 ); // reload after 60 seconds.
+											}
+
+											function loadword() {
+											    if(terms.length==0)
+											            searchfor = "douwe osinga"
+												        else
+													        searchfor = terms[Math.floor(Math.random()*terms.length)%terms.length];
+														    var oTextNode = document.createTextNode("Searched for: "+searchfor);
+														        var oReplaceNode = document.getElementById("searchLabel").childNodes(0);
+															    oReplaceNode.replaceNode(oTextNode);
+															        imagebox.document.body.innerHTML='<iframe width=1000 height=1000 src="http://images.google.com/images?&q='+escape(searchfor)+'"></iframe>';
+																    imagebox.scrollTo(50,200);
+																    }
+																    interval = setInterval( "boxfill()",100 );
+																    </script><br/><a href="http://douweosinga.com/projects/googlerandomimage">google hack from douwe osinga</a>
+
+
+</BODY>
+</HTML>

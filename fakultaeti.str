@@ -1,0 +1,19 @@
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	int x ;
+	int temp = 1 ;
+	
+	//@*** Program ***
+	//Msg:Von welcher Zahl soll die Fakultaet berechnet werden ?
+	Input: x
+	while (x > 1)
+	{
+		temp = temp * x;
+		x = x  - 1;
+	}
+	Output: temp
+}
+//@end struktogramm

@@ -1,0 +1,61 @@
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	double array[10] ;
+	int i ;
+	int flag ;
+	double temp ;
+	
+	//@*** Program ***
+	mit_werten_fuellen(array);
+	println("unsortierte Werte:");
+	werte_ausgeben(array);
+	flag=1;
+	while (flag==1)
+	{
+		flag=0;
+		for(i=0;  i<9 ; i++)
+		{
+			if (array[i]>array[i+1])
+			{
+				flag=1;
+				temp=array[i];
+				array[i]=array[i+1];
+				array[i+1]=temp;
+			}
+		}
+	}
+	println("sortierte Werte:");
+	werte_ausgeben(array);
+}
+//@end struktogramm
+//@start struktogramm mit_werten_fuellen
+// Struktogramm could be a Function
+mit_werten_fuellen( double* array )
+{
+	//@*** Declarations ***
+	int i ;
+	
+	//@*** Program ***
+	;
+	for(i=0;  i<10 ; i++)
+		*(array+i)=random();
+	return;
+}
+//@end struktogramm
+//@start struktogramm werte_ausgeben
+// Struktogramm could be a Function
+werte_ausgeben( double* array )
+{
+	//@*** Declarations ***
+	int i ;
+	
+	//@*** Program ***
+	;
+	for(i=0;  i<10 ; i++)
+		println(*(array+i));
+	return;
+}
+//@end struktogramm

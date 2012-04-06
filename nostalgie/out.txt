@@ -1,0 +1,27 @@
+Check L1...
+set C1backtozero !
+set C2backtozero !
+set C3backtozero !
+set L1backtozero !
+Check C2...
+set C1backtozero !
+set C2backtozero !
+set C3backtozero !
+set L1backtozero !
+Check C3...
+set C1backtozero !
+set C2backtozero !
+set C3backtozero !
+set L1backtozero !
+Bottom Edge hit
+Bottom Edge hit
+Bottom Edge hit
+Bottom Edge hit
+Right Bottom Corner hit e:499,80 objekt:100,50
+Right Edge hit
+Check new Condition...
+set C1backtozero !
+set C2backtozero !
+set C3backtozero !
+set L1backtozero !
+set new Conditionbacktozero !

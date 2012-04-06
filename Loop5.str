@@ -1,0 +1,13 @@
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	int i ;
+	
+	//@*** Program ***
+	Output: "Im folgenden alle durch 11 teilbare Zahlen von 110 bis 220 !"
+	for(i=110;    i<220  ;  i=i+11)
+		Output: "Die Zahl "+i+" ist durch 11 teilbar."
+}
+//@end struktogramm

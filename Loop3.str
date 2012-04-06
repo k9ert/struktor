@@ -1,0 +1,16 @@
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	int i ;
+	
+	//@*** Program ***
+	i = 0;
+	while (i < 10)
+	{
+		Output: "dies ist der "+i+". Durchgang"
+		i = i +1;
+	}
+}
+//@end struktogramm

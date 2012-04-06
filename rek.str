@@ -1,0 +1,53 @@
+//@start struktogramm rdreieck
+// Struktogramm could be a Function
+rdreieck( double gl, int i )
+{
+	//@*** Declarations ***
+	// No Declarations
+	
+	//@*** Program ***
+	dreieck(gl);
+	if (i==0)
+		return;
+	else
+	{
+		tturn(60);
+		rdreieck(gl/2,i-1);
+		tmove(gl/2);
+		tturn(-90);
+		rdreieck(sqrt(3)/2*gl,i-1);
+		tturn(90);
+		tmove(-gl/2);
+		tturn(-60);
+	}
+	return;
+}
+//@end struktogramm
+//@start struktogramm dreieck
+// Struktogramm could be a Function
+dreieck( double gl )
+{
+	//@*** Declarations ***
+	// No Declarations
+	
+	//@*** Program ***
+	tdraw(gl);
+	tturn(150);
+	tdraw(sqrt(3*gl*gl)/2);
+	tturn(90);
+	tdraw(gl/2);
+	tturn(120);
+	return;
+}
+//@end struktogramm
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	// No Declarations
+	//@*** Program ***
+	tmoveto(30,90);
+	rdreieck(100,6);
+}
+//@end struktogramm

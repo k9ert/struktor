@@ -1,0 +1,9 @@
+//@start struktogramm Default
+// Struktogramm could be a Function
+Default(  )
+{
+        //@*** Declarations ***
+        //@*** Program ***
+        a = 4;
+}
+//@end struktogramm

@@ -1,0 +1,370 @@
+<html>
+<head>
+<title>learn2prog -Begriffsindex</title>
+<meta name="author" content="Kim Neunert">
+<link rel="stylesheet" href="l2pmain.css" type="text/css"> 
+</head>
+<body>
+<font size="+4"><a name="A">A</a></font><hr noshade size="1">
+<b><a name="abbruchbedingung">Abbruchbedingung</a>:</b> Die Abbruchbedingung ist die <a href="#bedingung">Bedingung</a> unter der eine <a href="#schleife">Schleife</a> abgebrochen wird. In den meisten Programmiersprachen wird hingegen immer das positive Kriterium angegeben. Als Denkhilfe ist die Abbruchbedingung allerdings hilfreich. Wei&szlig; man, unter welcher Bedingung eine Schleife abgebrochen werden soll, mu&szlig; man das logische Gegenteil der Abbruchbedingung formulieren. Das ist manchmal (v.a. wenn viele logische Operatoren beteiligt sind), gar nicht so einfach. Wenn man es sich einfach machen will, kann man einfach ein logisches-Nicht (in den meisten Programmiersprachen ein vorangestelltes"!") davorsetzen. Will man es genau wissen, kann das <a href="#demorgan">De-Morgansche-Gesetz</a> weiterhefen.<br> <br>
+
+<b><a name="adressoperator">Adre&szlig;operator</a>:</b>Der Adre&szlig;operator erm&ouml;glicht die Ermittlung der Adresse einer <a href="#variable">Variablen</a> im Speicher. Meistens wird diese Adresse (die man gedanklich auch als Verweis/Zeiger oder (englisch) <a href="#pointer">Pointer</a> auffassen kann) in ein Zeiger- oder Pointervariablen gespeichert, oder an eine <a href="#funktion">Funktion</a> &uuml;bergeben. Unten ist eine Variable "ix" deklariert. Geben Sie "&ix;" ein, wird die Adresse zur&uuml;ckgegeben ! Die Adresse einer Variablen ist nicht &auml;nderbar ! "&ix=12;" oder &auml;hnliches w&uuml;rde einen Fehler ergeben ! Adresswerte k&ouml;nnen speziellen Variablen, den Zeigervariablen zugewiesen werden. Um die Zeigervariable px mit der Adresse der Variablen ix zu initialisieren, geben sie ein: px=&ix;<BR>
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 700 HEIGHT = 100 codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.ExprCalc.class" >
+<PARAM NAME = ARCHIVE VALUE = "struktor.jar" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="load" VALUE="int ix;int* px;">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.ExprCalc.class" archive="struktor.jar" WIDTH = 700 HEIGHT = 100 load="int ix;int* px;" pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+<!--"END_CONVERTED_APPLET"--><br><br>
+
+<b><a name="algorithmus">Algorithmus</a>:</b> Eine Rechenvorschrift, die festlegt, wie Daten verarbeitet werden. Algorithmen k&ouml;nnen unabh&auml;ngig von irgendeiner Programmiersprache formuliert werden. Beispiel: Schlage das Telefonbuch in der Mitte auf. Wenn der gesuchte Name einen kleineren Anfangsbuchstaben hat, so schlage den &uuml;briggebliebenen linken Teil in der mitte auf. Im anderen Fall verfahre entsprechend mit dem rechten Teil. Wenn der x-te Buchstabe gleich ist, dann vergleiche den n&auml;chsten Buchstaben. (Dieser Algorithmus nennt sich "divide and ?"<br><br>
+
+<b><a name="and">AND</a>:</b>AND ist ein logischer Operator der zwei boolesche Argumente miteinander verkn&uuml;pft <a href="details/logOp.htm">(ausf&uuml;hrliche Erl&auml;uterungen)</a>. Zur&uuml;ckgegeben wird <b>nur dann</b> ein WAHR, wenn beide Argumente WAHR sind (in jedem anderen Fall ein FALSCH). In C und auch bei Struktor gibt es keinen booleschen Datentyp. Anstattdessen wird Integer oder Double verwendet. 0 entspricht dabei FALSCH. Jede andere Wert entspricht WAHR. Wahrheitstabelle:
+<table border=1 align=center width=50%>
+<tr align=center>
+ <td colspan=2 rowspan=2 align=center> a and b</td>
+ <td colspan=2 align=center> a</td>
+ <td> </td>
+</tr>
+<tr align=center>
+ <td align=center> WAHR</td>
+ <td align=center> FALSCH</td>
+</tr>
+<tr>
+ <td rowspan=2 align=center> b</td>
+ <td align=center> WAHR</td>
+ <td align=center> WAHR</td>
+ <td align=center> FALSCH</td>
+</tr>
+<tr>
+ <td align=center> FALSCH</td>
+ <td align=center> FALSCH</td>
+ <td align=center> FALSCH</td>
+</tr>
+</table>
+<br><br>
+
+<b><a name="argument">Argument</a>:</b> Beim Funktionsaufruf k&ouml;nnen bestimmte <a href="#parameter">Parameter</a> mit bestimmten Werten initialisiert werden. Diese Werte nennt man Argumente. Oft werden die Argumente mit den Parametern verwechselt. Zugegebenerma&szlig;en bezeichnen diese 2 Begriffe 2 Seiten derselben Medaille. Man kann sich das auch so versinnbildlichen: Die Felder eines Steuerformulars nennt man Parameter. Diese Felder sind f&uuml;r alle Formulare gleich. Das was man in die Felder jeweils reinschreibt nennt man Argumente.<br><br>
+
+<b><a name="array">Array</a>:</b> Ein Array oder auch Feld erm&ouml;glicht die Speicherung mehrerer "Variablen" in einer Art Liste. &Uuml;ber einen Index kann auf jedes Listenelement zugegriffen werden. In den meisten Programmiersprachen wird ein Array &uuml;ber den Namen und nachgestellte eckige Klammern dargestellt (z.B. budget[4]). Bei der Deklaration wird die Anzahl der Elemente angegeben. Bei der Verwendung im Programm gibt die Zahl in eckigen Klammern den Index an. <a href="details/Arrays.htm">(Ausf&uuml;hrliche Erl&auml;uterungen)</a><br><br>
+
+<b><a name="assembler">Assembler</a>:</b> Als Assembler bezeichnet man eine Programmiersprache die fast eins zu eins einer Maschinensprache eines bestimmten Computertyps entspricht. Die doch etwas schlecht zu merkenden Zahlenkombinationen werden ersetzt durch kurze Begriffe (Mnemonics). <br><br>
+
+<b><a name="ausdruck">Ausdruck</a>:</b> zur Laufzeit berechenbare Rechnung. Man sagt (analog zur Funktion) ein Ausdruck gibt einen Wert zur&uuml;ck. Beispiele:
+<ul>
+<li>5</li>: ein Ausdruck mit dem Wert 5. Solche einfachen Ausdr&uuml;cke nennt man Konstanten, sie sind konstant (gleichbleibend) und k&ouml;nnen deswegen auch schon bei der Programmierung berechnet werden.
+<li>( a + b ) *12</li>: Dieser Ausdruck beinhaltet zwei Variablen (eine Konstante, Klammern und zwei Operatoren) und gibt also folglicherweise je nach Wert der Variablen einen anderen Wert zur&uuml;ck (==> Der Wert des Ausdrucks kann erst zur Laufzeit bestimmt werden). Man k&ouml;nnte auch sagen, dieser Ausdruck besteht aus 3 Unterausdr&uuml;cken (a, b, 12) die mit Operatoren verkn&uuml;pft werden.
+<li>a = 5</li>: Auch eine Zuweisung kann ein Ausdruck sein. Der Wert dieses Ausdrucks ist 5. Man k&ouml;nnte (theoretisch) auch diesen Ausdruck in einer Schleife verwenden. Theoretisch kann man jeden Ausdruck im Programm zu einem Kommando machen, in dem man ein Semikolon anh&auml;ngt. Das ist allerdings bei Ausdr&uuml;cken die sonst nichts bewirken v&ouml;llig nutzlos. Bei einer Zuweisung ist dies allerdings die Regel (da ja etwas im Speicher ver&auml;ndert wird). Man spricht bei solchen Ausdr&uuml;cken auch von sog. Seiteneffekten (N&auml;mlich die Ver&auml;nderung eines Wertes im Speicher).
+</ul><BR>
+Alle Beispiele k&ouml;nnen unten nachvollzogen werden. Beachten Sie, da&szlig; Sie jedesmal ein Semikolon anh&auml;ngen m&uuml;ssen !<BR>
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 700 HEIGHT = 100 codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.ExprCalc.class" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="load" VALUE="int a;int b;">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.ExprCalc.class" archive="struktor.jar" WIDTH = 700 HEIGHT = 100 load="int a;int b;" pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+<!--"END_CONVERTED_APPLET"-->
+<br><br>
+
+<font size="+4"><a name="B">B</a></font><hr noshade size="1">
+
+<b><a name="basic">Basic</a>:</b> Eine Programmiersprache die vor allem f&uuml;r Anf&auml;nger konzipiert wurde. Ber&uuml;chtigt durch die Verwendung von Goto. Erlebt in Form des objektorientierten Visual-Basic ein Revival.<br><br>
+
+<b><a name="bedingung">Bedingung</a>:</b> Ein Ausdruck, der bei der Ausf&uuml;hrung als WAHR oder FALSCH interpretiert wird. Wird vor allem bei Kontrollstrukturen verwendet um zu entscheiden, welche Befehle als n&auml;chstes ausgef&uuml;hrt werden sollen (Beispiel a > 5). siehe auch Logische Operatoren<br><br>
+
+<b><a name="bin&auml;res System">Bin&auml;res System</a>:</b> Zahlensystem auf der Basis von zwei. D.H. es gibt nur 2 m&ouml;gliche Zust&auml;nde: 0 und 1 oder auch (WAHR (1) und FALSCH (0). Das bin&auml;re System ist Grundlage der Entwicklung jeglicher Rechenmaschinen &uuml;berhaupt, da die oben genannten Zust&auml;nde als "Strom an"(1) und "Strom aus"(0) umgesetzt werden k&ouml;nnen.<br><br>
+
+<b><a name="bin&auml;rbaum">Bin&auml;rbaum</a>:</b> Eine beliebte Methode Daten zu speichern. Ein Bin&auml;rbaum wird dabei rekursiv definiert. Jeder Knoten beinhaltet die "Tr&auml;gerdaten", kann einen linken und einen rechten Nachfolger haben der wierderum einen rechten und linken Nachfolger haben kann. Ein Knoten wird dabei durch einen Record (oder auch <a href="#struktur">Struktur</a>) definiert. Mathematische Ausdr&uuml;cke lassen sich beispielsweise hervorragend in Bin&auml;rb&auml;umen speichern. Die Knoten speichern zus&auml;tzlich noch entweder einen Wert oder einen Operator. Beispiel: 5 + 4 * 8<br>
+<img src="bintree.jpg" width="177" height="149" border="0" alt="bin&auml;rbaum"><br>
+Wie man Sieht erm&ouml;glicht das Speichern von mathematischen Ausdr&uuml;cken in Bin&auml;rbaumen die Beachtung von Vorrangsregeln (Punkt vor Strich).<br><br>
+
+<b><a name="boolsche algebra">Boolsche Algebra</a>:</b> System auf Basis des bin&auml;ren Systems. Beinhaltet 3 grundlegende Verkn&uuml;pfungen: AND, OR und NOT. SIehe auch Bedingung, logische Operatoren<br><br>
+
+<b><a name="break">Break</a>:</b> Anweisung die in einer Schleife benutzt werden kann, um die Schleife abzubrechen. Fortgefahren wird im Gegensatz zu <a href="#continue">Continue</a> mit dem ersten Element NACH der Schleife. (Innerhalb von Struktor: break;).<br><br>
+
+<b><a name="breakpoint">Breakpoint</a>:</b> Soviel wir "Stoppunkt". Breakpoints k&ouml;nnen f&uuml;r einzelne Zeilen im Quelltext (oder in Struktor bei den einzelnen Elementen) gesetzt werden um die Verarbeitung anzuhalten und die Variablenwerte zu &uuml;berwachen oder das Programm Schritt f&uuml;r Schritt auszuf&uuml;hren.<br><br>
+
+<font size="+4"><a name="C">C</a></font><hr noshade size="1">
+
+<b>C (<a name="sprachec">Sprache C</a>):</b> Maschinennahe aber doch hoch portable Programmiersprache, entwickelt von Kernigham und Ritchie in den 80er Jahren. Nach wie vor aktuell. C hat durch seine objektorientierte Erweiterung C++ nochmal Popularit&auml;t geerntet.<br><br>
+
+<b><a name="call-by-reference">call-by-reference</a>:</b> Art und Weise der Argumenten&uuml;bergabe bei Funktionen. Bei call-by- reference wird eine Referenz der Variablen an die Funktion &uuml;bergeben. D.h. innerhalb der Funktion kann direkt auf den Variablenwert zugegriffen werden. C verwendet im Gegensatz dazu call-by-value. Dabei kann aber call-by-reference durch die Verwendung von Pointervariablen "simuliert" werden.<br><br>
+
+<b><a name="call-by-value">call-by-value</a>:</b> Art und Weise der Argumenten&uuml;bergabe bei Funktionen. Bei call-by-value wird nur der Wert der Variablen an die Funktion &uuml;bergeben. D.h. da&szlig; innerhalb der Funktion nicht direkt auf den Variablenwert zugegriffen werden kann.<br><br>
+
+<b><a name="cast">Cast</a>:</b> Datentypumwandlung. Beispiel: "(int)(4.5)". In diesem Fall wird der doublewert 4.5 in einen integerwert umgewandelt. Heraus kommt 4. Die Klammern um den zu castenden Ausdruck (in diesem Fall 4.5) sind nicht unbedingt n&ouml;tig, werden aber &uuml;blicherweise trotzdem geschrieben. Struktor unterst&uuml;tzt 2 Castoperatoren: (int) und (double).<br><br>
+
+<b><a name="character">Character (char)</a>:</b> Datentyp, der genau EIN Zeichen speichern kann. Bei der Zuweisung m&uuml;ssen einfache Hochkommata verwendet werden. (Beispiel: ca = 'f';). In C k&ouml;nnen auch Integerwerte von 0 bis 255 verwendet werden (ohne Hochkommata) die dann als Ascii-Werte interpretiert werden.<br><br>
+
+<b><a name="compiler">Compiler</a>:</b> Englisch f&uuml;r &Uuml;bersetzer. Wandelt den Source-Code (Quelltext) in Maschinensprache um, die dann direkt auf dem Rechner ausgef&uuml;hrt werden kann. Resultat ist eine ".exe" Datei. Als Zwischenstadium entsteht tempor&auml;r eine sog. Objektdatei. Eine andere M&ouml;glichkeit Programme auszuf&uuml;hren ist der Interpreter.<br><br>
+
+<b><a name="continue">Continue</a>:</b> Anweisung die in einer Schleife benutzt werden kann, um die Schleife abzubrechen. Fortgefahren wird im Gegensatz zu <a href="#break">Break</a> mit der &Uuml;berpr&uuml;fung der Schleifenbedingung. Danach wird evtl die Schleife wierdeum ausgef&uuml;hrt. (Innerhalb von Struktor: continue;).<br><br>
+
+<font size="+4"><a name="D">D</a></font><hr noshade size="1">
+
+<b><a name="datentyp">Datentyp:</a></b> bezeichnet den Typ von Daten. Folgende Grunddatentypen sind verbreitet:
+<ul>
+<li>Integer (int):</li> Speichert Ganzzahlen.
+<li>Float (float):</li> Flie&szlig;kommazahlen mit einfacher Genauigkeit. Was einfache Genauigkeit eigentlich bedeutet kann recht unterschiedlich sein. Wird mittlererweile fast nicht mehr verwendet, da keine Speicherplatzprobleme mehr bestehen.
+<li>Double (double):</li> Der meistverwendete Datentyp f&uuml;r Flie&szlig;kommazahlen.
+<li>Character (char):</li> Kann ein Zeichen in Form eines Ascii-Wertes speichern. Da Ascii-Werte auch nichts anderes als Integer-Werte mit einem G&uuml;ltigkeitsbereich von 0-255 sind, lassen sich Charcters elegant vergleichen (Beispiel: 'a' &lt; 'z' weil der Ascii-wert von a kleiner ist wie der von z).
+<li>String:</li> Eine Zeichenkette. Kann also mehrere Zeichen speichern. Wird meist durch ein Character Array implementiert.
+<li>Boolean:</li> Ein Wahrheitswert. Wird in C durch andere Datentypen ersetzt (so bedeutet z.B. das Ascii-Zeichen 0 gleichzeitig ein boolsches "falsch")
+</ul>
+Bei jedem Datentyp gibt es einen G&uuml;ltigkeitsbereich, der angibt von wo bis wo Werte erlaubt sind.<br><br>
+
+<b><a name="datentypumwandlung">Datentypumwandlung</a>:</b> siehe <a href="#cast"></a>Cast<br><br>
+
+<b><a name="#debugger">Debugger</a>:</b> Auf deutsch soviel wie "Entwanzer". Bug hei&szlig;t Wanze. Der Begriff kommz daher da&szlig; einer der ersten Fehler auf eine Wanze zur&uuml;ckzuf&uuml;hren war, die die Vorl&auml;ufer der Programmierer in ihren damals noch raumgro&szlig;en Computern zwischen den R&ouml;hren (Vorl&auml;ufer des Transistors) gefunden hatten. Heutzutage wird damit ein Programm innerhalb der <a href="#ide">IDE</a> bezeichnet, mit der man das Programm langsam Schritt f&uuml;r Schritt (step by step) nachvollziehen kann. Unverzichtbar ist beim "debuggen" die gleichzeitige &Uuml;berwachung der Variablenwerte im &Uuml;berwachungsfenster (was oft vergessen wird). Auch in Struktor k&ouml;nnen Sie Ihr Struktogramm "debuggen". Schalten Sie da&uuml;r den "debug-Mode" ein und setzen Sie an beliebiger Stelle einen <a href="#breckpoint">Breakpoint</a>. Die Ausf&uuml;hrung wird dann an dieser Stelle unterbrochen und Sie k&ouml;nnen &uuml;ber den Step-Button das Programm Schritt &uuml;r Schritt ausf&uuml;hren (nicht das &uuml;berwachen der Variablen vergessen ;-)<br><br>
+
+<b><a name="deklaration">Deklaration</a>:</b> Der Vorgang bei dem einer Variablen im Speicher Platz reserviert wird. Das hei&szlig;t in den meisten F&auml;llen noch nicht, das die Variable bereits mit irgendeinem Wert belegt wurde. Deswegen m&uuml;ssen alle Variablen nach der Deklaration aber vor der Verwendung initialisiert werden.<br><br>
+
+<b><a name="demorgan">De-Morgan</a>:</b> Rechenregel f&uuml;r die Boolsche Algebra. Dabei gilt:<ul>
+<li>!(a && b) = !a || !b bzw.</li>
+<li>!(a || b) = !a && !b</li>
+</ul>
+Beispiel: Nehmen Sie an, Sie programmieren eine Schleife, in der der Benutzer eine Zahl eingeben soll. Die Schleife soll <b>abgebrochen</b> werden, wenn die Zahl &uuml;ber 100 <b>oder</b> unter 50 liegt. Wie mu&szlig; folglicherweise die Bedingung in der Schleife formuliert weden ? siehe auch: <a href="#abbruchbedingung">Abbruchbedingung</a> , <a href="#logischeoperatoren">logische Operatoren</a> , <a href="#and">AND</a>, <a href="or">#OR</a>, <a href="#not">NOT</a><br><br>
+
+<b><a name="dereferenzierungsoperator">Dereferenzierungsoperator</a>:</b> Operator der in Zusammenhang mit <a href="#pointervariablen">Pointervariablen</a> verwendet wird. Zur&uuml;ckgegeben wird der Wert an der Adresse, die in der Pointervariablen gespeichert ist.<br><br>
+
+<b><a name="dezimal">Dezimal</a>:</b> Zahlensystem auf der Basis von 10. Dabei gibt es folglich au&szlig;er dem neutralen Element 0 noch 9 verschiedene Zeichen, die in einer Ordnungsrelation zueinander stehen (4 &gt; 2).  Sind alle Zeichen aufgebraucht gibt es einen &Uuml;bertrag auf die n&auml;chste Stelle. Dieses Prinzip gilt auch f&uuml;r alle anderen Zahlensysteme mit dem Unterschied das mehr (z.B. <a href="#hexadezimal">hexadezimales System</a>) oder weniger (z.B. <a href="#oktal">oktales System</a>) verwendet werden.<br><br>
+
+
+<font size="+4"><a name="E">E</a></font><hr noshade size="1">
+
+<b><a name="eva-prinzip">EVA-Prinzip</a>:</b> Prinzip, das besagt, das zun&auml;chst alle Daten eingelesen werden sollten (<b>Eingabe</b>) bevor mit der <b>Verarbeitung</b> begonnen werden sollte. Nach der Verarbeitung kann dann die <b>Ausgabe</b> folgen. Dieses Prinzip ist recht eindeutig f&uuml;r <a href="einfstep3.html">einfache F&auml;lle</a>, sollte aber auch bei komplizierten Programmen auf allen Ebenen eingehalten werden.<br><br>
+
+<font size="+4"><a name="F">F</a></font><hr noshade size="1">
+
+<b><a name="fifo">FIFO</a>:</b> Speicherprinzip. Abk&uuml;rzung f&uuml;r "first in, first out". Im Deutschen auch als Puffer bezeichnet. Dazu gibt es meistens 2 Funktionen (man k&ouml;nnte Sie z.B. mit put und get bezeichnen) die einen Wert in den Puffer schieben, bzw. einn Wert dem Puffer entnehmen. Werden 5 Werte "gepusht" und danach einer "gegettet" so wird der erste gepushte Wert zur&uuml;ckgegeben. Puffer werden oft bei Dateioperationen oder in sog. Verbraucher/Erzeuger Situationen verwendet um die jeweiligen Operationen unabh&auml;ngig voneinander ausf&uuml;hren zu k&ouml;nnen. siehe auch: <a href="#lifo">LIFO</a><br><br>
+
+<b><a name="flag">Flag</a>:</b> Englisch f&uuml;r Flagge. Der Begriff stammt urspr&uuml;nglich von physischen Schaltelementen, die einen tats&auml;chlichen ein-bit-breiten Ausgang hatten, der "Flagge zeigte" also eine logische 1 anlegte (man sagt auch das Flag wurde gesetzt) um irgendeinen Zustand zu "verk&uuml;nden". Beispiele: <ul>
+<li>Ein Z&auml;hlelement vek&uuml;ndet durch einen sog. &uuml;berlauf-Flag, da&szlig; sein Speicherbereich &uuml;berschritten wurde.</li>
+<li>Ein Vergleichs-Flag in der CPU zeigt an, da&szlig; eine Vergleichsoperation soeben 2 gleiche Werte verglichen hat (die Werte also gleich sind)</li>
+</ul>
+In der Programmierung werden heutzutage noch ab und zu boolsche Variablen als Flag bezeichnet. Beispiel: Ein Ende-Flag in einer Sortierschleife zeigt an, da&szlig; das Sortieren nun beendet werden kann. (Nat&uuml;rlich mu&szlig; das Flag auch selber gesetzt werden)<br><br>
+
+<b><a name="for-schleife">For-Schleife</a>:</b> spezielle kopfgesteuerte Schleife die in den meisten F&auml;llen (aber nicht immer !) zum Z&auml;hlen verwendet wird. Die For-Schleife kann in <b>allen F&auml;llen</b> auch durch eine While-Schleife ersetzt werden. Es werden zwei Anweisungen im Schleifenkopf integriert. Zum einen das sog. Initialisierungskommando, mit dem Beispielsweise ein Z&auml;hler auf einen bestimmten Wert (z.B. 0) gesetzt wird. Zum anderen das Iterationskommando (zugegebenerweise meine eigene Wortsch&ouml;pfung) das <b>nach</b>jedem Schleifendurchlauf ausgef&uuml;hrt wird. Die Syntax ist meist: (for(Init-kommando, Bedingung, iterativ-kommando){...} ) <br><br>
+
+<b><a name="funktion">Funktion</a>:</b> Der Begriff "Funktion" wird in unterschiedlichen Programmiersprachen unterschiedlich definiert. In C wird die Funktion mit einem Unterprogramm gleichgesetzt. Hier wollen wir nun aber etwas differenzierter dran gehen. Eine Funktion kann eine oder mehrere <a href="#argument">Argumente</a> besitzen die der Funktion &uuml;bergeben werden. Mit diesen Argumenten berechnet die Funktion etwas und gibt einen Wert zur&uuml;ck. Beispiel: die fiktive Funktion addiere(3,7) gibt den Wert 10 zur&uuml;ck. Eine Funktion mu&szlig; aber weder Argumente noch einen <a href="#rueckgabewert">R&uuml;ckgabewert</a> besitzen (wenn auch eins von beiden in den meisten F&auml;llen sinnvoll ist). Ein Beispiel f&uuml;r eine (hier immer fiktive) Funktion ohne R&uuml;ckgabewert und Argumente w&auml;re gib_begruessungstext_aus(). In Struktor k&ouml;nnen sowohl eigene Funktionen geschrieben werden, wie auch bereits vorhandene Funktionen benutzt werden. Bei der Beschreibung von Funktionen verwendet man eine spezielle Form. So gibt es in Struktor (bzw. in Java) die Funktion cos(double da). Dabei gibt das "double" in den Klammern den Datentyp an. Dies ist als Hinweis f&uuml;r den Benutzer der Funktion gedacht. Beim Aufruf innerhalb der Funktion darf der Datentyp nicht vorkommen (aber der Ausdruck mu&szlig; dem Datentyp entsprechen). Dies ist ein h&auml;ufiger Anf&auml;ngerfehler.<br><br>
+
+<b><a name="f-schleife">Fu&szlig;gesteuerte Schleife</a>:</b> Eine Schleife deren Bedingung am Ende der Schleife &uuml;berpr&uuml;ft wird. D.H. das die Schleife in jedem Fall mindestens ein mal durchlaufen wird. jede Fu&szlig;gesteuerte Schleife kann durch eine kopfgesteuerte Schleife ersetzt werden, indem man vor der Schleife daf&uuml;r sorgt, da&szlig; die Bedingung WAHR ist. Dies sollte aber vermieden werden um f&uuml;r einen fremden Leser des Quelltextes deutlich klarzustellen, da&szlig; die Schleife mindestens einmal durchlaufen wird. Ein Besipiel w&auml;re eine Abfrage, ob das Programm noch einmal ausgef&uuml;hrt werden soll.<br><br>
+
+<font size="+4"><a name="G">G</a></font><hr noshade size="1">
+
+<b><a name="globalevariablen">Globale Variablen</a>:</b> Variablen deren G&uuml;ltigkeitsbereich &uuml;ber alle Funktionen ausgeweitet wurde. Globale Variablen sollten m&ouml;glichst vermieden werden, da Sie den "Namensraum verschmutzen". Programme mit evtl. hunderten globalen Variablen sind sehr schwer wartbar, weil der Programmierer immer aufpassen mu&szlig; ob seine eigenen lokalen Variablen nicht vielleicht zuf&auml;llig eine globale Variable "&uuml;berdecken".<br>
+Aus diesen Gr&uuml;nden sind globale Variablen in Struktor nicht implementiert worden.<br><br>
+
+<b><a name="goto">Goto</a>:</b> Ein Kommando, da&szlig; die Ausf&uuml;hrung bei einer Sprungmarke fortsetzt. Der Schrecken jeder Person, die Programmtext im nachhinein nachvollziehen sollen. Man sagt da&szlig; der Goto-Befehl Spaghetti-Code produziert, der Programmtext also schwer nachzuvollziehen ist. Tatsache ist, da&szlig; <b>jedes</b> Programm, da&szlig; Goto-Befehle verwendet, auch ohne Goto-Befehle implementierbar ist. Recht praktisch ist allerdings die Verwendung von Gotos bei dem Abbruch von tief verschachtelten Schleifen. Dies l&auml;&szlig;t sich allerdings immer noch umgehen durch die Verwendung von Flags oder (in Struktor) die Verwendung von mehrstufigen Break- bzw. Continue-Anweisungen. Wollen Sie 2 inenandergeschachtelte Schleifen abbrechen, so k&ouml;nnen Sie dies in der inneren Schleife durch das Kommando break 2; tun.<br>
+Das Goto-Kommando ist in Struktor nicht implementiert worden.<br><br>
+
+<b><a name="gueltigkeitsbereich">G&uuml;ltigkeitsbereich</a>:</b> Bereich in dem eine Variable g&uuml;ltig ist, also verwendet werden kann. Man unterscheidet grunds&auml;tzlich zwischen lokalen Variablen (die nur in einer Funktion erreichbar sind) und globalen Variablen.<br><br>
+
+<font size="+4"><a name="H">H</a></font><hr noshade size="1">
+
+<b><a name="hexadezimal">Hezadezimal</a>:</b> Zahlensystem auf der Basis 16. Die im Vergleich zum dezimalen System fehlenden 6 Zeichen werden mit den Buchstaben a-f aufgef&uuml;llt. &Uuml;bleicherweise wird bei der Angabe von Hexzahlen, um Verwechslungen zu vermeiden, ein kleines "x" vorne angestellt (manchmal wird auch vor deziamlzahlen ein kleines d vorne angestellt). Beispiele:<br>
+<table border=1 align=center>
+<tr>
+<td>1</td><td>2</td><td>9</td><td>10</td><td>11</td><td>15</td><td>16</td><td>17</td><td>64</td><td>100</td><td>107</td>
+</tr>
+<tr>
+<td>x1</td><td>x2</td><td>x9</td><td>xa</td><td>xb</td><td>xf</td><td>x10</td><td>x11</td><td>x40</td><td>x64</td><td>x6b</td>
+<td> </td>
+</tr>
+</table><br>
+
+<font size="+4"><a name="I">I</a></font><hr noshade size="1">
+<b><a name="ide">IDE</a>:</b><br><br>
+
+<b><a name="initialisierung">Initialisierung</a>:</b> Erstmalige Zuweisung eines Wertes. Nach der <a href="#deklaration">Deklaration</a> hat eine Variable noch keinen definierten Wert. Sie mu&szlig; vor der Verwendung initialisiert werden.<br><br>
+
+<b><a name="integer">Integer</a>:</b> Ein <a href="#datentyp">Datentyp</a> der Ganzzahlen speichern kann. siehe auch: <a href="#double">Double</a>, Character<br><br>
+
+<b><a name="interpreter">Interpreter</a>:</b> Ein Interpreter interpretiert zur <a href="#laufzeit">Laufzeit</a> jeden Befehl einzeln und f&uuml;hrt ihn auf dem Rechner aus.  Das hat zur Folge das das Programm ohne Interpreter nicht ausgef&uuml;hrt werden kann (im Gegensatz zum <a href="#compiler">Compiler</a>). Java ist beispielweise eine interpretierte Sprache (weswegen Sie auch vor der Verwendung von Struktor das Java-Runtime-Environment also den Java-Interpreter installieren mu&szlig;ten). Interpretierte Sprachen sind langsamer, sind aber (insofern ein Interpreter auf einer anderen "Zielmaschine" (also einer anderen Art von Rechner) vorhanden sind) portabler.<br><br>
+
+
+<font size="+4"><a name="J">J</a></font><hr noshade size="1">
+
+<b><a name="java">Java</a>:</b> Eine objektorientierte interpretierte Programmiersprache von Sun, die auch in Web-Browsern ausgef&uuml;hrt werden kann (dort aber Einschr&auml;nkungen unterliegt und z.B. keine Dateien lesen oder schreiben kann)<br><br>
+
+<b><a name="javascript">Java-Script</a>:</b> Eine Scriptsprache von Netscape. Hat au&szlig;er einer &auml;hnlichen Syntax nichts mit Java zu tun.<br><br>
+
+<font size="+4"><a name="K">K</a></font><hr noshade size="1">
+
+<b><a name="kontrollkonstrukt">Kontrollkonstrukt</a>:</b><br>
+
+
+<b><a name="kopfgeteuerteschleife">Kopfgesteuerte Schleife</a>:</b> Schleife deren Bedingung vor Ausf&uuml;hrung des Schleifenrumpfes (im Gegensatz zur <a href="#fussgesteuerteschleife">Fu&szlig;gesteuerten Schleife</a> &uuml;berpr&uuml;ft wird.<br><br>
+
+<font size="+4"><a name="L">L</a></font><hr noshade size="1">
+
+<b><a name="laufzeit">Laufzeit</a>:</b> Der Zeitraum, indem ein Programm ausgef&uuml;hrt wird.<br><br>
+
+<b><a name="lifo">LIFO</a>:</b> Speicherprinzip. Abk&uuml;rzung f&uuml;r "last in, first out", auch Stack oder Stapel (Die Assoziation mit einem Ablagestapel ist richtig) genannt. Dazu gibt es meistens 2 Funktionen (&uuml;blicherweise mit push und pop bezeichnet) die einen Wert auf den Stack schieben (immer als oberstes Element), bzw. einen Wert vom Stack entnehmen (immer auch nur das oberste Element). Werden 5 Werte "gepusht" und danach einer "gepopt" so wird der letzte gepushte Wert zur&uuml;ckgegeben. Stacks werden z.B. intern bei der Verwaltung des Speichers bei Funktionsaufrufen verwendet (rekursive Funktionen, die sich zu oft selber aufrufen, l&ouml;sen beispielsweise einen Stack-&Uuml;berlauf aus). siehe auch: <a href="#fifo">FIFO</a><br><br>
+
+<b><a name="logischeoperatoren">Logische Operatoren</a>:</b> Operatoren die logische-/boolsche Werte miteinander verkn&uuml;pfen. Die logischen Grundoperatoren sind <a href="#and">AND</a>, <a href="#or">OR</a> und <a href="#not">NOT</a>. Alle anderen Operatoren (beispielsweise <a href="#xor">XOR</a>) k&ouml;nnen aus den Grundoperatoren zusammengestzt werden.<br><br>
+
+<font size="+4"><a name="M">M</a></font><hr noshade size="1">
+
+<font size="+4"><a name="N">N</a></font><hr noshade size="1">
+
+<b><a name="not">NOT</a>:</b> logischer Verneinungsoperator. Wird in den meisten Programmiersprachen mit einem vorangestelltem "!" ausgedr&uuml;ckt. Der Ausdruck wird verneint. Ist beispielsweise a=14 so gibt der logische Ausdruck !(a>0) den Wert FALSCH zur&uuml;ck. Die Wahrheitstabelle:
+<table border=1>
+<tr>
+ <td>a </td><td>WAHR</td><td>FALSCH</td>
+</tr>
+<tr>
+ <td>!a </td><td>FALSCH </td><td>WAHR</td>
+</tr>
+</table>
+<br><br>
+
+
+<font size="+4"><a name="O">O</a></font><hr noshade size="1">
+
+<b><a name="oktal">Oktal</a>:</b> Zahlensystem auf der Basis 8. 8 wie auch 16 sind Potenzen von 2 (bin&auml;res System) und insofern f&uuml;r den Rechner einfacher vom bin&auml;ren System "umrechenbar" als in das Dezimale System. &Uuml;blicherweise wird bei der Angabe von Oktalzahlen, um Verwechslungen zu vermeiden, ein kleines "o" vorne angestellt (manchmal wird auch vor dezimalzahlen ein kleines d vorne angestellt). Beispiele:<br>
+<table border=1 align=center>
+<tr>
+<td>1</td><td>2</td><td>8</td><td>10</td><td>11</td><td>16</td><td>17</td><td>18</td><td>64</td><td>100</td><td>256</td>
+</tr>
+<tr>
+<td>o1</td><td>o2</td><td>o10</td><td>o12</td><td>o13</td><td>o20</td><td>o21</td><td>o22</td><td>x80</td><td>o124</td><td>o320</td>
+<td> </td>
+</tr>
+</table><br><br>
+
+<b><a name="or">OR</a>:</b> Logischer Operator, der <b>nur dann</b> FALSCH zur&uuml;ckgibt wenn beide verkn&uuml;pfte Ausdr&uuml;cke FALSCH sind. Wahrheitstabelle:
+<table border=1 align=center width=50%>
+<tr align=center>
+ <td colspan=2 rowspan=2 align=center> a or b</td>
+ <td colspan=2 align=center> a</td>
+ <td> </td>
+</tr>
+<tr align=center>
+ <td align=center> WAHR</td>
+ <td align=center> FALSCH</td>
+</tr>
+<tr>
+ <td rowspan=2 align=center> b</td>
+ <td align=center> WAHR</td>
+ <td align=center> WAHR</td>
+ <td align=center> WAHR</td>
+</tr>
+<tr>
+ <td align=center> FALSCH</td>
+ <td align=center> WAHR</td>
+ <td align=center> FALSCH</td>
+</tr>
+</table>
+siehe auch: <a href="#and">AND</a>, <a href="#not">NOT</a>, <a href="#logischeoperatoren">logische Operatoren</a><br><br>
+
+<font size="+4"><a name="P">P</a></font><hr noshade size="1">
+
+<b><a name="parameter">Parameter</a>:</b> Parameter sind <a href="#variable">Variablen</a> in <a href="#funktion">Funktionen</a> die <b>mit dem Aufruf der Funktion mit den <a href="#argument">Aufrufargumenten</a></b> <a href="#initialisierung">initialisiert</a> werden. Die Parameter werden bei den meisten Programmiersprachen in der <b>Definition</b> der jeweiligen Funktion in Klammern mit dem jeweiligen Datentyp angegeben. Beispiel (in C):<br>
+int addiere(int a, int b) {...}<br>
+Der Datentyp vor der Funktion entspricht dem <a href="#datentyp">Datentyp</a> des <a href="#rueckgabewert">R&uuml;ckgabewertes</a>. Hier wird also bei einem Aufruf der Funktion addiere(4,8) a mit 4 und b mit 8 initialisiert.<br><br>
+
+<b><a name="pointer">Pointer</a>:</b> Der Begriff wird oft unscharf verwendet. Zum einen bezeichnet er eine Adresse im Speicher. Zum anderen wird eine Variable die eine Adresse speichert als Pointer bezeichnet. Mithilfe dieser Adresse kann der Inhalt an der Adresse ver&auml;ndert werden. Da die Werte aller Variablen im Speicher abgelegt werden, kann also &uuml;ber diese Ardesse der Wert einer Variablen ver&auml;ndert werden. Das ist recht praktisch wenn der Name der Variablen zur Zeit (vgl. <A HREF="#call-by-value">call-by-value</A>) auuserhalb des <A HREF="#gueltigkeitsbereich">G&uuml;ltigkeitsbereichs</A> liegt. Deswegen werden oft beim Aufruf Adressen als Argumente bei Funktionsaufrufen verwendet. Auch bei der variablen Speicherallokierung und in Zusammenhang damit bei Speicherstrukturen wie <A HREF="#verketteteliste">verkettete Listen</A> oder <A HREF="#bin&auml;rbaum">Bin&auml;rb&auml;umen</A> sind Pointer ein unverzichtbares Mittel. siehe auch: <A HREF="#adressoperator">Adressoperator</A> , <A HREF="#dereferenzierungsoperator">Dereferenzierungsoperator</A><br><BR>
+
+<b><a name="pointeraritmetik">Pointerarithmetik</a>:</b> Mit Adressen kann auch gerechnet werden. Liegen beispielsweise 10 Integerwerte im Speicher hintereinander, und wei&szlig; man die Adresse des ersten Wertes und wieviel Byte eine Integervariable im Speicher ben&ouml;tigt, kann auch die Adresse des f&uuml;nften Integerwertes im Speicher berechnet werden. Auf diese Art und Weise werden in der <A HREF="#sprachec">Sprache C</A> <A HREF="#array">Arrays</A> bzw. Felder verwaltet. Damit die Rechnung nicht zu kompliziert wird, unterscheidet man die Adressen bez&uuml;glich des Datentyps desjenigen Wertes, der an der Adresse liegt. Man w&uuml;rde im obigen Beispiel also von einem Zeiger auf Integer sprechen. Addiert man zu der Adresse des ersten Integerwertes den Wert 1 hinzu, so werden in Wirklichkeit die Anzahl der Bytes hinzuaddiert, die ein Integerwert im Speicher ben&ouml;tigt. Auf diese Weise vereinfacht sich die Pointerarithmetik.<br><BR>
+
+<b><a name="pointervariablen">Pointervariablen</a>:</b> Eine Variable die einen Adresse speichert. siehe auch: <A HREF="#pointer">Pointer</A><br><BR>
+
+<b><a name="portabilit&auml;t">Portabilit&auml;t</a>:</b> Ein Programm mu&szlig; (sofern es nicht f&uuml;r einen <A HREF="#interpreter">Interpreter</A> geschrieben wurde) vor dem ausf&uuml;hren <A HREF="#compiler">compiliert</A> werden. Das resultierende Maschinenprogramm l&auml;uft nun nur auf diesem Computertyp. Gibt es den Compiler auch auf anderen Computertypen, k&ouml;nnte man das Programm auch auf andersartigen Computern zur Ausf&uuml;hrung bringen. Dies h&auml;ngt aber entscheidend davon ab, ob das Programm Maschinenunabh&auml;ngig programmiert wurde. Man spricht auch von der Portabilit&auml;t eines Programms. Die Sprache C eignet sich z.b. sehr gut f&uuml;r maschinenunabh&auml;ngiges Programmieren, was aber nicht hei&szlig;t, das jedes Programm in C auch portabel ist.<BR><BR>
+
+<b><a name="pseudocode">Pseudocode</a>:</b> Man kann das, was ein Programm tut auch eher allgemein beschreiben (also unabh&auml;ngig von einer bestimmten Sprache). Dies k&ouml;nnte man in einer hypothetischen einfach zu verstehenden aber doch programmiernahen Sprache tun. Solche Sprachen nennt man Pseudocode. Es gibt meines Wissens keine Standardisierten Pseudocode-Sprachen (was ja im Prinzip auch unn&ouml;tig w&auml;re). Wichtig beim Pseudocode ist hingegen, das m&ouml;glichst viele Programmierer (die vielleicht in unterschiedlichen Programmiersprachen programmieren) verstehen, was das Programm tut. Beispiel:<BR>
+<PRE>solange falsche eingabe
+        Eingabe variable a</PRE> <br><BR>
+
+<font size="+4"><a name="Q">Q</a></font><hr noshade size="1">
+<font size="+4"><a name="R">R</a></font><hr noshade size="1">
+
+<b><a name="record">Record</a>:</b> siehe <A HREF="#struktur">Struktur</A><br><br>
+
+<b><a name="rekursion">Rekursion</a>:</b> Rekursion eine Methode mit der bestimmte Probleme besonders elegant gel&ouml;st werden k&ouml;nnen. Dabei ruft sich eine Funktion selber auf. Damit das zu keinem Absturz f&uuml;hrt, muss &auml;hnlich wie bei einer Schleife vorher eine Bedingung gepr&uuml;ft werden. Programmieranf&auml;nger haben meistens gerade bei der Rekursion Probleme das Konzept voll zu erfassen. Beispiele f&uuml;r Rekursion sind unter "Beispiel" abrufbar.<br><br>
+
+<b><a name="repeat">Repeat</a>:</b> Auf Deutsch soviel wie "wiederhole". Wird als Schl&uuml;sselwort z.b. in Pascal verwendet und hat dort eine &auml;hnliche Bedeutung wie die <A HREF="#schleife">Schleife</A>.<br><br>
+
+<b><a name="rueckgabewert">R&uuml;ckgabewert</a>:</b> Der Wert, der von einer Funktion zur&uuml;ckgegeben wird (wenn diese Funktion &uuml;berhaupt einen Wert zur&uuml;ckgibt). Dieser R&uuml;ckgabewert wird durch den Funktionsaufruf selber repr&auml;sentiert. Geben Sie z.b. unten den Ausdruck "cos(5);" ein. so wird der R&uuml;ckgabewert dieser Funktion (n&auml;mlich der Kosinus von 5) zur&uuml;ckgegeben.
+<BR>
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 700 HEIGHT = 50 codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.ExprCalc.class" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.ExprCalc.class"  archive="struktor.jar" WIDTH = 700 HEIGHT = 50 load="int ix;" pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+<!--"END_CONVERTED_APPLET"--><br><br>
+
+<font size="+4"><a name="S">S</a></font><hr noshade size="1">
+<b><a name="schleife">Schleife</a>:</b> &Uuml;berbegriff f&uuml;r <a href="#for-Schleife">for-Schleife</a>, <a href="#kopfgeteuerteschleife">kopf-</a> und <a href="#f-schleife">fu&szlig;gesteuerte</a> Schleife. Ein Kontrollkonstrukt bei dem der Code innerhalb der Schleife &ouml;fters ausgef&uuml;hrt wird. Jede Schleife braucht eine Bedingung um zu &uuml;berpr&uuml;fen ob der Code nochmal ausgef&uuml;hrt wird. Diese kann <b>vor</b> (im Kopf) oder <b>nach</b> der Schleife (im Fu&szlig;) &uuml;berpr&uuml;ft werden.<br><br>
+
+<b><a name="speicher">Speicher</a>:</b> Hmmm. Schwer zu ekl&auml;ren ;-). Damit ist in der Programmierung meistens der <b>Haupt</b>speicher gemeint. Also der Speicher dessen Inhalt verlorengeht, wenn der Stom abgeknippst wird. Auf den Speicher greift man lesend (z.b. "a;") oder schreibend (z.B. "a=5;") zu und dies &uuml;ber Variablen oder &uuml;ber Zeiger.<br><br>
+
+<b><a name="speicherallokierung">Speicherallokierung</a>:</b> Allokation hei&szlig;t soviel wie Belegung. Normalerweise <a href="#deklaration">deklariert</a> man Variablen dann wenn man ein Programm schreibt. Es gibt aber sehr viele Programmierprobleme die damit nicht gel&ouml;st werden k&ouml;nnen. Ein Textverarbeitungsprogramm braucht z.b. f&uuml;r kleine Texte weniger <a href="#speicher">Speicher</a> als f&uuml;r Gri&szlig;e. Also muss es eine M&ouml;glichkeit geben, inn derhalb der <a href="#laufzeit">Laufzeit</a> eines Programmes Speicher zu belegen. Dies funktioniert in C und in Struktor &uuml;ber eine <a href="#funktion">Funktion</a> der man in den <a href="#argument">Argumenten</a> mitteilt wieviel Speicher man haben m&ouml;chte und die dann einen <a href="#pointer">Zeiger</a> auf den Anfang des Speicherbereichs zur&uuml;ckgibt<br><br>
+
+<b><a name="stack">Stack</a>:</b> siehe <a href="#lifo">LIFO</a><br><br>
+
+<b><a name="string">String</a>:</b> Zeichenkette. Es werden also Zeichen hintereinandergeh&auml;ngt um z.B. einen Personennamen oder &auml;hnliches in dem String zu speichern. Strings sind in <a href="#sprachec">C</a> kein elementarer <a href="#datentyp">Datentyp</a> sondern ein <a href="#array">Array</a> aus Zeichen (<a href="#character">Character</a>).<br><br>
+
+<b><a name="struktur">Struktur</a>:</b> Zusammenfassung von mehr als einer Variable die dann wiederum wie eine Variable behandelt werden kann. Ein typisches Beispiel w&auml;ren die Personendaten einer Person wie Name, Vorname, Adresse usw. In Struktor noch nicht implementiert. Eine sehr praktische Angelegenheit.<br><br>
+
+<b><a name="struktogramm">Struktogramm</a>:</b> Das spar ich mir !<br><br>
+
+<font size="+4"><a name="T">T</a></font><hr noshade size="1">
+<font size="+4"><a name="U">U</a></font><hr noshade size="1">
+
+<b><a name="ueberwachungsfenster">&Uuml;berwachungsfenster</a></b>: siehe: <a href="#watchlist">watchlist</a><br><br>
+
+<b><a name="until">Until</a>:</b> Das zweite zugeh&ouml;rige Schl&uuml;sselwort zu <a href="#repeat">"repeat"</a> nach der &uuml;blicherweise die Bedingung folgt. hei&szlig;t soviel wie "bis" also hei&szlig;t "repeat ... until [Bedingung]" soviel wie "wiederhole ... bis [Bedingung]".<br><br>
+
+<font size="+4"><a name="V">V</a></font><hr noshade size="1">
+<b><a name="variable">Variable</a>:</b> In Variablen k&ouml;nnen Werte gespeichert werden. Variablen befinden sich im <a href="#speicher">Speicher</a>.<br><br>
+
+<b><a name="verketteteliste">Verkettete Liste</a>:</b> Da man oft im vorhinein nicht wei&szlig; wieviel Speicherplatz ein Programm braucht, mu&szlig; man den Speicherplatz zur <a href="#laufzeit">Laufzeit</a> anfordern (<a href="#speicherallokierung">Speicherallokierung</a>). Innerhalb dieses angeforderten Speichers k&ouml;nnte man nun die Daten in Form einer verketteten Liste Speichern. Jedes Element der Liste ist dabei eine <a href="#struktur">Struktur</a> in der die Nutzdaten (z.B. Characters) untergebracht sind <b>und</b> ein <a href="#pointer">Zeiger</a> auf das n&auml;chste Element der Liste. Auf diese Art kann man die Liste von vorn nach hinten abklappern, Elemente l&ouml;schen oder hinzuf&uuml;gen ...<br>
+
+
+<font size="+4"><a name="W">W</a></font><hr noshade size="1">
+<b><a name="watchlist">Watchlist</a>:</b> In der Watchlist k&ouml;nnen beim <a href="#debugger">debuggen</a> diejenigen Variablen eingegeben werden, die einen interessieren. Auf diese Art k&ouml;nnen Fehler (bugs) leichter gefunden werden.<br><br>
+
+<font size="+4"><a name="X">X</a></font><hr noshade size="1">
+<b><a name="xor">XOR</a>:</b> Logischer Operator, der <b> dann</b> WAHR zur&uuml;ckgibt wenn <B>entweder</B> das Eine <B>oder</B> das andere Argument WAHR ist (Exklusives Oder). Wahrheitstabelle:
+<table border=1 align=center width=50%>
+<tr align=center>
+ <td colspan=2 rowspan=2 align=center> a xor b</td>
+ <td colspan=2 align=center> a</td>
+ <td> </td>
+</tr>
+<tr align=center>
+ <td align=center> WAHR</td>
+ <td align=center> FALSCH</td>
+</tr>
+<tr>
+ <td rowspan=2 align=center> b</td>
+ <td align=center> WAHR</td>
+ <td align=center> FALSCH</td>
+ <td align=center> WAHR</td>
+</tr>
+<tr>
+ <td align=center> FALSCH</td>
+ <td align=center> WAHR</td>
+ <td align=center> FALSCH</td>
+</tr>
+</table>
+siehe auch: <a href="#and">AND</a>, <a href="#not">NOT</a>, <A HREF="#or">OR</A>, <a href="#logischeoperatoren">logische Operatoren</a><br><br><br>
+
+<font size="+4"><a name="Y">Y</a></font><hr noshade size="1">
+<font size="+4"><a name="Z">Z</a></font><hr noshade size="1">
+<b><a name="zeiger">Zeiger</a>:</b> siehe <a href="#pointer">Pointer</a><br>
+
+
+</body>
+</html>

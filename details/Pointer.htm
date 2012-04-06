@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Pointer</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial" SIZE=5><P>Zeiger (Pointer)</P>
+</B></FONT>
+<P>Was kennzeichnet eine Variable ? VarName, VarTyp, VarWert, VarAdresse !</P>
+
+<P>Beispiel: (int ia=5)</P>
+<TABLE BORDER CELLSPACING=1 CELLPADDING=5 WIDTH=230>
+<TR><TD WIDTH="48%" VALIGN="TOP">
+<P>VarName</TD>
+<TD WIDTH="52%" VALIGN="TOP">
+<P>ia</TD>
+</TR>
+<TR><TD WIDTH="48%" VALIGN="TOP">
+<P>VarTyp</TD>
+<TD WIDTH="52%" VALIGN="TOP">
+<P>Integer</TD>
+</TR>
+<TR><TD WIDTH="48%" VALIGN="TOP">
+<P>VarWert</TD>
+<TD WIDTH="52%" VALIGN="TOP">
+<P>5</TD>
+</TR>
+<TR><TD WIDTH="48%" VALIGN="TOP">
+<P>VarAdresse</TD>
+<TD WIDTH="52%" VALIGN="TOP">
+<P>0x0012FF78</TD>
+</TR>
+</TABLE>
+
+
+<P>Die Variablenadresse l&auml;&szlig;t sich auslesen durch Voranstellung eines kaufm&auml;nnischen-Und Zeichens &amp;. Die Adresse kann in eine Variable speziellen Datentypes ausgelesen werden, den Zeiger. Kennzeichnen Sie Zeiger durch ein vorangestelltes p.</P>
+<P>Beispiel: pa=&amp;ia (Der Zeiger wurde bereits deklariert)</P>
+
+<P>Dies ist ein Zeiger der auf den Wert der Variablen zeigt, dessen Adresse ihm zugewiesen wurde.</P>
+
+<TABLE BORDER CELLSPACING=1 CELLPADDING=5 WIDTH=395>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P>VarName</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>ia</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>Pa</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P>VarTyp</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>Integer</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>Zeiger auf Integer</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P>VarWert</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>5</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>0x0012FF7C</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P>VarAdresse</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>0x0012FF7C</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>0x0012FF78</TD>
+</TR>
+</TABLE>
+
+
+<P>Zeiger k&ouml;nnen verwendet werden um auf direkte Weise (&uuml;ber ihre Adresse) den Wert einer Variablen zu &auml;ndern. Mit einem vorangestellten Stern (*) kann auf die Adresse zugegriffen werden. Beispiel:</P>
+<P>*pa=7;</P>
+
+<TABLE BORDER CELLSPACING=1 CELLPADDING=5 WIDTH=395>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P>VarName</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>ia</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>Pa</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P>VarTyp</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>Integer</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>Zeiger auf Integer</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P>VarWert</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>7</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>0x0012FF7C</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P>VarAdresse</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>0x0012FF7C</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>0x0012FF78</TD>
+</TR>
+</TABLE>
+
+<P>Dies &auml;ndert nichts an dem Zeiger selber sondern nur die Adresse auf die der Zeiger zeigt.</P>
+
+<P>Wie wird ein Zeiger deklariert ?</P>
+<P>Zeiger m&uuml;ssen bei ihrer Deklaration immer einem Datentyp zugewiesen werden. D.h. Ein Integer Zeiger kann nur auf eine Integer-Variable zeigen, ein Double-Zeiger nur auf eine Double-Variable etc.</P>
+
+<P>int *pa<B>; /</B>* definiert einen Zeiger auf eine Integervariable */</P>
+<P>double *pb<B> /</B>* definiert einen Zeiger auf eine Doublevariable */</P>
+
+<P>Wozu brauchen wir das ?</P>
+<P>Sie erhalten mit Zeigern ein m&auml;chtiges Mittel um Variablen die beispielsweise in der Main-Funktion verwendet werden, in Funktionen zu ver&auml;ndern.</P>
+<P>Beispiel: scanf(&quot;%d&quot;&amp;ia);</P>
+
+<B><FONT FACE="Courier New" SIZE=4><P>#include &lt;stdio.h&gt;</P>
+
+<P>void main(void)</P>
+<P>{</P>
+<P>&#9;char ca='a';</P>
+<P>&#9;char cb='Q';</P>
+
+<P>&#9;char *px;</P>
+
+<P>&#9;printf("ca hat das Zeichen: %c\n", ca);</P>
+<P>&#9;printf("und die Adresse: %p\n\n", &amp;ca);</P>
+<P>&#9;px=&amp;ca;</P>
+
+<P>&#9;printf("Der Zeiger pa (auf ca) hat den Wert: %p\n",px);</P>
+<P>&#9;*px='z';</P>
+<P>&#9;printf("Und jetzt hat ca das Zeichen: %c\n\n",ca);</P>
+<P>&#9;px=&amp;cb;</P>
+<P>&#9;printf("cb hat das Zeichen %c",cb);</P>
+<P>&#9;printf("Jetzt hat der Zeiger (diesmal auf cb) den Wert: %p\n",px);</P>
+<P>&#9;printf("Und zeigt im Speicher auf das Zeichen : %c (is ja logisch)\n",*px);</P>
+
+<P>]</P></B></FONT></BODY>
+</HTML>

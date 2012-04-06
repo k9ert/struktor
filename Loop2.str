@@ -1,0 +1,22 @@
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	String nahrung ;
+	int abfrage ;
+	
+	//@*** Program ***
+	abfrage = 1;
+	do {
+		//Msg:Was haben Sie heute gegessen ?
+		Input: nahrung
+		if (nahrung == "Spinat")
+			Output: "Igitt ... Spinat ..."
+		else
+			Output: "mmmh ..."+nahrung+" mag ich auch !"
+		//Msg:Soll ich Sie noch einmal fragen ?( 1 fuer ja, 0 fuer nein)
+		Input: abfrage
+	} while(abfrage == 1);
+}
+//@end struktogramm

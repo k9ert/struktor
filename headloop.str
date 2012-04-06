@@ -1,0 +1,10 @@
+//@start struktogramm Default
+// Struktogramm could be a Function
+Default(  )
+{
+        //@*** Declarations ***
+        //@*** Program ***
+        while (a < 4)
+           a = a + 1;
+}
+//@end struktogramm

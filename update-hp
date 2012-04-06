@@ -1,0 +1,2 @@
+#!/bin/bash
+mirrordir -v --no-chown . ftp://14424-kim@ftp.learn2prog.de/webseiten

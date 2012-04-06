@@ -1,0 +1,14 @@
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	String name ;
+	
+	//@*** Program ***
+	//Msg:Bitte geben Sie Ihren Namen ein !
+	Input: name
+	name = "Hallo "+name+" !";
+	Output: name
+}
+//@end struktogramm

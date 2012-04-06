@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Pointer</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial" SIZE=5><P>Felder (Arrays)</P>
+</B></FONT>
+<P>Stellen Sie sich vor, sie wollen in Ihrem Programm zehn Integer-Variablen einlesen, alle in eigenen Variablen schreiben um hernach mit Ihnen weiterzurechnen und wieder ausgeben.</P>
+<P>Sie m&uuml;ssten schreiben:</P>
+<P>Int ia1,ia2,ia3,ia4, ..., ia10;</P>
+<P>scanf(&quot;%i&quot;, &amp;ia1); fflush(stdin); scanf(&quot;%i&quot;, &amp;ia2); … scanf(&quot;%i&quot;,&amp;ia10); fflush(stdin);</P>
+<P>printf(&quot;%i&quot;, ia1); … printf(&quot;%i&quot;, ia10);</P>
+
+<P>Das ist wirklich furchtbar aufwendig und unelegant. Das sind fast immer die gleichen Anweisungen, nur die &quot;Nummer&quot; der Variable a &auml;ndert sich. F&uuml;r den Compiler ist das aber keine Nummer sondern ein Name wie jeder andere auch. Man kann aber Variablen durchnummerieren. Dann erh&auml;lt man sogenannte Felder oder auch Arrays. </P>
+<P>Deklaration: int ia[10];</P>
+<P>Damit haben wir ein Feld der L&auml;nge 10 vom Typ Integer angelegt. Auf dieses Feld k&ouml;nnen wir nun zugreifen durch: ib=ia[2]; (Die Nummer in Klammern nennt sich <B>INDEX</B>)</P>
+<P>Bei der Deklaration (und nur bei der Deklaration) kann dem Feld einzelne Werte durch geschweifte Klammern zugewiesen werden:</P>
+<P>Int ia[4]={1,2,3,4};</P>
+
+<B><P>ACHTUNG (!!): </B>Der Compiler rechnet bei einer Variablen int ia[4]; bei Index von 0 bis 3 <FONT FACE="Wingdings">&#224;</FONT>
+ Im obigen Beispiel hat deswegen ia[0] den Wert 1 und ia[3] den Wert 4.</P>
+
+<B><P>Also Merke:</P>
+<P>In der Deklaration gibt die Zahl in eckigen Klammern (nennen wir sie z) die Anzahl an Elementen im Feld an. Der verwendete Index geht von 0 bis  (z-1) !</P>
+</B>
+<P>Wie kann ich nun den Index in for-Schleifen verwenden und mir beim obersten Beispiel viel Tipparbeit sparen ?</P>
+<P>void main(void)</P>
+<P>{ &#9;int ia[10], i;</P>
+<P>for (i=0; i&lt;10;I++) </P>
+<P>{</P><DIR>
+<DIR>
+
+<P>scanf(&quot;%i&quot;, &amp;ia[i]);</P>
+<P>fflush(stdin);</P></DIR>
+</DIR>
+
+<P>}  </P>
+<P>for (i=0; i&lt;10;I++) </P><DIR>
+<DIR>
+
+<P>printf(&quot;%i\n&quot;, &amp;ia[i]);</P></DIR>
+</DIR>
+
+<P>}</P>
+
+<OL>
+
+<LI>Erstellen Sie ein Programm, in dem Sie ein int-Array (20 Zahlen) deklarieren und mit zuf&auml;lligen Zahlen zwischen 0 und 15 f&uuml;llen. Lassen Sie die Zahlen ausgeben.</LI>
+<LI>Erstellen Sie ein Programm, in dem Sie ein double-Array (20 Zahlen) deklarieren und mit zuf&auml;lligen Zahlen zwischen 0 und 15 f&uuml;llen. Summieren Sie danach die Zahlen und geben Sie die Summe aus. Geben Sie auch den Durchschnitt aus.</LI>
+<LI>Wiederholen Sie die zweite Aufgabe mit einem int-Array. </LI>
+<LI>Erstellen Sie ein Programm, in dem Sie in einem int-Array jede zweite Zahl mit einer Zufallszahl zwischen 0 und 50 f&uuml;llen. F&uuml;llen Sie die L&uuml;cken mit Nullen auf. Kopieren Sie nun jede zweite Zahl (die nicht null ist) in ein zweites Array (10 Zahlen).</LI></OL>
+</BODY>
+</HTML>

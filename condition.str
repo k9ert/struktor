@@ -1,0 +1,16 @@
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	String nahrung ;
+	
+	//@*** Program ***
+	//Msg:Was haben Sie heute gegessen ?
+	Input: nahrung
+	if (nahrung == "Spinat")
+		Output: "Igitt ... Spinat ..."
+	else
+		Output: "mmmh ..."+nahrung+" mag ich auch !"
+}
+//@end struktogramm

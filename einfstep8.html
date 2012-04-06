@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>learn2prog Einf&uuml;hrung, Step 8</title>
+<meta name="author" content="Kim Neunert">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+<link rel="stylesheet" href="l2pmain.css" type="text/css">
+
+</head>
+<body bgcolor=#60E88D>
+In dieser Lektion soll soll genauer beleuchtet werden, was unter einem Ausdruck zu verstehen ist und was Ausdr&uuml;cke mit Struktogrammen zu tun haben.<BR>
+
+Ein Computerprogramm (und damit nat&uuml;rlich auch ein Struktogramm) ist eigentlich nichts anderes wie eine detaillierte Liste von Rechenbefehlen, die in einer bestimmten Reihenfolge abgearbeitet werden sollen. Wenn man die bestimmte Reihenfolge wegl&auml;&szlig;t, kann man trotzdem (zumindest hier bei learn2prog) Rechenbefehle auswerten lassen.<br>
+Und genau das wollen wir jetzt tun. Unten sehen Sie sozusagen einen kleinen "Taschenrechner" in den Sie fast das gleiche eintragen k&ouml;nnen wie in die einzelnen Struktogrammelemente und der eigentlich auch fast so funktioniert wie ein wirklicher Taschenrechner. Alle "Rechenbefehle" m&uuml;ssen mit einem Semikolon abgeschlossen werden. <br>
+Geben Sie z.b ein "5+12;" und klicken Sie auf "auswerten" (oder bet&auml;tigen die Entertaste). Im Feld rechts daneben wird Ihnen das Ergebnis der Berechnung angezeigt: "17". Ihnen stehen (unter anderem) die Operatoren "+", "-", "*" und "/" zur Verf&uuml;gung. Flie&szlig;kommazahlen (Kommazahlen) m&uuml;ssen Sie mit einem "." statt einem "," eingeben. Bei einem Taschenrechner steht Ihnen auch noch ein Speicherplatz (Taste MR bzw. Min) zur Verf&uuml;gung. In dem unteren Beispiel stehen Ihnen 2 Speicherpl&auml;tze (Variablen) zur Verf&uuml;gung: "ix" und "dy". Das "i" bzw. das "d" vor dem Buchstaben soll uns daran errinnern, da&szlig; die eine Variable nur Integer-Werte (als nur Ganzzahlen) und die Andere hingegen Double-Werte (also Gleitkommazahlen) speichern kann.<br>
+Wie lesen wir aber den Wert aus ? Geben Sie ein: "ix;" und Sie bekommen den Wert des Ausdrucks: "5". Geben Sie ein "dy;" und Sie bekommen "5.8". Wie speichern wir nun Werte in den Variablen ? Das wissen Sie eigentlich schon: "ix=29;". Als Ergebnis dieses Ausdrucks bekommen Sie "29".<br>
+Das scheint auf den ersten Blick etwas verwirrend zu sein (und vielleicht auch unn&uuml;tz) aber es ist nun mal so. Sie bekommen auf alles was Sie eingeben ein Ergebnis. Das "=" nennen wir den Zuweisungsoperator. Nun gibt es noch die sogenannten Vergleichsoperatoren: "&lt;", "&gt;", "&lt;=", "&gt;=" und "==" und "!=".<br>
+Die ersten Funktion der ersten vier sollte klar sein. Die letzten zwei beziehen sich auf Gleichheit bzw. Ungleichheit. Was bekommen Wir aber zur&uuml;ck ? Probieren wir es aus: Geben Sie ein "4==5;" und Sie bekommen "0.0". Geben Sie ein :"5==5;" und Sie bekommen: "1.0". 1.0 bedeutet "wahr", 0.0 bedeutet "falsch". Das ist doch was oder ?<br>
+
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 700 HEIGHT = 400 codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.ExprCalc.class" >
+<PARAM NAME = ARCHIVE VALUE = "struktor.jar" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.ExprCalc.class"  archive="struktor.jar" WIDTH = 700 HEIGHT = 100 load="int ix=5;double iy=5.8;" pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+<!--"END_CONVERTED_APPLET"--><br>
+
+
+<br>
+Damit sind wir am Ende der Einf&uuml;hrung !
+</body>
+</html>

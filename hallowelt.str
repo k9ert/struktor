@@ -1,0 +1,10 @@
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	// No Declarations
+	//@*** Program ***
+	Output: "Hallo Welt !"
+}
+//@end struktogramm

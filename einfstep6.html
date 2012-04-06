@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>learn2prog Einf&uuml;hrung, Step 4</title>
+<meta name="author" content="Kim Neunert">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+<link rel="stylesheet" href="l2pmain.css" type="text/css">
+</head>
+<body bgcolor=#60E88D>
+Einen besonderen Schleifentyp braucht man recht h&auml;ufig. Und zwar ist das eine Schleife, die eine vorher festgelegte Anzahl von Durchl&auml;ufen durchl&auml;uft. Diese Schleife nennt man eine For-Schleife. In Struktor kann dieser Schleifentyp nicht unmittelbar dargestellt werden. Aber wir k&ouml;nnen diese Schleife simulieren:<br>
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 700 HEIGHT = 400 codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.Struktor.class" >
+<PARAM NAME = ARCHIVE VALUE = "struktor.jar" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="scriptable" VALUE="false">
+<PARAM NAME="Preset1" VALUE="asImage">
+<PARAM NAME="enabExecute" VALUE="true">
+<PARAM NAME="SeWidth" VALUE=300>
+<PARAM NAME="enabSwitchView" VALUE="true">
+<PARAM NAME="enabSeResizing" VALUE="true">
+<PARAM NAME="enabSeResizing" VALUE="true">
+<PARAM NAME="enabSeDragPoints" VALUE="true">
+<PARAM NAME="enabSeDragging" VALUE="true">
+<PARAM NAME="enabSePopUp" VALUE="true">
+<PARAM NAME="Load" VALUE="Loop3.str">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.Struktor.class" archive="struktor.jar" WIDTH = 700 HEIGHT = 400  scriptable=false Preset1=asImage enabExecute=true SeWidth=300 enabSwitchView=true enabSeResizing=true enabSeDragPoints=true enabSeDragging=true enabSePopUp=true load=Loop3.str
+pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+<!--"END_CONVERTED_APPLET"--><br>
+Jede For-Schleife kann durch 3 Angaben charakterisiert werden:<br>
+<UL>
+<LI>Das Initialisierungskommando: in diesem Fall ist dies "i=0;"</LI>
+<LI>Die Bedingung: in diesem Fall "i&lt;10"</LI>
+<LI>Das Kommando, da&szlig; bei jedem Durchlauf ein mal ausgef&uuml;hrt wird: in diesem Fall "i=i+1;"</LI>
+</UL>
+In der Programmiersprache C w&uuml;rde deswegen diese for-Schleife folgenderma&szlig;en hingeschrieben:<BR>
+<PRE>for(i=0;i&lt;0;i=i+1);</PRE><BR>
+Das &auml;ndert aber nichts an der Tatsache, das <B>jede</B> For-Schleife durch eine normale Schleife (plus 2 zus&auml;tzliche Anweisungen) ersetzt werden kann.<BR>
+Beachten Sie bitte das die obige Schleife genau 10 mal ausgef&uuml;hrt wird. Das k&ouml;nnte auch anders erreicht werden. z.b (in der C-Schreibweise):<BR>
+<UL>
+<LI><PRE>for(i=1;i&lt;11;i=i+1) oder</PRE></LI>
+<LI><PRE>for(i=1;i&lt;=10;i=i+1)oder</PRE> </LI>
+<LI><PRE>for(i=10;i&gt;0;i=i-1)oder</PRE></LI>
+<LI><PRE>for(i=-345;i&gt;365;i=i-2)</PRE></LI>
+</UL>
+Nat&uuml;rlich gibt es noch unendlich viel mehr M&ouml;glichkeiten. Machen diese M&ouml;glichkeiten Sinn ?<BR>
+Sie machen dann Sinn, wenn wir die Variable i innerhalb des Schleifenk&ouml;rpers auch verwenden. F&uuml;r das obige Programm w&auml;re z.B. die Form<BR>
+<PRE>for(i=1;i&lt;11;i=i+1)</PRE>
+g&uuml;nstiger, weil dann die Ausgabe auch sinnvoller ist.<BR>
+Hier noch ein vielleicht eing&auml;ngigeres Beispiel:
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 700 HEIGHT = 400 codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.Struktor.class" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="scriptable" VALUE="false">
+<PARAM NAME="Preset1" VALUE="asImage">
+<PARAM NAME="enabExecute" VALUE="true">
+<PARAM NAME="SeWidth" VALUE=300>
+<PARAM NAME="enabSwitchView" VALUE="true">
+<PARAM NAME="enabSeResizing" VALUE="true">
+<PARAM NAME="enabSeResizing" VALUE="true">
+<PARAM NAME="enabSeDragPoints" VALUE="true">
+<PARAM NAME="enabSeDragging" VALUE="true">
+<PARAM NAME="enabSePopUp" VALUE="true">
+<PARAM NAME="Load" VALUE="Loop4.str">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.Struktor.class" archive="struktor.jar" WIDTH = 700 HEIGHT = 400  scriptable=false Preset1=asImage enabExecute=true SeWidth=300 enabSwitchView=true enabSeResizing=true enabSeDragPoints=true enabSeDragging=true enabSePopUp=true load=Loop4.str
+pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+<!--"END_CONVERTED_APPLET"--><br><BR>
+<br>
+Wie eine For-Loop als Struktogramm dargestellt werden kann, ist nicht standadisiert. Trotzdem ist eine For-Loop so allgemein verbreitet, das dies w&uuml;nschenswert w&auml;re. In Struktor schaut eine For-Loop folgenderma&szlig;en aus:<br>
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 700 HEIGHT = 400 codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.Struktor.class" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="scriptable" VALUE="false">
+<PARAM NAME="Preset1" VALUE="asImage">
+<PARAM NAME="enabExecute" VALUE="true">
+<PARAM NAME="SeWidth" VALUE=300>
+<PARAM NAME="enabSwitchView" VALUE="true">
+<PARAM NAME="enabSeResizing" VALUE="true">
+<PARAM NAME="enabSeResizing" VALUE="true">
+<PARAM NAME="enabSeDragPoints" VALUE="true">
+<PARAM NAME="enabSeDragging" VALUE="true">
+<PARAM NAME="enabSePopUp" VALUE="true">
+<PARAM NAME="Load" VALUE="Loop5.str">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.Struktor.class" archive="struktor.jar" WIDTH = 700 HEIGHT = 400  scriptable=false Preset1=asImage enabExecute=true SeWidth=300 enabSwitchView=true enabSeResizing=true enabSeDragPoints=true enabSeDragging=true enabSePopUp=true load=Loop5.str
+pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+<!--"END_CONVERTED_APPLET"--><br><BR>
+<a href="einfstep7.html">Next Step: laden/speichern</a>
+</body>
+</html>

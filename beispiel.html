@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>Navivationsleiste</title>
+<meta name="author" content="Kim Neunert">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+<link rel="stylesheet" href="l2pmain.css" type="text/css">
+</head>
+<title>Struktor-Ein Struktogramm-Interpreter</title></head><body #60E88D>
+<br>
+Bitte Etwas Geduld, das Laden des Programms kann bis zu 2 Minuten (bei schlechter Verbindung) brauchen.
+<div align="center"><!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 800 HEIGHT = 500 archive="struktor.jar" codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.Struktor.class" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="scriptable" VALUE="false">
+<PARAM NAME="Preset1" VALUE="allFeatures">
+<PARAM NAME="load" VALUE="primzahlen.str">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.Struktor.class" archive="struktor.jar" WIDTH = 800 HEIGHT = 500  scriptable=false
+load="primzahlen.str" pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+
+<!--"END_CONVERTED_APPLET"--></div>
+Dieses Beispiel zeigt 2 Struktogramme, die Primzahlen errechnen. Klicken Sie auf "Execute" und das Programm wird ausgef&uuml;hrt ! Zuerst fragt Sie das Programm, bis welcher Zahl Sie Primzahlen aufspuren wollen. Anschlie&szlig;end wird jede Zahl mit der Funktion isPrimzahl() auf eine Primzahl &uuml;berpr&uuml;ft. Die Geschwindigkeit k&ouml;nnen Sie mit dem Schieberegler regulieren. Mithilfe der Watchlist (Checkbox oben rechts aktivieren) k&ouml;nnen Sie einzelne Variablen oder Ausdr&uuml;cke &uuml;berwachen (z.B. "i" oder "j"). F&uuml;r jedes Struktogramm gibt es eine eigene Watchlist ! Wenn Sie auf "Pause" klicken und anschlie&szlig;end auf "Step" so k&ouml;nnen Sie Schritt f&uuml;r Schritt das Programm nachvollziehen. Selbstverst&auml;ndlich k&ouml;nnen Sie die Struktogramme auch ver&auml;ndern.
+
+Hier ein weiteres Beispiel f&uuml;r die Verwendung von Grafikbefehlen:<BR>
+Dieses Struktogramm k&ouml;nnt Ihr laden indem Ihr es mit der Maus von "//@start struktogramm..." bis "//@end struktogramm" markiert, in die Zwischenablage kopiert (Ctrl-C). Anschlie&szlig;end in Struktor den Button "load" dr&uuml;cken. Ein Fenster &ouml;ffnet sich. Hier bitte aus der Zwischenablage einf&uuml;gen (Ctrl-V). Anschlie&szlig;end Ok klicken. Beim Starten mu&szlig; die Checkbox "output" links oben markiert sein !
+<BR>
+<BR>
+
+
+
+<PRE>//@start struktogramm mondgesicht
+// Struktogramm could be a Function
+mondgesicht( )
+{
+        //@*** Declarations ***
+        // No Declarations
+        //@*** Program ***
+        drawOval(50,0,90,90);
+        drawArc(75,50,45,20,0,-180);
+        drawLine(95,35,95,55);
+        drawRect(75,20,10,10);
+        fillRect(77,22,5,5);
+        drawRect(105,20,10,10);
+        fillRect(107,22,5,5);
+}
+//@end struktogramm
+</PRE>
+<BR>
+<BR>
+
+
+
+
+So und jetzt noch das hier, bitte beide Struktogramme auf einmal markieren und einf&uuml;gen ! (Wer will kann ja es zum funktionieren bringen (nur ein logischer Fehler)):<BR>
+<BR><BR>
+
+<PRE>//@start struktogramm mondgesicht
+// Struktogramm could be a Function
+mondgesicht( int xpos, int ypos, double r )
+{
+        //@*** Declarations ***
+        // No Declarations
+
+        //@*** Program ***
+        drawOval(xpos,ypos,(int)(r*90.0),(int)(r*90.0));
+        drawArc(xpos+25,ypos+50,(int)(r*45.0),(int)(r*20.0),0,-180);
+        drawLine(xpos+45,ypos+35,(int)(r*95.0),(int)(r*55.0));
+        drawRect(xpos+25,ypos+20,(int)(r*10.0),(int)(r*10.0));
+        fillRect(xpos+27,ypos+22,(int)(r*5.0),(int)(r*5.0));
+        drawRect(xpos+55,ypos+20,(int)(r*10.0),(int)(r*10.0));
+        fillRect(xpos+57,ypos+22,(int)(r*5.0),(int)(r*5.0));
+        return;
+}
+//@end struktogramm
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+        //@*** Declarations ***
+        int y ;
+        int x ;
+        int frage ;
+
+        //@*** Program ***
+        ;
+        do {
+                x = (int)(random()*100.0);
+                y = (int)(random()*100.0);
+                mondgesicht(x,y,1.0);
+                //Msg:Noch ein Mondgesicht ? (1 ja/0 nein)
+                Input: frage
+        } while(frage == 1);
+}
+//@end struktogramm
+</pre><br><br>
+Weitere Beispiele:
+<br>
+Fakultätsberechnung (rekursiv: Bei hohen Zahlen dauert es ewig !)):<br>
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 800 HEIGHT = 500 archive="struktor.jar" codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.Struktor.class" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="scriptable" VALUE="false">
+<PARAM NAME="Preset1" VALUE="allFeatures">
+<PARAM NAME="load" VALUE="fakultaetr.str">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.Struktor.class" archive="struktor.jar" WIDTH = 800 HEIGHT = 500  scriptable=false
+load="fakultaetr.str" pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+
+<!--"END_CONVERTED_APPLET"-->
+<br><br><br>
+Fakultätsberechnung (iterativ):<br>
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 800 HEIGHT = 500 archive="struktor.jar" codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.Struktor.class" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="scriptable" VALUE="false">
+<PARAM NAME="Preset1" VALUE="allFeatures">
+<PARAM NAME="load" VALUE="fakultaeti.str">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.Struktor.class" archive="struktor.jar" WIDTH = 800 HEIGHT = 500  scriptable=false
+load="fakultaeti.str" pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+
+<!--"END_CONVERTED_APPLET"-->
+<br><br><br>
+Bubblesort, ein Sortieralgorithmus:<br>
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 800 HEIGHT = 500 archive="struktor.jar" codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.Struktor.class" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="scriptable" VALUE="false">
+<PARAM NAME="Preset1" VALUE="allFeatures">
+<PARAM NAME="load" VALUE="bubblesort.str">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.Struktor.class" archive="struktor.jar" WIDTH = 800 HEIGHT = 500  scriptable=false
+load="bubblesort.str" pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+
+<!--"END_CONVERTED_APPLET"-->
+<br><br><br>
+Ein kleines rekursives Beispiel für die Grafikausgabe:<br>
+<!--"CONVERTED_APPLET"-->
+<!-- CONVERTER VERSION 1.3 -->
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+WIDTH = 800 HEIGHT = 500 archive="struktor.jar" codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
+<PARAM NAME = CODE VALUE = "struktor.Struktor.class" >
+<PARAM NAME="type" VALUE="application/x-java-applet;version=1.3">
+<PARAM NAME="scriptable" VALUE="false">
+<PARAM NAME="Preset1" VALUE="allFeatures">
+<PARAM NAME="load" VALUE="rek.str">
+<COMMENT><EMBED type="application/x-java-applet;version=1.3"  CODE = "struktor.Struktor.class" archive="struktor.jar" WIDTH = 800 HEIGHT = 500  scriptable=false
+load="rek.str" pluginspage="http://java.sun.com/products/plugin/1.3/plugin-install.html"><NOEMBED></COMMENT>
+</NOEMBED></EMBED></OBJECT>
+
+<!--"END_CONVERTED_APPLET"-->
+
+</body>
+</html>

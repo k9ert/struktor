@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>Struktor - Kurzanleitung</title>
+<meta name="author" content="Kim Neunert">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+<link rel="stylesheet" href="l2pmain.css" type="text/css">
+</head>
+<body bgcolor=#60E88D>
+<br><h1>Kleine Anleitung</h1>
+<H1>Inhaltsverzeichnis</H1>
+Funktioniert das Programm &uuml;berhaupt ?!?<BR>
+Warum dauert das solange ?!?<BR>
+Struktogramm erstellen/umbenennen/l&ouml;schen<BR>
+Elemente verschieben/Gr&ouml;&szlig;e &auml;ndern<BR>
+Die verschiedenen Elemente<BR>
+Das Kontextmen&uuml; der Elemente<BR>
+Die Struktor-Befehlssyntax<BR>
+Input/Output<BR>
+Variablen deklarieren (Datentypen, Arrays, Pointer, Parameter)<BR>
+Funktionen verwenden (selber schreiben, eingebaute Funktionen)<BR>
+Struktogramm starten<BR>
+Die Watchlist<BR>
+
+<h2>Funktioniert das Programm &uuml;berhaupt ?!?</h2>
+Das Programm funktioniert nur wenn Sie das <b>Java-Runtime-Environment installiert</b> haben  oder den Netscape Navigator 6.0 benutzen! Allerdings sollte Sie der Browser informieren, wenn die eine dieser Voraussetzungen nicht gegeben ist. Anschlie&szlig;end k&ouml;nnen Sie da&szlig; doch leider 5MB gro&szlig;e Plugin runterladen<BR>
+
+<h2>Struktogramm erstellen/umbenennen/l&ouml;schen</h2>
+Durch die Buttons "new", "rename" und "remove" k&ouml;nnen Sie ein neues Struktogramm erstellen bzw. ein existierendes Struktogramm umbenennen/l&ouml;schen. Jedes Struktogramm hat einen eindeutigen Namen. &Uuml;ber den Namen k&ouml;nnen Sie oben im PullDown-Men&uuml; das entsprechende Struktogramm ausw&auml;hlen. Nach dem Start ist immer schon ein Struktogramm (mit einer leeren Anweisung) vorhanden. Dieses Struktogramm hat automatisch den Namen "Default".<BR>
+
+<h2>Elemente verschieben/Gr&ouml;&szlig;e &auml;ndern</h2>
+Die Elemente k&ouml;nnen an dem schwarzen Punkt beliebig auf dem Bildschirm positioniert werden. Die Gr&ouml;&szlig;e kann &uuml;ber den unteren Rand jedes Elements ver&auml;ndert werden (Rand anklicken, gedr&uuml;ckt halten und mit der Maus ver&auml;ndern). Die Breite s&auml;mtlicher Elemente kann ver&auml;ndert werden, indem man den rechten Rand des ersten Elements anklickt und verschiebt.<BR>
+
+<h2>Die verschiedenen Elemente</h2>
+In Struktor sind insgesamt (bis jetzt) 5 verschiedene Struktogrammelemente verwendbar:<BR>
+- Command (das einfachste Element in das dann die entprechende Anweisung eingegeben werden kann)<BR>
+- HeadLoop (eine kopfgesteuerte Schleife)<BR>
+- TailLoop (eine fu&szlig;gesteuerte Schleife)<BR>
+- ForLoop (eine z&auml;hlergesteuerte Schleife)<BR>
+- Condition (eine Fallunterscheidung)<BR>
+Die Elemente werden jeweils graphisch anders dargestellt. 
+
+<h2>Das Kontextmen&uuml; der Elemente</h2>
+Bewegen Sie den Mauszeiger auf ein Element und klicken Sie mit der rechten Maustaste. Ein PopUp-Men&uuml; erscheint. Je nach Kontext erscheinen hier eine oder mehrere m&ouml;gliche Aktionen. Zum einen k&ouml;nnen Sie hier das "properties"-Fenster des Elements &ouml;ffnen (su.) zum anderen finden Sie hier die Befehle zum editieren der Struktur. Die wichtigsten sind "append" bzw. "insert" mit denen ein neues Struktogrammelement eingef&uuml;gt bzw. an das aktuelle Element angef&uuml;gt werden kann. mit "delete" kann ein Element gel&ouml;scht werden. Wendet man die "delete" Option auf eine Loop oder eine Condition an, so l&auml;&szlig;t sich ausw&auml;hlen, ob man bestimmte Teile innerhalb der Loop oder Condition behalten m&ouml;chte oder ob alles gel&ouml;scht werden soll. <BR>
+Gibt es ein Elment &uuml;ber dem aktuellen, so kann mit der Option "swop (with obove)" das aktuelle Element mit dem dar&uuml;berliegenden ausgetauscht werden. <BR>
+&Uuml;ber die Option "move outside Block" l&auml;&szlig;t sich eine Element aus einer dem Block einer Condition oder Loop hinausschieben. Umgekehrt kann man mit der Option "add" bzw. "add to Loop" eine Element zu einem Block einer Loop oder Condition hinzuf&uuml;gen. <BR>
+Desweiteren k&ouml;nnen Sie Breakpoints setzen, die durch einen roten Punkt gekennzeichnet sind. Breakpoints funktionieren nur im Debug-Mode.<BR>
+
+<h2>Die Struktor-Befehlssyntax</h2>
+Die Struktor-Befehlssyntax ist vorwiegend an die Programmiersprache C/C++/Java angelehnt. Da keine Kontrollstrukturen eingegeben werden m&uuml;ssen (diese werden ja graphisch dargestellt) handelt es sich bei allen "Befehlen" eigentlich um mathematische Ausdr&uuml;cke.<br>
+Einzelne Beispiele:
+- a = 5;(liefert 5 zur&uuml;ck und sozusagen als Nebeneffekt wird gleichzeitig in der Variablen a der Wert 5 gespeichert)<br>
+- *pa; (liefert den Wert zur&uuml;ck auf den der Pointer zeigt)<br>
+- sin(4); (liefert den sinus von 4 zur&uuml;ck; nur sinnvoll bei gleichzeitiger Ausgabe s.u.)<br>
+- a = func("Hallo", 'a', 9); (speichert in der Variablen a den R&uuml;ckgabewert der Funktion)
+- (a == 5) && (b!=4) (Hier handelt es sich um eine Bedingung die (wahrscheinlich) in einer Condition oder Loop auftauchen k&ouml;nnte. Bei Bedingungen darf grunds&auml;tzlich kein Semikolon folgen. Der R&uuml;ckgabewert ist nicht wirklich ein boolean. (fast) Analog zu C wird hier ein Double (0.0 oder 1.0) je nach Wahrheitswert zur&uuml;ckgeliefert)<br>
+Ausdr&uuml;cke k&ouml;nnen umgewandelt werden. Hierzu stehen die beiden Operatoren "(int)" und "(double)" zur Verf&uuml;gung. (Beispiel: ia = (int)5.3; oder db = (double)5; <br>
+Desweiteren wurden f&uuml;r Schleifen die Befehle "break;" und "continue;" realisiert. Das ganze auch mehrstufig: "break 2;" oder "continue 7;".</li>
+<a href="details/logOp.htm">Allgemeine Erl&auml;uterung zu logischen Operatoren</a><BR>
+
+<h3>Input/Output:</h3>
+&Uuml;ber das Kontextmen&uuml; gelangen Sie zu den Elementeigenschaften (properties). Bei Loops und Conditions K&ouml;nnen Sie nur den Inhalt ver&auml;ndern. Bei Commands k&ouml;nnen Sie zudem Werte in Variablen einlesen oder Ausdr&uuml;cke ausgeben. W&auml;hlen Sie hierzu die jeweilige Aktion aus. Bei "Input" bzw. "Output" darf <b>kein Semikolon am Schluss</b> angegeben werden. In beiden F&auml;llen kann auch noch ein entsprechender zus&auml;tzlicher Text mit angegeben werden, der dann in dem PopUp-Fenster mit erscheint.<BR>
+
+<h2>Variablen deklarieren</h2>
+Bevor Sie das Struktogramm starten k&ouml;nnen, muessen Sie jede verwendete Variable deklarieren: W&auml;hlen Sie die "Declaration-View". das Struktogramm verschwindet und Sie k&ouml;nnen &uuml;ber den unteren Button neue Variablen deklarieren, bzw. &uuml;ber die oberen Buttons diese wieder l&ouml;schen.<BR>
+
+<h3>Datentyp</h3>
+Es stehen Ihnen 4 verschiedene Datentypen zur Verf&uuml;gung: Integer, Double Character, und String.<br>
+Bei der Deklaration in der Deklarationsansicht m&uuml;ssen die voreingestellten Initialisierungswerte ohne irgendeine Kennzeichnung eingeben werden (Bei Character wird nur das erste Zeichen gewertet). Bei nachtr&auml;glichen Wertzuweisungen im Struktogramm m&uuml;ssen bei Strings doppelte Anf&uuml;hrungszeichen verwendet werden (Beispiel: string = "Hallo Welt";), bei Characters einfache Anf&uuml;hrungszeiche (Beispiel character = 'a')<BR>
+
+<h3>Pointer</h3>
+Wollen Sie einen Zeiger auf den entsprechenden Datentyp erstellen, so aktivieren Sie die CheckBox "Pointer". Vom Datentyp String kann kein Pointer erstellt werden. Pointer arbeiten mit zwei speziellen Operatoren zusammen: Der Adre&szlig;operator "&" gibt die Adresse einer Variablen im Speicher zur&uuml;ck. Diese kann einer Pointervariablen (sofern sie auf vom Typ der Variablen ist) zugewiesen werden. (Beispiel: pointer = &variable;). Der Dreferenzierungsoperator kann vor Pointern benutzt werden. Das Resultat entpricht dem Wert an der Adresse die in der Pointervariablen gespeichert ist. (Beispiel: *pa = 12;). Mit Pointern kann auch gerechnet werden (Pointerarithmetik). (Beispiel: *(pa+1) = 12). Deutet der Pointer auf einen Integer-Wert, dann bedeutet (pa+1) einen Pointer, der auf den n&auml;chsten Integer-wert im Speicher deutet. Ob dort tats&auml;chlich ein Integer-Wert liegt, mu&szlig; vom Programmierer (analog zu C) sichergestellt werden. Im Gegensatz zu C gibt der Interpreter allerdings  Fehlermeldungen aus, wenn Pointer falsch verwendet wurden. Pointer sind v.a. im Hinblick auf Funktionen interessant.
+<a href="details/Pointer.htm">Allgemeine Erkl&auml;rung zu Pointern</a>
+
+<h3>Arrays (Felder)</h3>
+Sie k&ouml;nnen von allen Datentypen Arrays erzeugen. Entsprechend der Sprache C entspricht der Arrayname der Adresse des ersten Elements des Feldes. Wollen sie auf ein bestimmtes Element zugreifen, m&uuml;ssen Sie dahinter den Index in eckigen Klammern angeben (Beispiel a[5]=12;). Die Arrays wurden (analog zu C) mithilfe von Pointern implementiert. Das hei&szlig;t das der Programmierer selber f&uuml;r die Einhaltung der Arraygrenzen verantwortlich ist. Sie k&ouml;nnen auch mehrdimensionale Arrays verwenden. Verwenden Sie hierzu den Button "incDim" der erscheint, wenn Sie eine Variable zu einem Array erkl&auml;rt haben. Die Dimension kann allerdings nicht wieder runtergesetzt werden. Hierzu mu&szlig; die komplette Variable gel&ouml;scht und neu angelegt werden.
+<a href="details/Arrays.htm">Allgemeine Erkl&auml;rung zu Arrays</a>
+
+<h3>Parameter</h3>
+(Fast) jede Deklaration kann zu einem Parameter werden. Dadurch lassen sich Struktogramme wie Funktionen gegenseitig aufrufen. Analog zu C k&ouml;nnen keine Arrays (aber doch Strings die es ja in C sowieso nicht gibt) an Funktionen &uuml;bergeben werden. Siehe den Abschnitt &uuml;ber Funktionen.<BR>
+
+<h2>Funktionen</h2>
+In Struktor ist es m&ouml;glich, das Funktionskonzept f&uuml;r unterschiedliche Zwecke einzusetzen.
+<h3>Aufruf anderer Struktogramme</h3>
+Zum einen kann jedes Struktogramm ein anderes Stuktogramm aufrufen. Selbstverst&auml;ndlich m&uuml;ssen dabei die Anzahl und die Typen der Parameter eingehalten werden. das Struktogramm wird einfach mit seinem Namen aufgerufen.<BR>
+Geben Sie z.B. <BR>
+struk('a', 8, "Hallo");<BR>
+in eine Anweisung ein, wird versucht das Struktogramm "struk" mit den entsprechenden Parametern (ein Character, ein Integer, ein String -> mu&szlig; im Declaration-View des Struktogramms "struk" entsprechend eingetragen werden) aufzufufen.<BR>
+Um einen Wert aus einer selbstprogrammierten Funktion zur&uuml;ckzuliefern mu&szlig; das Kommando "return;" oder "return value;" benutzt werden. (Dieser Wert mu&szlig; dann mit einer Wertzuweisung abgeholt werden -> a = struk() ).<BR>
+Analog zu C wird bei jedem Funktionsaufruf die Argumente "by-Value" &uuml;bergeben. Au&szlig;erdem wird auf dem Stack (wie bei "by-value" &uuml;blich) eine neue VariablenListe angelegt. Da&szlig; hei&szlig;t, es k&ouml;nnen in Funktionen durchaus f&uuml;r Variablen die gleichen Namen verwendet werden, wie in anderen Struktogrammen.<BR>
+
+<h3>"Eingebaute" Funktionen</h3>
+<h4>Output-Funktionen</h4>
+Wenn man rechts Oben die Checkbox "output" aktiviert, so erscheint links ein Bereich in dem graphische bzw. textuelle Ausgabe m&ouml;glich ist. F&uuml;r Textausgabe (unterer Bereich) stehen die Funktionen "println" (mit anschlie&szlig;endem Zeilenumbruch) bzw. "print" (ohne Zeilenumbruch) zur Verf&uuml;gung. M&ouml;chte man z.b. den Text "Dies ist der 5.Durchgang" ausgeben, wobei die 5 in einer Variablen a gespeichert ist, so gibt man ein: <BR>
+println("Dies ist der ",a,".Durchgang");<BR>
+F&uuml;r die graphische Ausgabe stehen alle Funktionen zur Verf&uuml;gung, die in Java dem Object "Graphics" zur Verf&uuml;gung stehen und die mit den Struktor eigenen Datentypen verwendet werden k&ouml;nnen. Beispiele:
+- drawRect(int x, int y, int width, int height);<br>
+- fillRect(siehe oben)<br>
+- drawOval(siehe oben)<br>
+- fillOval(siehe oben)<br>
+- drawLine(int x1, int y1, int x2, int y2);<br>
+(setColor konnte noch nicht implementiert werden)<br>
+Desweiteren gibt es Turtle-Funktionen die eine relative Grafikausgabe erm&ouml;glichen. Diese Funktionen starten alle mit einem "t". Die Winkelangaben gehen jeweils von 0 bis 360 Grad:
+- tturnto(double winkel); (Dreht die "Schildkr&ouml;te" in die angegebene Richtung)<BR>
+- tturn(double winkel); (Dreht die "Schildkr&ouml;te" um die angegebene Gradzahl)<BR>
+- tdrawto(double x, double y); (Zeichnet eine Linie von der aktuellen Position zur Angegebenen)<BR>
+tdraw(double laenge); (Zeichnet eine Linie der angegebenen L&auml;nge und bewegt dementsprechend die Schildkr&ouml;te)<BR>
+- tmoveto(double x, double y); (Bewegt die "Schildkr&ouml;te" zur angegeben Position)<BR>
+- tmove(double laenge); (wie tdraw, aber ohne eine Linie zu zeichnen)<BR>
+Zu beachten ist, da&szlig; die Funktionen nur dann fehlerfrei arbeiten, wenn gleichzeitig das output-Window angezeigt wird. Das Koordinatensystem l&auml;uft &uuml;brigens von 0-100 in X- und Y-Richtung. Zu beachten ist hierbei, dass bei der Verwendung von Grafikfunktionen der Browser immer in der Vollansicht betrieben werden sollte.<BR>
+
+<h4>Mathematische Funktionen</h4>
+Ferner k&ouml;nnen s&auml;mtliche Funktionen verwendet werden, die in der Klasse java.lang.Math zur Verf&uuml;gung stehen (sofern die Parametertypen in Struktor zur Verf&uuml;gung stehen). Beispiele:
+- cos(double d), sin(double d), acos(double d), tan(double d) ....<br>
+- min(double a, double b) (gibt den kleineren Wert zur&uuml;ck) analog max()<br>
+- analog auch mit anderen Datentypen z.b. min(int a, int b)<br>
+- random() gibt Zufallszahl zwischen 0 und 1 zur&uuml;ck<br>
+- sqrt(double d) gibt die Quadratwurzel zur&uuml;ck<BR>
+- pow(double a, double b) die Potenz a hoch b<BR>
+- log(double a) nat&uuml;rlicher Logarithmus<BR>
+- ...<br>
+<BR>
+
+<h2>Struktogramm starten</h2>
+Haben Sie Ihr Struktogramm erstellt und alle Variablen deklariert, k&ouml;nnen Sie das Struktogramm &uuml;ber "execute" ausf&uuml;hren. Jedes Element das gerade ausgef&uuml;hrt wird, wird rot umrandet. klicken sie auf "Pause" wird die Ausf&uuml;hrung angehalten. Per "resume" kann die Verarbeitung fortgef&uuml;hrt werden. Der "step"-Button, der jeden Schritt einzeln ausf&uuml;hrt, kann benutzt werden, wenn Sie vorher "pause" geklickt haben. Au&szlig;erdem gibt es die M&ouml;glichkeit, das Struktogramm an einer bestimmten Stelle automatisch &uuml;ber sog. Breakpoints anhalten zu lassen. Aktivieren Sie hierzu im Kontextmen&uuml; des entsprechenden Elements einen "Breakpoint". Allerdings wird die Ausf&uuml;hrung nur dann gestoppt, wenn vorher die "Debug" Checkbox aktiviert wurde.<BR>
+
+<H2>Die Watchlist</H2>
+W&auml;hrend der Ausf&uuml;hrung haben Sie die M&ouml;glichkeit bestimmte Variablen oder auch beliebige Ausdr&uuml;cke in der "Watchlist" (&Uuml;berwachungsliste) zu &uuml;berwachen. Aktivieren Sie hierzu die Checkbox "Watchlist" (rechts oben) und geben Sie die entsprechende Variable oder den Ausdruck in eins der Felder ein. Wollen Sie z.B. die Variable "a" &uuml;berwachen, geben Sie einfach "a" (ohne Anf&uuml;hrungszeichen oder Semikolon) ein. F&uuml;r jedes Struktogramm gibt es eine eigene &Uuml;berwachungsliste !<BR>
+
+
+
+<h2>save/load</h2>
+<li>Durch "save" k&ouml;nnen Sie ein beliebiges Struktogramm in C-&auml;hnlichen Pseudocode umwandeln. Diesen Pseudocode bitte <B>komplett</B> markieren, in die Zwischenablage kopieren (Ctrl-C) und in einem beliebigen Texteditor (z.B. Notepad) einf&uuml;gen. Nun kann das Struktogramm abgespeichert werden. Klicken Sie auf "load" kann auf umgekehrtem Wege das Struktogramm wieder geladen werden.</li><BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</body>
+</html>

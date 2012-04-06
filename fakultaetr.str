@@ -1,0 +1,29 @@
+//@start struktogramm main
+// Struktogramm could be a Function
+main(  )
+{
+	//@*** Declarations ***
+	int x ;
+	
+	//@*** Program ***
+	//Msg:Von Welcher Zahl soll die Fakultaet berechnet werden ?
+	Input: x
+	Output: fakultaet(x)
+}
+//@end struktogramm
+//@start struktogramm fakultaet
+// Struktogramm could be a Function
+fakultaet( int x )
+{
+	//@*** Declarations ***
+	int temp ;
+	
+	//@*** Program ***
+	;
+	if (x == 1)
+		return 1;
+	else
+		temp = x * fakultaet(x-1);
+	return temp;
+}
+//@end struktogramm
