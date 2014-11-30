@@ -1,27 +1,27 @@
-<?xml version="1.0"?> 
-<project name="de.learn2prog.struktor" default="compile" basedir="."> 
-    
+<?xml version="1.0"?>
+<project name="de.learn2prog.struktor" default="compile" basedir=".">
+
 	<taskdef name="cup" classname="java_cup.anttask.CUPTask" classpath="lib/java-cup-11a.jar"/>
 	<taskdef name="jflex" classname="JFlex.anttask.JFlexTask" classpath="lib/JFlex.jar"/>
 
-	<property name="src" value="src" location="src"/> 
-	<property name="target" value="target" location="target"/> 
+	<property name="src" value="src" location="src"/>
+	<property name="target" value="target" location="target"/>
     <property name="build" value="build"/>
-    <property name="parserdir" value="parser" location="parser"/> 
+    <property name="parserdir" value="parser" location="parser"/>
 
 	<!-- Avoid missing JAVA_HOME in eclipse -->
 	<target name="configure.eclipse" if="eclipse.running">
 	        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
 	        <echo message="Configuring compiler for Eclipse..."/>
 	</target>
-	
-	<target name="init" depends="configure.eclipse">  
+
+	<target name="init" depends="configure.eclipse">
     	<mkdir dir="${build}"/>
 	</target>
-	
 
 
-	<target name="LexerBuild" depends="init" description="Builds the ProcLexer"> 
+
+	<target name="LexerBuild" depends="init" description="Builds the ProcLexer">
 			<jflex
 			    file="${parserdir}/processor.lex"
 				destdir="${target}"
@@ -32,20 +32,20 @@
 				destdir="${target}"
 			/>
 	</target>
-	<target name="ParserBuild" depends="init" description="Builds the LoadParser"> 
+	<target name="ParserBuild" depends="init" description="Builds the LoadParser">
 		<cup srcfile="${parserdir}/loadParser.cup"
-			parser="LoadParser" 
+			parser="LoadParser"
 			symbols = "Lsym"
 			destdir="${target}"
 		/>
-		<cup srcfile="${parserdir}/procParser.cup" 
-			parser="ProcParser" 
+		<cup srcfile="${parserdir}/procParser.cup"
+			parser="ProcParser"
 			symbols = "Psym"
 			destdir="${target}"
 		/>
 	</target>
-	
-	<target name="compile" depends="init,ParserBuild,LexerBuild"> 
+
+	<target name="compile" depends="init,ParserBuild,LexerBuild">
 	<!-- Compile the java code -->
 		<javac destdir="${build}">
 			<src path="${src}"/>
@@ -53,15 +53,15 @@
 		</javac>
 		<copy file="${src}/struktor/Logo.jpg" todir="${build}/struktor"/>
 	</target>
-	
+
 	<target name="clean" description="Removes previous build">
 		<delete verbose="true">
 			<fileset dir="${build}"/>
 		</delete>
 	</target>
-	
+
 	<target name="jar" depends="compile">
-		<jar destfile="struktor.jar" basedir="${build}" manifest="Manifest.txt">
+		<jar destfile="struktor.jar" basedir="${build}" >
 		</jar>
 	</target>
 	<target name="runApplet" depends="jar">
